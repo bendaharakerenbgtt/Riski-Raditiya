@@ -23,14 +23,14 @@
       container.innerHTML = `
         <div class="container section" style="text-align: center; padding: 6rem 1rem;">
           <h1 class="section-title">Studi Kasus Tidak Ditemukan</h1>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">Proyek yang Anda cari tidak ditemukan dalam arsip InLiveIq.</p>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">Proyek yang Anda cari tidak ditemukan dalam arsip ini.</p>
           <a href="projects.html" class="btn btn-primary">Kembali ke Arsip Proyek</a>
         </div>
       `;
       return;
     }
 
-    document.title = `${project.title} — InLiveIq`;
+    document.title = `${project.title} — Portofolio`;
 
     const sec = project.sections;
     const related = typeof getRelatedProjects === 'function' ? getRelatedProjects(project.id) : [];

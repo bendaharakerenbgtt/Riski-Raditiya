@@ -1,74 +1,36 @@
 /**
  * InLiveIq — Main Interactive Controller (Bahasa Indonesia)
- * Indikator scroll komprehensif, jam hidup real-time, HUD mengambang,
+ * Indikator scroll garis simpel tepat di bawah header, jam hidup real-time,
  * navigasi ramah aksesibilitas, drawer responsif, salin clipboard, dan form.
  */
 
 (function () {
   'use strict';
 
-  // 1. Indikator Progress Scroll & Floating HUD
+  // 1. Indikator Progress Scroll Garis Halus di Bawah Header
   function initScrollProgress() {
-    const bars = document.querySelectorAll('.scroll-progress-bar');
-    const hudThumb = document.getElementById('hud-thumb');
-    const hudPct = document.getElementById('hud-pct');
-    const heroScrollPct = document.getElementById('hero-scroll-pct');
-    const hudNavItems = document.querySelectorAll('.hud-nav-item');
+    const bars = document.querySelectorAll('.header-scroll-progress-bar, .scroll-progress-bar');
+    if (!bars.length) return;
 
     function update() {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      const totalH = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const docHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+      const winHeight = window.innerHeight || document.documentElement.clientHeight || 800;
+      const totalH = docHeight - winHeight;
       const pct = totalH > 0 ? Math.min(Math.max((scrollY / totalH) * 100, 0), 100) : 0;
-      const pctRounded = Math.round(pct);
 
-      // Bar progress atas
       bars.forEach(bar => {
         bar.style.width = pct + '%';
       });
-
-      // HUD mengambang kanan
-      if (hudThumb) {
-        hudThumb.style.top = pct + '%';
-      }
-      if (hudPct) {
-        hudPct.textContent = pctRounded + '%';
-      }
-
-      // Indikator persentase di Hero
-      if (heroScrollPct) {
-        heroScrollPct.textContent = pctRounded + '%';
-      }
-
-      // Deteksi section aktif untuk HUD dots
-      if (hudNavItems.length > 0) {
-        const sections = Array.from(hudNavItems).map(item => {
-          const targetId = item.getAttribute('data-target') || item.getAttribute('href')?.replace('#', '');
-          const el = document.getElementById(targetId);
-          return { item, el };
-        }).filter(s => s.el);
-
-        const currentPos = scrollY + (window.innerHeight * 0.35);
-        let activeFound = false;
-
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const sec = sections[i];
-          if (sec.el.offsetTop <= currentPos) {
-            hudNavItems.forEach(ni => ni.classList.remove('active'));
-            sec.item.classList.add('active');
-            activeFound = true;
-            break;
-          }
-        }
-
-        if (!activeFound && hudNavItems[0]) {
-          hudNavItems.forEach(ni => ni.classList.remove('active'));
-          hudNavItems[0].classList.add('active');
-        }
-      }
     }
 
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update, { passive: true });
+    document.addEventListener('scroll', update, { passive: true });
     update();
   }
 
@@ -89,7 +51,6 @@
         });
         clockEl.textContent = `${formatter.format(now)} WIB`;
       } catch (e) {
-        // Fallback jika timezone API terbatas
         const d = new Date();
         const pad = (n) => n.toString().padStart(2, '0');
         clockEl.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} WIB`;
@@ -178,7 +139,7 @@
     const copyBtns = document.querySelectorAll('.copy-email-btn');
     copyBtns.forEach(btn => {
       btn.addEventListener('click', async () => {
-        const email = btn.getAttribute('data-email') || 'hello@inliveiq.com';
+        const email = btn.getAttribute('data-email') || 'kontak@curiousmind.dev';
         try {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             await navigator.clipboard.writeText(email);

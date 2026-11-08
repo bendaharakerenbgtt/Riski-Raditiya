@@ -3,36 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kontak InLiveIq — Mulai percakapan bermakna mengenai pembelajaran atau karya digital.">
+  <meta name="description" content="Kontak — Mulai percakapan bermakna mengenai pembelajaran atau karya digital.">
   <meta name="theme-color" content="#222126">
-  <title>Kontak — InLiveIq</title>
+  <title>Kontak — Portofolio Personal</title>
   
   <link rel="stylesheet" href="css/style.css">
   <script src="js/theme-transition.js"></script>
 </head>
 <body>
-  <!-- Indikator Progress Scroll (Track & Bar Selalu Terlihat) -->
-  <div class="scroll-progress-track" aria-hidden="true">
-    <div class="scroll-progress-bar"></div>
-  </div>
-
-  <!-- Indikator Gulir Mengambang Sisi Kanan (HUD) -->
-  <aside class="floating-scroll-hud" aria-label="Indikator Gulir Halaman">
-    <div class="hud-label">SCROLL</div>
-    <div class="hud-track" aria-hidden="true">
-      <div class="hud-thumb" id="hud-thumb"></div>
-    </div>
-    <div class="hud-value" id="hud-pct">0%</div>
-  </aside>
-
   <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
   <!-- Navigasi -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="Beranda InLiveIq">
-        <span>InLiveIq</span>
-        <span class="brand-dot" aria-hidden="true"></span>
+      <a href="index.html" class="brand-link" aria-label="Beranda">
+        <span class="brand-symbol" aria-hidden="true">◈</span>
       </a>
 
       <!-- Navigasi Desktop -->
@@ -75,6 +60,11 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
+    </div>
+
+    <!-- Garis Indikator Scroll Simpel di Bawah Header -->
+    <div class="header-scroll-progress" aria-hidden="true">
+      <div class="header-scroll-progress-bar"></div>
     </div>
   </header>
 
@@ -124,10 +114,10 @@
               <div>
                 <span class="contact-method-label">Korespondensi Langsung</span>
                 <div class="contact-method-val">
-                  <a href="mailto:hello@inliveiq.com" style="color: var(--text-primary); text-decoration: underline;">hello@inliveiq.com</a>
+                  <a href="mailto:kontak@curiousmind.dev" style="color: var(--text-primary); text-decoration: underline;">kontak@curiousmind.dev</a>
                 </div>
               </div>
-              <button type="button" class="copy-btn copy-email-btn" data-email="hello@inliveiq.com">Salin Alamat</button>
+              <button type="button" class="copy-btn copy-email-btn" data-email="kontak@curiousmind.dev">Salin Alamat</button>
             </div>
 
             <!-- Profil -->
@@ -202,9 +192,8 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="index.html" class="brand-link">
-            <span>InLiveIq</span>
-            <span class="brand-dot" aria-hidden="true"></span>
+          <a href="index.html" class="brand-link" aria-label="Beranda">
+            <span class="brand-symbol" aria-hidden="true">◈</span>
           </a>
           <p class="footer-tagline">
             "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
@@ -237,7 +226,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi.</p>
+        <p>&copy; 2026. Hak cipta dilindungi.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>

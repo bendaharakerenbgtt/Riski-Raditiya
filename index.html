@@ -3,61 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="InLiveIq — Portofolio editorial personal. Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.">
+  <meta name="description" content="Portofolio editorial personal. Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.">
   <meta name="theme-color" content="#222126">
-  <title>InLiveIq — A Curious Mind. A Continuous Journey.</title>
+  <title>A Curious Mind. A Continuous Journey.</title>
   
   <link rel="stylesheet" href="css/style.css">
   <script src="js/theme-transition.js"></script>
 </head>
 <body>
-  <!-- Indikator Progress Scroll (Track & Bar Selalu Terlihat) -->
-  <div class="scroll-progress-track" aria-hidden="true">
-    <div class="scroll-progress-bar"></div>
-  </div>
-
-  <!-- Indikator Gulir Mengambang Sisi Kanan (HUD) -->
-  <aside class="floating-scroll-hud" aria-label="Indikator Gulir Halaman">
-    <div class="hud-label">SCROLL</div>
-    <div class="hud-track" aria-hidden="true">
-      <div class="hud-thumb" id="hud-thumb"></div>
-    </div>
-    <div class="hud-value" id="hud-pct">0%</div>
-    <nav class="hud-nav" aria-label="Navigasi Cepat Bagian">
-      <a href="#hero" class="hud-nav-item active" data-target="hero" aria-label="Awal">
-        <span class="hud-nav-num">01</span>
-        <span class="hud-nav-tooltip">Awal</span>
-      </a>
-      <a href="#prologue" class="hud-nav-item" data-target="prologue" aria-label="Refleksi">
-        <span class="hud-nav-num">02</span>
-        <span class="hud-nav-tooltip">Refleksi</span>
-      </a>
-      <a href="#projects" class="hud-nav-item" data-target="projects" aria-label="Karya">
-        <span class="hud-nav-num">03</span>
-        <span class="hud-nav-tooltip">Karya</span>
-      </a>
-      <a href="#interests" class="hud-nav-item" data-target="interests" aria-label="Minat">
-        <span class="hud-nav-num">04</span>
-        <span class="hud-nav-tooltip">Minat</span>
-      </a>
-      <a href="#closing" class="hud-nav-item" data-target="closing" aria-label="Koneksi">
-        <span class="hud-nav-num">05</span>
-        <span class="hud-nav-tooltip">Koneksi</span>
-      </a>
-    </nav>
-  </aside>
-
   <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
   <!-- Navigasi Utama -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="Beranda InLiveIq">
-        <span>InLiveIq</span>
-        <span class="brand-dot" aria-hidden="true"></span>
+      <a href="index.html" class="brand-link" aria-label="Beranda">
+        <span class="brand-symbol" aria-hidden="true">◈</span>
       </a>
 
-      <!-- Tautan Navigasi Desktop (Tanpa Wawasan) -->
+      <!-- Tautan Navigasi Desktop -->
       <nav class="desktop-nav" aria-label="Navigasi Utama">
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link active">Beranda</a></li>
@@ -98,6 +61,11 @@
         </svg>
       </button>
     </div>
+
+    <!-- Garis Indikator Scroll Simpel di Bawah Header -->
+    <div class="header-scroll-progress" aria-hidden="true">
+      <div class="header-scroll-progress-bar"></div>
+    </div>
   </header>
 
   <!-- Laci Menu Mobile -->
@@ -131,7 +99,7 @@
 
   <!-- Konten Utama -->
   <main id="main-content">
-    <!-- Bagian Hero (Tenang, Bernapas, Tanpa Judul Berat / Tanpa Teks InLiveIq Berulang) -->
+    <!-- Bagian Hero (Tenang, Simetris, Bernapas, Tanpa Judul Berat) -->
     <section class="hero-section" id="hero" aria-label="Pengenalan Ruang">
       <div class="container">
         <div class="hero-content">
@@ -156,31 +124,19 @@
             Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.
           </p>
 
-          <!-- Elemen Mini Hidup: Canvas Lattice Pikiran yang Reaktif terhadap Kursor -->
-          <div class="living-canvas-container" aria-hidden="true">
-            <canvas id="living-canvas"></canvas>
-            <div class="canvas-ambient-meta">
-              <span class="canvas-node-indicator">
-                <span class="micro-dot"></span> LATTICE PEMIKIRAN // REAKTIF
-              </span>
-              <span class="canvas-coords" id="hero-coords">X: --- · Y: ---</span>
-            </div>
-          </div>
-
           <div class="hero-actions">
             <a href="projects.html" class="btn btn-primary">Eksplorasi Karya</a>
             <a href="about.html" class="btn btn-secondary">Tentang Saya</a>
           </div>
 
-          <!-- Indikator Gulir Hero (Capsule Mouse Interaktif & Persentase Live) -->
+          <!-- Indikator Gulir Hero (Simpel & Simetris) -->
           <div class="hero-scroll-wrapper">
             <a href="#prologue" class="hero-scroll-pill" aria-label="Gulir ke konten refleksi">
               <span class="mouse-icon" aria-hidden="true">
                 <span class="mouse-wheel"></span>
               </span>
-              <span class="scroll-pill-text">GULIR EKSPLORASI</span>
+              <span class="scroll-pill-text">GULIR</span>
               <span class="scroll-pill-arrow" aria-hidden="true">↓</span>
-              <span class="scroll-pill-pct" id="hero-scroll-pct">0%</span>
             </a>
           </div>
         </div>
@@ -199,7 +155,7 @@
           </div>
           <div class="intro-body">
             <p>
-              InLiveIq adalah ruang catatan dan eksperimen terbuka. Saya merancang alat dan antarmuka dengan mengutamakan ketenangan kognitif, menguji prinsip belajar mandiri, dan mendokumentasikan proses nyata tanpa kepura-puraan.
+              Ruang ini adalah catatan dan eksperimen terbuka. Saya merancang alat dan antarmuka dengan mengutamakan ketenangan kognitif, menguji prinsip belajar mandiri, dan mendokumentasikan proses nyata tanpa kepura-puraan.
             </p>
             <div style="margin-top: 1.25rem;">
               <a href="about.html" class="link-editorial">
@@ -362,9 +318,8 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="index.html" class="brand-link">
-            <span>InLiveIq</span>
-            <span class="brand-dot" aria-hidden="true"></span>
+          <a href="index.html" class="brand-link" aria-label="Beranda">
+            <span class="brand-symbol" aria-hidden="true">◈</span>
           </a>
           <p class="footer-tagline">
             "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
@@ -397,14 +352,13 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi.</p>
+        <p>&copy; 2026. Hak cipta dilindungi.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/living-canvas.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
