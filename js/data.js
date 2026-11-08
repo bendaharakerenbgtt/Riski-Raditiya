@@ -246,9 +246,9 @@ const InLiveIqData = {
           ]
         },
         {
-          heading: "Membangun InLiveIq sebagai Buku Catatan Hidup",
+          heading: "Membangun Ruang Ini sebagai Buku Catatan Hidup",
           paragraphs: [
-            "Website ini lahir dari filosofi tersebut. InLiveIq bukanlah lembar riwayat hidup korporat yang kaku, bukan pula panggung etalase yang dirancang untuk memukau dengan istilah teknis yang muluk. Ini adalah ruang editorial yang hidup.",
+            "Website ini lahir dari filosofi tersebut. Ruang ini bukanlah lembar riwayat hidup korporat yang kaku, bukan pula panggung etalase yang dirancang untuk memukau dengan istilah teknis yang muluk. Ini adalah ruang editorial yang hidup.",
             "Sebuah tempat untuk mencatat apa yang memantik rasa penasaran saya, gagasan apa yang menggugat asumsi lama saya, dan bagaimana eksperimen-eksperimen kecil berbuah pemahaman yang kokoh. Sebagian pemikiran di sini akan terus berevolusi; sebagian lainnya mungkin akan direvisi atau digantikan seiring bertambahnya wawasan saya.",
             "Dan itulah esensi sesungguhnya. Selama kita masih memiliki rasa ingin tahu, perjalanan ini akan terus berlanjut."
           ]
