@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Insight Essay — InLiveIq. Thoughtful reflections on learning, cognitive ergonomics, and digital craft.">
+  <meta name="description" content="Esai Wawasan — InLiveIq. Refleksi mendalam mengenai pembelajaran, ergonomi kognitif, dan karya digital.">
   <meta name="theme-color" content="#222126">
-  <title>Insight Essay — InLiveIq</title>
+  <title>Esai Wawasan — InLiveIq</title>
   
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme-transition.js"></script>
 </head>
 <body>
-  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
-  <!-- Header Navigation -->
+  <!-- Navigasi -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="InLiveIq Home">
+      <a href="index.html" class="brand-link" aria-label="Beranda InLiveIq">
         <span>InLiveIq</span>
         <span class="brand-dot" aria-hidden="true"></span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="desktop-nav" aria-label="Main Navigation">
+      <!-- Navigasi Desktop -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="insights.html" class="nav-link active">Insights</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="about.html" class="nav-link">Tentang</a></li>
+          <li><a href="projects.html" class="nav-link">Proyek</a></li>
+          <li><a href="insights.html" class="nav-link active">Wawasan</a></li>
+          <li><a href="contact.html" class="nav-link">Kontak</a></li>
         </ul>
 
-        <!-- Dark/Light Theme Toggle -->
-        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+        <!-- Tombol Ganti Tema -->
+        <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih ke mode terang" title="Beralih ke mode terang">
           <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -49,8 +50,8 @@
         </button>
       </nav>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+      <!-- Navigasi Mobile -->
+      <button class="mobile-nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false">
         <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -64,18 +65,18 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+  <!-- Laci Menu Mobile -->
+  <div class="mobile-drawer" aria-label="Menu Navigasi Mobile">
     <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="projects.html" class="nav-link">Projects</a></li>
-      <li><a href="insights.html" class="nav-link active">Insights</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="index.html" class="nav-link">Beranda</a></li>
+      <li><a href="about.html" class="nav-link">Tentang</a></li>
+      <li><a href="projects.html" class="nav-link">Proyek</a></li>
+      <li><a href="insights.html" class="nav-link active">Wawasan</a></li>
+      <li><a href="contact.html" class="nav-link">Kontak</a></li>
     </ul>
     <div class="mobile-drawer-footer">
-      <span style="font-size: 0.875rem; color: var(--text-secondary);">Interface Theme</span>
-      <button class="theme-toggle" type="button" aria-label="Switch theme">
+      <span style="font-size: 0.875rem; color: var(--text-secondary);">Tema Antarmuka</span>
+      <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih tema">
         <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -98,7 +99,7 @@
     <div id="insight-detail-container">
       <noscript>
         <div class="container section">
-          <h2>Please enable JavaScript to view this essay.</h2>
+          <h2>Silakan aktifkan JavaScript di peramban Anda untuk membaca esai ini.</h2>
         </div>
       </noscript>
     </div>
@@ -114,30 +115,30 @@
             <span class="brand-dot" aria-hidden="true"></span>
           </a>
           <p class="footer-tagline">
-            "Driven by curiosity, shaped by learning, and expressed through sharing."
+            "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
           </p>
         </div>
 
         <div class="footer-nav">
           <div class="footer-nav-col">
-            <span class="footer-col-title">Navigation</span>
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="about.html" class="footer-link">About</a>
-            <a href="projects.html" class="footer-link">Projects</a>
-            <a href="insights.html" class="footer-link">Insights</a>
-            <a href="contact.html" class="footer-link">Contact</a>
+            <span class="footer-col-title">Navigasi</span>
+            <a href="index.html" class="footer-link">Beranda</a>
+            <a href="about.html" class="footer-link">Tentang</a>
+            <a href="projects.html" class="footer-link">Proyek</a>
+            <a href="insights.html" class="footer-link">Wawasan</a>
+            <a href="contact.html" class="footer-link">Kontak</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Selected Works</span>
+            <span class="footer-col-title">Karya Pilihan</span>
             <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
             <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept Suite</a>
             <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio Models</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Connect</span>
-            <a href="contact.html" class="footer-link">Direct Message</a>
+            <span class="footer-col-title">Terhubung</span>
+            <a href="contact.html" class="footer-link">Kirim Pesan</a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           </div>
@@ -145,14 +146,13 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. All rights reserved. Polished personal editorial portfolio.</p>
+        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi. Portofolio editorial personal.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/theme-transition.js"></script>
   <script src="js/data.js"></script>
   <script src="js/detail.js"></script>
   <script src="js/main.js"></script>

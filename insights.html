@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Knowledge & Insights — InLiveIq. Field notes, observations, reflections, and ideas on learning, psychology, and digital craft.">
+  <meta name="description" content="Pengetahuan & Wawasan — InLiveIq. Catatan lapangan, pengamatan, dan refleksi mengenai pembelajaran, psikologi kognitif, dan karya digital.">
   <meta name="theme-color" content="#222126">
-  <title>Insights — InLiveIq</title>
+  <title>Wawasan — InLiveIq</title>
   
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme-transition.js"></script>
 </head>
 <body>
-  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
-  <!-- Header Navigation -->
+  <!-- Navigasi -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="InLiveIq Home">
+      <a href="index.html" class="brand-link" aria-label="Beranda InLiveIq">
         <span>InLiveIq</span>
         <span class="brand-dot" aria-hidden="true"></span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="desktop-nav" aria-label="Main Navigation">
+      <!-- Navigasi Desktop -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="insights.html" class="nav-link active">Insights</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="about.html" class="nav-link">Tentang</a></li>
+          <li><a href="projects.html" class="nav-link">Proyek</a></li>
+          <li><a href="insights.html" class="nav-link active">Wawasan</a></li>
+          <li><a href="contact.html" class="nav-link">Kontak</a></li>
         </ul>
 
-        <!-- Dark/Light Theme Toggle -->
-        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+        <!-- Tombol Ganti Tema -->
+        <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih ke mode terang" title="Beralih ke mode terang">
           <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -49,8 +50,8 @@
         </button>
       </nav>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+      <!-- Navigasi Mobile -->
+      <button class="mobile-nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false">
         <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -64,18 +65,18 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+  <!-- Laci Menu Mobile -->
+  <div class="mobile-drawer" aria-label="Menu Navigasi Mobile">
     <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="projects.html" class="nav-link">Projects</a></li>
-      <li><a href="insights.html" class="nav-link active">Insights</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="index.html" class="nav-link">Beranda</a></li>
+      <li><a href="about.html" class="nav-link">Tentang</a></li>
+      <li><a href="projects.html" class="nav-link">Proyek</a></li>
+      <li><a href="insights.html" class="nav-link active">Wawasan</a></li>
+      <li><a href="contact.html" class="nav-link">Kontak</a></li>
     </ul>
     <div class="mobile-drawer-footer">
-      <span style="font-size: 0.875rem; color: var(--text-secondary);">Interface Theme</span>
-      <button class="theme-toggle" type="button" aria-label="Switch theme">
+      <span style="font-size: 0.875rem; color: var(--text-secondary);">Tema Antarmuka</span>
+      <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih tema">
         <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -95,89 +96,89 @@
   </div>
 
   <main id="main-content">
-    <!-- Header -->
+    <!-- Header Arsip Wawasan -->
     <section class="editorial-header">
       <div class="container">
-        <span class="editorial-tag">Knowledge &amp; Synthesis</span>
-        <h1 class="editorial-header-title">Insights, Notes &amp; Observations</h1>
+        <span class="editorial-tag">Pengetahuan &amp; Catatan Sintesis</span>
+        <h1 class="editorial-header-title">Wawasan, Catatan &amp; Pengamatan</h1>
         <p class="editorial-header-subtitle">
-          A dedicated space for articulating what I am learning. Written to test my own comprehension and share honest observations on cognitive habits, interface design, and education.
+          Ruang untuk mengartikulasikan apa yang sedang saya pelajari. Ditulis untuk menguji pemahaman diri sendiri serta berbagi pengamatan jujur tentang kebiasaan kognitif, antarmuka, dan proses belajar.
         </p>
 
-        <!-- Category Filters -->
+        <!-- Filter Topik -->
         <div class="filter-bar" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">
-          <button type="button" class="filter-btn active" data-filter="all">All Topics</button>
-          <button type="button" class="filter-btn" data-filter="learning">Learning</button>
-          <button type="button" class="filter-btn" data-filter="psychology">Psychology</button>
-          <button type="button" class="filter-btn" data-filter="reflections">Personal Reflections</button>
+          <button type="button" class="filter-btn active" data-filter="all">Semua Topik</button>
+          <button type="button" class="filter-btn" data-filter="belajar">Pembelajaran</button>
+          <button type="button" class="filter-btn" data-filter="psikologi">Psikologi</button>
+          <button type="button" class="filter-btn" data-filter="refleksi">Refleksi Personal</button>
         </div>
       </div>
     </section>
 
-    <!-- Insights List -->
+    <!-- Daftar Esai -->
     <section class="section" style="border-bottom: none;">
       <div class="container">
         <div class="insights-grid">
           
-          <!-- Insight 1 -->
-          <article class="insight-card" data-category="learning">
+          <!-- Esai 1 -->
+          <article class="insight-card" data-category="belajar">
             <div class="insight-meta">
-              <span class="insight-category">Learning</span>
+              <span class="insight-category">Pembelajaran</span>
               <span>•</span>
-              <time datetime="2026-10-14">October 14, 2026</time>
+              <time datetime="2026-10-14">14 Oktober 2026</time>
               <span>•</span>
-              <span>5 min read</span>
+              <span>5 menit baca</span>
             </div>
             <h2 class="insight-title">
-              <a href="insight-detail.html?id=collectors-fallacy-synthesis">The Collector's Fallacy and the Art of Active Synthesis</a>
+              <a href="insight-detail.html?id=collectors-fallacy-synthesis">Jebakan Kolektor dan Seni Sintesis Aktif</a>
             </h2>
             <p class="insight-summary">
-              Why hoarding bookmarks and highlighting paragraphs gives us an illusion of competence—and how shifting from storage to distillation changes how we think.
+              Mengapa menimbun tautan bacaan dan menyorot paragraf memberi kita ilusi pemahaman—dan bagaimana beralih ke sintesis mandiri mengubah cara berpikir kita.
             </p>
             <a href="insight-detail.html?id=collectors-fallacy-synthesis" class="link-editorial">
-              Read Complete Essay
+              Baca Esai Lengkap
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </article>
 
-          <!-- Insight 2 -->
-          <article class="insight-card" data-category="psychology">
+          <!-- Esai 2 -->
+          <article class="insight-card" data-category="psikologi">
             <div class="insight-meta">
-              <span class="insight-category">Psychology</span>
+              <span class="insight-category">Psikologi</span>
               <span>•</span>
-              <time datetime="2026-09-28">September 28, 2026</time>
+              <time datetime="2026-09-28">28 September 2026</time>
               <span>•</span>
-              <span>6 min read</span>
+              <span>6 menit baca</span>
             </div>
             <h2 class="insight-title">
-              <a href="insight-detail.html?id=cognitive-friction-restraint-ui">Cognitive Friction: Why Restraint is the Ultimate UI Feature</a>
+              <a href="insight-detail.html?id=cognitive-friction-restraint-ui">Friksi Kognitif: Mengapa Menahan Diri Adalah Fitur Antarmuka Terbaik</a>
             </h2>
             <p class="insight-summary">
-              In a digital landscape filled with micro-animations and attention traps, deliberate stillness and typographic calm provide the necessary space for comprehension.
+              Di lanskap digital yang penuh animasi mikro dan perebutan atensi, ketenangan tata letak dan tipografi editorial memberikan ruang nyata bagi daya ingat kerja untuk memahami gagasan.
             </p>
             <a href="insight-detail.html?id=cognitive-friction-restraint-ui" class="link-editorial">
-              Read Complete Essay
+              Baca Esai Lengkap
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </article>
 
-          <!-- Insight 3 -->
-          <article class="insight-card" data-category="reflections">
+          <!-- Esai 3 -->
+          <article class="insight-card" data-category="refleksi">
             <div class="insight-meta">
-              <span class="insight-category">Personal reflections</span>
+              <span class="insight-category">Refleksi Personal</span>
               <span>•</span>
-              <time datetime="2026-08-19">August 19, 2026</time>
+              <time datetime="2026-08-19">19 Agustus 2026</time>
               <span>•</span>
-              <span>4 min read</span>
+              <span>4 menit baca</span>
             </div>
             <h2 class="insight-title">
-              <a href="insight-detail.html?id=learning-in-public-unfinished">On Learning in Public: Embracing the Unfinished</a>
+              <a href="insight-detail.html?id=learning-in-public-unfinished">Belajar Terbuka di Ruang Publik: Merangkul Hal yang Belum Selesai</a>
             </h2>
             <p class="insight-summary">
-              Why shedding the urge to appear infallible and documenting the messy, honest process of inquiry creates deeper connections than unearned authority.
+              Mengapa melepaskan tuntutan untuk terlihat sempurna dan mendokumentasikan proses belajar yang nyata menciptakan relasi yang jauh lebih bermakna daripada otoritas palsu.
             </p>
             <a href="insight-detail.html?id=learning-in-public-unfinished" class="link-editorial">
-              Read Complete Essay
+              Baca Esai Lengkap
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </article>
@@ -197,30 +198,30 @@
             <span class="brand-dot" aria-hidden="true"></span>
           </a>
           <p class="footer-tagline">
-            "Driven by curiosity, shaped by learning, and expressed through sharing."
+            "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
           </p>
         </div>
 
         <div class="footer-nav">
           <div class="footer-nav-col">
-            <span class="footer-col-title">Navigation</span>
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="about.html" class="footer-link">About</a>
-            <a href="projects.html" class="footer-link">Projects</a>
-            <a href="insights.html" class="footer-link">Insights</a>
-            <a href="contact.html" class="footer-link">Contact</a>
+            <span class="footer-col-title">Navigasi</span>
+            <a href="index.html" class="footer-link">Beranda</a>
+            <a href="about.html" class="footer-link">Tentang</a>
+            <a href="projects.html" class="footer-link">Proyek</a>
+            <a href="insights.html" class="footer-link">Wawasan</a>
+            <a href="contact.html" class="footer-link">Kontak</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Selected Works</span>
+            <span class="footer-col-title">Karya Pilihan</span>
             <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
             <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept Suite</a>
             <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio Models</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Connect</span>
-            <a href="contact.html" class="footer-link">Direct Message</a>
+            <span class="footer-col-title">Terhubung</span>
+            <a href="contact.html" class="footer-link">Kirim Pesan</a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           </div>
@@ -228,14 +229,13 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. All rights reserved. Polished personal editorial portfolio.</p>
+        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi. Portofolio editorial personal.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/theme-transition.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

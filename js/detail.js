@@ -1,6 +1,6 @@
 /**
- * InLiveIq — Detail Page Dynamic Renderer
- * Renders the 10-point project case study or the full insight article layout.
+ * InLiveIq — Detail Page Dynamic Renderer (Bahasa Indonesia)
+ * Merender 10 Poin Studi Kasus Proyek dan Tata Letak Lengkap Esai Wawasan.
  */
 
 (function () {
@@ -11,7 +11,7 @@
     return urlParams.get(param);
   }
 
-  // Render Project Detail Page
+  // Render Halaman Detail Proyek
   function renderProjectDetail() {
     const container = document.querySelector('#project-detail-container');
     if (!container) return;
@@ -22,9 +22,9 @@
     if (!project) {
       container.innerHTML = `
         <div class="container section" style="text-align: center; padding: 6rem 1rem;">
-          <h1 class="section-title">Project Case Study Not Found</h1>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">The requested project could not be located in the InLiveIq archive.</p>
-          <a href="projects.html" class="btn btn-primary">Return to Projects Archive</a>
+          <h1 class="section-title">Studi Kasus Tidak Ditemukan</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">Proyek yang Anda cari tidak ditemukan dalam arsip InLiveIq.</p>
+          <a href="projects.html" class="btn btn-primary">Kembali ke Arsip Proyek</a>
         </div>
       `;
       return;
@@ -42,7 +42,7 @@
           <div style="margin-bottom: 1.5rem;">
             <a href="projects.html" class="link-editorial">
               <svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Back to Projects Archive
+              Kembali ke Arsip Proyek
             </a>
           </div>
           <div><span class="editorial-tag">${project.category}</span></div>
@@ -54,113 +54,113 @@
               <span>Status:</span> <strong>${project.status}</strong>
             </div>
             <div class="editorial-meta-item">
-              <span>Timeline:</span> <strong>${project.year}</strong>
+              <span>Tahun / Lini Masa:</span> <strong>${project.year}</strong>
             </div>
             <div class="editorial-meta-item">
-              <span>Domain:</span> <strong>${project.category}</strong>
+              <span>Ranah:</span> <strong>${project.category}</strong>
             </div>
           </div>
         </div>
       </header>
 
-      <!-- Main Visual -->
+      <!-- Visual Utama -->
       <div class="container">
         <div class="editorial-lead-image">
-          <img src="${project.heroImage}" alt="${project.title} Schematic Diagram" />
+          <img src="${project.heroImage}" alt="Skema Arsitektur ${project.title}" />
         </div>
       </div>
 
-      <!-- 10-Point Case Study Structure -->
+      <!-- Struktur Studi Kasus 10 Poin -->
       <div class="container">
         <div class="case-study-grid">
-          <!-- Sticky Table of Contents -->
+          <!-- Indeks Daftar Isi Lengket (Sticky TOC) -->
           <aside class="case-study-nav">
-            <h4 style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1rem;">Case Study Index</h4>
-            <nav>
+            <h4 style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1rem;">Indeks Studi Kasus</h4>
+            <nav aria-label="Indeks Bagian">
               <ul class="toc-list">
-                <li><a href="#overview" class="toc-link active">1. Overview</a></li>
-                <li><a href="#background" class="toc-link">2. Background &amp; Context</a></li>
-                <li><a href="#problem" class="toc-link">3. Problem or Challenge</a></li>
-                <li><a href="#goals" class="toc-link">4. Goals</a></li>
-                <li><a href="#planning" class="toc-link">5. Planning &amp; Process</a></li>
-                <li><a href="#implementation" class="toc-link">6. Design &amp; Implementation</a></li>
-                <li><a href="#technologies" class="toc-link">7. Technologies Used</a></li>
-                <li><a href="#challenges" class="toc-link">8. Challenges &amp; Decisions</a></li>
-                <li><a href="#results" class="toc-link">9. Results</a></li>
-                <li><a href="#reflection" class="toc-link">10. Reflection &amp; Lessons Learned</a></li>
+                <li><a href="#overview" class="toc-link active">1. Ringkasan Eksekutif</a></li>
+                <li><a href="#background" class="toc-link">2. Latar Belakang &amp; Konteks</a></li>
+                <li><a href="#problem" class="toc-link">3. Masalah atau Tantangan</a></li>
+                <li><a href="#goals" class="toc-link">4. Sasaran &amp; Tujuan</a></li>
+                <li><a href="#planning" class="toc-link">5. Perencanaan &amp; Proses</a></li>
+                <li><a href="#implementation" class="toc-link">6. Desain &amp; Implementasi</a></li>
+                <li><a href="#technologies" class="toc-link">7. Teknologi yang Digunakan</a></li>
+                <li><a href="#challenges" class="toc-link">8. Tantangan &amp; Keputusan</a></li>
+                <li><a href="#results" class="toc-link">9. Hasil &amp; Temuan</a></li>
+                <li><a href="#reflection" class="toc-link">10. Refleksi &amp; Pembelajaran</a></li>
               </ul>
             </nav>
           </aside>
 
-          <!-- Content Sections -->
+          <!-- Konten Bagian -->
           <div class="case-study-content">
             <section id="overview" class="case-section">
-              <span class="case-section-num">POINT 01 // FOUNDATION</span>
-              <h2 class="case-section-title">1. Overview</h2>
+              <span class="case-section-num">POIN 01 // LANDASAN</span>
+              <h2 class="case-section-title">1. Ringkasan Eksekutif</h2>
               <p>${sec.overview}</p>
             </section>
 
             <section id="background" class="case-section">
-              <span class="case-section-num">POINT 02 // ORIGIN</span>
-              <h2 class="case-section-title">2. Background and Context</h2>
+              <span class="case-section-num">POIN 02 // ASAL-USUL</span>
+              <h2 class="case-section-title">2. Latar Belakang dan Konteks</h2>
               <p>${sec.background}</p>
             </section>
 
             <section id="problem" class="case-section">
-              <span class="case-section-num">POINT 03 // INQUIRY</span>
-              <h2 class="case-section-title">3. Problem or Challenge</h2>
+              <span class="case-section-num">POIN 03 // EKSPLORASI MASALAH</span>
+              <h2 class="case-section-title">3. Masalah atau Tantangan</h2>
               <p>${sec.problem}</p>
             </section>
 
             <section id="goals" class="case-section">
-              <span class="case-section-num">POINT 04 // OBJECTIVES</span>
-              <h2 class="case-section-title">4. Goals</h2>
+              <span class="case-section-num">POIN 04 // SASARAN</span>
+              <h2 class="case-section-title">4. Sasaran dan Tujuan</h2>
               <ul>
                 ${sec.goals.map(g => `<li>${g}</li>`).join('')}
               </ul>
             </section>
 
             <section id="planning" class="case-section">
-              <span class="case-section-num">POINT 05 // METHODOLOGY</span>
-              <h2 class="case-section-title">5. Planning and Process</h2>
+              <span class="case-section-num">POIN 05 // METODOLOGI</span>
+              <h2 class="case-section-title">5. Perencanaan dan Proses</h2>
               <p>${sec.planning}</p>
             </section>
 
             <section id="implementation" class="case-section">
-              <span class="case-section-num">POINT 06 // EXECUTION</span>
-              <h2 class="case-section-title">6. Design and Implementation</h2>
+              <span class="case-section-num">POIN 06 // EKSEKUSI DESAIN</span>
+              <h2 class="case-section-title">6. Desain dan Implementasi</h2>
               <p>${sec.implementation}</p>
             </section>
 
             <section id="technologies" class="case-section">
-              <span class="case-section-num">POINT 07 // TOOLING</span>
-              <h2 class="case-section-title">7. Technologies Used</h2>
+              <span class="case-section-num">POIN 07 // PERANGKAT &amp; STACK</span>
+              <h2 class="case-section-title">7. Teknologi yang Digunakan</h2>
               <div class="tech-tags-list">
                 ${sec.technologies.map(t => `<span class="tech-tag-pill">${t}</span>`).join('')}
               </div>
             </section>
 
             <section id="challenges" class="case-section">
-              <span class="case-section-num">POINT 08 // CRITICAL PIVOTS</span>
-              <h2 class="case-section-title">8. Challenges and Decisions</h2>
+              <span class="case-section-num">POIN 08 // TITIK KRUSIAL</span>
+              <h2 class="case-section-title">8. Tantangan dan Keputusan Penting</h2>
               ${sec.challenges.map(c => `<p>${c}</p>`).join('')}
             </section>
 
             <section id="results" class="case-section">
-              <span class="case-section-num">POINT 09 // EVIDENCE</span>
-              <h2 class="case-section-title">9. Results</h2>
+              <span class="case-section-num">POIN 09 // BUKTI &amp; DAMPAK</span>
+              <h2 class="case-section-title">9. Hasil dan Temuan</h2>
               <p>${sec.results}</p>
             </section>
 
             <section id="reflection" class="case-section">
-              <span class="case-section-num">POINT 10 // SYNTHESIS</span>
-              <h2 class="case-section-title">10. Reflection and Lessons Learned</h2>
+              <span class="case-section-num">POIN 10 // SINTESIS AKHIR</span>
+              <h2 class="case-section-title">10. Refleksi dan Pelajaran yang Dipetik</h2>
               <p>${sec.reflection}</p>
             </section>
 
-            <!-- Other Projects -->
+            <!-- Proyek Terkait Lainnya -->
             <div style="border-top: 1px solid var(--border-subtle); padding-top: 3.5rem; margin-top: 4rem;">
-              <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Explore Other Projects</h3>
+              <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Jelajahi Studi Kasus Lainnya</h3>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
                 ${related.map(r => `
                   <a href="project-detail.html?id=${r.id}" class="project-visual-link" style="padding: 1.5rem;">
@@ -176,7 +176,7 @@
       </div>
     `;
 
-    // Re-initialize TOC scroll spy
+    // Re-inisialisasi TOC scroll spy
     setTimeout(() => {
       const tocLinks = document.querySelectorAll('.toc-link');
       const sections = document.querySelectorAll('.case-section');
@@ -200,7 +200,7 @@
     }, 100);
   }
 
-  // Render Insight Article Page
+  // Render Halaman Detail Wawasan (Artikel)
   function renderInsightDetail() {
     const container = document.querySelector('#insight-detail-container');
     if (!container) return;
@@ -211,9 +211,9 @@
     if (!insight) {
       container.innerHTML = `
         <div class="container section" style="text-align: center; padding: 6rem 1rem;">
-          <h1 class="section-title">Essay Not Found</h1>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">The requested insight note could not be found.</p>
-          <a href="insights.html" class="btn btn-primary">Return to Knowledge &amp; Insights</a>
+          <h1 class="section-title">Esai Tidak Ditemukan</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem;">Catatan wawasan yang Anda cari tidak dapat ditemukan.</p>
+          <a href="insights.html" class="btn btn-primary">Kembali ke Arsip Wawasan</a>
         </div>
       `;
       return;
@@ -230,7 +230,7 @@
           <div style="margin-bottom: 1.5rem;">
             <a href="insights.html" class="link-editorial">
               <svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Back to Insights Archive
+              Kembali ke Arsip Wawasan
             </a>
           </div>
           <div><span class="editorial-tag">${insight.category}</span></div>
@@ -239,26 +239,26 @@
 
           <div class="editorial-meta-bar">
             <div class="editorial-meta-item">
-              <span>Published:</span> <strong>${insight.date}</strong>
+              <span>Diterbitkan:</span> <strong>${insight.date}</strong>
             </div>
             <div class="editorial-meta-item">
-              <span>Estimated Reading Time:</span> <strong>${insight.readTime}</strong>
+              <span>Waktu Baca:</span> <strong>${insight.readTime}</strong>
             </div>
             <div class="editorial-meta-item">
-              <span>Domain:</span> <strong>${insight.category}</strong>
+              <span>Kategori:</span> <strong>${insight.category}</strong>
             </div>
           </div>
         </div>
       </header>
 
-      <!-- Main Visual -->
+      <!-- Visual Utama -->
       <div class="container">
         <div class="editorial-lead-image">
-          <img src="${insight.heroImage}" alt="${insight.title} Concept Diagram" />
+          <img src="${insight.heroImage}" alt="Diagram Konsep ${insight.title}" />
         </div>
       </div>
 
-      <!-- Article Content -->
+      <!-- Isi Artikel -->
       <div class="container">
         <article class="article-prose">
           ${insight.content.map(c => `
@@ -268,22 +268,22 @@
             </section>
           `).join('')}
 
-          <!-- Key Takeaways Box -->
+          <!-- Kotak Poin Penting (Key Takeaways) -->
           <div class="article-key-takeaways">
-            <h3>Key Takeaways &amp; Working Principles</h3>
+            <h3>Poin Penting &amp; Landasan Kerja</h3>
             <ul>
               ${insight.takeaways.map(t => `<li>${t}</li>`).join('')}
             </ul>
           </div>
 
-          <!-- Closing reflection note -->
+          <!-- Catatan Reflektif Penutup -->
           <div style="font-family: var(--font-serif); font-style: italic; color: var(--text-secondary); border-top: 1px solid var(--border-subtle); padding-top: 2rem; margin-top: 3rem;">
-            <p>Shared as an evolving thought. If this sparked a connection, challenge, or question in your own learning practice, feel welcome to <a href="contact.html" style="color: var(--accent); text-decoration: underline;">send a note</a>.</p>
+            <p>Dibagikan sebagai pemikiran yang terus berkembang. Jika tulisan ini memantik pertukaran ide, pertanyaan, atau bantahan terhadap praktik belajar Anda sendiri, Anda dipersilakan untuk <a href="contact.html" style="color: var(--accent); text-decoration: underline;">mengirimkan pesan</a>.</p>
           </div>
 
-          <!-- Related Reading -->
+          <!-- Wawasan Terkait -->
           <div style="border-top: 1px solid var(--border-subtle); padding-top: 3.5rem; margin-top: 4rem;">
-            <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Related Insights</h3>
+            <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Wawasan &amp; Catatan Terkait</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
               ${related.map(r => `
                 <a href="insight-detail.html?id=${r.id}" class="insight-card" style="padding: 1.5rem;">

@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projects Archive — InLiveIq. Detailed case studies exploring cognitive ergonomics, perceptual psychology, and interactive mental models.">
+  <meta name="description" content="Arsip Proyek — InLiveIq. Studi kasus mendalam yang meneliti ergonomi kognitif, psikologi persepsi, dan model mental interaktif.">
   <meta name="theme-color" content="#222126">
-  <title>Projects — InLiveIq</title>
+  <title>Proyek — InLiveIq</title>
   
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme-transition.js"></script>
 </head>
 <body>
-  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
-  <!-- Header Navigation -->
+  <!-- Navigasi -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="InLiveIq Home">
+      <a href="index.html" class="brand-link" aria-label="Beranda InLiveIq">
         <span>InLiveIq</span>
         <span class="brand-dot" aria-hidden="true"></span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="desktop-nav" aria-label="Main Navigation">
+      <!-- Navigasi Desktop -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="projects.html" class="nav-link active">Projects</a></li>
-          <li><a href="insights.html" class="nav-link">Insights</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="about.html" class="nav-link">Tentang</a></li>
+          <li><a href="projects.html" class="nav-link active">Proyek</a></li>
+          <li><a href="insights.html" class="nav-link">Wawasan</a></li>
+          <li><a href="contact.html" class="nav-link">Kontak</a></li>
         </ul>
 
-        <!-- Dark/Light Theme Toggle -->
-        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+        <!-- Tombol Ganti Tema -->
+        <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih ke mode terang" title="Beralih ke mode terang">
           <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -49,8 +50,8 @@
         </button>
       </nav>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+      <!-- Navigasi Mobile -->
+      <button class="mobile-nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false">
         <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -64,18 +65,18 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+  <!-- Laci Menu Mobile -->
+  <div class="mobile-drawer" aria-label="Menu Navigasi Mobile">
     <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="projects.html" class="nav-link active">Projects</a></li>
-      <li><a href="insights.html" class="nav-link">Insights</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="index.html" class="nav-link">Beranda</a></li>
+      <li><a href="about.html" class="nav-link">Tentang</a></li>
+      <li><a href="projects.html" class="nav-link active">Proyek</a></li>
+      <li><a href="insights.html" class="nav-link">Wawasan</a></li>
+      <li><a href="contact.html" class="nav-link">Kontak</a></li>
     </ul>
     <div class="mobile-drawer-footer">
-      <span style="font-size: 0.875rem; color: var(--text-secondary);">Interface Theme</span>
-      <button class="theme-toggle" type="button" aria-label="Switch theme">
+      <span style="font-size: 0.875rem; color: var(--text-secondary);">Tema Antarmuka</span>
+      <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih tema">
         <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -95,103 +96,103 @@
   </div>
 
   <main id="main-content">
-    <!-- Header -->
+    <!-- Header Arsip -->
     <section class="editorial-header">
       <div class="container">
-        <span class="editorial-tag">Project Archive</span>
-        <h1 class="editorial-header-title">Case Studies &amp; Experiments</h1>
+        <span class="editorial-tag">Arsip Kasus &amp; Eksperimen</span>
+        <h1 class="editorial-header-title">Studi Kasus &amp; Karya Pilihan</h1>
         <p class="editorial-header-subtitle">
-          Transparent, in-depth accounts of how I approach problems, test hypotheses, and engineer solutions. Each study details the problem, constraints, planning, trade-offs, and lessons learned.
+          Dokumentasi mendalam mengenai cara saya mendekati masalah, menguji hipotesis, dan membangun solusi. Setiap studi membedah batasan, perencanaan, kompromi desain, serta pelajaran yang dipetik.
         </p>
 
-        <!-- Category Filters -->
+        <!-- Filter Kategori -->
         <div class="filter-bar" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">
-          <button type="button" class="filter-btn active" data-filter="all">All Disciplines</button>
-          <button type="button" class="filter-btn" data-filter="learning">Learning Tools</button>
-          <button type="button" class="filter-btn" data-filter="psychology">Psychology &amp; Digital Design</button>
-          <button type="button" class="filter-btn" data-filter="education">Education &amp; Mental Models</button>
+          <button type="button" class="filter-btn active" data-filter="all">Semua Disiplin</button>
+          <button type="button" class="filter-btn" data-filter="belajar">Alat Belajar</button>
+          <button type="button" class="filter-btn" data-filter="psikologi">Psikologi &amp; Desain Digital</button>
+          <button type="button" class="filter-btn" data-filter="model-mental">Pendidikan &amp; Model Mental</button>
         </div>
       </div>
     </section>
 
-    <!-- Projects List -->
+    <!-- Daftar Proyek -->
     <section class="section" style="border-bottom: none;">
       <div class="container">
         <div class="projects-editorial-list">
           
-          <!-- Project 1 -->
-          <article class="project-item" data-category="learning">
-            <a href="project-detail.html?id=cognitive-note-engine" class="project-visual-link" aria-label="RecallFlow Project Details">
-              <img src="assets/images/project-recallflow.svg" alt="RecallFlow Architecture Schema" loading="lazy" />
+          <!-- Proyek 1 -->
+          <article class="project-item" data-category="belajar">
+            <a href="project-detail.html?id=cognitive-note-engine" class="project-visual-link" aria-label="Detail Proyek RecallFlow">
+              <img src="assets/images/project-recallflow.svg" alt="Skema Arsitektur RecallFlow" loading="lazy" />
             </a>
             <div class="project-info">
-              <span class="project-category">Learning Tools &amp; Cognitive Ergonomics</span>
+              <span class="project-category">Alat Belajar &amp; Ergonomi Kognitif</span>
               <h2 class="project-title">
-                <a href="project-detail.html?id=cognitive-note-engine">RecallFlow: Cognitive Note Engine</a>
+                <a href="project-detail.html?id=cognitive-note-engine">RecallFlow: Mesin Catatan Kognitif</a>
               </h2>
               <p class="project-desc">
-                A distraction-free markdown environment designed around active recall and non-linear concept association. Built to counter the collector's trap of passive highlighting without encoding.
+                Ruang kerja markdown bebas distraksi yang dirancang khusus untuk pengingatan aktif dan asosiasi konsep non-linear guna mengatasi ilusi pengumpulan informasi (collector's fallacy).
               </p>
               <div class="project-tags">
                 <span class="tag-badge">Local-First</span>
                 <span class="tag-badge">Vanilla JS</span>
                 <span class="tag-badge">IndexedDB</span>
-                <span class="tag-badge">Cognitive Ergonomics</span>
+                <span class="tag-badge">Ergonomi Kognitif</span>
               </div>
               <a href="project-detail.html?id=cognitive-note-engine" class="link-editorial">
-                Explore 10-Point Case Study
+                Telusuri Studi Kasus 10 Poin
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-item" data-category="psychology">
-            <a href="project-detail.html?id=percept-cognitive-ui" class="project-visual-link" aria-label="Percept Diagnostic Suite Details">
-              <img src="assets/images/project-percept.svg" alt="Percept Typographic Ergonomics and Saccade Scanpath Diagram" loading="lazy" />
+          <!-- Proyek 2 -->
+          <article class="project-item" data-category="psikologi">
+            <a href="project-detail.html?id=percept-cognitive-ui" class="project-visual-link" aria-label="Detail Utilitas Percept">
+              <img src="assets/images/project-percept.svg" alt="Diagram Alur Gerak Mata dan Ergonomi Percept" loading="lazy" />
             </a>
             <div class="project-info">
-              <span class="project-category">Psychology &amp; Digital Design</span>
+              <span class="project-category">Psikologi &amp; Desain Digital</span>
               <h2 class="project-title">
-                <a href="project-detail.html?id=percept-cognitive-ui">Percept: Typographic Ergonomics &amp; Cognitive Load</a>
+                <a href="project-detail.html?id=percept-cognitive-ui">Percept: Ergonomi Tipografi &amp; Beban Kognitif</a>
               </h2>
               <p class="project-desc">
-                A browser-based diagnostic utility analyzing typographic scale, contrast ratios, and visual density to measure cognitive fatigue in digital reading.
+                Utilitas diagnostik berbasis peramban untuk menganalisis skala tipografi, rasio kontras, dan kepadatan visual guna mengukur kelelahan kognitif saat membaca teks digital.
               </p>
               <div class="project-tags">
-                <span class="tag-badge">Perceptual Ergonomics</span>
+                <span class="tag-badge">Ergonomi Perseptual</span>
                 <span class="tag-badge">Canvas API</span>
                 <span class="tag-badge">WCAG 2.2</span>
                 <span class="tag-badge">Web Workers</span>
               </div>
               <a href="project-detail.html?id=percept-cognitive-ui" class="link-editorial">
-                Explore 10-Point Case Study
+                Telusuri Studi Kasus 10 Poin
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-item" data-category="education">
-            <a href="project-detail.html?id=curio-mental-models" class="project-visual-link" aria-label="Curio Mental Models Details">
-              <img src="assets/images/project-curio.svg" alt="Curio Systems Thinking Diagram" loading="lazy" />
+          <!-- Proyek 3 -->
+          <article class="project-item" data-category="model-mental">
+            <a href="project-detail.html?id=curio-mental-models" class="project-visual-link" aria-label="Detail Proyek Curio">
+              <img src="assets/images/project-curio.svg" alt="Diagram Pemikiran Sistem Curio" loading="lazy" />
             </a>
             <div class="project-info">
-              <span class="project-category">Education &amp; Mental Models</span>
+              <span class="project-category">Pendidikan &amp; Model Mental</span>
               <h2 class="project-title">
-                <a href="project-detail.html?id=curio-mental-models">Curio: Explorable Mental Models</a>
+                <a href="project-detail.html?id=curio-mental-models">Curio: Eksplorasi Model Mental</a>
               </h2>
               <p class="project-desc">
-                An open collection of interactive thought experiments illustrating foundational principles from decision theory, systems thinking, and behavioral economics.
+                Koleksi interaktif berisi eksperimen pikiran untuk memahami prinsip-prinsip dari teori pengambilan keputusan, pemikiran sistem, dan ekonomi perilaku.
               </p>
               <div class="project-tags">
-                <span class="tag-badge">Systems Thinking</span>
-                <span class="tag-badge">Reactive SVG</span>
+                <span class="tag-badge">Pemikiran Sistem</span>
+                <span class="tag-badge">SVG Reaktif</span>
                 <span class="tag-badge">Explorable Explanations</span>
-                <span class="tag-badge">Decision Theory</span>
+                <span class="tag-badge">Teori Keputusan</span>
               </div>
               <a href="project-detail.html?id=curio-mental-models" class="link-editorial">
-                Explore 10-Point Case Study
+                Telusuri Studi Kasus 10 Poin
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -212,30 +213,30 @@
             <span class="brand-dot" aria-hidden="true"></span>
           </a>
           <p class="footer-tagline">
-            "Driven by curiosity, shaped by learning, and expressed through sharing."
+            "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
           </p>
         </div>
 
         <div class="footer-nav">
           <div class="footer-nav-col">
-            <span class="footer-col-title">Navigation</span>
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="about.html" class="footer-link">About</a>
-            <a href="projects.html" class="footer-link">Projects</a>
-            <a href="insights.html" class="footer-link">Insights</a>
-            <a href="contact.html" class="footer-link">Contact</a>
+            <span class="footer-col-title">Navigasi</span>
+            <a href="index.html" class="footer-link">Beranda</a>
+            <a href="about.html" class="footer-link">Tentang</a>
+            <a href="projects.html" class="footer-link">Proyek</a>
+            <a href="insights.html" class="footer-link">Wawasan</a>
+            <a href="contact.html" class="footer-link">Kontak</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Selected Works</span>
+            <span class="footer-col-title">Karya Pilihan</span>
             <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
             <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept Suite</a>
             <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio Models</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Connect</span>
-            <a href="contact.html" class="footer-link">Direct Message</a>
+            <span class="footer-col-title">Terhubung</span>
+            <a href="contact.html" class="footer-link">Kirim Pesan</a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           </div>
@@ -243,14 +244,13 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. All rights reserved. Polished personal editorial portfolio.</p>
+        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi. Portofolio editorial personal.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/theme-transition.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

@@ -1,7 +1,6 @@
 /**
- * InLiveIq — Main Interactive Controller
- * Clean, lightweight vanilla JavaScript for navigation, mobile menu,
- * accessible drawer, filters, and TOC scroll highlighting.
+ * InLiveIq — Main Interactive Controller (Bahasa Indonesia)
+ * Navigasi ramah aksesibilitas, drawer responsif, salin clipboard, dan form.
  */
 
 (function () {
@@ -45,7 +44,6 @@
       }
     });
 
-    // Close on navigation link click
     const drawerLinks = drawer.querySelectorAll('.nav-link');
     drawerLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -53,7 +51,6 @@
       });
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen) {
         closeDrawer();
@@ -61,7 +58,7 @@
     });
   }
 
-  // 2. Active Nav Link Highlighting
+  // 2. Highlight Nav Link Aktif
   function initActiveNav() {
     const path = window.location.pathname;
     const page = path.split('/').pop() || 'index.html';
@@ -82,16 +79,26 @@
     });
   }
 
-  // 3. Email Copy Interaction
+  // 3. Salin Email ke Clipboard
   function initEmailCopy() {
     const copyBtns = document.querySelectorAll('.copy-email-btn');
     copyBtns.forEach(btn => {
       btn.addEventListener('click', async () => {
         const email = btn.getAttribute('data-email') || 'hello@inliveiq.com';
         try {
-          await navigator.clipboard.writeText(email);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(email);
+          } else {
+            // Fallback execCommand
+            const ta = document.createElement('textarea');
+            ta.value = email;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
           const originalText = btn.textContent;
-          btn.textContent = 'Copied to clipboard';
+          btn.textContent = 'Alamat Tersalin!';
           btn.style.borderColor = 'var(--accent)';
           btn.style.color = 'var(--accent)';
           setTimeout(() => {
@@ -100,13 +107,13 @@
             btn.style.color = '';
           }, 2200);
         } catch (err) {
-          console.error('Clipboard copy failed:', err);
+          console.warn('Clipboard gagal:', err);
         }
       });
     });
   }
 
-  // 4. Contact Form Interaction
+  // 4. Form Kontak
   function initContactForm() {
     const form = document.querySelector('#contact-form');
     if (!form) return;
@@ -118,24 +125,24 @@
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending message...';
+        submitBtn.textContent = 'Mengirimkan pesan...';
       }
 
       setTimeout(() => {
         if (feedback) {
           feedback.classList.add('success');
-          feedback.textContent = 'Thank you for your message. Driven by curiosity and thoughtful reflection, I will respond soon.';
+          feedback.textContent = 'Terima kasih atas pesan Anda. Digerakkan oleh rasa ingin tahu dan refleksi yang mendalam, saya akan membalas pesan Anda sesegera mungkin.';
         }
         form.reset();
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message';
+          submitBtn.textContent = 'Kirim Pesan';
         }
-      }, 600);
+      }, 550);
     });
   }
 
-  // 5. Case Study Table of Contents ScrollSpy
+  // 5. ScrollSpy untuk Daftar Isi Kasus (TOC)
   function initCaseStudyTOC() {
     const tocLinks = document.querySelectorAll('.toc-link');
     const sections = document.querySelectorAll('.case-section');
@@ -161,7 +168,7 @@
     sections.forEach(sec => observer.observe(sec));
   }
 
-  // 6. Category Filter for Projects and Insights Archives
+  // 6. Filter Kategori Arsip
   function initFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const items = document.querySelectorAll('[data-category]');

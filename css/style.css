@@ -31,6 +31,9 @@
 
 /* Dark Theme (Default) */
 :root,
+:root[data-theme="dark"],
+body[data-theme="dark"],
+html[data-theme="dark"],
 [data-theme="dark"] {
   --bg-primary: #222126;
   --bg-secondary: #2A2930;
@@ -59,6 +62,9 @@
 }
 
 /* Light Theme */
+:root[data-theme="light"],
+body[data-theme="light"],
+html[data-theme="light"],
 [data-theme="light"] {
   --bg-primary: #F5F3EF;
   --bg-secondary: #ECE9E3;
@@ -78,6 +84,13 @@
   --border-subtle: #DDD8D1;
   --border-strong: #BDB6AC;
   --border-focus: #78618F;
+
+  --shadow-subtle: 0 4px 20px rgba(40, 30, 45, 0.05);
+  --shadow-elevated: 0 12px 32px rgba(40, 30, 45, 0.08);
+
+  --badge-bg: #EAE3F0;
+  --badge-text: #664E7C;
+}
 
   --shadow-subtle: 0 4px 20px rgba(40, 30, 45, 0.05);
   --shadow-elevated: 0 12px 32px rgba(40, 30, 45, 0.08);
@@ -251,6 +264,9 @@ h1, h2, h3, h4, h5, h6 {
   transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
+:root[data-theme="light"] .site-header,
+body[data-theme="light"] .site-header,
+html[data-theme="light"] .site-header,
 [data-theme="light"] .site-header {
   background-color: rgba(245, 243, 239, 0.88);
 }
@@ -345,6 +361,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--bg-secondary);
   border-color: var(--border-strong);
   transform: translateY(-1px);
+}
+
+.theme-toggle * {
+  pointer-events: none;
 }
 
 .theme-toggle svg {

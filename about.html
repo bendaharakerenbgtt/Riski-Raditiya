@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About InLiveIq — Personal introduction, core values, learning philosophy, and background.">
+  <meta name="description" content="Tentang InLiveIq — Pengenalan diri, nilai-nilai utama, filosofi belajar, dan latar belakang perjalanan.">
   <meta name="theme-color" content="#222126">
-  <title>About — InLiveIq</title>
+  <title>Tentang — InLiveIq</title>
   
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme-transition.js"></script>
 </head>
 <body>
-  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
-  <!-- Header Navigation -->
+  <!-- Navigasi -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="InLiveIq Home">
+      <a href="index.html" class="brand-link" aria-label="Beranda InLiveIq">
         <span>InLiveIq</span>
         <span class="brand-dot" aria-hidden="true"></span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="desktop-nav" aria-label="Main Navigation">
+      <!-- Navigasi Desktop -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link active">About</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="insights.html" class="nav-link">Insights</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="about.html" class="nav-link active">Tentang</a></li>
+          <li><a href="projects.html" class="nav-link">Proyek</a></li>
+          <li><a href="insights.html" class="nav-link">Wawasan</a></li>
+          <li><a href="contact.html" class="nav-link">Kontak</a></li>
         </ul>
 
-        <!-- Dark/Light Theme Toggle -->
-        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+        <!-- Tombol Ganti Tema -->
+        <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih ke mode terang" title="Beralih ke mode terang">
           <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -49,8 +50,8 @@
         </button>
       </nav>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+      <!-- Navigasi Mobile -->
+      <button class="mobile-nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false">
         <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -64,18 +65,18 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+  <!-- Laci Menu Mobile -->
+  <div class="mobile-drawer" aria-label="Menu Navigasi Mobile">
     <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="about.html" class="nav-link active">About</a></li>
-      <li><a href="projects.html" class="nav-link">Projects</a></li>
-      <li><a href="insights.html" class="nav-link">Insights</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="index.html" class="nav-link">Beranda</a></li>
+      <li><a href="about.html" class="nav-link active">Tentang</a></li>
+      <li><a href="projects.html" class="nav-link">Proyek</a></li>
+      <li><a href="insights.html" class="nav-link">Wawasan</a></li>
+      <li><a href="contact.html" class="nav-link">Kontak</a></li>
     </ul>
     <div class="mobile-drawer-footer">
-      <span style="font-size: 0.875rem; color: var(--text-secondary);">Interface Theme</span>
-      <button class="theme-toggle" type="button" aria-label="Switch theme">
+      <span style="font-size: 0.875rem; color: var(--text-secondary);">Tema Antarmuka</span>
+      <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih tema">
         <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -95,150 +96,150 @@
   </div>
 
   <main id="main-content">
-    <!-- Header -->
+    <!-- Header Tentang -->
     <section class="about-hero-grid container">
       <div>
-        <span class="editorial-tag">Personal Introduction</span>
-        <h1 class="editorial-header-title">Still Learning.<br>Still Exploring.</h1>
+        <span class="editorial-tag">Pengenalan Diri</span>
+        <h1 class="editorial-header-title">Masih Belajar.<br>Masih Menjelajah.</h1>
         <p class="editorial-header-subtitle">
-          A personal space grounded in genuine curiosity, thoughtful inquiry, and the belief that the journey matters far more than premature certainty.
+          Sebuah ruang personal yang berakar pada rasa ingin tahu yang jujur, ketelitian dalam meneliti, serta keyakinan bahwa proses perjalanan jauh lebih bernilai daripada kepura-puraan kepastian semu.
         </p>
       </div>
       <div>
         <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-subtle); padding: 2.25rem; border-radius: var(--radius-md);">
-          <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">// AT A GLANCE</span>
+          <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">// SEKILAS PANDANG</span>
           <p style="color: var(--text-primary); font-size: 1.15rem; font-family: var(--font-serif); font-style: italic; line-height: 1.5; margin-bottom: 1.25rem;">
-            "Driven by curiosity, shaped by learning, and expressed through sharing."
+            "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
           </p>
           <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65;">
-            InLiveIq was established as an antidote to corporate self-promotion. Here, ideas are explored with rigour, mistakes are documented openly, and progress is shared with anyone who values depth over superficial noise.
+            InLiveIq hadir sebagai antitesis terhadap gaya promosi diri korporat yang berlebihan. Di sini, gagasan dieksplorasi dengan kesungguhan pikiran, kesalahan didokumentasikan secara terbuka, dan kemajuan dibagikan kepada siapa pun yang menghargai kedalaman daripada kebisingan dangkal.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Narrative & Background -->
+    <!-- Narasi Latar Belakang -->
     <section class="section">
       <div class="container container-narrow">
-        <span class="editorial-tag">Background &amp; Current Journey</span>
-        <h2 class="section-title">The Path That Brought Me Here</h2>
+        <span class="editorial-tag">Latar Belakang &amp; Perjalanan Saat Ini</span>
+        <h2 class="section-title">Jalan yang Membawa Saya ke Titik Ini</h2>
         
         <div class="article-prose" style="padding-top: 1.5rem; padding-bottom: 0;">
           <p>
-            I have always been compelled by a simple need: to understand how things actually work beneath their surface descriptions. Whether examining a piece of software, a cognitive bias, a typographic system, or a mental model, I find deep satisfaction in taking things apart, identifying the invisible relationships between the parts, and reassembling them into something clear and usable.
+            Saya selalu didorong oleh dorongan sederhana: ingin memahami bagaimana sesuatu benar-benar bekerja di balik deskripsi permukaannya. Baik saat meneliti sepotong kode perangkat lunak, pola bias kognitif dalam mengambil keputusan, sistem skala tipografi, maupun sebuah model mental, saya menemukan kepuasan mendalam saat mengurai bagian-bagian tersebut, memahami hubungan tak kasat mata di antaranya, lalu menyusunnya kembali menjadi sesuatu yang jernih dan bermanfaat.
           </p>
           <p>
-            My current journey sits at the intersection of cognitive psychology, educational design, and thoughtful digital engineering. Rather than chasing every fleeting technological fad or building products designed solely for engagement metrics, I am interested in tools and environments that expand human clarity, protect working memory, and encourage sustained independent thought.
+            Perjalanan saya saat ini berada di persimpangan antara psikologi kognitif, desain pembelajaran, dan rekayasa digital yang tenang. Daripada mengejar tren teknologi sesaat yang terus berganti atau merancang produk yang semata-mata mengincar metrik engagement, fokus saya tertuju pada penciptaan perangkat dan lingkungan digital yang memperluas kejernihan berpikir manusia, melindungi kapasitas ingatan kerja, serta mendukung konsentrasi yang mendalam.
           </p>
           <p>
-            I do not claim to be an all-knowing authority or an industry guru. I am an active student of the disciplines I engage with. Every project cataloged here is a record of a specific question I wanted to answer, a tension I wanted to resolve, or a tool I needed in order to think more clearly.
+            Saya tidak mengklaim diri sebagai pakar yang serba tahu. Saya adalah murid aktif dari bidang-bidang yang saya tekuni. Setiap proyek yang tercatat di website ini adalah dokumentasi nyata atas pertanyaan spesifik yang ingin saya jawab, dilema yang ingin saya urai, atau alat kerja yang saya butuhkan sendiri agar dapat berpikir lebih jernih.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Core Brand Values -->
+    <!-- Nilai-Nilai Utama Brand -->
     <section class="section" style="background-color: var(--bg-primary);">
       <div class="container">
         <div class="section-header">
-          <span class="editorial-tag">Foundational Principles</span>
-          <h2 class="section-title">Brand Values</h2>
-          <p class="section-description">Five values that guide how I choose projects, conduct research, write essays, and engage with the world.</p>
+          <span class="editorial-tag">Prinsip Fondasi</span>
+          <h2 class="section-title">Nilai-Nilai Utama</h2>
+          <p class="section-description">Lima nilai dasar yang memandu bagaimana saya memilih proyek, melakukan riset, menulis esai, dan berinteraksi dengan dunia.</p>
         </div>
 
         <div class="values-grid">
-          <!-- 1. Curiosity -->
+          <!-- 1. Keingintahuan -->
           <div class="value-card">
-            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">01 // VALUE</span>
-            <h3>1. Curiosity</h3>
+            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">01 // NILAI</span>
+            <h3>1. Keingintahuan (Curiosity)</h3>
             <p>
-              Asking honest questions, seeking out unfamiliar territory, and refusing to settle for convenient or superficial answers. Curiosity is the primary engine of intellectual vitality.
+              Mengajukan pertanyaan-pertanyaan yang jujur, menjelajahi wilayah pemikiran yang belum familier, dan menolak berpuas diri dengan jawaban yang dangkal atau klise. Rasa ingin tahu adalah motor utama kehidupan intelektual.
             </p>
           </div>
 
-          <!-- 2. Learning -->
+          <!-- 2. Belajar -->
           <div class="value-card">
-            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">02 // VALUE</span>
-            <h3>2. Learning</h3>
+            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">02 // NILAI</span>
+            <h3>2. Pembelajaran (Learning)</h3>
             <p>
-              Continuously developing knowledge and craft. Recognizing that learning is an active, effortful discipline requiring retrieval, trial, and iterative refinement.
+              Terus mengembangkan pengetahuan dan keahlian secara konsisten. Menyadari bahwa belajar adalah disiplin yang aktif dan memerlukan daya upaya, percobaan, serta pemurnian berkelanjutan.
             </p>
           </div>
 
-          <!-- 3. Understanding -->
+          <!-- 3. Pemahaman -->
           <div class="value-card">
-            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">03 // VALUE</span>
-            <h3>3. Understanding</h3>
+            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">03 // NILAI</span>
+            <h3>3. Pemahaman (Understanding)</h3>
             <p>
-              Looking beyond surface-level information to uncover structural mechanisms and core principles. Dissecting complexity rather than being intimidated by it.
+              Melihat melampaui informasi permukaan untuk menemukan mekanisme struktural dan prinsip hakiki. Mengurai kompleksitas secara bertahap tanpa rasa gentar.
             </p>
           </div>
 
-          <!-- 4. Sharing -->
+          <!-- 4. Berbagi -->
           <div class="value-card">
-            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">04 // VALUE</span>
-            <h3>4. Sharing</h3>
+            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">04 // NILAI</span>
+            <h3>4. Berbagi (Sharing)</h3>
             <p>
-              Communicating useful ideas, working notes, and tools without pretension. Knowledge multiplies when it is placed in service of others.
+              Mengomunikasikan gagasan, catatan lapangan, dan alat kerja yang berguna tanpa kepura-puraan. Pengetahuan akan berlipat ganda saat diletakkan untuk melayani dan membantu sesama.
             </p>
           </div>
 
-          <!-- 5. Growth -->
+          <!-- 5. Pertumbuhan -->
           <div class="value-card">
-            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">05 // VALUE</span>
-            <h3>5. Growth</h3>
+            <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.75rem;">05 // NILAI</span>
+            <h3>5. Pertumbuhan (Growth)</h3>
             <p>
-              Documenting honest progress rather than projecting illusory perfection. Embracing the unfinished and viewing mistakes as vital navigational feedback.
+              Mendokumentasikan proses kemajuan yang jujur daripada memproyeksikan kesempurnaan palsu. Merangkul ketidaksempurnaan dan memandang kesalahan sebagai data navigasi yang sangat berharga.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Learning Philosophy -->
+    <!-- Filosofi Belajar -->
     <section class="section">
       <div class="container container-narrow">
-        <span class="editorial-tag">Methodology</span>
-        <h2 class="section-title">My Learning Philosophy</h2>
+        <span class="editorial-tag">Metodologi</span>
+        <h2 class="section-title">Filosofi Belajar Saya</h2>
 
         <div class="article-prose" style="padding-top: 1.5rem; padding-bottom: 0;">
           <p>
-            Over years of deliberate study, I have distilled my approach into three guiding practices:
+            Dari pengalaman belajar mandiri selama bertahun-tahun, saya menyarikan pendekatan saya ke dalam tiga pilar disiplin:
           </p>
 
-          <h3 style="font-size: 1.3rem; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-primary);">1. Explain It in Plain Language (The Feynman Standard)</h3>
+          <h3 style="font-size: 1.3rem; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-primary);">1. Jelaskan dengan Bahasa Sederhana (Standar Feynman)</h3>
           <p>
-            If I cannot explain an idea in simple, unadorned prose to someone unfamiliar with the field, I do not yet understand it. Jargon is frequently a hiding place for conceptual vagueness.
+            Jika saya belum bisa menjelaskan suatu gagasan dalam kalimat sederhana tanpa istilah teknis yang muluk kepada orang awam, artinya saya belum benar-benar memahaminya. Jargon sering kali menjadi tempat persembunyian bagi konsep yang sesungguhnya masih samar.
           </p>
 
-          <h3 style="font-size: 1.3rem; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-primary);">2. Build to Understand, Not Just to Ship</h3>
+          <h3 style="font-size: 1.3rem; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-primary);">2. Bangun untuk Memahami, Bukan Hanya untuk Merilis</h3>
           <p>
-            Reading about a concept creates the illusion of mastery; building an interactive simulation, an ergonomic parser, or a diagnostic tool forces you to confront every edge case and logical contradiction.
+            Membaca tentang suatu konsep menciptakan ilusi kepiawaian; membangun simulasi interaktifnya, menyusun parser-nya, atau membuat alat diagnostiknya memaksa kita berhadapan langsung dengan setiap anomali dan kontradiksi logika.
           </p>
 
-          <h3 style="font-size: 1.3rem; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-primary);">3. Practice Editorial Restraint</h3>
+          <h3 style="font-size: 1.3rem; margin-top: 1.75rem; margin-bottom: 0.75rem; color: var(--text-primary);">3. Praktikkan Menahan Diri (Editorial Restraint)</h3>
           <p>
-            The easiest thing in design and code is to add more: more features, more animations, more dependencies, more words. The hardest and most rewarding discipline is knowing what to subtract to let the essential core breathe.
+            Hal paling mudah dalam desain dan rekayasa kode adalah menambahkan: menambah fitur, menambah animasi, menambah pustaka pihak ketiga, menambah kata-kata. Disiplin yang paling menantang dan paling bermakna adalah mengetahui apa yang harus dikurangkan agar esensi utamanya dapat bernapas bebas.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Current Direction & Aspirations -->
+    <!-- Arah Saat Ini & Aspirasi -->
     <section class="section">
       <div class="container container-narrow">
-        <span class="editorial-tag">Aspirations</span>
-        <h2 class="section-title">Current Direction</h2>
+        <span class="editorial-tag">Aspirasi</span>
+        <h2 class="section-title">Arah &amp; Rencana ke Depan</h2>
         <div class="article-prose" style="padding-top: 1.5rem; padding-bottom: 0;">
           <p>
-            Looking ahead, I am focused on deepening my work in cognitive ergonomics for digital workspaces—investigating how interface architecture can reduce attentional fragmentation and help people sustain prolonged, deep creative focus.
+            Ke depannya, saya berfokus untuk memperdalam riset ergonomi kognitif untuk ruang kerja digital—meneliti bagaimana arsitektur antarmuka dapat meredam fragmentasi atensi dan membantu orang-orang mempertahankan alur kreatif yang mendalam dalam durasi yang panjang.
           </p>
           <p>
-            I am also actively writing field notes on mental models and decision theory, with the goal of creating an accessible, interactive canon of thinking tools for self-directed learners and young thinkers worldwide.
+            Saya juga aktif menyusun catatan lapangan mengenai model mental dan teori keputusan, dengan impian membangun korpus alat berpikir interaktif yang mudah diakses oleh pembelajar otodidak di mana pun mereka berada.
           </p>
           <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="projects.html" class="btn btn-primary">Explore Project Archive</a>
-            <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+            <a href="projects.html" class="btn btn-primary">Jelajahi Arsip Proyek</a>
+            <a href="contact.html" class="btn btn-secondary">Hubungi Saya</a>
           </div>
         </div>
       </div>
@@ -255,30 +256,30 @@
             <span class="brand-dot" aria-hidden="true"></span>
           </a>
           <p class="footer-tagline">
-            "Driven by curiosity, shaped by learning, and expressed through sharing."
+            "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
           </p>
         </div>
 
         <div class="footer-nav">
           <div class="footer-nav-col">
-            <span class="footer-col-title">Navigation</span>
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="about.html" class="footer-link">About</a>
-            <a href="projects.html" class="footer-link">Projects</a>
-            <a href="insights.html" class="footer-link">Insights</a>
-            <a href="contact.html" class="footer-link">Contact</a>
+            <span class="footer-col-title">Navigasi</span>
+            <a href="index.html" class="footer-link">Beranda</a>
+            <a href="about.html" class="footer-link">Tentang</a>
+            <a href="projects.html" class="footer-link">Proyek</a>
+            <a href="insights.html" class="footer-link">Wawasan</a>
+            <a href="contact.html" class="footer-link">Kontak</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Selected Works</span>
+            <span class="footer-col-title">Karya Pilihan</span>
             <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
             <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept Suite</a>
             <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio Models</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Connect</span>
-            <a href="contact.html" class="footer-link">Direct Message</a>
+            <span class="footer-col-title">Terhubung</span>
+            <a href="contact.html" class="footer-link">Kirim Pesan</a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           </div>
@@ -286,14 +287,13 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. All rights reserved. Polished personal editorial portfolio.</p>
+        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi. Portofolio editorial personal.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/theme-transition.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

@@ -1,123 +1,123 @@
 /**
- * InLiveIq — Projects and Insights Data Store
- * Structured data strictly adhering to the Master Project Brief.
+ * InLiveIq — Basis Data Proyek & Wawasan (Bahasa Indonesia)
+ * Data terstruktur yang mematuhi Master Project Brief dengan pendekatan editorial personal.
  */
 
 const InLiveIqData = {
   projects: [
     {
       id: "cognitive-note-engine",
-      title: "RecallFlow: Cognitive Note Engine",
-      subtitle: "A distraction-free markdown environment designed around active recall and non-linear concept association.",
-      category: "Learning Tools & Cognitive Ergonomics",
+      title: "RecallFlow: Mesin Catatan Kognitif",
+      subtitle: "Lingkungan markdown bebas distraksi yang dirancang khusus untuk pengingatan aktif (active recall) dan sintesis konsep non-linear.",
+      category: "Alat Belajar & Ergonomi Kognitif",
       featured: true,
       year: "2026",
-      status: "Active Research & Daily Use",
-      summary: "An exploration into how we can retain and synthesize knowledge without falling into the collector's trap of passive hoarding.",
+      status: "Riset Aktif & Penggunaan Harian",
+      summary: "Eksplorasi tentang bagaimana kita dapat mengingat dan mengolah pengetahuan tanpa terjebak dalam ilusi menimbun informasi secara pasif.",
       heroImage: "assets/images/project-recallflow.svg",
-      tags: ["Learning Systems", "Cognitive Ergonomics", "Vanilla JS", "Local-First"],
+      tags: ["Sistem Belajar", "Ergonomi Kognitif", "Vanilla JS", "Local-First"],
       sections: {
-        overview: "RecallFlow is a deliberate reaction against the modern trend of bloated personal knowledge management (PKM) tools. Instead of prioritizing infinite plugins, complex graph databases, or automated web clippers, it focuses on the cognitive friction points that actually facilitate long-term retention: forced synthesis, active recall prompts, and deliberate progressive summarization.",
-        background: "Over several years of self-directed research in cognitive science and software engineering, I noticed a recurring trap: the 'collector's fallacy'. Saving an article or highlighting an entire chapter provides an immediate dopamine hit of feeling informed, yet when tested a week later, retention was negligible. The problem wasn't a lack of information; it was the lack of active cognitive processing during the ingestion phase.",
-        problem: "Most digital note-taking tools are optimized for retrieval and storage rather than synthesis and retention. They make saving effortless and thinking optional. Users end up managing a digital museum of unread clippings rather than building an internalized web of understanding.",
+        overview: "RecallFlow adalah reaksi sadar terhadap tren aplikasi manajemen pengetahuan pribadi (PKM) modern yang kian membengkak dengan fitur berlebih. Alih-alih mengutamakan plugin tanpa akhir, database grafis yang rumit, atau web clipper otomatis, alat ini berfokus pada titik friksi kognitif yang benar-benar memfasilitasi retensi jangka panjang: pemaksaan sintesis kata-kata sendiri, petunjuk pengingatan aktif berkala, dan peringkasan progresif yang disengaja.",
+        background: "Selama beberapa tahun melakukan riset mandiri dalam ilmu kognitif dan rekayasa perangkat lunak, saya mengamati pola jebakan yang berulang: 'collector's fallacy' (jebakan kolektor). Menyimpan artikel atau menyorot seluruh bab buku memberikan kepuasan instan seolah kita telah memahami materinya, namun ketika diuji seminggu kemudian, hampir tidak ada yang melekat dalam ingatan. Masalahnya bukan kekurangan informasi; melainkan ketiadaan pemrosesan kognitif yang aktif saat menyerapnya.",
+        problem: "Sebagian besar alat pencatat digital dioptimalkan untuk penyimpanan dan temu-kembali cepat, bukan untuk pemahaman dan pengendapan mental. Mereka membuat proses menyimpan begitu mudah sementara proses berpikir menjadi pilihan sampingan. Pengguna berakhir dengan museum digital berisi kutipan-kutipan yang tak pernah dibaca lagi, alih-alih membangun jejaring pemahaman di dalam kepala mereka sendiri.",
         goals: [
-          "Eliminate extraneous interface noise and cognitive load during the note drafting phase.",
-          "Implement an automatic spaced prompt mechanism based on the user's own summarized questions.",
-          "Ensure complete data ownership through plain markdown files stored locally without cloud dependencies.",
-          "Limit customization options to prevent productive procrastination and keep focus on writing."
+          "Menghilangkan kebisingan antarmuka dan beban kognitif berlebih selama proses penulisan catatan.",
+          "Menerapkan mekanisme pertanyaan pengingatan berkala (spaced retrieval) yang bersumber dari ringkasan mandiri pengguna.",
+          "Menjamin kepemilikan data penuh melalui berkas teks Markdown murni yang tersimpan lokal di komputer tanpa ketergantungan cloud.",
+          "Membatasi opsi kustomisasi visual agar mencegah penundaan produktif (procrastination disguised as setup) dan menjaga fokus pada penulisan."
         ],
-        planning: "The development began with paper wireframes and observational logging of my own reading-to-synthesis workflow over three months. I tracked where mental fatigue occurred and identified that switching between reference material and note-taking windows broke cognitive flow. The architecture was designed from the ground up to support dual-pane focal synthesis with folding margin notes.",
-        implementation: "Built using clean, dependency-free vanilla web technologies with IndexedDB for instant offline storage and exportable plain Markdown files. The interface adheres to strict typographic scales with comfortable 1.7 line height, generous margins, and keyboard shortcuts for seamless text navigation. An embedded spaced-retrieval scheduler operates locally without external servers.",
+        planning: "Pengembangan dimulai dengan sketsa di atas kertas dan pencatatan alur kerja membaca-ke-sintesis pribadi selama tiga bulan. Saya mencatat di mana letak kelelahan mental terjadi dan menemukan bahwa berpindah jendela antara bahan bacaan dan aplikasi catatan merusak alur berpikir mendalam. Arsitektur dirancang dari awal untuk mendukung sintesis dua panel fokus dengan catatan tepi lipat (folding margin notes).",
+        implementation: "Dibangun menggunakan teknologi web murni (vanilla) tanpa dependensi pihak ketiga, memanfaatkan IndexedDB untuk penyimpanan luring instan dan ekspor berkas Markdown standar. Antarmuka menerapkan skala tipografi ketat dengan tinggi baris (line-height) 1.7 yang nyaman, margin yang lega, dan pintasan papan ketik cepat. Penjadwal pengingatan lokal berjalan mandiri tanpa perlu server luar.",
         technologies: [
           "Vanilla JavaScript (ES6+)",
-          "IndexedDB for local persistence",
+          "IndexedDB untuk penyimpanan lokal",
           "Web Storage API",
-          "Custom Markdown AST Parser",
+          "Parser Markdown AST Kustom",
           "CSS Grid & Custom Properties",
-          "Canvas for retrieval curve visualization"
+          "Canvas API untuk visualisasi kurva retensi"
         ],
         challenges: [
-          "Graph Visualization vs. Meaningful Connection: Many tools feature large 3D interactive force graphs that look impressive but provide zero cognitive utility. I resisted adding a visual graph and instead implemented a bidirectional associative index that surfaces related concepts based on shared conceptual queries.",
-          "Preventing Feature Creep: Resisting requests for third-party integrations and complex tag hierarchies to preserve the core premise: active writing, not database administration."
+          "Visualisasi Graf vs. Hubungan Bermakna: Banyak alat membanggakan grafik node 3D interaktif yang tampak keren namun memberikan nilai kognitif yang minim. Saya menolak menambahkan graf visual dan menggantinya dengan indeks asosiatif dua arah yang memunculkan konsep terkait berdasarkan kesamaan pertanyaan konseptual.",
+          "Mencegah Pembengkakan Fitur: Menolak godaan untuk menambahkan sinkronisasi pihak ketiga dan hierarki tag yang rumit demi mempertahankan premis utama: menulis secara aktif, bukan mengelola basis data."
         ],
-        results: "RecallFlow has been my primary daily workspace for over 9 months. In personal recall benchmarks across 120 conceptual notes, retention after 30 days increased by over 40% compared to traditional linear documentation. More importantly, time spent fiddling with layouts dropped to zero.",
-        reflection: "Building RecallFlow taught me that software can either augment human cognition or amplify human distraction. The most valuable design decision was often what to leave out. Learning occurs in the effortful struggle to understand and articulate, not in the mechanics of saving."
+        results: "RecallFlow telah menjadi ruang kerja utama saya selama lebih dari 9 bulan. Dalam pengujian tolak ukur pribadi pada 120 catatan konsep, retensi ingatan setelah 30 hari meningkat lebih dari 40% dibandingkan metode dokumentasi linear biasa. Yang lebih penting, waktu yang terbuang untuk mengutak-atik tata letak berkurang hingga nol.",
+        reflection: "Membangun RecallFlow mengajarkan saya bahwa perangkat lunak bisa memperkuat kognisi manusia atau justru memperparah distraksi. Keputusan desain paling berharga sering kali adalah apa yang sengaja kita tinggalkan. Pembelajaran terjadi dalam pergulatan yang sungguh-sungguh untuk memahami dan mengartikulasikan gagasan, bukan dalam mekanisme menekan tombol simpan."
       }
     },
     {
       id: "percept-cognitive-ui",
-      title: "Percept: Typographic Ergonomics & Cognitive Load",
-      subtitle: "A browser-based diagnostic utility analyzing visual hierarchy, scanpaths, and reader fatigue in digital publishing.",
-      category: "Psychology & Digital Design",
+      title: "Percept: Ergonomi Tipografi & Beban Kognitif",
+      subtitle: "Utilitas diagnostik peramban untuk menganalisis hierarki visual, alur gerak mata, dan kelelahan pembaca pada media digital.",
+      category: "Psikologi & Desain Digital",
       featured: true,
       year: "2026",
-      status: "Open Research Utility",
-      summary: "Exploring how human perception processes editorial hierarchy versus digital clutter, and turning cognitive psychology principles into practical metrics.",
+      status: "Utilitas Riset Terbuka",
+      summary: "Meneliti bagaimana persepsi manusia memproses hierarki editorial dibandingkan kekacauan visual antarmuka, dan menerjemahkan prinsip psikologi kognitif menjadi metrik terukur.",
       heroImage: "assets/images/project-percept.svg",
-      tags: ["Perceptual Psychology", "Typographic Ergonomics", "Accessibility", "Design Systems"],
+      tags: ["Psikologi Persepsi", "Ergonomi Tipografi", "Aksesibilitas", "Design Systems"],
       sections: {
-        overview: "Percept is an editorial diagnostic tool designed to help writers, designers, and educators evaluate how easily their content can be parsed by human eyes. By combining WCAG color contrast formulas with typographic density analysis and visual hierarchy metrics, it provides an objective health score for editorial readability.",
-        background: "Modern web pages are frequently overloaded with competing visual demands: sticky headers, flashing newsletter popups, uncalibrated font contrast, and cramped line spacing. While reading long-form analytical text, this visual clutter translates into measurable cognitive strain, causing readers to skim superficially rather than engage deeply.",
-        problem: "While accessibility checkers reliably catch missing alt tags and binary color contrast failures, they rarely address holistic perceptual ergonomics: Is the measure (line length) comfortable for natural saccadic eye movement? Is the heading scale proportionate to body text? Does the whitespace guide attention or disorient it?",
+        overview: "Percept adalah alat diagnostik editorial yang dirancang untuk membantu penulis, desainer, dan pendidik mengevaluasi seberapa mudah konten mereka diserap oleh mata manusia. Dengan memadukan formula kontras warna WCAG dengan analisis kepadatan tipografi dan ritme baca, Percept memberikan skor objektif terhadap kenyamanan membaca.",
+        background: "Halaman web modern sering kali dipenuhi tuntutan visual yang saling berebut perhatian: bilah navigasi lengket (sticky), jendela sembulan (popup) newsletter, kontras warna yang buruk, dan jarak antarbaris yang sempit. Saat membaca teks analitis panjang, kekacauan visual ini menimbulkan kelelahan kognitif yang terukur, memaksa pembaca hanya membaca sekilas alih-alih menyerap esensi pemikiran.",
+        problem: "Meskipun alat pemeriksa aksesibilitas mampu mendeteksi ketiadaan atribut alt atau kegagalan kontras biner, mereka jarang mengevaluasi ergonomi perseptual secara menyeluruh: Apakah panjang baris (measure) nyaman bagi gerakan mata sakadik alami? Apakah skala judul seimbang terhadap teks isi? Apakah ruang kosong (whitespace) mengarahkan fokus atau justru membingungkan?",
         goals: [
-          "Formulate an algorithmic 'Cognitive Clarity Index' based on typography, line measure, contrast, and visual density.",
-          "Provide real-time visual heatmaps illustrating where reader attention is likely to stall or drift.",
-          "Deliver actionable, plain-English suggestions for editorial typography improvements.",
-          "Maintain a minimal, fast, and accessible interface that embodies the principles it advocates."
+          "Merumuskan 'Indeks Kejelasan Kognitif' berdasarkan skala tipografi, panjang baris, kontras, dan kepadatan visual.",
+          "Menyediakan peta panas visual (heatmap) secara real-time yang menunjukkan di mana perhatian pembaca rentan terhenti atau buyar.",
+          "Memberikan saran perbaikan tipografi editorial yang praktis dan mudah dipahami.",
+          "Menjaga antarmuka alat tetap minimal, cepat, dan sepenuhnya mencerminkan prinsip ketenangan yang diadvokasikannya."
         ],
-        planning: "I conducted a literature review of reading psychology, examining studies on saccadic eye movements, legibility thresholds from the Cambridge Ergonomics Group, and Sweller's Cognitive Load Theory. From these findings, I established four primary metrics: Typographic Hierarchy Ratio, Measure Comfort Index, Visual Density Percentage, and Contrast Stability.",
-        implementation: "The analyzer accepts either a live URL or markdown text. Using a non-blocking Web Worker, it computes character-per-line counts, line-height proportions, heading scale harmonies (checking against classical musical scales such as the Major Third or Perfect Fourth), and generates a rendered canvas overlay showing luminance distribution.",
+        planning: "Saya meninjau literatur psikologi membaca, meneliti studi gerakan mata sakadik, batas legibilitas dari Cambridge Ergonomics Group, dan Teori Beban Kognitif Sweller. Dari temuan ini, saya menetapkan empat pilar utama: Rasio Hierarki Tipografi, Indeks Kenyamanan Ukuran Baris, Persentase Kepadatan Visual, dan Stabilitas Kontras.",
+        implementation: "Alat ini menerima input berupa teks markdown atau URL langsung. Memanfaatkan Web Worker agar tidak membebani utas utama, alat menghitung jumlah karakter per baris, proporsi tinggi baris, keselarasan skala modular (merujuk pada skala musikal klasik), serta menghasilkan hamparan kanvas yang menampilkan distribusi luminansi visual.",
         technologies: [
           "Vanilla JavaScript & Web Workers",
-          "HTML5 Canvas API for heatmap rendering",
-          "WCAG 2.2 Luminance Formulae",
+          "HTML5 Canvas API untuk visualisasi heatmap",
+          "Formula Luminansi WCAG 2.2",
           "CSS Modern Fluid Typography (clamp)",
-          "SVG Visual Flow Diagrams"
+          "Diagram Alir Visual SVG"
         ],
         challenges: [
-          "Subjectivity vs. Objectivity: Typography has artistic nuances that defy rigid algorithms. I solved this by treating the metrics as diagnostic indicators rather than dogmatic rules, allowing the user to set their context (e.g., intensive technical documentation vs. poetic prose).",
-          "Performance with Long Documents: Parsing and computing bounding boxes on 10,000+ words can lag the main thread. Offloading computation to Web Workers ensured the UI remained fluid at 60fps."
+          "Subjektivitas vs. Objektivitas: Tipografi memiliki nuansa rasa dan seni yang tidak bisa dipatok kaku oleh angka matematis semata. Saya mengatasinya dengan memperlakukan metrik sebagai indikator penunjuk arah, bukan hukum mutlak, serta memberikan keleluasaan sesuai konteks bacaan (misal dokumentasi teknis vs prosa reflektif).",
+          "Kinerja pada Dokumen Panjang: Menghitung kotak pembatas (bounding box) pada puluhan ribu kata dapat membuat browser melambat. Memindahkan seluruh kalkulasi ke Web Worker menjaga antarmuka tetap berjalan mulus di 60fps."
         ],
-        results: "Percept has been utilized to evaluate and optimize over 50 editorial and educational articles. Test readers reported a 32% subjective decrease in eye strain and a significant improvement in sustained comprehension when reading revisions recommended by the tool.",
-        reflection: "Design isn't just how something looks; it is the cognitive environment we invite someone into. When we respect a reader's cognitive capacity through calm typography and generous whitespace, we honor both the content and the person reading it."
+        results: "Percept telah digunakan untuk mengaudit dan mengoptimalkan lebih dari 50 tulisan editorial dan materi edukasi. Penguji melaporkan penurunan kelelahan mata subjektif sebesar 32% dan peningkatan daya pemahaman mendalam ketika membaca versi teks yang telah disesuaikan.",
+        reflection: "Desain bukan sekadar tentang rupa luar sesuatu; desain adalah lingkungan kognitif yang kita sediakan bagi pikiran orang lain. Saat kita menghargai kapasitas mental pembaca melalui tipografi yang tenang dan ruang kosong yang lapang, kita sedang menghormati isi gagasan sekaligus orang yang meluangkan waktu membacanya."
       }
     },
     {
       id: "curio-mental-models",
-      title: "Curio: Explorable Mental Models",
-      subtitle: "An interactive archive illustrating foundational principles from decision theory, systems thinking, and psychology.",
-      category: "Education & Mental Models",
+      title: "Curio: Eksplorasi Model Mental",
+      subtitle: "Koleksi interaktif berisi eksperimen pikiran untuk memahami prinsip-prinsip dari teori keputusan, pemikiran sistem, dan psikologi.",
+      category: "Pendidikan & Model Mental",
       featured: true,
       year: "2025 – 2026",
-      status: "Curated Knowledge Space",
-      summary: "Transforming abstract decision frameworks into tangible, interactive micro-simulations to bridge the gap between theory and intuition.",
+      status: "Ruang Pengetahuan Terbuka",
+      summary: "Mengubah kerangka berpikir abstrak menjadi simulasi mikro interaktif yang nyata, menjembatani jurang antara teori hafalan dan intuisi praktis.",
       heroImage: "assets/images/project-curio.svg",
-      tags: ["Systems Thinking", "Interactive Learning", "Decision Theory", "Explorable Explanations"],
+      tags: ["Pemikiran Sistem", "Pembelajaran Interaktif", "Teori Keputusan", "Explorable Explanations"],
       sections: {
-        overview: "Curio is an interactive visual repository of 12 mental models—such as Second-Order Effects, Inversion, Compounding, and Normalization of Deviance. Rather than presenting them through static paragraphs, Curio lets visitors manipulate parameters and directly witness systemic outcomes.",
-        background: "We are taught numerous mental frameworks in books and articles, but words often fail to convey the dynamic nature of feedback loops and non-linear consequences. Inspired by Bret Victor's concept of 'Explorable Explanations', I wanted to see if building miniature simulations could give learners a visceral intuition for systemic concepts.",
-        problem: "Abstract principles are easy to understand intellectually in a sterile example, but exceedingly difficult to spot in real life. Passive reading creates the false impression of mastery, which quickly evaporates when faced with real-world complexity.",
+        overview: "Curio adalah repositori visual interaktif berisi 12 model mental dasar—seperti Dampak Tingkat Kedua (Second-Order Effects), Inversi, Penggandaan (Compounding), dan Normalisasi Deviasi. Alih-alih menyajikannya hanya lewat paragraf statis, Curio mengajak pengunjung memanipulasi variabel secara langsung dan menyaksikan konsekuensi sistemik yang terjadi.",
+        background: "Kita sering diajari berbagai kerangka berpikir dalam buku dan artikel, namun kata-kata kerap gagal menyampaikan dinamika nyata dari umpan balik melingkar (feedback loops) dan dampak non-linear. Terinspirasi oleh konsep 'Explorable Explanations' dari Bret Victor, saya ingin menguji apakah simulasi mini dapat memberikan intuisi mendalam tentang cara kerja sebuah sistem.",
+        problem: "Prinsip-prinsip abstrak sangat mudah dipahami secara dangkal saat membaca contoh kasus yang sederhana, tetapi sangat sulit dikenali di tengah situasi dunia nyata yang rumit. Membaca pasif menciptakan ilusi kemahiran yang cepat menguap begitu berhadapan dengan kompleksitas hidup.",
         goals: [
-          "Create interactive simulations for foundational models that load in under a second on mobile or desktop.",
-          "Ensure every simulation requires minimal instruction: interaction should be intuitive and immediate.",
-          "Pair each simulation with authentic real-world case studies and reflective questions.",
-          "Keep the visual language restrained, editorial, and focused entirely on the conceptual mechanism."
+          "Menciptakan simulasi interaktif yang ringan dan memuat dalam waktu kurang dari satu detik di perangkat apa pun.",
+          "Memastikan setiap simulasi memiliki interaksi yang intuitif tanpa perlu petunjuk penggunaan yang bertele-tele.",
+          "Menyandingkan setiap simulasi dengan studi kasus autentik dan pertanyaan reflektif.",
+          "Mempertahankan bahasa visual editorial yang tenang, minimal, dan terfokus pada mekanisme konseptual."
         ],
-        planning: "For each mental model, I distilled the underlying mathematical or logical mechanism into its simplest dynamic representation. For example, for 'Second-Order Thinking', instead of an essay on unintended consequences, I modeled a simple urban traffic intervention where adding highway lanes leads to induced demand and increased gridlock over time.",
-        implementation: "Each explorable widget is built as a self-contained SVG and JavaScript state machine. Sliders and toggles allow direct manipulation of variables, updating reactive curves in real-time. The text narrative responds dynamically to the user's adjustments, narrating the implications of their choices as they occur.",
+        planning: "Untuk setiap model mental, saya menyuling mekanisme matematika atau logika di baliknya ke dalam representasi paling sederhana. Contohnya, pada 'Pemikiran Tingkat Kedua', saya membuat model intervensi lalu lintas di mana pelebaran jalan justru memicu permintaan terinduksi (induced demand) dan meningkatkan kemacetan dalam jangka panjang.",
+        implementation: "Setiap widget dibangun sebagai mesin keadaan (state machine) mandiri menggunakan SVG deklaratif dan JavaScript murni. Penggeser (slider) memungkinkan manipulasi parameter secara langsung yang seketika memperbarui kurva visual. Teks narasi pun ikut beradaptasi secara dinamis menceritakan implikasi dari perubahan tersebut.",
         technologies: [
-          "Declarative SVG Generation",
-          "Reactive State Management (Vanilla JS)",
-          "CSS Grid & Flexbox Editorial Layouts",
-          "Lightweight Math & Simulation Engines",
-          "Accessible ARIA Live Regions"
+          "Generasi SVG Deklaratif",
+          "Manajemen Keadaan Reaktif (Vanilla JS)",
+          "Tata Letak Editorial CSS Grid & Flexbox",
+          "Mesin Simulasi Matematis Ringan",
+          "Aksesibilitas ARIA Live Regions"
         ],
         challenges: [
-          "Avoiding Gimmicks: It is very easy for interactive elements to become superficial toys that distract from understanding. Every interaction had to directly demonstrate an otherwise invisible dynamic relationship.",
-          "Mobile Touch Usability: Sliders and reactive charts needed careful touch-target calibration and responsive SVG viewport scaling to guarantee comfortable use on small screens."
+          "Menghindari Gimmick: Sangat mudah bagi elemen interaktif untuk tergelincir menjadi sekadar mainan visual yang justru mengaburkan pemahaman. Setiap interaksi harus murni memperlihatkan hubungan kausalitas yang tak kasat mata.",
+          "Kemudahan Sentuhan di Ponsel: Penggeser dan grafik reaktif membutuhkan kalibrasi target sentuh dan penyesuaian skala viewport SVG agar tetap nyaman digunakan di layar ponsel."
         ],
-        results: "Curio has been referenced by study groups, self-taught programmers, and design students in over 30 countries. The average session duration exceeds 4 minutes and 30 seconds, demonstrating that learners actively engage and experiment with the concepts.",
-        reflection: "Understanding is not a state of passive reception; it is an active reconstruction of reality in your own mind. When you give people the controls to poke a system and watch what happens, curiosity transforms into genuine comprehension."
+        results: "Curio telah dirujuk oleh kelompok belajar, pembelajar otodidak, dan mahasiswa desain di berbagai negara. Rata-rata durasi kunjungan melampaui 4 menit 30 detik, membuktikan bahwa pengunjung benar-benar bereksperimen dan berinteraksi mendalam dengan materi.",
+        reflection: "Pemahaman sejati bukanlah kondisi pasif menerima informasi; pemahaman adalah proses aktif merekonstruksi realitas di dalam pikiran kita sendiri. Ketika kita memberi kendali kepada seseorang untuk menguji sebuah sistem dan melihat reaksinya, rasa ingin tahu bertransformasi menjadi kebijaksanaan nyata."
       }
     }
   ],
@@ -125,144 +125,144 @@ const InLiveIqData = {
   insights: [
     {
       id: "collectors-fallacy-synthesis",
-      title: "The Collector's Fallacy and the Art of Active Synthesis",
-      subtitle: "Why hoarding bookmarks and highlighting paragraphs gives us an illusion of competence—and how to shift toward genuine mental encoding.",
-      category: "Learning",
-      date: "October 14, 2026",
-      readTime: "5 min read",
-      summary: "Gathering information feels like progress, but true understanding only begins when we force ourselves to re-articulate ideas in our own words.",
+      title: "Jebakan Kolektor dan Seni Sintesis Aktif",
+      subtitle: "Mengapa menimbun tautan bacaan dan menyorot paragraf memberi kita ilusi pemahaman—dan bagaimana beralih ke sintesis mandiri.",
+      category: "Pembelajaran",
+      date: "14 Oktober 2026",
+      readTime: "5 menit baca",
+      summary: "Mengumpulkan informasi terasa seperti sebuah kemajuan, tetapi pemahaman nyata baru dimulai saat kita memaksa diri mengartikulasikan kembali gagasan tersebut dengan bahasa kita sendiri.",
       heroImage: "assets/images/insight-synthesis.svg",
       content: [
         {
-          heading: "The Seduction of the Digital Library",
+          heading: "Godaan Perpustakaan Digital",
           paragraphs: [
-            "We live in an age where saving an idea has become indistinguishable from understanding it. With a single keystroke or browser extension, we can capture a 10,000-word treatise, tag it with pristine metadata, and file it away into a personal knowledge repository.",
-            "In that fraction of a second, the brain experiences a subtle reward: the sensation of having mastered something. Yet this is what educator Tiago Forte and essayist Tiago Barba call the 'collector's fallacy'—the unconscious belief that accumulating the artifacts of knowledge is equivalent to acquiring the knowledge itself.",
-            "A week later, if asked to explain the core premise of that saved article over a cup of coffee, we often find ourselves grasping at vague shadows. The document is safely preserved in our hard drive; our minds, however, remain entirely unchanged."
+            "Kita hidup di masa di mana tindakan menyimpan sebuah ide sering kali disalahartikan sebagai tindakan memahaminya. Hanya dengan satu klik atau ekstensi peramban, kita dapat menangkap esai berbobot ribuan kata, membubuhi metadata rapi, dan menyimpannya ke dalam aplikasi catatan.",
+            "Pada detik itu juga, otak kita merasakan kepuasan semu: sensasi bahwa kita telah menguasai sesuatu. Inilah yang oleh para pendidik disebut sebagai 'collector's fallacy'—keyakinan bawah sadar bahwa mengumpulkan artefak pengetahuan sama nilainya dengan menyerap pengetahuan itu sendiri ke dalam diri.",
+            "Seminggu kemudian, jika kita diminta menjelaskan gagasan inti tulisan tersebut kepada seorang kawan sambil menyeruput kopi, kita mendapati diri kita terbata-bata. Dokumen itu tersimpan aman di media penyimpanan; namun pikiran kita sendiri sesungguhnya belum berubah sedikit pun."
           ]
         },
         {
-          heading: "Effortful Encoding: The Only Path to Retention",
+          heading: "Pengodean Penuh Usaha: Satu-satunya Jalan Menuju Retensi",
           paragraphs: [
-            "Cognitive psychology has consistently demonstrated that learning does not happen through exposure; it happens through retrieval and effortful synthesis. When you read a text, your brain is engaged in passive recognition. Everything seems coherent because the author has already done the heavy cognitive labor of organizing the argument.",
-            "The moment you close the browser and force yourself to explain that same concept in two simple sentences to an imaginary novice—what Richard Feynman famously championed—the illusion vanishes. The gaps in your comprehension stand out in sharp relief.",
-            "This uncomfortable resistance is not a sign of failure. It is the precise physiological sensation of learning taking place. Without that friction, information simply washes over us like water on polished stone."
+            "Psikologi kognitif berulang kali menegaskan bahwa proses belajar tidak terjadi melalui paparan pasif semata; ia terjadi melalui upaya memanggil kembali memori (retrieval) dan sintesis mandiri yang memerlukan daya pikir.",
+            "Saat kita membaca teks, otak kita berada dalam mode rekognisi pasif. Semuanya tampak runtut dan jelas semata-mata karena sang penulis telah melakukan kerja kognitif berat dalam menstrukturkan argumen tersebut.",
+            "Begitu kita menutup layar dan memaksa diri merangkum konsep tersebut dalam dua kalimat sederhana bagi orang awam—seperti yang dipraktikkan fisikawan Richard Feynman—ilusi keahlian itu langsung runtuh. Titik-titik kelemahan dalam pemahaman kita terlihat jelas.",
+            "Rasa tidak nyaman ini bukanlah tanda kegagalan. Ini adalah sensasi fisiologis sesungguhnya dari proses belajar yang sedang berlangsung. Tanpa gesekan usaha tersebut, informasi hanya mengalir lewat laksana air di atas batu yang licin."
           ]
         },
         {
-          heading: "A Minimal Protocol for Everyday Learning",
+          heading: "Protokol Sederhana untuk Belajar Setiap Hari",
           paragraphs: [
-            "To escape the collector's trap, I adopted three simple constraints in my own learning routine:",
-            "1. The 24-Hour Quarantine: When I save a fascinating resource, I do not immediately add it to my permanent knowledge base. It sits in a temporary holding queue. If it still feels essential after a day, I read it; if not, it is archived without guilt.",
-            "2. The Two-Sentence Synthesis Rule: No article or book chapter can be filed into my permanent notes unless accompanied by at least two sentences written entirely in my own words answering: 'What is the non-obvious truth here?' and 'How does this alter how I act or think?'",
-            "3. Build Something with It: Knowledge that is not put into service decays rapidly. Whether it is writing a short reflection, sketching a diagram, or building a small prototype, using an idea is the surest way to own it."
+            "Untuk melepaskan diri dari jebakan penimbun informasi, saya menerapkan tiga batasan sederhana dalam keseharian saya:",
+            "1. Karantina 24 Jam: Ketika menemukan bacaan yang menarik, saya tidak langsung menyimpannya ke catatan permanen. Tautan itu masuk ke antrean sementara. Jika setelah satu hari bacaan itu masih terasa penting, baru saya baca; jika tidak, saya mengarsipkannya tanpa rasa bersalah.",
+            "2. Aturan Sintesis Dua Kalimat: Tidak ada artikel atau bab buku yang boleh masuk ke catatan permanen saya tanpa disertai setidaknya dua kalimat yang ditulis murni dari pikiran saya sendiri, menjawab: 'Apa kebenaran yang tidak klise di sini?' dan 'Bagaimana hal ini mengubah cara saya berpikir atau bertindak?'",
+            "3. Bangun Sesuatu Dengannya: Pengetahuan yang tidak difungsikan akan layu dengan cepat. Entah itu menuliskan refleksi singkat, menggambar skema pemikiran, atau membangun prototipe sederhana, menggunakan sebuah gagasan adalah cara paling sahih untuk benar-benar memilikinya."
           ]
         },
         {
-          heading: "The Quiet Freedom of Knowing Less, Better",
+          heading: "Ketenangan dari Mengetahui Lebih Sedikit, Lebih Mendalam",
           paragraphs: [
-            "When we stop measuring our intellectual growth by the volume of what we have saved and start measuring it by the clarity of what we can explain, our relationship with information changes.",
-            "The anxiety of keeping up with every new trend or newsletter dissolves. In its place emerges a calmer, more deliberate curiosity—one that seeks depth over speed, and synthesis over accumulation."
+            "Ketika kita berhenti mengukur perkembangan intelektual dari seberapa banyak artikel yang telah kita bookmark, dan mulai mengukurnya dari seberapa jernih kita mampu menjelaskan inti sebuah gagasan, relasi kita dengan informasi akan berubah.",
+            "Kecemasan karena merasa tertinggal oleh setiap tren baru akan sirna perlahan. Menggantikannya adalah rasa ingin tahu yang jauh lebih tenang dan terarah—rasa ingin tahu yang mencari kedalaman daripada kecepatan, dan mengutamakan sintesis pemikiran daripada sekadar penumpukan arsip."
           ]
         }
       ],
       takeaways: [
-        "Saving content triggers a false sense of achievement without cognitive encoding.",
-        "Active recall and self-articulation are required for genuine understanding.",
-        "Imposing synthesis constraints transforms passive hoarding into lasting intuition."
+        "Menyimpan bacaan memicu rasa puas semu tanpa terjadi pengendapan kognitif nyata.",
+        "Pemanggilan memori aktif (active recall) dan artikulasi mandiri adalah syarat mutlak pemahaman.",
+        "Menerapkan batasan sintesis mengubah kebiasaan menimbun pasif menjadi intuisi yang abadi."
       ]
     },
     {
       id: "cognitive-friction-restraint-ui",
-      title: "Cognitive Friction: Why Restraint is the Ultimate UI Feature",
-      subtitle: "In a digital landscape filled with micro-animations, badges, and attention traps, deliberate stillness provides the space for comprehension.",
-      category: "Psychology",
-      date: "September 28, 2026",
-      readTime: "6 min read",
-      summary: "Exploring how extraneous visual noise drains human working memory, and why editorial calm is a profound form of respect for the reader.",
+      title: "Friksi Kognitif: Mengapa Menahan Diri Adalah Fitur Antarmuka Terbaik",
+      subtitle: "Di lanskap digital yang penuh animasi mikro dan perebutan atensi, ketenangan tata letak memberikan ruang bagi pemahaman.",
+      category: "Psikologi",
+      date: "28 September 2026",
+      readTime: "6 menit baca",
+      summary: "Meneliti bagaimana kebisingan visual menguras daya ingat kerja manusia, dan mengapa ketenangan editorial adalah bentuk penghormatan sejati kepada pembaca.",
       heroImage: "assets/images/insight-friction.svg",
       content: [
         {
-          heading: "The Ambient Noise of the Modern Web",
+          heading: "Kebisingan Lingkungan Web Kontemporer",
           paragraphs: [
-            "Open almost any contemporary website, and you will find an interface competing against its own content. Banners slide in from the lower edge. Badges pulse in high-contrast red. Subtle gradients shift in the background. Tooltips appear unprompted.",
-            "Each of these elements was likely justified in isolation by a metric: a micro-conversion, an engagement percentage, or an aesthetic trend. Yet collectively, they impose a severe toll on the human cognitive system: extraneous cognitive load."
+            "Buka hampir semua situs web saat ini, dan Anda akan menjumpai antarmuka yang bersaing keras melawan kontennya sendiri. Spanduk meluncur dari sudut bawah. Lencana angka berkedip merah terang. Gradien warna latar bergeser tanpa henti. Kotak informasi (tooltip) muncul tiba-tiba tanpa diminta.",
+            "Setiap elemen tersebut kemungkinan besar dapat dijustifikasi secara terpisah oleh sebuah metrik: konversi mikro, persentase engagement, atau tren estetika terkini. Namun secara kolektif, mereka membebankan pajak yang berat pada sistem kognitif manusia: beban kognitif berlebih (extraneous cognitive load)."
           ]
         },
         {
-          heading: "The Fragility of Working Memory",
+          heading: "Kerapuhan Memori Kerja Manusia",
           paragraphs: [
-            "Human working memory is remarkably limited. As cognitive psychologist George Miller observed, and subsequent research has corroborated, our capacity to consciously hold and manipulate distinct pieces of information simultaneously is tiny—roughly four to seven items under optimal conditions.",
-            "Every animated element, every competing visual hierarchy, and every inconsistent font weight forces the visual cortex to make subconscious micro-evaluations: 'Is this movement relevant? Is this an alert? Where should my eyes travel next?'",
-            "By the time the reader reaches the actual argument or prose, a substantial portion of their attentional budget has already been exhausted. We wonder why long-form reading online feels so tiring; the culprit is often not the length of the text, but the environment in which it is presented."
+            "Memori kerja manusia sangatlah terbatas. Seperti yang diamati oleh psikolog kognitif George Miller dan dikonfirmasi oleh berbagai riset lanjutan, kapasitas sadar kita untuk menahan dan mengolah potongan informasi berbeda secara bersamaan sangat kecil—hanya berkisar empat hingga tujuh elemen dalam kondisi optimal.",
+            "Setiap elemen yang bergerak, setiap hierarki visual yang bertabrakan, dan setiap ukuran teks yang tidak konsisten memaksa korteks visual melakukan evaluasi bawah sadar: 'Apakah gerakan ini relevan? Apakah ini peringatan darurat? Ke mana mata saya harus tertuju selanjutnya?'",
+            "Pada saat pembaca akhirnya tiba di paragraf argumen utama, sebagian besar anggaran energi fokus mereka telah terkuras habis. Kita kerap bertanya-tanya mengapa membaca artikel panjang di layar terasa melelahkan; penyebabnya sering kali bukan panjangnya teks, melainkan lingkungan visual di mana teks itu disajikan."
           ]
         },
         {
-          heading: "The Editorial Philosophy: Design as Stillness",
+          heading: "Filosofi Editorial: Desain sebagai Ruang Tenang",
           paragraphs: [
-            "Editorial design, developed over centuries of printed publication, understands a fundamental truth: the typography is the interface. When typography is treated with reverence—proportional scales, comfortable line lengths (between 55 and 75 characters), and generous whitespace—the reader enters a state of natural immersion.",
-            "Whitespace is not empty space or an absence of effort. It is structural breathing room. It separates ideas, establishes hierarchy without resorting to garish colors, and permits the eye to rest between paragraphs.",
-            "True restraint requires confidence. It means trusting that your ideas are compelling enough that you do not need 3D orbs, bouncing icons, or constant visual spectacle to keep the reader's attention."
+            "Desain editorial, yang telah disempurnakan selama berabad-abad dalam tradisi percetakan, memahami sebuah kebenaran mendasar: tipografi itu sendirilah antarmukanya. Ketika tipografi diperlakukan dengan hormat—skala yang proporsional, panjang baris yang pas (antara 55 hingga 75 karakter), dan ruang putih yang lapang—pembaca memasuki kondisi perendaman alami.",
+            "Ruang putih bukanlah kekosongan atau kemalasan desain. Ruang putih adalah ruang bernapas yang berstruktur. Ia memisahkan gagasan, menegakkan urutan kepentingan tanpa perlu warna menyolok, dan memberi jeda istirahat bagi mata di antara paragraf.",
+            "Kemampuan menahan diri menuntut keyakinan yang matang. Itu berarti kita percaya bahwa gagasan kita cukup berbobot, sehingga tidak memerlukan bola 3D, ikon melompat-lompat, atau kembang api visual yang berlebihan demi mempertahankan perhatian orang lain."
           ]
         },
         {
-          heading: "Designing for the Thinking Mind",
+          heading: "Merancang untuk Pikiran yang Berpikir",
           paragraphs: [
-            "When we design personal spaces, portfolios, and tools, our primary metric should not be time on site or click frequency, but cognitive clarity.",
-            "Does this interface leave the visitor feeling grounded or overwhelmed? Did it clarify their thoughts or fragment their focus? In an economy of infinite noise, quiet clarity is the most memorable experience you can offer."
+            "Ketika kita merancang ruang pribadi, portofolio, maupun perangkat lunak, tolok ukur utama kita sebaiknya bukanlah sekadar waktu di halaman atau frekuensi klik, melainkan kejelasan kognitif.",
+            "Apakah antarmuka ini membuat pengunjung merasa tenang dan berdaya, atau justru terdistraksi dan kewalahan? Apakah ruang ini menjernihkan alur berpikir mereka atau memecah fokus? Di tengah rimba kebisingan informasi yang tak terbatas, kejelasan yang hening adalah pengalaman paling berharga yang dapat Anda berikan."
           ]
         }
       ],
       takeaways: [
-        "Extraneous visual stimuli deplete limited working memory capacity.",
-        "Typography and whitespace should serve as the primary navigational framework.",
-        "Calm, editorial interfaces empower readers to engage in sustained deep thinking."
+        "Stimulus visual yang berlebihan menguras kapasitas memori kerja yang sangat terbatas.",
+        "Tipografi proporsional dan ruang putih lapang harus menjadi kerangka navigasi utama.",
+        "Antarmuka editorial yang tenang memberdayakan pembaca untuk berpikir mendalam dan reflektif."
       ]
     },
     {
       id: "learning-in-public-unfinished",
-      title: "On Learning in Public: Embracing the Unfinished",
-      subtitle: "Why documenting your genuine learning journey creates deeper connections than projecting unearned authority.",
-      category: "Personal reflections",
-      date: "August 19, 2026",
-      readTime: "4 min read",
-      summary: "A reflection on shedding the urge to appear infallible, and finding joy in the honest documentation of curiosity and growth.",
+      title: "Belajar Terbuka di Ruang Publik: Merangkul Hal yang Belum Selesai",
+      subtitle: "Mengapa mendokumentasikan proses belajar yang nyata menciptakan relasi yang lebih bermakna daripada otoritas palsu.",
+      category: "Refleksi Personal",
+      date: "19 Agustus 2026",
+      readTime: "4 menit baca",
+      summary: "Refleksi tentang melepaskan dorongan untuk terlihat sempurna, dan menemukan kegembiraan dalam mendokumentasikan rasa ingin tahu dan pertumbuhan yang jujur.",
       heroImage: "assets/images/insight-learning.svg",
       content: [
         {
-          heading: "The Pressure to Arrive Fully Formed",
+          heading: "Tuntutan untuk Selalu Tampil Sempurna",
           paragraphs: [
-            "There is an unspoken rule in much of the professional digital sphere: only share what is finished, polished, and triumphant. We are encouraged to present ourselves as authorities, experts, and thought leaders with seamless answers to complex questions.",
-            "Yet this posture creates a suffocating paradox. If we only publish when we feel completely certain, we rarely publish at all. Worse, we deprive ourselves and others of the most valuable part of the intellectual journey: the stumbling, the questioning, and the messy revisions along the way."
+            "Ada aturan tak tertulis yang kerap membayangi ruang digital profesional kita: hanya bagikan apa yang sudah selesai, berkilau, dan menuai keberhasilan. Kita didorong untuk menampilkan diri sebagai pakar, ahli, dan pemimpin pemikiran yang memiliki jawaban instan atas setiap pertanyaan rumit.",
+            "Namun sikap ini menciptakan beban yang melelahkan. Jika kita hanya bersedia menerbitkan sesuatu saat merasa yakin sepenuhnya, kita hampir tidak akan pernah membagikan apa pun. Lebih buruk lagi, kita menutup diri dari fase paling berharga dalam perjalanan intelektual: momen tersandung, bertanya-tanya, dan memperbaiki kekeliruan di sepanjang jalan."
           ]
         },
         {
-          heading: "The Shift from Expert to Explorer",
+          heading: "Pergeseran dari Pakar Menjadi Penjelajah",
           paragraphs: [
-            "When you adopt the stance of a curious explorer rather than an all-knowing expert, the entire emotional burden changes. You are no longer defending a reputation; you are simply sharing your field notes.",
-            "Saying 'Here is what I am currently trying to understand, here is where I got stuck, and here is what surprised me' invites dialogue rather than debate. It creates room for others who are also learning to join the conversation without intimidation.",
-            "Curiosity is inherently humble. It starts with the acknowledgment that there is vastly more that we do not know than what we do. That vulnerability is not weakness; it is the prerequisite for any meaningful growth."
+            "Ketika Anda beralih dari posisi 'pakar yang tahu segalanya' menjadi 'penjelajah yang selalu penasaran', seluruh beban emosional itu terangkat. Anda tidak lagi sedang mempertahankan reputasi semu; Anda hanya sedang membagikan catatan lapangan dari apa yang Anda temui.",
+            "Mengatakan 'Inilah hal yang saat ini sedang saya coba pahami, di sinilah saya sempat buntu, dan inilah yang mengejutkan saya' mengundang dialog yang sehat, bukan perdebatan status. Sikap ini membuka pintu bagi orang lain yang juga sedang belajar untuk bergabung tanpa rasa terintimidasi.",
+            "Rasa ingin tahu pada hakikatnya adalah sikap rendah hati. Ia berawal dari pengakuan jujur bahwa apa yang belum kita ketahui jauh lebih luas daripada apa yang telah kita ketahui. Keterbukaan itu bukanlah tanda kelemahan; ia adalah syarat mutlak bagi pertumbuhan apa pun yang bermakna."
           ]
         },
         {
-          heading: "Building InLiveIq as a Living Notebook",
+          heading: "Membangun InLiveIq sebagai Buku Catatan Hidup",
           paragraphs: [
-            "This website was conceived from that exact philosophy. It is not an administrative resume, nor is it a corporate showcase designed to impress with jargon. It is an editorial living space.",
-            "A place to record what caught my attention, what ideas challenged my existing assumptions, and how small experiments turn into real understanding. Some ideas here will evolve; others will be revised or discarded as I learn more.",
-            "And that, ultimately, is the whole point. As long as we are curious, the journey continues."
+            "Website ini lahir dari filosofi tersebut. InLiveIq bukanlah lembar riwayat hidup korporat yang kaku, bukan pula panggung etalase yang dirancang untuk memukau dengan istilah teknis yang muluk. Ini adalah ruang editorial yang hidup.",
+            "Sebuah tempat untuk mencatat apa yang memantik rasa penasaran saya, gagasan apa yang menggugat asumsi lama saya, dan bagaimana eksperimen-eksperimen kecil berbuah pemahaman yang kokoh. Sebagian pemikiran di sini akan terus berevolusi; sebagian lainnya mungkin akan direvisi atau digantikan seiring bertambahnya wawasan saya.",
+            "Dan itulah esensi sesungguhnya. Selama kita masih memiliki rasa ingin tahu, perjalanan ini akan terus berlanjut."
           ]
         }
       ],
       takeaways: [
-        "Perfectionism prevents meaningful dialogue and stifles creative output.",
-        "Documenting learning notes invites collaborative feedback and shared growth.",
-        "Authentic curiosity outlives the temporary sheen of polished authority."
+        "Perfeksionisme menghambat dialog yang bermakna dan mematikan keberanian berkarya.",
+        "Mendokumentasikan proses belajar mengundang umpan balik sehat dan pertumbuhan bersama.",
+        "Rasa ingin tahu yang autentik jauh lebih bernilai dan bertahan lama daripada kilau otoritas semu."
       ]
     }
   ]
 };
 
-// Helper methods for retrieving data
 function getProjectById(id) {
   return InLiveIqData.projects.find(p => p.id === id) || null;
 }
