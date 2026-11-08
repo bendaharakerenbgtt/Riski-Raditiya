@@ -100,72 +100,384 @@ html[data-theme="light"],
 }
 
 /* --------------------------------------------------------------------------
-   Scroll Progress Indicator
+   Scroll Progress Indicator System (Selalu Terlihat & Multi-Lapisan)
    -------------------------------------------------------------------------- */
-.scroll-progress-bar {
+.scroll-progress-track {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 3px;
-  background: var(--accent);
+  background: rgba(120, 97, 143, 0.16);
   z-index: 10005;
-  width: 0%;
   pointer-events: none;
+}
+
+:root[data-theme="light"] .scroll-progress-track,
+body[data-theme="light"] .scroll-progress-track {
+  background: rgba(120, 97, 143, 0.22);
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
   transition: width 0.08s linear;
 }
 
-/* Hero Scroll Indicator */
-.hero-scroll-cue {
+/* --------------------------------------------------------------------------
+   Elemen Mini Hidup (Status Badge, Jam Real-Time, Gelombang Frekuensi)
+   -------------------------------------------------------------------------- */
+.living-status-badge {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 3.5rem;
+  gap: 0.65rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  margin-bottom: 2rem;
+  font-family: monospace;
+  font-size: 0.775rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-subtle);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.living-status-badge:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.live-beacon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: beaconPulse 2s infinite ease-out;
+}
+
+:root[data-theme="light"] .live-beacon,
+body[data-theme="light"] .live-beacon {
+  background: #059669;
+  box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7);
+}
+
+@keyframes beaconPulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.badge-status {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.badge-sep {
+  opacity: 0.4;
+}
+
+.badge-location {
   color: var(--text-muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color var(--transition-fast);
 }
 
-.hero-scroll-cue:hover {
+.live-clock {
   color: var(--accent);
+  font-weight: 600;
 }
 
-.scroll-cue-track {
-  width: 1px;
-  height: 48px;
-  background: var(--border-subtle);
+.mini-freq-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 11px;
+  padding-left: 0.25rem;
+}
+
+.mini-freq-bars span {
+  width: 2px;
+  background-color: var(--accent);
+  border-radius: 1px;
+  opacity: 0.85;
+  animation: freqOscillate 1.4s ease-in-out infinite alternate;
+}
+
+.mini-freq-bars span:nth-child(1) { height: 35%; animation-duration: 1.1s; }
+.mini-freq-bars span:nth-child(2) { height: 85%; animation-duration: 1.5s; animation-delay: 0.2s; }
+.mini-freq-bars span:nth-child(3) { height: 50%; animation-duration: 1.2s; animation-delay: 0.4s; }
+.mini-freq-bars span:nth-child(4) { height: 75%; animation-duration: 1.6s; animation-delay: 0.1s; }
+
+@keyframes freqOscillate {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* --------------------------------------------------------------------------
+   Living Thought Lattice Canvas (Elemen Geometris Hidup & Reaktif)
+   -------------------------------------------------------------------------- */
+.living-canvas-container {
+  margin-top: 2rem;
+  margin-bottom: 2.25rem;
+  max-width: 760px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem 0.75rem 1.25rem;
   position: relative;
   overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.scroll-cue-track::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.living-canvas-container:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-subtle);
+}
+
+#living-canvas {
+  display: block;
   width: 100%;
-  height: 40%;
+  height: 220px;
+  cursor: crosshair;
+}
+
+.canvas-ambient-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-subtle);
+  font-family: monospace;
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.canvas-node-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.canvas-node-indicator .micro-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
   background: var(--accent);
-  animation: scrollGlide 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  display: inline-block;
+  animation: beaconPulse 2.4s infinite;
 }
 
-@keyframes scrollGlide {
-  0% { transform: translateY(-100%); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateY(280%); opacity: 0; }
+.canvas-coords {
+  color: var(--accent);
+  font-weight: 500;
 }
 
-/* Minimal Silhouette Container */
-.silhouette-wrapper {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-  max-width: 680px;
-  opacity: 0.9;
-  transition: opacity var(--transition-base);
+/* --------------------------------------------------------------------------
+   Hero Scroll Pill & Floating Side HUD (Indikator Scroll Komprehensif)
+   -------------------------------------------------------------------------- */
+.hero-scroll-wrapper {
+  margin-top: 3.5rem;
+}
+
+.hero-scroll-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  font-family: monospace;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-subtle);
+}
+
+.hero-scroll-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.mouse-icon {
+  width: 14px;
+  height: 22px;
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 3px;
+}
+
+.mouse-wheel {
+  width: 2px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 1px;
+  animation: mouseWheel 1.8s ease-in-out infinite;
+}
+
+@keyframes mouseWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(6px); opacity: 0.2; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.scroll-pill-text {
+  color: var(--text-secondary);
+}
+
+.scroll-pill-arrow {
+  color: var(--accent);
+  font-size: 0.85rem;
+  animation: arrowBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+.scroll-pill-pct {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+/* Floating Right-Side HUD */
+.floating-scroll-hud {
+  position: fixed;
+  right: clamp(1rem, 2.5vw, 2.25rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.85rem 0.55rem;
+  border-radius: 9999px;
+  box-shadow: var(--shadow-elevated);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: auto;
+  user-select: none;
+}
+
+.hud-label {
+  font-family: monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.hud-track {
+  width: 2px;
+  height: 60px;
+  background: var(--border-subtle);
+  position: relative;
+  border-radius: 1px;
+}
+
+.hud-thumb {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 3px;
+  box-shadow: 0 0 6px var(--accent);
+  transition: top 0.08s linear;
+}
+
+.hud-value {
+  font-family: monospace;
+  font-size: 0.6875rem;
+  color: var(--accent);
+  font-weight: 700;
+  padding: 0.2rem 0;
+}
+
+.hud-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+  position: relative;
+}
+
+.hud-nav-item {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.hud-nav-item:hover,
+.hud-nav-item.active {
+  color: var(--bg-primary);
+  background: var(--accent);
+}
+
+.hud-nav-tooltip {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  box-shadow: var(--shadow-subtle);
+}
+
+.hud-nav-item:hover .hud-nav-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(-2px);
+}
+
+@media (max-width: 900px) {
+  .floating-scroll-hud {
+    display: none;
+  }
 }
 
 .silhouette-wrapper:hover {

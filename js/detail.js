@@ -1,6 +1,6 @@
 /**
  * InLiveIq — Detail Page Dynamic Renderer (Bahasa Indonesia)
- * Merender 10 Poin Studi Kasus Proyek dan Tata Letak Lengkap Esai Wawasan.
+ * Merender 10 Poin Studi Kasus Proyek secara sistematis dan terstruktur.
  */
 
 (function () {
@@ -200,107 +200,7 @@
     }, 100);
   }
 
-  // Render Halaman Detail Wawasan (Artikel)
-  function renderInsightDetail() {
-    const container = document.querySelector('#insight-detail-container');
-    if (!container) return;
-
-    const insightId = getQueryParam('id') || 'collectors-fallacy-synthesis';
-    const insight = typeof getInsightById === 'function' ? getInsightById(insightId) : null;
-
-    if (!insight) {
-      container.innerHTML = `
-        <div class="container section" style="text-align: center; padding: 6rem 1rem;">
-          <h1 class="section-title">Esai Tidak Ditemukan</h1>
-          <p style="color: var(--text-secondary); margin-bottom: 2rem;">Catatan wawasan yang Anda cari tidak dapat ditemukan.</p>
-          <a href="insights.html" class="btn btn-primary">Kembali ke Arsip Wawasan</a>
-        </div>
-      `;
-      return;
-    }
-
-    document.title = `${insight.title} — InLiveIq`;
-
-    const related = typeof getRelatedInsights === 'function' ? getRelatedInsights(insight.id) : [];
-
-    container.innerHTML = `
-      <!-- Header -->
-      <header class="editorial-header">
-        <div class="container">
-          <div style="margin-bottom: 1.5rem;">
-            <a href="insights.html" class="link-editorial">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Kembali ke Arsip Wawasan
-            </a>
-          </div>
-          <div><span class="editorial-tag">${insight.category}</span></div>
-          <h1 class="editorial-header-title">${insight.title}</h1>
-          <p class="editorial-header-subtitle">${insight.subtitle}</p>
-
-          <div class="editorial-meta-bar">
-            <div class="editorial-meta-item">
-              <span>Diterbitkan:</span> <strong>${insight.date}</strong>
-            </div>
-            <div class="editorial-meta-item">
-              <span>Waktu Baca:</span> <strong>${insight.readTime}</strong>
-            </div>
-            <div class="editorial-meta-item">
-              <span>Kategori:</span> <strong>${insight.category}</strong>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- Visual Utama -->
-      <div class="container">
-        <div class="editorial-lead-image">
-          <img src="${insight.heroImage}" alt="Diagram Konsep ${insight.title}" />
-        </div>
-      </div>
-
-      <!-- Isi Artikel -->
-      <div class="container">
-        <article class="article-prose">
-          ${insight.content.map(c => `
-            <section style="margin-bottom: 2.5rem;">
-              <h2>${c.heading}</h2>
-              ${c.paragraphs.map(p => `<p>${p}</p>`).join('')}
-            </section>
-          `).join('')}
-
-          <!-- Kotak Poin Penting (Key Takeaways) -->
-          <div class="article-key-takeaways">
-            <h3>Poin Penting &amp; Landasan Kerja</h3>
-            <ul>
-              ${insight.takeaways.map(t => `<li>${t}</li>`).join('')}
-            </ul>
-          </div>
-
-          <!-- Catatan Reflektif Penutup -->
-          <div style="font-family: var(--font-serif); font-style: italic; color: var(--text-secondary); border-top: 1px solid var(--border-subtle); padding-top: 2rem; margin-top: 3rem;">
-            <p>Dibagikan sebagai pemikiran yang terus berkembang. Jika tulisan ini memantik pertukaran ide, pertanyaan, atau bantahan terhadap praktik belajar Anda sendiri, Anda dipersilakan untuk <a href="contact.html" style="color: var(--accent); text-decoration: underline;">mengirimkan pesan</a>.</p>
-          </div>
-
-          <!-- Wawasan Terkait -->
-          <div style="border-top: 1px solid var(--border-subtle); padding-top: 3.5rem; margin-top: 4rem;">
-            <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Wawasan &amp; Catatan Terkait</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-              ${related.map(r => `
-                <a href="insight-detail.html?id=${r.id}" class="insight-card" style="padding: 1.5rem;">
-                  <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent); font-weight: 600; display: block; margin-bottom: 0.5rem;">${r.category} • ${r.readTime}</span>
-                  <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-primary);">${r.title}</h4>
-                  <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5;">${r.summary}</p>
-                </a>
-              `).join('')}
-            </div>
-          </div>
-        </article>
-      </div>
-    `;
-  }
-
   document.addEventListener('DOMContentLoaded', () => {
     renderProjectDetail();
-    renderInsightDetail();
   });
 })();

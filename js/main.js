@@ -1,28 +1,106 @@
 /**
  * InLiveIq — Main Interactive Controller (Bahasa Indonesia)
- * Navigasi ramah aksesibilitas, drawer responsif, salin clipboard, dan form.
+ * Indikator scroll komprehensif, jam hidup real-time, HUD mengambang,
+ * navigasi ramah aksesibilitas, drawer responsif, salin clipboard, dan form.
  */
 
 (function () {
   'use strict';
 
-  // 0. Scroll Progress Bar
+  // 1. Indikator Progress Scroll & Floating HUD
   function initScrollProgress() {
-    const bar = document.querySelector('.scroll-progress-bar');
-    if (!bar) return;
+    const bars = document.querySelectorAll('.scroll-progress-bar');
+    const hudThumb = document.getElementById('hud-thumb');
+    const hudPct = document.getElementById('hud-pct');
+    const heroScrollPct = document.getElementById('hero-scroll-pct');
+    const hudNavItems = document.querySelectorAll('.hud-nav-item');
 
     function update() {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop;
       const totalH = document.documentElement.scrollHeight - window.innerHeight;
       const pct = totalH > 0 ? Math.min(Math.max((scrollY / totalH) * 100, 0), 100) : 0;
-      bar.style.width = pct + '%';
+      const pctRounded = Math.round(pct);
+
+      // Bar progress atas
+      bars.forEach(bar => {
+        bar.style.width = pct + '%';
+      });
+
+      // HUD mengambang kanan
+      if (hudThumb) {
+        hudThumb.style.top = pct + '%';
+      }
+      if (hudPct) {
+        hudPct.textContent = pctRounded + '%';
+      }
+
+      // Indikator persentase di Hero
+      if (heroScrollPct) {
+        heroScrollPct.textContent = pctRounded + '%';
+      }
+
+      // Deteksi section aktif untuk HUD dots
+      if (hudNavItems.length > 0) {
+        const sections = Array.from(hudNavItems).map(item => {
+          const targetId = item.getAttribute('data-target') || item.getAttribute('href')?.replace('#', '');
+          const el = document.getElementById(targetId);
+          return { item, el };
+        }).filter(s => s.el);
+
+        const currentPos = scrollY + (window.innerHeight * 0.35);
+        let activeFound = false;
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const sec = sections[i];
+          if (sec.el.offsetTop <= currentPos) {
+            hudNavItems.forEach(ni => ni.classList.remove('active'));
+            sec.item.classList.add('active');
+            activeFound = true;
+            break;
+          }
+        }
+
+        if (!activeFound && hudNavItems[0]) {
+          hudNavItems.forEach(ni => ni.classList.remove('active'));
+          hudNavItems[0].classList.add('active');
+        }
+      }
     }
 
     window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
     update();
   }
 
-  // 1. Mobile Menu Drawer Controller
+  // 2. Jam Hidup Real-Time (WIB / Jakarta)
+  function initLiveClock() {
+    const clockEl = document.getElementById('live-clock');
+    if (!clockEl) return;
+
+    function tick() {
+      try {
+        const now = new Date();
+        const formatter = new Intl.DateTimeFormat('id-ID', {
+          timeZone: 'Asia/Jakarta',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+        clockEl.textContent = `${formatter.format(now)} WIB`;
+      } catch (e) {
+        // Fallback jika timezone API terbatas
+        const d = new Date();
+        const pad = (n) => n.toString().padStart(2, '0');
+        clockEl.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} WIB`;
+      }
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // 3. Mobile Menu Drawer Controller
   function initMobileMenu() {
     const toggleBtn = document.querySelector('.mobile-nav-toggle');
     const drawer = document.querySelector('.mobile-drawer');
@@ -74,12 +152,12 @@
     });
   }
 
-  // 2. Highlight Nav Link Aktif
+  // 4. Highlight Nav Link Aktif
   function initActiveNav() {
     const path = window.location.pathname;
     const page = path.split('/').pop() || 'index.html';
 
-    const links = document.querySelectorAll('.nav-link');
+    const links = document.querySelectorAll('.desktop-nav .nav-link, .mobile-drawer .nav-link');
     links.forEach(link => {
       const href = link.getAttribute('href');
       if (!href) return;
@@ -95,7 +173,7 @@
     });
   }
 
-  // 3. Salin Email ke Clipboard
+  // 5. Salin Email ke Clipboard
   function initEmailCopy() {
     const copyBtns = document.querySelectorAll('.copy-email-btn');
     copyBtns.forEach(btn => {
@@ -105,7 +183,6 @@
           if (navigator.clipboard && navigator.clipboard.writeText) {
             await navigator.clipboard.writeText(email);
           } else {
-            // Fallback execCommand
             const ta = document.createElement('textarea');
             ta.value = email;
             document.body.appendChild(ta);
@@ -129,7 +206,7 @@
     });
   }
 
-  // 4. Form Kontak
+  // 6. Form Kontak
   function initContactForm() {
     const form = document.querySelector('#contact-form');
     if (!form) return;
@@ -158,7 +235,7 @@
     });
   }
 
-  // 5. ScrollSpy untuk Daftar Isi Kasus (TOC)
+  // 7. ScrollSpy untuk Daftar Isi Kasus (TOC)
   function initCaseStudyTOC() {
     const tocLinks = document.querySelectorAll('.toc-link');
     const sections = document.querySelectorAll('.case-section');
@@ -184,7 +261,7 @@
     sections.forEach(sec => observer.observe(sec));
   }
 
-  // 6. Filter Kategori Arsip
+  // 8. Filter Kategori Arsip
   function initFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const items = document.querySelectorAll('[data-category]');
@@ -214,8 +291,10 @@
     });
   }
 
+  // Inisialisasi saat DOM siap
   document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
+    initLiveClock();
     initMobileMenu();
     initActiveNav();
     initEmailCopy();

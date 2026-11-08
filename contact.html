@@ -11,8 +11,19 @@
   <script src="js/theme-transition.js"></script>
 </head>
 <body>
-  <!-- Indikator Progress Scroll -->
-  <div class="scroll-progress-bar" aria-hidden="true"></div>
+  <!-- Indikator Progress Scroll (Track & Bar Selalu Terlihat) -->
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Indikator Gulir Mengambang Sisi Kanan (HUD) -->
+  <aside class="floating-scroll-hud" aria-label="Indikator Gulir Halaman">
+    <div class="hud-label">SCROLL</div>
+    <div class="hud-track" aria-hidden="true">
+      <div class="hud-thumb" id="hud-thumb"></div>
+    </div>
+    <div class="hud-value" id="hud-pct">0%</div>
+  </aside>
 
   <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
