@@ -196,7 +196,7 @@ button {
   top: 1rem;
   z-index: 1000;
   padding: 0 1rem;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 1.25rem auto;
   width: 100%;
   max-width: var(--max-width);
   box-sizing: border-box;
@@ -439,19 +439,39 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   Hero Section (Desktop 2-Col / Mobile Stacked)
+   Hero Section (Full Viewport First Fold / Immersive Widescreen)
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding: 2.5rem 0 0 0;
+  min-height: calc(100vh - 144px);
+  min-height: calc(100dvh - 144px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
   position: relative;
   overflow: visible;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1540px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+  padding-right: clamp(1.5rem, 4vw, 4rem);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  align-items: flex-end;
-  gap: 3.5rem;
+  align-items: stretch;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  width: 100%;
+  flex-grow: 1;
 }
 
 /* Hero Left Column (Information & CTAs) */
@@ -459,7 +479,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 3.5rem;
+  justify-content: center;
+  padding: 2.5rem 0 3rem 0;
 }
 
 .hero-monogram-tag {
@@ -484,16 +505,16 @@ button {
 }
 
 .hero-main-title {
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 4.2vw, 4.25rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
 }
 
 .hero-typewriter-container {
-  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 1.5rem;
@@ -514,11 +535,11 @@ button {
 }
 
 .hero-description {
-  font-size: 1.05rem;
+  font-size: clamp(1.025rem, 1.15vw, 1.15rem);
   color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 54ch;
-  margin-bottom: 2.25rem;
+  line-height: 1.75;
+  max-width: 56ch;
+  margin-bottom: 2.5rem;
 }
 
 .hero-action-row {
@@ -608,7 +629,7 @@ button {
 
 .hero-portrait-frame {
   width: 100%;
-  max-width: 480px;
+  max-width: 620px;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -620,10 +641,10 @@ button {
 .hero-portrait-frame::before {
   content: '';
   position: absolute;
-  top: 15%;
-  right: 15%;
-  width: 320px;
-  height: 320px;
+  top: 10%;
+  right: 10%;
+  width: clamp(320px, 35vw, 460px);
+  height: clamp(320px, 35vw, 460px);
   background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 45%, transparent 70%);
   border-radius: var(--radius-full);
   pointer-events: none;
@@ -646,7 +667,7 @@ button {
 .hero-silhouette-img {
   width: 100%;
   height: auto;
-  max-height: 560px;
+  max-height: clamp(540px, 72vh, 760px);
   object-fit: contain;
   object-position: bottom center;
   display: block;
@@ -655,8 +676,8 @@ button {
   position: relative;
   z-index: 2;
   /* Seamless edge fade on top, left & right while bottom is 100% solid on the horizon line */
-  mask-image: radial-gradient(ellipse 95% 95% at 55% 100%, #000000 45%, transparent 92%);
-  -webkit-mask-image: -webkit-radial-gradient(55% 100%, ellipse cover, #000000 45%, transparent 92%);
+  mask-image: radial-gradient(ellipse 72% 85% at 50% 100%, #000000 35%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 72% 85% at 50% 100%, #000000 35%, transparent 72%);
   filter: drop-shadow(0 -10px 40px rgba(255, 255, 255, 0.35));
   transition: transform var(--transition-smooth), filter var(--transition-smooth);
   animation: livingSilhouettePulse 5s ease-in-out infinite alternate;
@@ -1452,6 +1473,15 @@ button {
 
 /* Tablet & Smaller Screens (< 1024px) */
 @media (max-width: 1024px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 1.5rem;
+  }
+
+  .hero-container {
+    align-items: center;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
