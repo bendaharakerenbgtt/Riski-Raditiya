@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <linearGradient id="bgTask" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141720" />
+      <stop offset="100%" stop-color="#0b0d12" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="12" fill="url(#bgTask)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  
+  <!-- Window Header Bar -->
+  <rect width="600" height="42" rx="12" fill="#1b1e2a" />
+  <circle cx="28" cy="21" r="5.5" fill="#ff5f56" />
+  <circle cx="48" cy="21" r="5.5" fill="#ffbd2e" />
+  <circle cx="68" cy="21" r="5.5" fill="#27c93f" />
+  <rect x="180" y="12" width="240" height="18" rx="9" fill="#0d0e14" />
+  <text x="300" y="25" fill="#8892b0" font-family="sans-serif" font-size="10" text-anchor="middle">flowstate-kanban.app</text>
+
+  <!-- Kanban Columns -->
+  <!-- Column 1: To Do -->
+  <rect x="25" y="65" width="165" height="285" rx="8" fill="#151822" stroke="rgba(255,255,255,0.08)" />
+  <text x="40" y="90" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">TO DO (3)</text>
+  <rect x="35" y="105" width="145" height="65" rx="6" fill="#202434" stroke="rgba(255,255,255,0.1)" />
+  <rect x="47" y="120" width="90" height="8" rx="2" fill="#ffffff" />
+  <rect x="47" y="136" width="115" height="6" rx="2" fill="#666e85" />
+  <rect x="35" y="180" width="145" height="65" rx="6" fill="#202434" stroke="rgba(255,255,255,0.1)" />
+  <rect x="47" y="195" width="105" height="8" rx="2" fill="#ffffff" />
+  <rect x="47" y="211" width="85" height="6" rx="2" fill="#666e85" />
+
+  <!-- Column 2: In Progress -->
+  <rect x="215" y="65" width="165" height="285" rx="8" fill="#151822" stroke="rgba(255,255,255,0.15)" />
+  <text x="230" y="90" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">IN PROGRESS (2)</text>
+  <rect x="225" y="105" width="145" height="80" rx="6" fill="#252b3d" stroke="#ffffff" stroke-width="1.5" />
+  <rect x="237" y="120" width="110" height="8" rx="2" fill="#ffffff" />
+  <rect x="237" y="136" width="120" height="6" rx="2" fill="#7d869e" />
+  <rect x="237" y="152" width="60" height="18" rx="4" fill="#ffffff" />
+  <text x="267" y="165" fill="#0d0e14" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Active</text>
+
+  <!-- Column 3: Done -->
+  <rect x="405" y="65" width="165" height="285" rx="8" fill="#151822" stroke="rgba(255,255,255,0.08)" />
+  <text x="420" y="90" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">DONE (5)</text>
+  <rect x="415" y="105" width="145" height="60" rx="6" fill="#1e2230" opacity="0.8" />
+  <circle cx="432" cy="135" r="7" fill="#ffffff" />
+  <rect x="447" y="131" width="95" height="8" rx="2" fill="#9da6bd" />
+  <rect x="415" y="175" width="145" height="60" rx="6" fill="#1e2230" opacity="0.8" />
+  <circle cx="432" cy="205" r="7" fill="#ffffff" />
+  <rect x="447" y="201" width="85" height="8" rx="2" fill="#9da6bd" />
+</svg>

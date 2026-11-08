@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <linearGradient id="bgSocial" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141620" />
+      <stop offset="100%" stop-color="#0a0c12" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="12" fill="url(#bgSocial)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  
+  <!-- Window Header Bar -->
+  <rect width="600" height="42" rx="12" fill="#1b1e2a" />
+  <circle cx="28" cy="21" r="5.5" fill="#ff5f56" />
+  <circle cx="48" cy="21" r="5.5" fill="#ffbd2e" />
+  <circle cx="68" cy="21" r="5.5" fill="#27c93f" />
+  <rect x="180" y="12" width="240" height="18" rx="9" fill="#0d0e14" />
+  <text x="300" y="25" fill="#8892b0" font-family="sans-serif" font-size="10" text-anchor="middle">nexus-realtime-feed.social</text>
+
+  <!-- Left Sidebar Nav -->
+  <rect x="25" y="60" width="115" height="295" rx="8" fill="#161824" stroke="rgba(255,255,255,0.08)" />
+  <circle cx="45" cy="85" r="10" fill="#ffffff" />
+  <rect x="62" y="80" width="60" height="10" rx="2" fill="#ffffff" />
+  <rect x="35" y="115" width="85" height="8" rx="2" fill="#6a7288" />
+  <rect x="35" y="135" width="75" height="8" rx="2" fill="#6a7288" />
+  <rect x="35" y="155" width="90" height="8" rx="2" fill="#ffffff" />
+  <rect x="35" y="175" width="65" height="8" rx="2" fill="#6a7288" />
+
+  <!-- Center Live Stream Feed -->
+  <rect x="155" y="60" width="270" height="295" rx="8" fill="#161824" stroke="rgba(255,255,255,0.12)" />
+  <!-- Feed Post 1 -->
+  <circle cx="180" cy="90" r="14" fill="#2a2e40" stroke="#ffffff" stroke-width="1.5" />
+  <rect x="205" y="82" width="80" height="9" rx="2" fill="#ffffff" />
+  <rect x="205" y="96" width="50" height="6" rx="2" fill="#6a7288" />
+  <rect x="175" y="115" width="230" height="70" rx="6" fill="#222638" stroke="rgba(255,255,255,0.1)" />
+  <circle cx="290" cy="150" r="20" fill="none" stroke="#ffffff" stroke-width="2" />
+  <rect x="175" y="195" width="50" height="18" rx="4" fill="#2b3044" />
+  <text x="200" y="208" fill="#ffffff" font-family="sans-serif" font-size="9" text-anchor="middle">♥ 142</text>
+  <rect x="235" y="195" width="50" height="18" rx="4" fill="#2b3044" />
+  <text x="260" y="208" fill="#ffffff" font-family="sans-serif" font-size="9" text-anchor="middle">💬 38</text>
+
+  <!-- Feed Post 2 -->
+  <circle cx="180" cy="245" r="14" fill="#2a2e40" stroke="#ffffff" stroke-width="1.5" />
+  <rect x="205" y="238" width="90" height="9" rx="2" fill="#ffffff" />
+  <rect x="175" y="270" width="230" height="25" rx="4" fill="#1c2030" />
+  <rect x="185" y="278" width="180" height="8" rx="2" fill="#8892b0" />
+
+  <!-- Right Realtime Chat / Trending Panel -->
+  <rect x="440" y="60" width="135" height="295" rx="8" fill="#161824" stroke="rgba(255,255,255,0.08)" />
+  <text x="455" y="85" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">Live Channels</text>
+  <circle cx="455" cy="115" r="4" fill="#27c93f" />
+  <text x="468" y="118" fill="#ffffff" font-family="sans-serif" font-size="10">#frontend-dev</text>
+  <circle cx="455" cy="140" r="4" fill="#27c93f" />
+  <text x="468" y="143" fill="#ffffff" font-family="sans-serif" font-size="10">#ui-ux-design</text>
+  <circle cx="455" cy="165" r="4" fill="#27c93f" />
+  <text x="468" y="168" fill="#ffffff" font-family="sans-serif" font-size="10">#open-source</text>
+  <circle cx="455" cy="190" r="4" fill="#8892b0" />
+  <text x="468" y="193" fill="#8892b0" font-family="sans-serif" font-size="10">#architecture</text>
+</svg>

@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portofolio editorial personal. Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.">
-  <meta name="theme-color" content="#222126">
-  <title>A Curious Mind. A Continuous Journey.</title>
+  <meta name="description" content="Portofolio Web & Kreatif — Desain antarmuka modern, performa tinggi, dan pengalaman digital bernuansa monokromatik putih yang elegan.">
+  <title>Portofolio Profesional — Web Developer & Creator</title>
   
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/theme-transition.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
 </head>
 <body>
-  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
-  <!-- Navigasi Utama -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="Beranda">
-        <span class="brand-symbol" aria-hidden="true">◈</span>
+  <!-- Floating Sticky Header with Hairline Scroll Progress Bar -->
+  <header class="site-header" role="banner">
+    <div class="nav-pill-wrapper">
+      <!-- Hairline Scroll Progress Bar (Below Pill) -->
+      <div class="header-scroll-progress" aria-hidden="true">
+        <div class="header-scroll-progress-bar"></div>
+      </div>
+
+      <!-- Left: Capsule Brand Pill -->
+      <a href="#hero" class="nav-brand-pill" aria-label="Beranda Portofolio">
+        <span>◈</span> PORTOFOLIO
       </a>
 
-      <!-- Tautan Navigasi Desktop -->
-      <nav class="desktop-nav" aria-label="Navigasi Utama">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link active">Beranda</a></li>
-          <li><a href="about.html" class="nav-link">Tentang</a></li>
-          <li><a href="projects.html" class="nav-link">Proyek</a></li>
-          <li><a href="contact.html" class="nav-link">Kontak</a></li>
-        </ul>
+      <!-- Center: Desktop Navigation Links -->
+      <nav class="desktop-nav-menu" aria-label="Navigasi Utama">
+        <a href="#hero" class="active">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#certificates">Sertifikat</a>
+        <a href="#education">Pendidikan</a>
+        <a href="#projects">Karya</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#contact">Kontak</a>
+      </nav>
 
-        <!-- Tombol Pengalih Tema -->
-        <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih ke mode terang" title="Beralih ke mode terang">
-          <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+      <!-- Right: Action CTA & Theme Toggle -->
+      <div class="nav-actions">
+        <a href="#contact" class="nav-cta-btn">Hubungi Saya</a>
+        <button class="theme-toggle-btn" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih tema terang/gelap" title="Beralih tema">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -42,324 +50,621 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </button>
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-menu-toggle" type="button" aria-label="Buka navigasi mobile">
+          <svg viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
-      </nav>
-
-      <!-- Tombol Hamburger Mobile -->
-      <button class="mobile-nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false">
-        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Garis Indikator Scroll Simpel di Bawah Header -->
-    <div class="header-scroll-progress" aria-hidden="true">
-      <div class="header-scroll-progress-bar"></div>
+      </div>
     </div>
   </header>
 
-  <!-- Laci Menu Mobile -->
-  <div class="mobile-drawer" aria-label="Menu Navigasi Mobile">
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-link active">Beranda</a></li>
-      <li><a href="about.html" class="nav-link">Tentang</a></li>
-      <li><a href="projects.html" class="nav-link">Proyek</a></li>
-      <li><a href="contact.html" class="nav-link">Kontak</a></li>
-    </ul>
-    <div class="mobile-drawer-footer">
-      <span style="font-size: 0.875rem; color: var(--text-secondary);">Tema Antarmuka</span>
-      <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih tema">
-        <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Menu Navigasi Mobile">
+    <div class="mobile-drawer-header">
+      <span class="nav-brand-pill">◈ PORTOFOLIO</span>
+      <button class="mobile-drawer-close" type="button" aria-label="Tutup menu">✕</button>
     </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#hero">Beranda</a></li>
+      <li><a href="#about">Tentang Saya</a></li>
+      <li><a href="#certificates">Sertifikat</a></li>
+      <li><a href="#education">Pendidikan</a></li>
+      <li><a href="#projects">Karya Terpilih</a></li>
+      <li><a href="#skills">Keahlian</a></li>
+      <li><a href="#contact">Hubungi Saya</a></li>
+    </ul>
   </div>
 
-  <!-- Konten Utama -->
   <main id="main-content">
-    <!-- Bagian Hero (Tenang, Simetris, Bernapas, Tanpa Judul Berat) -->
-    <section class="hero-section" id="hero" aria-label="Pengenalan Ruang">
+    
+    <!-- 1. HERO SECTION (Desktop 2-Col / Mobile Stacked) -->
+    <section class="hero-section" id="hero" aria-label="Pengenalan Utama">
       <div class="container">
-        <div class="hero-content">
-          <!-- Elemen Mini Hidup: Status Beacon, Kota, Jam Real-Time WIB, & Bar Frekuensi -->
-          <div class="living-status-badge" aria-label="Status Ruang">
-            <span class="live-beacon" aria-hidden="true"></span>
-            <span class="badge-status">STUDIO AKTIF</span>
-            <span class="badge-sep">/</span>
-            <span class="badge-location">JAKARTA</span>
-            <span class="live-clock" id="live-clock">--:--:-- WIB</span>
-            <span class="mini-freq-bars" aria-hidden="true" title="Aktivitas Sistemik">
-              <span></span><span></span><span></span><span></span>
-            </span>
-          </div>
-          
-          <!-- Pernyataan Filosofis Mengalir -->
-          <p class="hero-editorial-statement">
-            "A Curious Mind. A Continuous Journey."
-          </p>
-          
-          <p class="hero-supporting">
-            Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.
-          </p>
+        <div class="hero-grid">
+          <!-- Left Column: Information & Actions -->
+          <div class="hero-text-content">
+            <span class="hero-monogram-tag">PENGEMBANG & KREATOR WEB</span>
+            <h1 class="hero-main-title">Halo, Saya Profesional Kreatif</h1>
+            
+            <!-- Typewriter Headline -->
+            <div class="hero-typewriter-container">
+              <span class="typewriter-text" id="hero-typewriter-text">I'm a Developer</span>
+            </div>
 
-          <div class="hero-actions">
-            <a href="projects.html" class="btn btn-primary">Eksplorasi Karya</a>
-            <a href="about.html" class="btn btn-secondary">Tentang Saya</a>
-          </div>
-
-          <!-- Indikator Gulir Hero (Simpel & Simetris) -->
-          <div class="hero-scroll-wrapper">
-            <a href="#prologue" class="hero-scroll-pill" aria-label="Gulir ke konten refleksi">
-              <span class="mouse-icon" aria-hidden="true">
-                <span class="mouse-wheel"></span>
-              </span>
-              <span class="scroll-pill-text">GULIR</span>
-              <span class="scroll-pill-arrow" aria-hidden="true">↓</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pengantar Ringkas (Ruang Bernapas & Berbobot) -->
-    <section class="section" id="prologue" aria-labelledby="intro-heading">
-      <div class="container">
-        <div class="intro-grid">
-          <div>
-            <span class="editorial-tag">Refleksi</span>
-            <p id="intro-heading" class="intro-lead">
-              "Pemahaman tidak dimulai dari mengetahui jawaban, melainkan dari kesabaran mengajukan pertanyaan jujur."
+            <p class="hero-description">
+              Mengembangkan aplikasi web modern, performa tinggi, dan antarmuka interaktif yang presisi dan estetis. Menghubungkan logika kode yang kuat dengan pengalaman visual yang elegan.
             </p>
+
+            <!-- Action Row (Download CV & Socials) -->
+            <div class="hero-action-row">
+              <a href="#contact" class="btn-download-cv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Unduh CV</span>
+              </a>
+
+              <div class="hero-social-links" aria-label="Tautan Sosial Media">
+                <!-- GitHub -->
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="intro-body">
-            <p>
-              Ruang ini adalah catatan dan eksperimen terbuka. Saya merancang alat dan antarmuka dengan mengutamakan ketenangan kognitif, menguji prinsip belajar mandiri, dan mendokumentasikan proses nyata tanpa kepura-puraan.
+
+          <!-- Right Column: Luminous White Portrait Artwork -->
+          <div class="hero-artwork-container">
+            <div class="hero-portrait-frame">
+              <img src="assets/images/portrait-white-glow.svg" alt="Ilustrasi Potret Profesional dengan Aura Putih Bercahaya" width="460" height="560">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TECH STACK MARQUEE TICKER BAR -->
+    <div class="tech-marquee-wrapper" aria-label="Teknologi & Instrumen Utama">
+      <div class="tech-marquee-track">
+        <!-- Loop 1 -->
+        <span class="tech-ticker-item">React JS</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Next.js</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Vue.js</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Tailwind CSS</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">TypeScript</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Node.js</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">PostgreSQL</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Figma</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Docker</span>
+        <span class="ticker-dot"></span>
+
+        <!-- Loop 2 (Continuous) -->
+        <span class="tech-ticker-item">React JS</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Next.js</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Vue.js</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Tailwind CSS</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">TypeScript</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Node.js</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">PostgreSQL</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Figma</span>
+        <span class="ticker-dot"></span>
+        <span class="tech-ticker-item">Docker</span>
+        <span class="ticker-dot"></span>
+      </div>
+    </div>
+
+    <!-- 3. ABOUT ME SECTION (3-Col Desktop / Stacked Mobile) -->
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-common-header">
+          <span class="section-eyebrow">KENALI SAYA LEBIH DEKAT</span>
+          <h2 class="section-title" id="about-title">
+            <span class="blossom-accent">🌸</span> Tentang Saya <span class="blossom-accent">🌸</span>
+          </h2>
+          <p class="section-subtitle">
+            Dedikasi pada kode presisi, estetika antarmuka bermakna, dan pembelajaran berkelanjutan.
+          </p>
+        </div>
+
+        <div class="about-3col-grid">
+          <!-- Left Column: Bio & 2x2 Stats -->
+          <div class="about-col-left">
+            <p class="about-intro-p">
+              Saya adalah seorang pengembang web dengan dedikasi tinggi dalam menciptakan aplikasi yang indah, fungsional, dan berkinerja tinggi. Saya menyukai tantangan mengubah ide rumit menjadi solusi digital nyata melalui kode yang bersih dan terstruktur.
             </p>
-            <div style="margin-top: 1.25rem;">
-              <a href="about.html" class="link-editorial">
-                Filosofi selengkapnya
-                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Karya & Studi Kasus Pilihan (Spacious, Tanpa Beban Teks Berlebih) -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
-          <div>
-            <span class="editorial-tag">Karya Terpilih</span>
-            <h2 id="projects-title" class="section-title">Eksperimen &amp; Studi Kasus</h2>
-          </div>
-          <a href="projects.html" class="link-editorial">
-            Semua Proyek
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-
-        <div class="projects-editorial-list">
-          <!-- Proyek 1 -->
-          <article class="project-item">
-            <a href="project-detail.html?id=cognitive-note-engine" class="project-visual-link" aria-label="Detail Proyek RecallFlow">
-              <img src="assets/images/project-recallflow.svg" alt="Diagram RecallFlow" loading="lazy" />
-            </a>
-            <div class="project-info">
-              <span class="project-category">Alat Belajar</span>
-              <h3 class="project-title">
-                <a href="project-detail.html?id=cognitive-note-engine">RecallFlow: Mesin Catatan Kognitif</a>
-              </h3>
-              <p class="project-desc">
-                Ruang markdown bebas distraksi dengan interval pengingatan aktif untuk mengatasi ilusi menimbun informasi.
-              </p>
-              <div class="project-tags">
-                <span class="tag-badge">Local-First</span>
-                <span class="tag-badge">Vanilla JS</span>
-                <span class="tag-badge">Active Recall</span>
+            <div class="about-stats-grid">
+              <div class="stat-box">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Tahun Pengalaman</div>
               </div>
-              <a href="project-detail.html?id=cognitive-note-engine" class="link-editorial">
-                Studi Kasus 10 Poin
-                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Proyek 2 -->
-          <article class="project-item">
-            <a href="project-detail.html?id=percept-cognitive-ui" class="project-visual-link" aria-label="Detail Proyek Percept">
-              <img src="assets/images/project-percept.svg" alt="Diagram Percept" loading="lazy" />
-            </a>
-            <div class="project-info">
-              <span class="project-category">Psikologi &amp; Desain</span>
-              <h3 class="project-title">
-                <a href="project-detail.html?id=percept-cognitive-ui">Percept: Ergonomi Tipografi</a>
-              </h3>
-              <p class="project-desc">
-                Utilitas diagnostik peramban untuk mengukur kelelahan mata dan beban kognitif saat membaca teks digital panjang.
-              </p>
-              <div class="project-tags">
-                <span class="tag-badge">Ergonomi Perseptual</span>
-                <span class="tag-badge">Canvas API</span>
-                <span class="tag-badge">WCAG 2.2</span>
+              <div class="stat-box">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Proyek Selesai</div>
               </div>
-              <a href="project-detail.html?id=percept-cognitive-ui" class="link-editorial">
-                Studi Kasus 10 Poin
-                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Proyek 3 -->
-          <article class="project-item">
-            <a href="project-detail.html?id=curio-mental-models" class="project-visual-link" aria-label="Detail Proyek Curio">
-              <img src="assets/images/project-curio.svg" alt="Diagram Curio" loading="lazy" />
-            </a>
-            <div class="project-info">
-              <span class="project-category">Pendidikan &amp; Sistem</span>
-              <h3 class="project-title">
-                <a href="project-detail.html?id=curio-mental-models">Curio: Model Mental Interaktif</a>
-              </h3>
-              <p class="project-desc">
-                Eksperimen pikiran interaktif untuk memahami pemikiran sistem, dampak tingkat kedua, dan teori keputusan.
-              </p>
-              <div class="project-tags">
-                <span class="tag-badge">Systems Thinking</span>
-                <span class="tag-badge">SVG Reaktif</span>
-                <span class="tag-badge">Explorable Explanations</span>
+              <div class="stat-box">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Klien & Mitra</div>
               </div>
-              <a href="project-detail.html?id=curio-mental-models" class="link-editorial">
-                Studi Kasus 10 Poin
-                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
+              <div class="stat-box">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Dedikasi Penuh</div>
+              </div>
             </div>
-          </article>
+          </div>
+
+          <!-- Center Column: Glowing White Fan Visual -->
+          <div class="about-col-center">
+            <div class="fan-visual-wrapper">
+              <img src="assets/images/fan-white-glow.svg" alt="Visual Kipas Tradisional Bercahaya Putih" width="500" height="400">
+            </div>
+          </div>
+
+          <!-- Right Column: Philosophy & Mission Cards -->
+          <div class="about-col-right">
+            <div class="philosophy-card">
+              <h3 class="card-title-white">Filosofi Saya</h3>
+              <p class="card-body-text">
+                Memadukan inspirasi klasik dan minimalisme arsitektur dengan teknologi frontend termutakhir untuk menciptakan pengalaman web yang berkarakter, tenang, dan berkinerja optimal.
+              </p>
+            </div>
+
+            <div class="mission-card">
+              <h3 class="card-title-white">Misi Utama</h3>
+              <p class="card-body-text">
+                Mengubah ide dan tantangan rumit menjadi antarmuka yang bersih, responsif, presisi hingga tingkat piksel, serta memikat dan memudahkan setiap pengunjung.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Fokus Minat Saat Ini (Tampilan Garis Minimalis) -->
-    <section class="section" id="interests" aria-labelledby="focus-title">
+    <!-- 4. CERTIFICATES SECTION (3 Cards Grid) -->
+    <section class="certificates-section" id="certificates" aria-labelledby="cert-title">
       <div class="container">
-        <div class="section-header">
-          <span class="editorial-tag">Fokus Riset</span>
-          <h2 id="focus-title" class="section-title">Minat Saat Ini</h2>
+        <div class="section-common-header">
+          <span class="section-eyebrow">PENCAPAIAN RESMI</span>
+          <h2 class="section-title" id="cert-title">
+            <span class="blossom-accent">🌸</span> Sertifikat <span class="blossom-accent">🌸</span>
+          </h2>
+          <p class="section-subtitle">
+            Kredensial dan sertifikasi profesional dalam rekayasa perangkat lunak dan desain interaksi.
+          </p>
         </div>
 
-        <div class="interests-grid">
-          <div class="interest-item">
-            <span class="interest-number">01</span>
-            <h3 class="interest-title">Pembelajaran Mandiri</h3>
-            <p class="interest-desc">Memori kerja, teknik Feynman, dan sistem pengingatan aktif.</p>
+        <div class="certificates-grid">
+          <!-- Card 1 -->
+          <div class="certificate-card">
+            <div>
+              <div class="cert-top-row">
+                <h3 class="cert-name">Advanced React Development</h3>
+                <span class="cert-year-badge">2024</span>
+              </div>
+              <div class="cert-issuer">Meta / Professional Developer Program</div>
+              <div class="cert-tags">
+                <span class="cert-tag-pill">React</span>
+                <span class="cert-tag-pill">Hooks</span>
+                <span class="cert-tag-pill">Context API</span>
+              </div>
+            </div>
+            <a href="#certificates" class="cert-link">Lihat Kredensial ↗</a>
           </div>
 
-          <div class="interest-item">
-            <span class="interest-number">02</span>
-            <h3 class="interest-title">Psikologi Perilaku</h3>
-            <p class="interest-desc">Bias kognitif dan perlindungan atensi di ruang digital.</p>
+          <!-- Card 2 -->
+          <div class="certificate-card">
+            <div>
+              <div class="cert-top-row">
+                <h3 class="cert-name">Full Stack JavaScript</h3>
+                <span class="cert-year-badge">2023</span>
+              </div>
+              <div class="cert-issuer">Udacity / Global Engineering Nanodegree</div>
+              <div class="cert-tags">
+                <span class="cert-tag-pill">Node.js</span>
+                <span class="cert-tag-pill">Express</span>
+                <span class="cert-tag-pill">PostgreSQL</span>
+              </div>
+            </div>
+            <a href="#certificates" class="cert-link">Lihat Kredensial ↗</a>
           </div>
 
-          <div class="interest-item">
-            <span class="interest-number">03</span>
-            <h3 class="interest-title">Karya Digital Tenang</h3>
-            <p class="interest-desc">Komputasi local-first dan antarmuka yang menghargai manusia.</p>
-          </div>
-
-          <div class="interest-item">
-            <span class="interest-number">04</span>
-            <h3 class="interest-title">Berpikir Kritis</h3>
-            <p class="interest-desc">Penalaran prinsip pertama dan pemikiran sistemik.</p>
+          <!-- Card 3 -->
+          <div class="certificate-card">
+            <div>
+              <div class="cert-top-row">
+                <h3 class="cert-name">UI/UX Design Masterclass</h3>
+                <span class="cert-year-badge">2024</span>
+              </div>
+              <div class="cert-issuer">Google Career Certificate / Design Track</div>
+              <div class="cert-tags">
+                <span class="cert-tag-pill">Figma</span>
+                <span class="cert-tag-pill">User Research</span>
+                <span class="cert-tag-pill">Prototyping</span>
+              </div>
+            </div>
+            <a href="#certificates" class="cert-link">Lihat Kredensial ↗</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Penutup Tenang & Lapang -->
-    <section class="closing-section" id="closing" aria-labelledby="closing-title">
+    <!-- 5. EDUCATION SECTION (2-Col Desktop / Stacked Mobile) -->
+    <section class="education-section" id="education" aria-labelledby="edu-title">
       <div class="container">
-        <span class="editorial-tag">Koneksi</span>
-        <h2 id="closing-title" class="closing-headline">Selalu belajar. Selalu menjelajah.</h2>
-        <p class="closing-text">
-          Pintu percakapan terbuka bagi siapa saja yang ingin mendiskusikan gagasan atau berbagi sudut pandang.
-        </p>
-        <div class="closing-links">
-          <a href="contact.html" class="btn btn-primary">Mulai Percakapan</a>
-          <a href="about.html" class="btn btn-secondary">Tentang Saya</a>
+        <div class="section-common-header">
+          <span class="section-eyebrow">LATAR BELAKANG AKADEMIK</span>
+          <h2 class="section-title" id="edu-title">
+            <span class="blossom-accent">🌸</span> Pendidikan <span class="blossom-accent">🌸</span>
+          </h2>
+          <p class="section-subtitle">
+            Jejak pembelajaran terstruktur dan fondasi teoritis dalam ilmu komputer dan sistem perangkat lunak.
+          </p>
+        </div>
+
+        <div class="education-grid">
+          <!-- Left Column: Glowing Blossom Branch Visual -->
+          <div class="education-visual-col">
+            <img src="assets/images/blossom-white-glow.svg" alt="Visual Ranting Bunga Sakura Bercahaya Putih" width="320" height="500">
+          </div>
+
+          <!-- Right Column: Education Timeline Cards -->
+          <div class="education-timeline-col">
+            <div class="edu-card">
+              <h3 class="edu-degree">Magister Ilmu Komputer (Master's in CS)</h3>
+              <div class="edu-institution">Institut Teknologi Terkemuka</div>
+              <div class="edu-meta-badge">2021 – 2023 &bull; IPK 3.92 / 4.00</div>
+            </div>
+
+            <div class="edu-card">
+              <h3 class="edu-degree">Sarjana Rekayasa Perangkat Lunak</h3>
+              <div class="edu-institution">Universitas Teknologi</div>
+              <div class="edu-meta-badge">2017 – 2021 &bull; IPK 3.85 / 4.00</div>
+            </div>
+
+            <div class="edu-card">
+              <h3 class="edu-degree">Bootcamp Web Development Intensif</h3>
+              <div class="edu-institution">Akademi Rekayasa Perangkat Lunak Global</div>
+              <div class="edu-meta-badge">2020 &bull; 600+ Jam Kode Intensif</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- 6. PROJECTS SECTION (3x2 Grid Desktop / Single Col Mobile) -->
+    <section class="projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-common-header">
+          <span class="section-eyebrow">EKSPLORASI TERBARU</span>
+          <h2 class="section-title" id="projects-title">
+            <span class="blossom-accent">🌸</span> Karya & Proyek <span class="blossom-accent">🌸</span>
+          </h2>
+          <p class="section-subtitle">
+            Kompilasi aplikasi web fungsional, antarmuka digital presisi, dan eksperimen rekayasa nyata.
+          </p>
+        </div>
+
+        <div class="projects-6grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/images/project-ai.svg" alt="Mockup Aplikasi AI Image Generator" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-header-row">
+                <h3 class="project-title">AI Cognitive Engine</h3>
+                <p class="project-desc-short">Generator gambar dan analisis kognitif cerdas dengan pemrosesan model neural real-time.</p>
+                <div class="project-tags">
+                  <span class="project-tag">React</span>
+                  <span class="project-tag">OpenAI</span>
+                  <span class="project-tag">Tailwind</span>
+                </div>
+              </div>
+              <a href="project-detail.html?id=recallflow" class="project-action-link">Lihat Detail Kasus ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/images/project-ecommerce.svg" alt="Mockup Toko Online Modern" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-header-row">
+                <h3 class="project-title">E-Commerce Platform</h3>
+                <p class="project-desc-short">Toko online arsitektur modern dengan alur checkout instan dan analitik konversi.</p>
+                <div class="project-tags">
+                  <span class="project-tag">Next.js</span>
+                  <span class="project-tag">Stripe</span>
+                  <span class="project-tag">PostgreSQL</span>
+                </div>
+              </div>
+              <a href="project-detail.html?id=percept" class="project-action-link">Lihat Detail Kasus ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/images/project-portfolio.svg" alt="Mockup Website Portofolio Editorial" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-header-row">
+                <h3 class="project-title">Editorial Portfolio Web</h3>
+                <p class="project-desc-short">Ruang portofolio tenang bernuansa monokromatik dengan transisi organik tanpa dependensi.</p>
+                <div class="project-tags">
+                  <span class="project-tag">HTML5</span>
+                  <span class="project-tag">CSS3</span>
+                  <span class="project-tag">Vanilla JS</span>
+                </div>
+              </div>
+              <a href="project-detail.html?id=curio" class="project-action-link">Lihat Detail Kasus ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/images/project-task.svg" alt="Mockup Aplikasi Manajemen Tugas Kanban" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-header-row">
+                <h3 class="project-title">Task Flow Kanban</h3>
+                <p class="project-desc-short">Manajemen alur kerja kolaboratif real-time dengan sinkronisasi status tanpa jeda.</p>
+                <div class="project-tags">
+                  <span class="project-tag">Vue 3</span>
+                  <span class="project-tag">Firebase</span>
+                  <span class="project-tag">Pinia</span>
+                </div>
+              </div>
+              <a href="projects.html" class="project-action-link">Lihat Semua Proyek ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/images/project-weather.svg" alt="Mockup Dashboard Radar Cuaca" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-header-row">
+                <h3 class="project-title">Atmos Weather Radar</h3>
+                <p class="project-desc-short">Visualisasi metrik meteorologi dan radar kualitas udara 24 jam berbasis data satelit.</p>
+                <div class="project-tags">
+                  <span class="project-tag">REST API</span>
+                  <span class="project-tag">Chart.js</span>
+                  <span class="project-tag">GeoJSON</span>
+                </div>
+              </div>
+              <a href="projects.html" class="project-action-link">Lihat Semua Proyek ↗</a>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/images/project-social.svg" alt="Mockup Aplikasi Media Sosial Real-Time" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-header-row">
+                <h3 class="project-title">Nexus Realtime Network</h3>
+                <p class="project-desc-short">Arsitektur jejaring percakapan multi-kanal dengan sistem websocket terdistribusi.</p>
+                <div class="project-tags">
+                  <span class="project-tag">MERN</span>
+                  <span class="project-tag">Socket.io</span>
+                  <span class="project-tag">Redis</span>
+                </div>
+              </div>
+              <a href="projects.html" class="project-action-link">Lihat Semua Proyek ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SKILLS SECTION (3-Col Desktop / Stacked Mobile) -->
+    <section class="skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-common-header">
+          <span class="section-eyebrow">KOMPETENSI TEKNOLOGI</span>
+          <h2 class="section-title" id="skills-title">
+            <span class="blossom-accent">🌸</span> Keahlian Utama <span class="blossom-accent">🌸</span>
+          </h2>
+          <p class="section-subtitle">
+            Bahasa pemrograman, pustaka antarmuka, dan arsitektur backend yang saya gunakan sehari-hari.
+          </p>
+        </div>
+
+        <div class="skills-3col-grid">
+          <!-- Left Column (3 Skills) -->
+          <div class="skill-list-col">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>React.js / Next.js</span>
+                <span class="skill-pct">92%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill-bar" data-pct="92%" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>JavaScript / TypeScript</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill-bar" data-pct="88%" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Tailwind CSS / UI Styling</span>
+                <span class="skill-pct">95%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill-bar" data-pct="95%" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Column (Blossom Visual) -->
+          <div class="skills-center-visual">
+            <img src="assets/images/blossom-white-glow.svg" alt="Visual Sakura Bercahaya Putih" width="320" height="500">
+          </div>
+
+          <!-- Right Column (3 Skills) -->
+          <div class="skill-list-col">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Node.js / Express API</span>
+                <span class="skill-pct">82%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill-bar" data-pct="82%" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>PostgreSQL / MongoDB</span>
+                <span class="skill-pct">78%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill-bar" data-pct="78%" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Git / CI-CD / DevOps</span>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill-bar" data-pct="90%" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT SECTION (2-Col Desktop / Stacked Mobile) -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-common-header">
+          <span class="section-eyebrow">KOLABORASI & DISKUSI</span>
+          <h2 class="section-title" id="contact-title">
+            <span class="blossom-accent">🌸</span> Hubungi Saya <span class="blossom-accent">🌸</span>
+          </h2>
+          <p class="section-subtitle">
+            Pintu selalu terbuka untuk diskusi proyek baru, pertanyaan teknis, atau peluang kolaborasi.
+          </p>
+        </div>
+
+        <div class="contact-2col-grid">
+          <!-- Left Column: Glowing Telephone Handset & Direct Contacts -->
+          <div class="contact-left-visual">
+            <img src="assets/images/phone-white-glow.svg" alt="Visual Telepon Retro Bercahaya Putih" width="320" height="320">
+            <div class="contact-direct-meta">
+              <span>Email: <a href="mailto:kontak@portofolio.dev">kontak@portofolio.dev</a></span>
+              <span>Telepon: <a href="tel:+6281234567890">+62 812 3456 7890</a></span>
+              <span>Lokasi: Jakarta, Indonesia</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Clean Glass Form Card -->
+          <div class="contact-form-card">
+            <form class="contact-form" action="#" method="POST">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Nama Lengkap</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="Nama Anda..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Alamat Email</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="email@domain.com..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Pesan Anda</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Tuliskan gagasan atau pesan proyek Anda di sini..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-send-message">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Kirim Pesan</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer Bersih -->
-  <footer class="site-footer">
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="brand-link" aria-label="Beranda">
-            <span class="brand-symbol" aria-hidden="true">◈</span>
-          </a>
-          <p class="footer-tagline">
-            "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
-          </p>
+      <div class="footer-content">
+        <div class="footer-left">
+          <span class="footer-glyph">◈</span>
+          <span>&copy; 2026 Portofolio Profesional. Hak cipta dilindungi.</span>
         </div>
-
-        <div class="footer-nav">
-          <div class="footer-nav-col">
-            <span class="footer-col-title">Navigasi</span>
-            <a href="index.html" class="footer-link">Beranda</a>
-            <a href="about.html" class="footer-link">Tentang</a>
-            <a href="projects.html" class="footer-link">Proyek</a>
-            <a href="contact.html" class="footer-link">Kontak</a>
-          </div>
-
-          <div class="footer-nav-col">
-            <span class="footer-col-title">Karya</span>
-            <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
-            <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept</a>
-            <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio</a>
-          </div>
-
-          <div class="footer-nav-col">
-            <span class="footer-col-title">Terhubung</span>
-            <a href="contact.html" class="footer-link">Pesan</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026. Hak cipta dilindungi.</p>
-        <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
+        <ul class="footer-links">
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#certificates">Sertifikat</a></li>
+          <li><a href="#projects">Karya</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
+  <script src="js/theme-transition.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

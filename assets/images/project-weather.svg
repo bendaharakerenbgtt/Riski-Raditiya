@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <linearGradient id="bgWeather" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141724" />
+      <stop offset="100%" stop-color="#0a0c12" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="12" fill="url(#bgWeather)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  
+  <!-- Window Header Bar -->
+  <rect width="600" height="42" rx="12" fill="#1c2030" />
+  <circle cx="28" cy="21" r="5.5" fill="#ff5f56" />
+  <circle cx="48" cy="21" r="5.5" fill="#ffbd2e" />
+  <circle cx="68" cy="21" r="5.5" fill="#27c93f" />
+  <rect x="180" y="12" width="240" height="18" rx="9" fill="#0d0e14" />
+  <text x="300" y="25" fill="#8892b0" font-family="sans-serif" font-size="10" text-anchor="middle">atmos-weather-radar.io</text>
+
+  <!-- Weather Cards -->
+  <rect x="30" y="65" width="220" height="280" rx="8" fill="#171a28" stroke="rgba(255,255,255,0.15)" />
+  <text x="50" y="98" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold">Jakarta, Indonesia</text>
+  <text x="50" y="118" fill="#8892b0" font-family="sans-serif" font-size="11">Sebagian Berawan</text>
+  <text x="50" y="175" fill="#ffffff" font-family="sans-serif" font-size="48" font-weight="bold">29°C</text>
+  <!-- Minimalist Cloud / Sun Icon -->
+  <circle cx="190" cy="140" r="22" fill="#ffffff" />
+  <rect x="155" y="150" width="60" height="20" rx="10" fill="#a4adc4" />
+  <line x1="50" y1="205" x2="230" y2="205" stroke="rgba(255,255,255,0.1)" />
+  <text x="50" y="235" fill="#8892b0" font-family="sans-serif" font-size="11">Kelembapan: 74%</text>
+  <text x="50" y="260" fill="#8892b0" font-family="sans-serif" font-size="11">Kecepatan Angin: 12 km/h</text>
+  <text x="50" y="285" fill="#8892b0" font-family="sans-serif" font-size="11">Indeks UV: 5 (Sedang)</text>
+  <text x="50" y="310" fill="#ffffff" font-family="sans-serif" font-size="11">Kualitas Udara: Baik (AQI 38)</text>
+
+  <!-- Temperature Line Chart / Radar -->
+  <rect x="270" y="65" width="300" height="280" rx="8" fill="#171a28" stroke="rgba(255,255,255,0.1)" />
+  <text x="290" y="95" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">Grafik Tren Suhu 24 Jam</text>
+  
+  <!-- Grid Lines -->
+  <line x1="290" y1="130" x2="540" y2="130" stroke="rgba(255,255,255,0.08)" />
+  <line x1="290" y1="180" x2="540" y2="180" stroke="rgba(255,255,255,0.08)" />
+  <line x1="290" y1="230" x2="540" y2="230" stroke="rgba(255,255,255,0.08)" />
+  <line x1="290" y1="280" x2="540" y2="280" stroke="rgba(255,255,255,0.08)" />
+
+  <!-- Smooth Line Chart -->
+  <path d="M 290 240 Q 340 160, 390 190 T 470 140 T 540 180" fill="none" stroke="#ffffff" stroke-width="3" />
+  <!-- Data Points -->
+  <circle cx="290" cy="240" r="4.5" fill="#ffffff" />
+  <circle cx="355" cy="172" r="4.5" fill="#ffffff" />
+  <circle cx="430" cy="180" r="4.5" fill="#ffffff" />
+  <circle cx="470" cy="140" r="5" fill="#ffffff" stroke="#121318" stroke-width="2" />
+  <circle cx="540" cy="180" r="4.5" fill="#ffffff" />
+
+  <text x="470" y="125" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">32°C (Puncak)</text>
+  
+  <text x="290" y="305" fill="#8892b0" font-family="sans-serif" font-size="9">00:00</text>
+  <text x="350" y="305" fill="#8892b0" font-family="sans-serif" font-size="9">06:00</text>
+  <text x="420" y="305" fill="#8892b0" font-family="sans-serif" font-size="9">12:00</text>
+  <text x="480" y="305" fill="#8892b0" font-family="sans-serif" font-size="9">18:00</text>
+  <text x="535" y="305" fill="#8892b0" font-family="sans-serif" font-size="9">24:00</text>
+</svg>

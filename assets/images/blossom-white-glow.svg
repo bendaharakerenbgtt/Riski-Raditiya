@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 500" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <filter id="blossomGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur1" />
+      <feGaussianBlur stdDeviation="15" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <radialGradient id="petalGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#f0f3f8" />
+      <stop offset="100%" stop-color="#c8cedb" />
+    </radialGradient>
+    <linearGradient id="branchGrad" x1="0%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#2a2d36" />
+      <stop offset="50%" stop-color="#4e5362" />
+      <stop offset="100%" stop-color="#8a91a3" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Ambient Glow Backdrop -->
+  <ellipse cx="160" cy="250" rx="110" ry="170" fill="#ffffff" fill-opacity="0.04" filter="url(#blossomGlow)" />
+
+  <!-- Botanical Main Branch and Twigs -->
+  <g stroke="url(#branchGrad)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 170 480 Q 155 380, 165 300 T 150 150 Q 145 80, 160 40" stroke-width="4.5" />
+    <!-- Secondary Twigs -->
+    <path d="M 165 370 Q 195 340, 225 325 T 255 315" stroke-width="3" />
+    <path d="M 160 320 Q 120 300, 95 285 T 70 270" stroke-width="2.8" />
+    <path d="M 158 240 Q 190 215, 230 195 T 250 170" stroke-width="2.6" />
+    <path d="M 152 180 Q 110 160, 85 140 T 75 110" stroke-width="2.4" />
+    <path d="M 150 120 Q 175 95, 205 85" stroke-width="2" />
+    <path d="M 155 70 Q 135 50, 120 40" stroke-width="1.8" />
+  </g>
+
+  <!-- Five-Petal Cherry Blossoms (Glowing Luminescent White) -->
+  <g filter="url(#blossomGlow)">
+    <!-- Flower Cluster 1 (Top Center) -->
+    <g transform="translate(160, 50)">
+      <circle cx="0" cy="-12" r="8" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4" fill="#ffffff" />
+      <circle cx="0" cy="0" r="2" fill="#222" />
+    </g>
+
+    <!-- Flower Cluster 2 (Upper Left) -->
+    <g transform="translate(85, 135) scale(1.15)">
+      <circle cx="0" cy="-13" r="9" fill="url(#petalGrad)" />
+      <circle cx="12" cy="-4" r="9" fill="url(#petalGrad)" />
+      <circle cx="8" cy="11" r="9" fill="url(#petalGrad)" />
+      <circle cx="-8" cy="11" r="9" fill="url(#petalGrad)" />
+      <circle cx="-12" cy="-4" r="9" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4.5" fill="#ffffff" />
+      <circle cx="0" cy="0" r="2.2" fill="#222" />
+    </g>
+
+    <!-- Flower Cluster 3 (Upper Right) -->
+    <g transform="translate(235, 185) scale(1.1)">
+      <circle cx="0" cy="-12" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4" fill="#ffffff" />
+    </g>
+
+    <!-- Flower Cluster 4 (Center Big) -->
+    <g transform="translate(155, 230) scale(1.35)">
+      <circle cx="0" cy="-14" r="10" fill="url(#petalGrad)" />
+      <circle cx="13" cy="-4" r="10" fill="url(#petalGrad)" />
+      <circle cx="8" cy="12" r="10" fill="url(#petalGrad)" />
+      <circle cx="-8" cy="12" r="10" fill="url(#petalGrad)" />
+      <circle cx="-13" cy="-4" r="10" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="5" fill="#ffffff" />
+      <circle cx="0" cy="0" r="2.5" fill="#222" />
+    </g>
+
+    <!-- Flower Cluster 5 (Mid Left) -->
+    <g transform="translate(90, 275) scale(1.2)">
+      <circle cx="0" cy="-12" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4" fill="#ffffff" />
+    </g>
+
+    <!-- Flower Cluster 6 (Mid Right) -->
+    <g transform="translate(240, 315) scale(1.25)">
+      <circle cx="0" cy="-13" r="9" fill="url(#petalGrad)" />
+      <circle cx="12" cy="-4" r="9" fill="url(#petalGrad)" />
+      <circle cx="8" cy="11" r="9" fill="url(#petalGrad)" />
+      <circle cx="-8" cy="11" r="9" fill="url(#petalGrad)" />
+      <circle cx="-12" cy="-4" r="9" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4.5" fill="#ffffff" />
+    </g>
+
+    <!-- Flower Cluster 7 (Lower Center) -->
+    <g transform="translate(165, 340) scale(1.1)">
+      <circle cx="0" cy="-11" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="10" cy="-3" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="6" cy="9" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="-6" cy="9" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="-10" cy="-3" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="3.5" fill="#ffffff" />
+    </g>
+
+    <!-- Delicate White Buds & Drifting Petals -->
+    <circle cx="120" cy="42" r="4.5" fill="#ffffff" />
+    <circle cx="210" cy="80" r="4" fill="#ffffff" />
+    <circle cx="65" cy="105" r="4.5" fill="#ffffff" />
+    <circle cx="260" cy="165" r="4.5" fill="#ffffff" />
+    <circle cx="60" cy="265" r="4" fill="#ffffff" />
+    <circle cx="265" cy="310" r="5" fill="#ffffff" />
+
+    <!-- Drifting Petals -->
+    <ellipse cx="120" cy="180" rx="6" ry="3.5" transform="rotate(-30 120 180)" fill="#ffffff" opacity="0.9" />
+    <ellipse cx="205" cy="270" rx="7" ry="4" transform="rotate(25 205 270)" fill="#ffffff" opacity="0.9" />
+    <ellipse cx="130" cy="410" rx="6" ry="3" transform="rotate(45 130 410)" fill="#ffffff" opacity="0.85" />
+    <ellipse cx="200" cy="440" rx="5" ry="2.8" transform="rotate(-15 200 440)" fill="#ffffff" opacity="0.8" />
+  </g>
+</svg>

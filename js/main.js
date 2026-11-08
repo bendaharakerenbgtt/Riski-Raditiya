@@ -1,16 +1,16 @@
 /**
- * InLiveIq — Main Interactive Controller (Bahasa Indonesia)
- * Indikator scroll garis simpel tepat di bawah header, jam hidup real-time,
- * navigasi ramah aksesibilitas, drawer responsif, salin clipboard, dan form.
+ * Portfolio Main Interactive Controller (White Nuance / Deep Obsidian)
+ * Hairline Scroll Progress, Interactive Typewriter, Animated Skill Progress,
+ * Mobile Drawer, Stats Counter, and Smooth Navigation.
  */
 
 (function () {
   'use strict';
 
-  // 1. Indikator Progress Scroll Garis Halus di Bawah Header
+  // 1. Hairline Scroll Progress Bar (Below Sticky Header)
   function initScrollProgress() {
-    const bars = document.querySelectorAll('.header-scroll-progress-bar, .scroll-progress-bar');
-    if (!bars.length) return;
+    const bar = document.querySelector('.header-scroll-progress-bar');
+    if (!bar) return;
 
     function update() {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -22,191 +22,172 @@
       const winHeight = window.innerHeight || document.documentElement.clientHeight || 800;
       const totalH = docHeight - winHeight;
       const pct = totalH > 0 ? Math.min(Math.max((scrollY / totalH) * 100, 0), 100) : 0;
+      bar.style.width = pct + '%';
 
-      bars.forEach(bar => {
-        bar.style.width = pct + '%';
-      });
+      // Header scrolled state
+      const header = document.querySelector('.site-header');
+      if (header) {
+        if (scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
     }
 
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update, { passive: true });
-    document.addEventListener('scroll', update, { passive: true });
     update();
   }
 
-  // 2. Jam Hidup Real-Time (WIB / Jakarta)
-  function initLiveClock() {
-    const clockEl = document.getElementById('live-clock');
-    if (!clockEl) return;
+  // 2. Interactive Typewriter Effect for Hero
+  function initTypewriter() {
+    const el = document.getElementById('hero-typewriter-text');
+    if (!el) return;
 
-    function tick() {
-      try {
-        const now = new Date();
-        const formatter = new Intl.DateTimeFormat('id-ID', {
-          timeZone: 'Asia/Jakarta',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: false
-        });
-        clockEl.textContent = `${formatter.format(now)} WIB`;
-      } catch (e) {
-        const d = new Date();
-        const pad = (n) => n.toString().padStart(2, '0');
-        clockEl.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} WIB`;
+    const phrases = [
+      "I'm a Developer",
+      "I'm a Creator",
+      "I'm a Problem Solver",
+      "I'm a UI/UX Builder"
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function type() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        el.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        el.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 110;
       }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        // Pause at end of phrase
+        typingSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 400;
+      }
+
+      setTimeout(type, typingSpeed);
     }
 
-    tick();
-    setInterval(tick, 1000);
+    type();
   }
 
-  // 3. Mobile Menu Drawer Controller
-  function initMobileMenu() {
-    const toggleBtn = document.querySelector('.mobile-nav-toggle');
-    const drawer = document.querySelector('.mobile-drawer');
+  // 3. Mobile Navigation Drawer
+  function initMobileNav() {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const drawer = document.querySelector('.mobile-nav-drawer');
+    const closeBtn = document.querySelector('.mobile-drawer-close');
     if (!toggleBtn || !drawer) return;
 
-    let isOpen = false;
-
-    function openDrawer() {
-      isOpen = true;
+    function open() {
       drawer.classList.add('open');
-      toggleBtn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
-      const iconOpen = toggleBtn.querySelector('.icon-menu');
-      const iconClose = toggleBtn.querySelector('.icon-close');
-      if (iconOpen) iconOpen.style.display = 'none';
-      if (iconClose) iconClose.style.display = 'block';
     }
 
-    function closeDrawer() {
-      isOpen = false;
+    function close() {
       drawer.classList.remove('open');
-      toggleBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      const iconOpen = toggleBtn.querySelector('.icon-menu');
-      const iconClose = toggleBtn.querySelector('.icon-close');
-      if (iconOpen) iconOpen.style.display = 'block';
-      if (iconClose) iconClose.style.display = 'none';
     }
 
-    toggleBtn.addEventListener('click', () => {
-      if (isOpen) {
-        closeDrawer();
-      } else {
-        openDrawer();
-      }
-    });
+    toggleBtn.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
 
-    const drawerLinks = drawer.querySelectorAll('.nav-link');
-    drawerLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        closeDrawer();
-      });
-    });
+    const links = drawer.querySelectorAll('a');
+    links.forEach(l => l.addEventListener('click', close));
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        closeDrawer();
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        close();
       }
     });
   }
 
-  // 4. Highlight Nav Link Aktif
-  function initActiveNav() {
-    const path = window.location.pathname;
-    const page = path.split('/').pop() || 'index.html';
+  // 4. Animated Skill Bars on Intersection
+  function initSkillBars() {
+    const section = document.querySelector('.skills-section');
+    if (!section) return;
 
-    const links = document.querySelectorAll('.desktop-nav .nav-link, .mobile-drawer .nav-link');
-    links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href) return;
-      const linkPage = href.split('/').pop().split('#')[0];
-      
-      if (linkPage === page || (page === '' && linkPage === 'index.html')) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
-      } else {
-        link.classList.remove('active');
-        link.removeAttribute('aria-current');
-      }
-    });
-  }
+    const bars = document.querySelectorAll('.skill-fill-bar');
+    let animated = false;
 
-  // 5. Salin Email ke Clipboard
-  function initEmailCopy() {
-    const copyBtns = document.querySelectorAll('.copy-email-btn');
-    copyBtns.forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const email = btn.getAttribute('data-email') || 'kontak@curiousmind.dev';
-        try {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(email);
-          } else {
-            const ta = document.createElement('textarea');
-            ta.value = email;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !animated) {
+            animated = true;
+            bars.forEach(bar => {
+              const target = bar.getAttribute('data-pct') || '80%';
+              bar.style.width = target;
+            });
+            observer.unobserve(entry.target);
           }
-          const originalText = btn.textContent;
-          btn.textContent = 'Alamat Tersalin!';
-          btn.style.borderColor = 'var(--accent)';
-          btn.style.color = 'var(--accent)';
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.borderColor = '';
-            btn.style.color = '';
-          }, 2200);
-        } catch (err) {
-          console.warn('Clipboard gagal:', err);
-        }
+        });
+      }, { threshold: 0.25 });
+
+      observer.observe(section);
+    } else {
+      bars.forEach(bar => {
+        bar.style.width = bar.getAttribute('data-pct') || '80%';
       });
-    });
+    }
   }
 
-  // 6. Form Kontak
+  // 5. Contact Form Handler (Validation & Interactive Feedback)
   function initContactForm() {
-    const form = document.querySelector('#contact-form');
+    const form = document.querySelector('.contact-form');
     if (!form) return;
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const feedback = document.querySelector('.form-feedback');
-      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitBtn = form.querySelector('.btn-send-message');
+      const origText = submitBtn.innerHTML;
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Mengirimkan pesan...';
-      }
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Mengirimkan pesan...</span>';
 
       setTimeout(() => {
-        if (feedback) {
-          feedback.classList.add('success');
-          feedback.textContent = 'Terima kasih atas pesan Anda. Digerakkan oleh rasa ingin tahu dan refleksi yang mendalam, saya akan membalas pesan Anda sesegera mungkin.';
-        }
+        submitBtn.innerHTML = '<span>✓ Pesan Berhasil Terkirim!</span>';
+        submitBtn.style.background = '#27c93f';
+        submitBtn.style.color = '#ffffff';
         form.reset();
-        if (submitBtn) {
+
+        setTimeout(() => {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Kirim Pesan';
-        }
-      }, 550);
+          submitBtn.innerHTML = origText;
+          submitBtn.style.background = '';
+          submitBtn.style.color = '';
+        }, 3500);
+      }, 1000);
     });
   }
 
-  // 7. ScrollSpy untuk Daftar Isi Kasus (TOC)
-  function initCaseStudyTOC() {
-    const tocLinks = document.querySelectorAll('.toc-link');
-    const sections = document.querySelectorAll('.case-section');
-    if (!tocLinks.length || !sections.length) return;
+  // 6. Active Navigation Highlighting
+  function initActiveNavHighlight() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.desktop-nav-menu a');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          tocLinks.forEach(link => {
+    function checkActive() {
+      const scrollY = window.pageYOffset + 140;
+      sections.forEach(sec => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute('id');
+        if (scrollY >= top && scrollY < top + height) {
+          navLinks.forEach(link => {
             if (link.getAttribute('href') === `#${id}`) {
               link.classList.add('active');
             } else {
@@ -215,52 +196,19 @@
           });
         }
       });
-    }, {
-      rootMargin: '-10% 0px -75% 0px'
-    });
+    }
 
-    sections.forEach(sec => observer.observe(sec));
+    window.addEventListener('scroll', checkActive, { passive: true });
+    checkActive();
   }
 
-  // 8. Filter Kategori Arsip
-  function initFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('[data-category]');
-    if (!filterBtns.length || !items.length) return;
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const category = btn.getAttribute('data-filter');
-
-        items.forEach(item => {
-          const itemCat = item.getAttribute('data-category');
-          if (category === 'all' || itemCat === category || itemCat.includes(category)) {
-            item.style.display = '';
-            item.style.opacity = '0';
-            requestAnimationFrame(() => {
-              item.style.transition = 'opacity 0.25s ease';
-              item.style.opacity = '1';
-            });
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
-  // Inisialisasi saat DOM siap
+  // DOM Content Loaded Initializer
   document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
-    initLiveClock();
-    initMobileMenu();
-    initActiveNav();
-    initEmailCopy();
+    initTypewriter();
+    initMobileNav();
+    initSkillBars();
     initContactForm();
-    initCaseStudyTOC();
-    initFilters();
+    initActiveNavHighlight();
   });
 })();

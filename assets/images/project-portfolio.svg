@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <linearGradient id="bgPort" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181b24" />
+      <stop offset="100%" stop-color="#0e1017" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="12" fill="url(#bgPort)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  
+  <!-- Window Header Bar -->
+  <rect width="600" height="42" rx="12" fill="#202330" />
+  <circle cx="28" cy="21" r="5.5" fill="#ff5f56" />
+  <circle cx="48" cy="21" r="5.5" fill="#ffbd2e" />
+  <circle cx="68" cy="21" r="5.5" fill="#27c93f" />
+  <rect x="180" y="12" width="240" height="18" rx="9" fill="#101218" />
+  <text x="300" y="25" fill="#8892b0" font-family="sans-serif" font-size="10" text-anchor="middle">editorial-minimal.portfolio</text>
+
+  <!-- Editorial Split Preview -->
+  <rect x="35" y="65" width="250" height="280" rx="8" fill="#13151e" stroke="rgba(255,255,255,0.12)" />
+  <text x="55" y="105" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="600">Curious Mind.</text>
+  <text x="55" y="130" fill="#8892b0" font-family="sans-serif" font-size="13">Continuous Journey.</text>
+  <line x1="55" y1="150" x2="200" y2="150" stroke="#ffffff" stroke-width="2" />
+  <rect x="55" y="170" width="210" height="8" rx="2" fill="#505668" />
+  <rect x="55" y="190" width="180" height="8" rx="2" fill="#505668" />
+  <rect x="55" y="210" width="150" height="8" rx="2" fill="#505668" />
+  <rect x="55" y="245" width="100" height="32" rx="6" fill="#ffffff" />
+  <text x="105" y="266" fill="#0c0e14" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Explore</text>
+
+  <!-- Dark / Light Mode Split Demonstration -->
+  <rect x="310" y="65" width="255" height="135" rx="8" fill="#0d0e14" stroke="rgba(255,255,255,0.2)" />
+  <text x="330" y="95" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">DARK THEME</text>
+  <rect x="330" y="110" width="120" height="8" rx="2" fill="#ffffff" fill-opacity="0.8" />
+  <rect x="330" y="125" width="180" height="8" rx="2" fill="#444958" />
+  <rect x="330" y="145" width="80" height="24" rx="4" fill="#ffffff" />
+
+  <rect x="310" y="210" width="255" height="135" rx="8" fill="#f5f3ef" stroke="rgba(0,0,0,0.1)" />
+  <text x="330" y="240" fill="#222126" font-family="sans-serif" font-size="12" font-weight="bold">LIGHT THEME</text>
+  <rect x="330" y="255" width="120" height="8" rx="2" fill="#222126" />
+  <rect x="330" y="270" width="180" height="8" rx="2" fill="#88858d" />
+  <rect x="330" y="290" width="80" height="24" rx="4" fill="#222126" />
+</svg>

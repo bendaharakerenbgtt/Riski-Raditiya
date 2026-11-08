@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <filter id="phoneGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="20" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="phoneBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e8ecf3" />
+      <stop offset="100%" stop-color="#c5cbd8" />
+    </linearGradient>
+    <radialGradient id="phoneAura" cx="40%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient Aura -->
+  <circle cx="150" cy="160" r="120" fill="url(#phoneAura)" filter="url(#phoneGlow)" />
+
+  <!-- Telephone Receiver Handset (Glowing White) -->
+  <g filter="url(#phoneGlow)" transform="translate(10, 10)">
+    <!-- Curved Body Silhouette -->
+    <path d="M 95 65 
+             C 105 45, 130 45, 145 60
+             L 165 80
+             C 178 93, 178 115, 165 128
+             L 150 143
+             C 145 148, 145 155, 150 165
+             C 165 195, 195 225, 225 240
+             C 235 245, 242 245, 247 240
+             L 262 225
+             C 275 212, 297 212, 310 225
+             L 330 245
+             C 345 260, 345 285, 325 295
+             C 285 315, 230 305, 175 270
+             C 120 235, 75 185, 55 135
+             C 45 110, 65 75, 95 65 Z" 
+          fill="url(#phoneBodyGrad)" 
+          stroke="#ffffff" 
+          stroke-width="3" 
+          transform="scale(0.72) translate(30, 20)" />
+
+    <!-- Speaker / Earpiece Perforations -->
+    <g fill="#1a1c23" opacity="0.4" transform="scale(0.72) translate(30, 20)">
+      <circle cx="125" cy="72" r="3" />
+      <circle cx="137" cy="80" r="3" />
+      <circle cx="147" cy="90" r="3" />
+      <!-- Mic Perforations -->
+      <circle cx="300" cy="255" r="3" />
+      <circle cx="310" cy="265" r="3" />
+      <circle cx="320" cy="275" r="3" />
+    </g>
+
+    <!-- Signal Wave Arcs (Communicating / Connected) -->
+    <g stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.85">
+      <path d="M 215 95 C 235 110, 245 130, 245 155" />
+      <path d="M 235 80 C 265 105, 275 135, 275 175" />
+      <path d="M 255 65 C 295 95, 305 140, 305 195" />
+    </g>
+  </g>
+</svg>
