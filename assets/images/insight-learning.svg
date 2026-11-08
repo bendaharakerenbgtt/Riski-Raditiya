@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" fill="none">
+  <defs>
+    <style>
+      .bg { fill: var(--card-canvas-bg, #27262D); }
+      .stroke-subtle { stroke: var(--border-subtle, #3A3844); stroke-width: 1.5; }
+      .stroke-accent { stroke: var(--accent, #9D84B7); stroke-width: 2; }
+      .text-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: var(--text-primary, #F0EFEB); letter-spacing: 0.08em; }
+      .text-body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; fill: var(--text-secondary, #9E9AA7); }
+      .text-code { font-family: monospace; font-size: 10px; fill: var(--accent, #9D84B7); }
+    </style>
+  </defs>
+
+  <rect width="800" height="450" rx="8" class="bg"/>
+
+  <!-- Non-linear Trajectory of Growth -->
+  <text x="100" y="80" class="text-title">TRAJECTORY OF AUTHENTIC LEARNING</text>
+  <text x="100" y="100" class="text-body">Iterative curiosity vs. The myth of linear perfection</text>
+
+  <!-- False linear path -->
+  <line x1="120" y1="320" x2="680" y2="120" stroke="var(--text-muted, #77727E)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="610" y="110" class="text-body" fill="var(--text-muted, #77727E)">Perceived Linear Path</text>
+
+  <!-- Real organic learning curve: loops, questioning, consolidation, breakthrough -->
+  <path d="M 120 320 Q 180 340, 220 280 T 290 310 T 360 210 T 450 250 T 540 160 T 680 120" class="stroke-accent" stroke-width="2.5"/>
+
+  <!-- Milestone nodes -->
+  <!-- 1. Questioning -->
+  <circle cx="220" cy="280" r="4.5" fill="var(--accent, #9D84B7)"/>
+  <text x="180" y="260" class="text-code">01. INQUIRY</text>
+
+  <!-- 2. Struggle / Doubt -->
+  <circle cx="290" cy="310" r="4" fill="var(--accent, #9D84B7)"/>
+  <text x="270" y="340" class="text-code">02. FRICTION</text>
+
+  <!-- 3. Synthesis in Public -->
+  <circle cx="450" cy="250" r="5" fill="var(--accent, #9D84B7)"/>
+  <text x="420" y="280" class="text-code">03. SHARE IN PUBLIC</text>
+
+  <!-- 4. Dialogue & Evolution -->
+  <circle cx="540" cy="160" r="4.5" fill="var(--accent, #9D84B7)"/>
+  <text x="510" y="145" class="text-code">04. DIALOGUE</text>
+
+  <!-- 5. Evolving mastery -->
+  <circle cx="680" cy="120" r="6" fill="var(--accent, #9D84B7)"/>
+  <text x="650" y="90" class="text-title">05. EVOLUTION</text>
+
+  <!-- Editorial note -->
+  <line x1="80" y1="380" x2="720" y2="380" class="stroke-subtle" stroke-dasharray="2 4"/>
+  <text x="80" y="405" class="text-body">INLIVEIQ ESSAY // LEARNING IN PUBLIC &amp; VULNERABILITY</text>
+  <text x="645" y="405" class="text-code">AUGUST 2026</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" fill="none">
+  <defs>
+    <style>
+      .bg { fill: var(--card-canvas-bg, #27262D); }
+      .stroke-subtle { stroke: var(--border-subtle, #3A3844); stroke-width: 1.5; }
+      .stroke-accent { stroke: var(--accent, #9D84B7); stroke-width: 2; }
+      .text-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: var(--text-primary, #F0EFEB); letter-spacing: 0.08em; }
+      .text-body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 11px; fill: var(--text-secondary, #9E9AA7); }
+      .text-code { font-family: monospace; font-size: 10px; fill: var(--accent, #9D84B7); }
+    </style>
+  </defs>
+
+  <rect width="800" height="450" rx="8" class="bg"/>
+
+  <!-- Left: Saturated Clutter Interface -->
+  <rect x="100" y="80" width="270" height="270" rx="4" class="stroke-subtle"/>
+  <text x="120" y="115" class="text-title">NOISE-HEAVY INTERFACE</text>
+  <text x="120" y="132" class="text-body">High extraneous cognitive load</text>
+
+  <!-- Clutter icons & badges -->
+  <rect x="120" y="150" width="230" height="30" rx="4" fill="var(--border-subtle, #3A3844)" opacity="0.6"/>
+  <circle cx="140" cy="165" r="7" fill="var(--text-muted, #77727E)"/>
+  <rect x="290" y="157" width="50" height="16" rx="8" fill="var(--accent, #9D84B7)" opacity="0.5"/>
+  
+  <rect x="120" y="190" width="100" height="40" rx="4" class="stroke-subtle"/>
+  <rect x="230" y="190" width="120" height="40" rx="4" class="stroke-subtle"/>
+  
+  <!-- Pop-up banner simulation -->
+  <rect x="135" y="245" width="200" height="75" rx="4" stroke="var(--text-muted, #77727E)" stroke-dasharray="3 3"/>
+  <text x="155" y="280" class="text-code">ATTENTION HIJACK [POPUP]</text>
+
+  <!-- Right: Editorial Restraint (Calm) -->
+  <rect x="430" y="80" width="270" height="270" rx="4" class="stroke-accent"/>
+  <text x="450" y="115" class="text-title">EDITORIAL RESTRAINT</text>
+  <text x="450" y="132" class="text-body">Clarity, generous whitespace</text>
+
+  <!-- Calm typography lines -->
+  <rect x="450" y="165" width="160" height="12" rx="3" fill="var(--text-primary, #F0EFEB)" opacity="0.9"/>
+  
+  <rect x="450" y="195" width="230" height="6" rx="3" fill="var(--text-muted, #77727E)" opacity="0.4"/>
+  <rect x="450" y="210" width="210" height="6" rx="3" fill="var(--text-muted, #77727E)" opacity="0.4"/>
+  <rect x="450" y="225" width="225" height="6" rx="3" fill="var(--text-muted, #77727E)" opacity="0.4"/>
+  <rect x="450" y="240" width="180" height="6" rx="3" fill="var(--text-muted, #77727E)" opacity="0.4"/>
+
+  <line x1="450" y1="265" x2="520" y2="265" class="stroke-accent"/>
+  <text x="450" y="295" class="text-code">RESULT: SUSTAINED FOCUS</text>
+  <text x="450" y="315" class="text-code">WORKING MEMORY CONSERVED</text>
+
+  <line x1="80" y1="380" x2="720" y2="380" class="stroke-subtle" stroke-dasharray="2 4"/>
+  <text x="80" y="405" class="text-body">INLIVEIQ ESSAY // COGNITIVE ERGONOMICS &amp; RESTRAINT</text>
+  <text x="635" y="405" class="text-code">SEPTEMBER 2026</text>
+</svg>

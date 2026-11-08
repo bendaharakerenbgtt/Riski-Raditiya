@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Knowledge & Insights — InLiveIq. Field notes, observations, reflections, and ideas on learning, psychology, and digital craft.">
+  <meta name="theme-color" content="#222126">
+  <title>Insights — InLiveIq</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="InLiveIq Home">
+        <span>InLiveIq</span>
+        <span class="brand-dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="insights.html" class="nav-link active">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+          <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="insights.html" class="nav-link active">Insights</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <span style="font-size: 0.875rem; color: var(--text-secondary);">Interface Theme</span>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- Header -->
+    <section class="editorial-header">
+      <div class="container">
+        <span class="editorial-tag">Knowledge &amp; Synthesis</span>
+        <h1 class="editorial-header-title">Insights, Notes &amp; Observations</h1>
+        <p class="editorial-header-subtitle">
+          A dedicated space for articulating what I am learning. Written to test my own comprehension and share honest observations on cognitive habits, interface design, and education.
+        </p>
+
+        <!-- Category Filters -->
+        <div class="filter-bar" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">
+          <button type="button" class="filter-btn active" data-filter="all">All Topics</button>
+          <button type="button" class="filter-btn" data-filter="learning">Learning</button>
+          <button type="button" class="filter-btn" data-filter="psychology">Psychology</button>
+          <button type="button" class="filter-btn" data-filter="reflections">Personal Reflections</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights List -->
+    <section class="section" style="border-bottom: none;">
+      <div class="container">
+        <div class="insights-grid">
+          
+          <!-- Insight 1 -->
+          <article class="insight-card" data-category="learning">
+            <div class="insight-meta">
+              <span class="insight-category">Learning</span>
+              <span>•</span>
+              <time datetime="2026-10-14">October 14, 2026</time>
+              <span>•</span>
+              <span>5 min read</span>
+            </div>
+            <h2 class="insight-title">
+              <a href="insight-detail.html?id=collectors-fallacy-synthesis">The Collector's Fallacy and the Art of Active Synthesis</a>
+            </h2>
+            <p class="insight-summary">
+              Why hoarding bookmarks and highlighting paragraphs gives us an illusion of competence—and how shifting from storage to distillation changes how we think.
+            </p>
+            <a href="insight-detail.html?id=collectors-fallacy-synthesis" class="link-editorial">
+              Read Complete Essay
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- Insight 2 -->
+          <article class="insight-card" data-category="psychology">
+            <div class="insight-meta">
+              <span class="insight-category">Psychology</span>
+              <span>•</span>
+              <time datetime="2026-09-28">September 28, 2026</time>
+              <span>•</span>
+              <span>6 min read</span>
+            </div>
+            <h2 class="insight-title">
+              <a href="insight-detail.html?id=cognitive-friction-restraint-ui">Cognitive Friction: Why Restraint is the Ultimate UI Feature</a>
+            </h2>
+            <p class="insight-summary">
+              In a digital landscape filled with micro-animations and attention traps, deliberate stillness and typographic calm provide the necessary space for comprehension.
+            </p>
+            <a href="insight-detail.html?id=cognitive-friction-restraint-ui" class="link-editorial">
+              Read Complete Essay
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- Insight 3 -->
+          <article class="insight-card" data-category="reflections">
+            <div class="insight-meta">
+              <span class="insight-category">Personal reflections</span>
+              <span>•</span>
+              <time datetime="2026-08-19">August 19, 2026</time>
+              <span>•</span>
+              <span>4 min read</span>
+            </div>
+            <h2 class="insight-title">
+              <a href="insight-detail.html?id=learning-in-public-unfinished">On Learning in Public: Embracing the Unfinished</a>
+            </h2>
+            <p class="insight-summary">
+              Why shedding the urge to appear infallible and documenting the messy, honest process of inquiry creates deeper connections than unearned authority.
+            </p>
+            <a href="insight-detail.html?id=learning-in-public-unfinished" class="link-editorial">
+              Read Complete Essay
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-link">
+            <span>InLiveIq</span>
+            <span class="brand-dot" aria-hidden="true"></span>
+          </a>
+          <p class="footer-tagline">
+            "Driven by curiosity, shaped by learning, and expressed through sharing."
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="projects.html" class="footer-link">Projects</a>
+            <a href="insights.html" class="footer-link">Insights</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Selected Works</span>
+            <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
+            <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept Suite</a>
+            <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio Models</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Connect</span>
+            <a href="contact.html" class="footer-link">Direct Message</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 InLiveIq. All rights reserved. Polished personal editorial portfolio.</p>
+        <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/theme-transition.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
