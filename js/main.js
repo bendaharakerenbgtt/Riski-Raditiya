@@ -6,6 +6,22 @@
 (function () {
   'use strict';
 
+  // 0. Scroll Progress Bar
+  function initScrollProgress() {
+    const bar = document.querySelector('.scroll-progress-bar');
+    if (!bar) return;
+
+    function update() {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const totalH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = totalH > 0 ? Math.min(Math.max((scrollY / totalH) * 100, 0), 100) : 0;
+      bar.style.width = pct + '%';
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
   // 1. Mobile Menu Drawer Controller
   function initMobileMenu() {
     const toggleBtn = document.querySelector('.mobile-nav-toggle');
@@ -199,6 +215,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    initScrollProgress();
     initMobileMenu();
     initActiveNav();
     initEmailCopy();

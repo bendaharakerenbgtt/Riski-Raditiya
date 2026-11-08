@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kontak InLiveIq — Mulai percakapan bermakna mengenai pembelajaran, psikologi, atau karya digital.">
+  <meta name="description" content="Kontak InLiveIq — Mulai percakapan bermakna mengenai pembelajaran atau karya digital.">
   <meta name="theme-color" content="#222126">
   <title>Kontak — InLiveIq</title>
   
@@ -11,6 +11,9 @@
   <script src="js/theme-transition.js"></script>
 </head>
 <body>
+  <!-- Indikator Progress Scroll -->
+  <div class="scroll-progress-bar" aria-hidden="true"></div>
+
   <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
   <!-- Navigasi -->
@@ -27,7 +30,6 @@
           <li><a href="index.html" class="nav-link">Beranda</a></li>
           <li><a href="about.html" class="nav-link">Tentang</a></li>
           <li><a href="projects.html" class="nav-link">Proyek</a></li>
-          <li><a href="insights.html" class="nav-link">Wawasan</a></li>
           <li><a href="contact.html" class="nav-link active">Kontak</a></li>
         </ul>
 
@@ -71,7 +73,6 @@
       <li><a href="index.html" class="nav-link">Beranda</a></li>
       <li><a href="about.html" class="nav-link">Tentang</a></li>
       <li><a href="projects.html" class="nav-link">Proyek</a></li>
-      <li><a href="insights.html" class="nav-link">Wawasan</a></li>
       <li><a href="contact.html" class="nav-link active">Kontak</a></li>
     </ul>
     <div class="mobile-drawer-footer">
@@ -98,12 +99,12 @@
   <main id="main-content">
     <div class="container">
       <div class="contact-grid">
-        <!-- Kolom Kiri: Catatan Editorial & Jalur Kontak Langsung -->
+        <!-- Kolom Kiri -->
         <div>
-          <span class="editorial-tag">Dialog &amp; Koneksi</span>
-          <h1 class="editorial-header-title">Mari Memulai Percakapan yang Bermakna.</h1>
+          <span class="editorial-tag">Koneksi</span>
+          <h1 class="editorial-header-title">Mari Memulai Percakapan.</h1>
           <p class="editorial-header-subtitle">
-            Apakah Anda memiliki pertanyaan mengenai esai tertentu, ingin menguji sebuah hipotesis, berkolaborasi dalam proyek alat belajar, atau sekadar ingin menyapa—saya menyambut dialog terbuka yang dilandasi rasa ingin tahu.
+            Pintu percakapan selalu terbuka bagi siapa saja yang ingin mendiskusikan gagasan, menguji hipotesis, atau sekadar bertukar sapa.
           </p>
 
           <div class="contact-info-list">
@@ -118,10 +119,10 @@
               <button type="button" class="copy-btn copy-email-btn" data-email="hello@inliveiq.com">Salin Alamat</button>
             </div>
 
-            <!-- Profil Jejaring -->
+            <!-- Profil -->
             <div class="contact-method-card">
               <div>
-                <span class="contact-method-label">Profil &amp; Jejaring</span>
+                <span class="contact-method-label">Profil</span>
                 <div style="display: flex; gap: 1.25rem; margin-top: 0.35rem;">
                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="link-editorial">LinkedIn</a>
                   <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-editorial">Instagram</a>
@@ -130,47 +131,47 @@
             </div>
 
             <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: var(--radius-md); margin-top: 0.5rem;">
-              <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.5rem;">// CATATAN KOMUNIKASI</span>
+              <span style="font-family: monospace; font-size: 0.8125rem; color: var(--accent); display: block; margin-bottom: 0.5rem;">// CATATAN</span>
               <p style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6;">
-                Saya tidak memeriksa pesan setiap menit demi menjaga fokus kognitif mendalam. Saya membaca dan membalas surat elektronik pada jendela waktu refleksi khusus secara seksama.
+                Saya membalas korespondensi pada jendela waktu refleksi khusus secara seksama demi menjaga fokus berpikir mendalam.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Kolom Kanan: Formulir Pesan -->
+        <!-- Kolom Kanan: Form -->
         <div>
           <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-subtle); padding: clamp(1.75rem, 4vw, 2.5rem); border-radius: var(--radius-md);">
             <h2 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Kirimkan Pesan</h2>
             <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.75rem;">
-              Bagikan gagasan, pertanyaan, atau pemikiran Anda secara langsung.
+              Bagikan gagasan atau pertanyaan Anda secara langsung.
             </p>
 
             <form id="contact-form" class="contact-form">
               <div class="form-group">
-                <label for="name" class="form-label">Nama Anda</label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="misal: Arya Wicaksana" required>
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Nama Anda" required>
               </div>
 
               <div class="form-group">
-                <label for="email" class="form-label">Alamat Email</label>
+                <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="nama@domain.com" required>
               </div>
 
               <div class="form-group">
-                <label for="topic" class="form-label">Topik Pembicaraan</label>
+                <label for="topic" class="form-label">Topik</label>
                 <select id="topic" name="topic" class="form-control" required>
-                  <option value="" disabled selected>Pilih salah satu topik...</option>
-                  <option value="belajar">Alat Belajar &amp; Metode Kognitif</option>
+                  <option value="" disabled selected>Pilih topik...</option>
+                  <option value="belajar">Alat Belajar</option>
                   <option value="psikologi">Psikologi Kognitif &amp; Persepsi</option>
-                  <option value="proyek">Diskusi Studi Kasus Proyek</option>
-                  <option value="lainnya">Pertanyaan Umum &amp; Menyapa</option>
+                  <option value="proyek">Diskusi Proyek</option>
+                  <option value="lainnya">Pertanyaan Umum</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="message" class="form-label">Pesan atau Pertanyaan Anda</label>
-                <textarea id="message" name="message" class="form-control" placeholder="Gagasan atau pertanyaan apa yang sedang Anda pikirkan?" required></textarea>
+                <label for="message" class="form-label">Pesan</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Apa yang sedang Anda pikirkan?" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem;">
@@ -205,20 +206,19 @@
             <a href="index.html" class="footer-link">Beranda</a>
             <a href="about.html" class="footer-link">Tentang</a>
             <a href="projects.html" class="footer-link">Proyek</a>
-            <a href="insights.html" class="footer-link">Wawasan</a>
             <a href="contact.html" class="footer-link">Kontak</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Karya Pilihan</span>
+            <span class="footer-col-title">Karya</span>
             <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
-            <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept Suite</a>
-            <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio Models</a>
+            <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept</a>
+            <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio</a>
           </div>
 
           <div class="footer-nav-col">
             <span class="footer-col-title">Terhubung</span>
-            <a href="contact.html" class="footer-link">Kirim Pesan</a>
+            <a href="contact.html" class="footer-link">Pesan</a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           </div>
@@ -226,7 +226,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi. Portofolio editorial personal.</p>
+        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>

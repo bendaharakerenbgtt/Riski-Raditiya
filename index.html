@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="InLiveIq — Portofolio editorial personal dan jurnal pemikiran yang selalu penasaran. Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.">
+  <meta name="description" content="InLiveIq — Portofolio editorial personal. Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.">
   <meta name="theme-color" content="#222126">
   <title>InLiveIq — A Curious Mind. A Continuous Journey.</title>
   
   <link rel="stylesheet" href="css/style.css">
-  <!-- Script transisi tema dimuat di awal agar InLiveIqTheme selalu tersedia -->
   <script src="js/theme-transition.js"></script>
 </head>
 <body>
+  <!-- Indikator Progress Scroll -->
+  <div class="scroll-progress-bar" aria-hidden="true"></div>
+
   <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
   <!-- Navigasi Utama -->
@@ -22,17 +24,16 @@
         <span class="brand-dot" aria-hidden="true"></span>
       </a>
 
-      <!-- Tautan Navigasi Desktop -->
+      <!-- Tautan Navigasi Desktop (Tanpa Wawasan) -->
       <nav class="desktop-nav" aria-label="Navigasi Utama">
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link active">Beranda</a></li>
           <li><a href="about.html" class="nav-link">Tentang</a></li>
           <li><a href="projects.html" class="nav-link">Proyek</a></li>
-          <li><a href="insights.html" class="nav-link">Wawasan</a></li>
           <li><a href="contact.html" class="nav-link">Kontak</a></li>
         </ul>
 
-        <!-- Tombol Pengalih Tema Terang/Gelap -->
+        <!-- Tombol Pengalih Tema -->
         <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih ke mode terang" title="Beralih ke mode terang">
           <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
@@ -72,7 +73,6 @@
       <li><a href="index.html" class="nav-link active">Beranda</a></li>
       <li><a href="about.html" class="nav-link">Tentang</a></li>
       <li><a href="projects.html" class="nav-link">Proyek</a></li>
-      <li><a href="insights.html" class="nav-link">Wawasan</a></li>
       <li><a href="contact.html" class="nav-link">Kontak</a></li>
     </ul>
     <div class="mobile-drawer-footer">
@@ -98,47 +98,59 @@
 
   <!-- Konten Utama -->
   <main id="main-content">
-    <!-- Bagian Hero -->
-    <section class="hero-section" aria-labelledby="hero-title">
+    <!-- Bagian Hero (Tenang, Bernapas, Tanpa Judul Kaku yang Berat) -->
+    <section class="hero-section" aria-label="Pengenalan Ruang">
       <div class="container">
         <div class="hero-content">
-          <span class="editorial-tag hero-tag">Portofolio Editorial &amp; Jurnal Belajar</span>
-          <h1 id="hero-title" class="hero-headline">Pikiran yang Selalu Penasaran.<br>Perjalanan yang Terus Berlanjut.</h1>
-          <p class="hero-supporting">"Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."</p>
-          <p class="hero-intro">
-            Selamat datang di InLiveIq. Ini adalah ruang personal saya untuk menguji ide, mendokumentasikan proses belajar, membangun alat-alat yang bermakna, dan mengomunikasikan gagasan yang berakar pada rasa ingin tahu. Masih terus belajar, terus berkembang.
+          <span class="hero-meta-label">INLIVEIQ // RUANG PRIBADI</span>
+          
+          <!-- Pernyataan Filosofis Mengalir (Bukan Judul Berat) -->
+          <p class="hero-editorial-statement">
+            "A Curious Mind. A Continuous Journey."
           </p>
+          
+          <p class="hero-supporting">
+            Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi.
+          </p>
+
+          <!-- Elemen Siluet & Geometris Minimalis -->
+          <div class="silhouette-wrapper">
+            <img src="assets/images/hero-silhouette.svg" alt="Siluet Garis Eksplorasi Pikiran" />
+          </div>
+
           <div class="hero-actions">
-            <a href="projects.html" class="btn btn-primary">Jelajahi Karya Saya</a>
+            <a href="projects.html" class="btn btn-primary">Lihat Karya</a>
             <a href="about.html" class="btn btn-secondary">Tentang Saya</a>
+          </div>
+
+          <!-- Indikator Gulir / Scroll Cue -->
+          <div>
+            <a href="#prologue" class="hero-scroll-cue" aria-label="Gulir ke konten berikutnya">
+              <span>GULIR</span>
+              <div class="scroll-cue-track" aria-hidden="true"></div>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Bagian Pengantar / Perspektif -->
-    <section class="section" aria-labelledby="intro-heading">
+    <!-- Pengantar Ringkas (Ruang Bernapas & Berbobot) -->
+    <section class="section" id="prologue" aria-labelledby="intro-heading">
       <div class="container">
         <div class="intro-grid">
           <div>
-            <span class="editorial-tag">Perspektif</span>
-            <h2 id="intro-heading" class="intro-lead">
-              "Pemahaman sejati tidak dimulai dari mengetahui segala jawaban. Ia dimulai dari kesabaran untuk mengajukan pertanyaan yang jujur."
-            </h2>
+            <span class="editorial-tag">Refleksi</span>
+            <p id="intro-heading" class="intro-lead">
+              "Pemahaman tidak dimulai dari mengetahui jawaban, melainkan dari kesabaran mengajukan pertanyaan jujur."
+            </p>
           </div>
           <div class="intro-body">
             <p>
-              Saya adalah seorang pemikir mandiri, perancang, dan pembelajar yang terus berproses. Langkah saya didorong oleh ketertarikan mendalam pada bagaimana manusia berpikir, bagaimana alat membentuk kebiasaan mental kita, dan bagaimana antarmuka digital dapat dirancang dengan ketenangan yang menghargai manusia, bukan sekadar berebut atensi.
+              InLiveIq adalah ruang catatan dan eksperimen terbuka. Saya merancang alat dan antarmuka dengan mengutamakan ketenangan kognitif, menguji prinsip belajar mandiri, dan mendokumentasikan proses nyata tanpa kepura-puraan.
             </p>
-            <p>
-              Saya tidak percaya pada klaim keahlian semu atau berpura-pura telah menguasai segalanya. Sebaliknya, saya memperlakukan setiap proyek sebagai eksperimen terbuka: sebuah kesempatan untuk membongkar asumsi, menguji hipotesis, dan mengendapkan prinsip ke dalam pemahaman nyata melalui praktik langsung.
-            </p>
-            <p>
-              Website ini disusun layaknya buku catatan editorial: mendokumentasikan proyek bukan hanya sekadar deretan daftar teknologi, melainkan catatan transparan mengenai masalah yang dihadapi, keputusan yang diambil, dan pelajaran yang dipetik.
-            </p>
-            <div style="margin-top: 1.5rem;">
+            <div style="margin-top: 1.25rem;">
               <a href="about.html" class="link-editorial">
-                Baca filosofi belajar selengkapnya
+                Filosofi selengkapnya
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -147,17 +159,16 @@
       </div>
     </section>
 
-    <!-- Bagian Proyek Pilihan -->
+    <!-- Karya & Studi Kasus Pilihan (Spacious, Tanpa Beban Teks Berlebih) -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
           <div>
-            <span class="editorial-tag">Studi Kasus Pilihan</span>
-            <h2 id="projects-title" class="section-title">Proyek Pilihan</h2>
-            <p class="section-description">Pilihan eksplorasi yang meneliti ergonomi kognitif, psikologi persepsi, dan sistem pembelajaran interaktif.</p>
+            <span class="editorial-tag">Karya Terpilih</span>
+            <h2 id="projects-title" class="section-title">Eksperimen &amp; Studi Kasus</h2>
           </div>
           <a href="projects.html" class="link-editorial">
-            Lihat Semua Arsip Proyek
+            Semua Proyek
             <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -166,24 +177,23 @@
           <!-- Proyek 1 -->
           <article class="project-item">
             <a href="project-detail.html?id=cognitive-note-engine" class="project-visual-link" aria-label="Detail Proyek RecallFlow">
-              <img src="assets/images/project-recallflow.svg" alt="Diagram Skema Arsitektur RecallFlow" loading="lazy" />
+              <img src="assets/images/project-recallflow.svg" alt="Diagram RecallFlow" loading="lazy" />
             </a>
             <div class="project-info">
-              <span class="project-category">Alat Belajar &amp; Ergonomi Kognitif</span>
+              <span class="project-category">Alat Belajar</span>
               <h3 class="project-title">
                 <a href="project-detail.html?id=cognitive-note-engine">RecallFlow: Mesin Catatan Kognitif</a>
               </h3>
               <p class="project-desc">
-                Ruang kerja markdown yang tenang dan bebas distraksi, dirancang khusus dengan interval pengingatan aktif (active recall) dan asosiasi konsep non-linear guna mengatasi ilusi pengumpulan informasi (collector's fallacy).
+                Ruang markdown bebas distraksi dengan interval pengingatan aktif untuk mengatasi ilusi menimbun informasi.
               </p>
               <div class="project-tags">
                 <span class="tag-badge">Local-First</span>
                 <span class="tag-badge">Vanilla JS</span>
                 <span class="tag-badge">Active Recall</span>
-                <span class="tag-badge">Markdown AST</span>
               </div>
               <a href="project-detail.html?id=cognitive-note-engine" class="link-editorial">
-                Baca Studi Kasus 10 Poin
+                Studi Kasus 10 Poin
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -191,25 +201,24 @@
 
           <!-- Proyek 2 -->
           <article class="project-item">
-            <a href="project-detail.html?id=percept-cognitive-ui" class="project-visual-link" aria-label="Detail Utilitas Percept">
-              <img src="assets/images/project-percept.svg" alt="Diagram Ergonomi Tipografi dan Alur Baca Percept" loading="lazy" />
+            <a href="project-detail.html?id=percept-cognitive-ui" class="project-visual-link" aria-label="Detail Proyek Percept">
+              <img src="assets/images/project-percept.svg" alt="Diagram Percept" loading="lazy" />
             </a>
             <div class="project-info">
-              <span class="project-category">Psikologi &amp; Desain Digital</span>
+              <span class="project-category">Psikologi &amp; Desain</span>
               <h3 class="project-title">
-                <a href="project-detail.html?id=percept-cognitive-ui">Percept: Ergonomi Tipografi &amp; Beban Kognitif</a>
+                <a href="project-detail.html?id=percept-cognitive-ui">Percept: Ergonomi Tipografi</a>
               </h3>
               <p class="project-desc">
-                Utilitas diagnostik berbasis peramban untuk menganalisis skala tipografi, rasio kontras, dan kepadatan visual guna mengukur kelelahan kognitif saat membaca teks digital.
+                Utilitas diagnostik peramban untuk mengukur kelelahan mata dan beban kognitif saat membaca teks digital panjang.
               </p>
               <div class="project-tags">
                 <span class="tag-badge">Ergonomi Perseptual</span>
                 <span class="tag-badge">Canvas API</span>
                 <span class="tag-badge">WCAG 2.2</span>
-                <span class="tag-badge">Web Workers</span>
               </div>
               <a href="project-detail.html?id=percept-cognitive-ui" class="link-editorial">
-                Baca Studi Kasus 10 Poin
+                Studi Kasus 10 Poin
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -218,24 +227,23 @@
           <!-- Proyek 3 -->
           <article class="project-item">
             <a href="project-detail.html?id=curio-mental-models" class="project-visual-link" aria-label="Detail Proyek Curio">
-              <img src="assets/images/project-curio.svg" alt="Diagram Pemikiran Sistem Curio" loading="lazy" />
+              <img src="assets/images/project-curio.svg" alt="Diagram Curio" loading="lazy" />
             </a>
             <div class="project-info">
-              <span class="project-category">Pendidikan &amp; Model Mental</span>
+              <span class="project-category">Pendidikan &amp; Sistem</span>
               <h3 class="project-title">
-                <a href="project-detail.html?id=curio-mental-models">Curio: Eksplorasi Model Mental</a>
+                <a href="project-detail.html?id=curio-mental-models">Curio: Model Mental Interaktif</a>
               </h3>
               <p class="project-desc">
-                Koleksi interaktif berisi eksperimen pikiran untuk memahami prinsip-prinsip dari teori pengambilan keputusan, pemikiran sistem (systems thinking), dan ekonomi perilaku.
+                Eksperimen pikiran interaktif untuk memahami pemikiran sistem, dampak tingkat kedua, dan teori keputusan.
               </p>
               <div class="project-tags">
-                <span class="tag-badge">Pemikiran Sistem</span>
+                <span class="tag-badge">Systems Thinking</span>
                 <span class="tag-badge">SVG Reaktif</span>
                 <span class="tag-badge">Explorable Explanations</span>
-                <span class="tag-badge">Teori Keputusan</span>
               </div>
               <a href="project-detail.html?id=curio-mental-models" class="link-editorial">
-                Baca Studi Kasus 10 Poin
+                Studi Kasus 10 Poin
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
@@ -244,154 +252,59 @@
       </div>
     </section>
 
-    <!-- Bagian Minat Saat Ini -->
-    <section class="section" aria-labelledby="interests-title">
+    <!-- Fokus Minat Saat Ini (Tampilan Garis Minimalis) -->
+    <section class="section" aria-labelledby="focus-title">
       <div class="container">
         <div class="section-header">
-          <span class="editorial-tag">Fokus Eksplorasi</span>
-          <h2 id="interests-title" class="section-title">Minat yang Sedang Dipelajari</h2>
-          <p class="section-description">Bidang dan pertanyaan yang saat ini aktif mengisi buku catatan, daftar bacaan, dan eksperimen harian saya.</p>
+          <span class="editorial-tag">Fokus Riset</span>
+          <h2 id="focus-title" class="section-title">Minat Saat Ini</h2>
         </div>
 
         <div class="interests-grid">
-          <!-- Minat 1 -->
           <div class="interest-item">
-            <span class="interest-number">01 // PEMBELAJARAN</span>
-            <h3 class="interest-title">Pendidikan &amp; Belajar</h3>
-            <p class="interest-desc">
-              Meneliti bagaimana memori kerja manusia menyerap konsep baru, kekuatan teknik penjelasan mandiri (teknik Feynman), dan arsitektur pengingatan aktif.
-            </p>
+            <span class="interest-number">01</span>
+            <h3 class="interest-title">Pembelajaran Mandiri</h3>
+            <p class="interest-desc">Memori kerja, teknik Feynman, dan sistem pengingatan aktif.</p>
           </div>
 
-          <!-- Minat 2 -->
           <div class="interest-item">
-            <span class="interest-number">02 // PERSEPSI</span>
-            <h3 class="interest-title">Psikologi &amp; Perilaku Manusia</h3>
-            <p class="interest-desc">
-              Mempelajari bias kognitif, kelelahan atensi di lingkungan digital, dan bagaimana titik-titik friksi halus memengaruhi pembentukan kebiasaan jangka panjang.
-            </p>
+            <span class="interest-number">02</span>
+            <h3 class="interest-title">Psikologi Perilaku</h3>
+            <p class="interest-desc">Bias kognitif dan perlindungan atensi di ruang digital.</p>
           </div>
 
-          <!-- Minat 3 -->
           <div class="interest-item">
-            <span class="interest-number">03 // KARYA DIGITAL</span>
-            <h3 class="interest-title">Teknologi &amp; Kreativitas Digital</h3>
-            <p class="interest-desc">
-              Bereksplorasi dengan komputasi local-first yang ringan, tipografi yang nyaman diakses, dan membangun perangkat lunak yang menghormati otonomi manusia.
-            </p>
+            <span class="interest-number">03</span>
+            <h3 class="interest-title">Karya Digital Tenang</h3>
+            <p class="interest-desc">Komputasi local-first dan antarmuka yang menghargai manusia.</p>
           </div>
 
-          <!-- Minat 4 -->
           <div class="interest-item">
-            <span class="interest-number">04 // SINTESIS</span>
-            <h3 class="interest-title">Riset &amp; Berpikir Kritis</h3>
-            <p class="interest-desc">
-              Mempraktikkan penalaran prinsip pertama (first-principles), memprediksi dampak tingkat kedua, serta mengurai argumen kompleks menjadi premis-premis yang teruji.
-            </p>
+            <span class="interest-number">04</span>
+            <h3 class="interest-title">Berpikir Kritis</h3>
+            <p class="interest-desc">Penalaran prinsip pertama dan pemikiran sistemik.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Bagian Pengetahuan & Wawasan -->
-    <section class="section" id="insights" aria-labelledby="insights-title">
-      <div class="container">
-        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
-          <div>
-            <span class="editorial-tag">Tulisan &amp; Catatan Lapangan</span>
-            <h2 id="insights-title" class="section-title">Pengetahuan &amp; Wawasan</h2>
-            <p class="section-description">Refleksi mendalam, catatan belajar, dan pengamatan yang ditulis untuk mematangkan pemahaman pribadi, bukan sekadar memamerkan status.</p>
-          </div>
-          <a href="insights.html" class="link-editorial">
-            Jelajahi Semua Wawasan
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-
-        <div class="insights-grid">
-          <!-- Esai 1 -->
-          <article class="insight-card">
-            <div class="insight-meta">
-              <span class="insight-category">Pembelajaran</span>
-              <span>•</span>
-              <time datetime="2026-10-14">14 Oktober 2026</time>
-              <span>•</span>
-              <span>5 menit baca</span>
-            </div>
-            <h3 class="insight-title">
-              <a href="insight-detail.html?id=collectors-fallacy-synthesis">Jebakan Kolektor dan Seni Sintesis Aktif</a>
-            </h3>
-            <p class="insight-summary">
-              Mengapa menimbun tautan bacaan dan menandai teks memberi kita ilusi pemahaman—dan bagaimana beralih ke sintesis mandiri mengubah cara berpikir kita.
-            </p>
-            <a href="insight-detail.html?id=collectors-fallacy-synthesis" class="link-editorial">
-              Baca Esai Lengkap
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
-
-          <!-- Esai 2 -->
-          <article class="insight-card">
-            <div class="insight-meta">
-              <span class="insight-category">Psikologi</span>
-              <span>•</span>
-              <time datetime="2026-09-28">28 September 2026</time>
-              <span>•</span>
-              <span>6 menit baca</span>
-            </div>
-            <h3 class="insight-title">
-              <a href="insight-detail.html?id=cognitive-friction-restraint-ui">Friksi Kognitif: Mengapa Menahan Diri Adalah Fitur Antarmuka Terbaik</a>
-            </h3>
-            <p class="insight-summary">
-              Di lanskap digital yang penuh animasi mikro dan perebutan atensi, ketenangan tata letak dan tipografi editorial memberikan ruang nyata bagi daya ingat kerja untuk memahami gagasan.
-            </p>
-            <a href="insight-detail.html?id=cognitive-friction-restraint-ui" class="link-editorial">
-              Baca Esai Lengkap
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
-
-          <!-- Esai 3 -->
-          <article class="insight-card">
-            <div class="insight-meta">
-              <span class="insight-category">Refleksi Personal</span>
-              <span>•</span>
-              <time datetime="2026-08-19">19 Agustus 2026</time>
-              <span>•</span>
-              <span>4 menit baca</span>
-            </div>
-            <h3 class="insight-title">
-              <a href="insight-detail.html?id=learning-in-public-unfinished">Belajar Terbuka di Ruang Publik: Merangkul Hal yang Belum Selesai</a>
-            </h3>
-            <p class="insight-summary">
-              Mengapa melepaskan tuntutan untuk terlihat sempurna dan mendokumentasikan proses belajar yang nyata menciptakan relasi yang jauh lebih bermakna daripada otoritas palsu.
-            </p>
-            <a href="insight-detail.html?id=learning-in-public-unfinished" class="link-editorial">
-              Baca Esai Lengkap
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bagian Penutup -->
+    <!-- Penutup Tenang & Lapang -->
     <section class="closing-section" aria-labelledby="closing-title">
       <div class="container">
-        <span class="editorial-tag">Langkah Selanjutnya</span>
+        <span class="editorial-tag">Koneksi</span>
         <h2 id="closing-title" class="closing-headline">Selalu belajar. Selalu menjelajah.</h2>
         <p class="closing-text">
-          Baik Anda sedang meneliti topik serupa, ingin berdiskusi mengenai sistem belajar, atau sekadar ingin bertukar sapa—pintu percakapan yang bermakna selalu terbuka.
+          Pintu percakapan terbuka bagi siapa saja yang ingin mendiskusikan gagasan atau berbagi sudut pandang.
         </p>
         <div class="closing-links">
           <a href="contact.html" class="btn btn-primary">Mulai Percakapan</a>
-          <a href="about.html" class="btn btn-secondary">Pelajari Tentang Saya</a>
+          <a href="about.html" class="btn btn-secondary">Tentang Saya</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer Bersih -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
@@ -411,20 +324,19 @@
             <a href="index.html" class="footer-link">Beranda</a>
             <a href="about.html" class="footer-link">Tentang</a>
             <a href="projects.html" class="footer-link">Proyek</a>
-            <a href="insights.html" class="footer-link">Wawasan</a>
             <a href="contact.html" class="footer-link">Kontak</a>
           </div>
 
           <div class="footer-nav-col">
-            <span class="footer-col-title">Karya Pilihan</span>
+            <span class="footer-col-title">Karya</span>
             <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
-            <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept Suite</a>
-            <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio Models</a>
+            <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept</a>
+            <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio</a>
           </div>
 
           <div class="footer-nav-col">
             <span class="footer-col-title">Terhubung</span>
-            <a href="contact.html" class="footer-link">Kirim Pesan</a>
+            <a href="contact.html" class="footer-link">Pesan</a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
           </div>
@@ -432,7 +344,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi. Portofolio editorial personal.</p>
+        <p>&copy; 2026 InLiveIq. Hak cipta dilindungi.</p>
         <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
       </div>
     </div>
