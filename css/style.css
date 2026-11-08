@@ -403,7 +403,7 @@ button, input, textarea, select {
 }
 
 /* --------------------------------------------------------------------------
-   Typography
+   Typography (Web Typography Standard: Balanced & Legible)
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
@@ -411,6 +411,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .serif-accent {
@@ -745,16 +750,18 @@ html[data-theme="light"] .site-header,
   margin-bottom: 1.5rem;
   max-width: 780px;
   text-align: center;
+  text-wrap: balance;
 }
 
 .hero-supporting {
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   color: var(--text-secondary);
-  line-height: 1.65;
-  max-width: 620px;
+  line-height: 1.68;
+  max-width: 60ch;
   margin-bottom: 2.5rem;
   font-weight: 300;
   text-align: center;
+  text-wrap: pretty;
 }
 
 .hero-actions {
@@ -816,6 +823,7 @@ html[data-theme="light"] .site-header,
   font-size: 1.0625rem;
   margin-bottom: 1.25rem;
   line-height: 1.75;
+  max-width: 65ch;
 }
 
 .intro-body p:last-child {
@@ -1250,6 +1258,7 @@ html[data-theme="light"] .site-header,
   font-size: 1.0625rem;
   line-height: 1.75;
   margin-bottom: 1.25rem;
+  max-width: 65ch;
 }
 
 .case-section ul {
