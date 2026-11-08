@@ -7,12 +7,39 @@
 (function () {
   'use strict';
 
-  // 1. Hairline Scroll Progress Bar (Below Sticky Header)
+  // 1. Capsule Contour Scroll Progress Indicator (Follows Pill Curve Seamlessly)
   function initScrollProgress() {
-    const bar = document.querySelector('.header-scroll-progress-bar');
-    if (!bar) return;
+    const wrapper = document.querySelector('.nav-pill-wrapper');
+    const track = document.getElementById('capsule-progress-track');
+    const fill = document.getElementById('capsule-progress-fill');
+    if (!wrapper || !track || !fill) return;
 
-    function update() {
+    let pathTotalLength = 0;
+
+    function updatePath() {
+      const w = wrapper.offsetWidth;
+      const h = wrapper.offsetHeight;
+      const r = h / 2;
+
+      // Follow the exact bottom contour of the capsule pill:
+      // Starts at middle of left cap (1, r), curves down to (r, h - 1),
+      // runs across the bottom to (w - r, h - 1), and curves up to (w - 1, r)
+      const d = `M 1,${r} A ${r},${r} 0 0,0 ${r},${h - 1} L ${w - r},${h - 1} A ${r},${r} 0 0,0 ${w - 1},${r}`;
+      
+      track.setAttribute('d', d);
+      fill.setAttribute('d', d);
+
+      try {
+        pathTotalLength = fill.getTotalLength() || (w + 20);
+      } catch (e) {
+        pathTotalLength = w + 20;
+      }
+
+      fill.style.strokeDasharray = `${pathTotalLength} ${pathTotalLength}`;
+      updateScroll();
+    }
+
+    function updateScroll() {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       const docHeight = Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -21,8 +48,10 @@
       );
       const winHeight = window.innerHeight || document.documentElement.clientHeight || 800;
       const totalH = docHeight - winHeight;
-      const pct = totalH > 0 ? Math.min(Math.max((scrollY / totalH) * 100, 0), 100) : 0;
-      bar.style.width = pct + '%';
+      const pct = totalH > 0 ? Math.min(Math.max(scrollY / totalH, 0), 1) : 0;
+
+      const offset = pathTotalLength * (1 - pct);
+      fill.style.strokeDashoffset = offset;
 
       // Header scrolled state
       const header = document.querySelector('.site-header');
@@ -35,9 +64,9 @@
       }
     }
 
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
-    update();
+    window.addEventListener('resize', updatePath);
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updatePath();
   }
 
   // 2. Interactive Typewriter Effect for Hero
