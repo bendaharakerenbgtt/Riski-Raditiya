@@ -1,8 +1,11 @@
 /**
- * InLiveIq — Signature Organic Multi-Point Theme Transition
+ * InLiveIq — Buttery Smooth Dark/Light Theme Transition Engine
  * 
- * Transisi gelombang organik multi-titik yang tahan banting,
- * kompatibel dengan VS Code Live Server, webview lokal, dan semua peramban modern.
+ * Implements:
+ * 1. Native View Transitions API with GPU-accelerated Circular Radial Reveal (Chrome, Edge, Safari 18+)
+ * 2. Silky CSS Universal Cross-Fade & Fallback (Firefox, older browsers)
+ * 3. Interactive Elastic Spin & Sun ↔ Moon Morph Animation on Toggle Button
+ * 4. Safe Cross-Environment LocalStorage & System Scheme Synchronization
  */
 
 (function () {
@@ -12,13 +15,13 @@
   const THEME_DARK = 'dark';
   const THEME_LIGHT = 'light';
 
-  // Warna latar target sesuai sistem warna InLiveIq
-  const THEME_COLORS = {
-    dark: '#222126',
-    light: '#F5F3EF'
+  // Target background hex values for smooth transitions
+  const THEME_BG_COLORS = {
+    dark: '#04070c',
+    light: '#f5f6fa'
   };
 
-  // Safe storage helper (mencegah crash SecurityError di webview / Live Server VS Code)
+  // Safe storage helper (prevents SecurityError crashes on restricted webviews or iframes)
   let inMemoryTheme = null;
   const safeStorage = {
     get(key) {
@@ -26,9 +29,7 @@
         if (typeof window !== 'undefined' && window.localStorage) {
           return window.localStorage.getItem(key);
         }
-      } catch (e) {
-        // Abaikan restriction error
-      }
+      } catch (e) {}
       return inMemoryTheme;
     },
     set(key, val) {
@@ -37,15 +38,11 @@
         if (typeof window !== 'undefined' && window.localStorage) {
           window.localStorage.setItem(key, val);
         }
-      } catch (e) {
-        // Abaikan restriction error
-      }
+      } catch (e) {}
     }
   };
 
   let isTransitioning = false;
-  let canvas = null;
-  let ctx = null;
 
   function getSystemPreference() {
     try {
@@ -64,70 +61,20 @@
     return safeStorage.get(STORAGE_KEY) || THEME_DARK;
   }
 
-  function initCanvas() {
-    if (!canvas && typeof document !== 'undefined') {
-      canvas = document.createElement('canvas');
-      canvas.id = 'theme-transition-canvas';
-      canvas.setAttribute('aria-hidden', 'true');
-      canvas.style.position = 'fixed';
-      canvas.style.top = '0';
-      canvas.style.left = '0';
-      canvas.style.width = '100vw';
-      canvas.style.height = '100vh';
-      canvas.style.pointerEvents = 'none';
-      canvas.style.zIndex = '999999';
-      canvas.style.opacity = '1';
-      canvas.style.transition = 'opacity 0.24s ease-out';
-      if (document.body) {
-        document.body.appendChild(canvas);
-      } else {
-        document.documentElement.appendChild(canvas);
-      }
-      ctx = canvas.getContext('2d');
-    }
-    return ctx;
-  }
-
-  function resizeCanvas() {
-    if (!canvas) return;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    if (ctx) {
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-  }
-
   function updateToggleButtons(theme) {
     const isDark = theme === THEME_DARK;
     const labelText = isDark ? 'Beralih ke mode terang' : 'Beralih ke mode gelap';
 
-    const toggles = document.querySelectorAll('.theme-toggle');
-    toggles.forEach(toggle => {
-      toggle.setAttribute('aria-label', labelText);
-      toggle.setAttribute('title', labelText);
-
-      const iconDark = toggle.querySelector('.theme-icon-dark');
-      const iconLight = toggle.querySelector('.theme-icon-light');
-
-      if (iconDark && iconLight) {
-        if (isDark) {
-          // Sedang dalam dark mode: tampilkan ikon matahari (untuk beralih ke terang)
-          iconDark.style.display = 'none';
-          iconLight.style.display = 'block';
-        } else {
-          // Sedang dalam light mode: tampilkan ikon bulan (untuk beralih ke gelap)
-          iconDark.style.display = 'block';
-          iconLight.style.display = 'none';
-        }
-      }
+    const buttons = document.querySelectorAll('.theme-toggle-btn, .theme-toggle');
+    buttons.forEach(btn => {
+      btn.setAttribute('aria-label', labelText);
+      btn.setAttribute('title', labelText);
     });
   }
 
   function applyThemeInstant(theme) {
     const targetTheme = (theme === THEME_LIGHT) ? THEME_LIGHT : THEME_DARK;
 
-    // Terapkan ke documentElement dan body
     document.documentElement.setAttribute('data-theme', targetTheme);
     document.documentElement.classList.remove('theme-dark', 'theme-light');
     document.documentElement.classList.add(`theme-${targetTheme}`);
@@ -142,144 +89,138 @@
     updateToggleButtons(targetTheme);
   }
 
-  function easeOutCubic(t) {
-    return 1 - Math.pow(1 - t, 3);
+  function triggerButtonAnimation(btn) {
+    if (!btn) return;
+    btn.classList.remove('toggling');
+    // Force DOM reflow to re-trigger css keyframe animation
+    void btn.offsetWidth;
+    btn.classList.add('toggling');
+    setTimeout(() => {
+      btn.classList.remove('toggling');
+    }, 600);
   }
 
-  function runOrganicTransition(sourceX, sourceY, targetTheme) {
-    let prefersReducedMotion = false;
-    try {
-      prefersReducedMotion = window.matchMedia && 
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    } catch (e) {}
-
-    // Jika user mengaktifkan reduced motion atau canvas tidak didukung, langsung ganti
-    if (prefersReducedMotion || !window.requestAnimationFrame) {
-      applyThemeInstant(targetTheme);
-      return;
-    }
-
-    try {
-      if (!initCanvas()) {
-        applyThemeInstant(targetTheme);
-        return;
-      }
-    } catch (e) {
-      applyThemeInstant(targetTheme);
-      return;
-    }
-
-    isTransitioning = true;
-    resizeCanvas();
-    canvas.style.opacity = '1';
-
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    const maxDimension = Math.hypot(w, h);
-    const targetColor = THEME_COLORS[targetTheme] || (targetTheme === THEME_LIGHT ? '#F5F3EF' : '#222126');
-
-    const clickX = (typeof sourceX === 'number' && !isNaN(sourceX)) ? sourceX : w * 0.85;
-    const clickY = (typeof sourceY === 'number' && !isNaN(sourceY)) ? sourceY : 40;
-
-    // 7 Titik asal penyebaran organik
-    const origins = [
-      { x: clickX, y: clickY, delay: 0, maxR: maxDimension * 1.0 },
-      { x: w * 0.15, y: h * 0.25, delay: 35, maxR: maxDimension * 0.85 },
-      { x: w * 0.85, y: h * 0.20, delay: 50, maxR: maxDimension * 0.85 },
-      { x: w * 0.35, y: h * 0.65, delay: 70, maxR: maxDimension * 0.85 },
-      { x: w * 0.70, y: h * 0.75, delay: 85, maxR: maxDimension * 0.8 },
-      { x: w * 0.50, y: h * 0.40, delay: 45, maxR: maxDimension * 0.85 },
-      { x: w * 0.10, y: h * 0.85, delay: 100, maxR: maxDimension * 0.75 }
-    ];
-
-    const duration = 480; // ms
-    const startTime = performance.now();
-    let domApplied = false;
-
-    // Watchdog timer jika rAF terhambat
-    const watchdog = setTimeout(() => {
-      if (!domApplied) {
-        domApplied = true;
-        applyThemeInstant(targetTheme);
-      }
-      if (canvas) canvas.style.opacity = '0';
-      setTimeout(() => {
-        if (ctx) ctx.clearRect(0, 0, w, h);
-        isTransitioning = false;
-      }, 200);
-    }, duration + 100);
-
-    function step(now) {
-      const elapsed = now - startTime;
-      ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = targetColor;
-
-      origins.forEach(pt => {
-        if (elapsed > pt.delay) {
-          const ptElapsed = elapsed - pt.delay;
-          const ptDuration = duration - pt.delay;
-          const progress = Math.min(Math.max(ptElapsed / ptDuration, 0), 1);
-          const eased = easeOutCubic(progress);
-          const r = pt.maxR * eased;
-
-          if (r > 0) {
-            ctx.beginPath();
-            ctx.arc(pt.x, pt.y, r, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-      });
-
-      // Terapkan tema ke DOM saat gelombang sudah menutupi sebagian besar layar
-      if (elapsed >= duration * 0.75 && !domApplied) {
-        domApplied = true;
-        applyThemeInstant(targetTheme);
-      }
-
-      if (elapsed < duration) {
-        requestAnimationFrame(step);
-      } else {
-        clearTimeout(watchdog);
-        ctx.fillRect(0, 0, w, h);
-        if (!domApplied) {
-          domApplied = true;
-          applyThemeInstant(targetTheme);
-        }
-
-        // Fade out canvas pelan sehingga tema baru di DOM terlihat halus
-        canvas.style.opacity = '0';
-        setTimeout(() => {
-          if (ctx) ctx.clearRect(0, 0, w, h);
-          isTransitioning = false;
-        }, 220);
-      }
-    }
-
-    requestAnimationFrame(step);
-  }
-
+  /**
+   * Main Theme Toggle with GPU-Accelerated Circular Clip-Path Reveal
+   */
   function toggleTheme(event) {
     if (isTransitioning) return;
 
-    const current = getCurrentTheme();
-    const next = (current === THEME_DARK) ? THEME_LIGHT : THEME_DARK;
+    const currentTheme = getCurrentTheme();
+    const nextTheme = (currentTheme === THEME_DARK) ? THEME_LIGHT : THEME_DARK;
 
-    let sourceX = window.innerWidth * 0.85;
-    let sourceY = 40;
+    // Detect click origin coordinates for the radial wave
+    let clickX = window.innerWidth * 0.85;
+    let clickY = 40;
+    let triggerBtn = null;
 
     if (event) {
-      const btn = event.currentTarget || (event.target ? event.target.closest('.theme-toggle') : null);
-      if (btn) {
-        const rect = btn.getBoundingClientRect();
-        sourceX = rect.left + rect.width / 2;
-        sourceY = rect.top + rect.height / 2;
+      triggerBtn = event.currentTarget || (event.target ? event.target.closest('.theme-toggle-btn, .theme-toggle') : null);
+      if (triggerBtn) {
+        const rect = triggerBtn.getBoundingClientRect();
+        clickX = rect.left + rect.width / 2;
+        clickY = rect.top + rect.height / 2;
+        triggerButtonAnimation(triggerBtn);
       } else if (typeof event.clientX === 'number' && event.clientX > 0) {
-        sourceX = event.clientX;
-        sourceY = event.clientY;
+        clickX = event.clientX;
+        clickY = event.clientY;
       }
     }
 
-    runOrganicTransition(sourceX, sourceY, next);
+    if (!triggerBtn) {
+      const defaultBtn = document.querySelector('.theme-toggle-btn, .theme-toggle');
+      if (defaultBtn) {
+        const rect = defaultBtn.getBoundingClientRect();
+        clickX = rect.left + rect.width / 2;
+        clickY = rect.top + rect.height / 2;
+        triggerButtonAnimation(defaultBtn);
+      }
+    }
+
+    // Check reduced motion preference
+    let prefersReducedMotion = false;
+    try {
+      prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    // CASE 1: Modern View Transitions API (Chrome 111+, Edge 111+, Safari 18+)
+    if (document.startViewTransition && !prefersReducedMotion) {
+      isTransitioning = true;
+
+      const transition = document.startViewTransition(() => {
+        applyThemeInstant(nextTheme);
+      });
+
+      transition.ready.then(() => {
+        // Calculate the maximum radius required to sweep the entire screen from the click point
+        const maxRadius = Math.hypot(
+          Math.max(clickX, window.innerWidth - clickX),
+          Math.max(clickY, window.innerHeight - clickY)
+        );
+
+        const clipAnimation = document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${clickX}px ${clickY}px)`,
+              `circle(${maxRadius}px at ${clickX}px ${clickY}px)`
+            ]
+          },
+          {
+            duration: 520,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            pseudoElement: '::view-transition-new(root)'
+          }
+        );
+
+        clipAnimation.onfinish = () => {
+          isTransitioning = false;
+        };
+      }).catch(() => {
+        isTransitioning = false;
+      });
+
+      return;
+    }
+
+    // CASE 2: Fallback for other browsers (Ultra-Smooth CSS Interpolation + Ripple Overlay)
+    isTransitioning = true;
+    document.documentElement.classList.add('theme-transitioning');
+
+    // Spawn a gentle radial ripple overlay
+    if (!prefersReducedMotion) {
+      const ripple = document.createElement('div');
+      ripple.className = 'theme-ripple-fallback';
+      const maxRadius = Math.hypot(
+        Math.max(clickX, window.innerWidth - clickX),
+        Math.max(clickY, window.innerHeight - clickY)
+      );
+      const diameter = maxRadius * 2.2;
+      ripple.style.width = `${diameter}px`;
+      ripple.style.height = `${diameter}px`;
+      ripple.style.left = `${clickX}px`;
+      ripple.style.top = `${clickY}px`;
+      ripple.style.background = THEME_BG_COLORS[nextTheme] || '#04070c';
+      document.body.appendChild(ripple);
+
+      // Trigger expansion
+      requestAnimationFrame(() => {
+        ripple.style.transform = 'translate(-50%, -50%) scale(1)';
+        ripple.style.opacity = '0';
+      });
+
+      setTimeout(() => {
+        if (ripple.parentNode) {
+          ripple.parentNode.removeChild(ripple);
+        }
+      }, 600);
+    }
+
+    applyThemeInstant(nextTheme);
+
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transitioning');
+      isTransitioning = false;
+    }, 480);
   }
 
   function initTheme() {
@@ -287,16 +228,10 @@
     const savedTheme = safeStorage.get(STORAGE_KEY) || initialDocTheme || getSystemPreference();
     applyThemeInstant(savedTheme);
 
-    window.addEventListener('resize', () => {
-      if (canvas && !isTransitioning) {
-        resizeCanvas();
-      }
-    }, { passive: true });
-
-    // Pasang listener langsung ke tombol-tombol yang sudah ada
+    // Event listener binding on theme toggle buttons
     function bindButtons() {
-      const toggles = document.querySelectorAll('.theme-toggle');
-      toggles.forEach(btn => {
+      const buttons = document.querySelectorAll('.theme-toggle-btn, .theme-toggle');
+      buttons.forEach(btn => {
         btn.onclick = function (e) {
           e.preventDefault();
           toggleTheme(e);
@@ -306,16 +241,16 @@
 
     bindButtons();
 
-    // Event delegation sebagai cadangan
+    // Event delegation backup
     document.addEventListener('click', (e) => {
-      const toggle = e.target.closest('.theme-toggle');
+      const toggle = e.target.closest('.theme-toggle-btn, .theme-toggle');
       if (toggle) {
         e.preventDefault();
         toggleTheme(e);
       }
     });
 
-    // Deteksi jika tema sistem berganti dan user belum pernah memilih manual
+    // Detect OS theme change if user hasn't explicitly set one
     try {
       if (window.matchMedia) {
         window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
@@ -327,14 +262,13 @@
     } catch (e) {}
   }
 
-  // API global
+  // Global API
   window.InLiveIqTheme = {
     toggle: toggleTheme,
     set: applyThemeInstant,
     get: getCurrentTheme
   };
 
-  // Jalankan inisialisasi secepat mungkin
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initTheme);
   } else {
