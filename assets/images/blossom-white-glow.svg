@@ -1,14 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 500" width="100%" height="100%" aria-hidden="true">
   <defs>
-    <filter id="blossomGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="6" result="blur1" />
-      <feGaussianBlur stdDeviation="15" result="blur2" />
-      <feMerge>
-        <feMergeNode in="blur2" />
-        <feMergeNode in="blur1" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
+    <radialGradient id="blossomAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14" />
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
     <radialGradient id="petalGrad" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#ffffff" />
       <stop offset="70%" stop-color="#f0f3f8" />
@@ -21,8 +17,8 @@
     </linearGradient>
   </defs>
 
-  <!-- Ambient Ambient Glow Backdrop -->
-  <ellipse cx="160" cy="250" rx="110" ry="170" fill="#ffffff" fill-opacity="0.04" filter="url(#blossomGlow)" />
+  <!-- Ambient Glow Backdrop (Zero-Filter Radial Gradient) -->
+  <ellipse cx="160" cy="240" rx="145" ry="215" fill="url(#blossomAura)" />
 
   <!-- Botanical Main Branch and Twigs -->
   <g stroke="url(#branchGrad)" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -36,8 +32,8 @@
     <path d="M 155 70 Q 135 50, 120 40" stroke-width="1.8" />
   </g>
 
-  <!-- Five-Petal Cherry Blossoms (Glowing Luminescent White) -->
-  <g filter="url(#blossomGlow)">
+  <!-- Five-Petal Cherry Blossoms -->
+  <g>
     <!-- Flower Cluster 1 (Top Center) -->
     <g transform="translate(160, 50)">
       <circle cx="0" cy="-12" r="8" fill="url(#petalGrad)" />
@@ -118,11 +114,8 @@
     <circle cx="260" cy="165" r="4.5" fill="#ffffff" />
     <circle cx="60" cy="265" r="4" fill="#ffffff" />
     <circle cx="265" cy="310" r="5" fill="#ffffff" />
-
-    <!-- Drifting Petals -->
-    <ellipse cx="120" cy="180" rx="6" ry="3.5" transform="rotate(-30 120 180)" fill="#ffffff" opacity="0.9" />
-    <ellipse cx="205" cy="270" rx="7" ry="4" transform="rotate(25 205 270)" fill="#ffffff" opacity="0.9" />
-    <ellipse cx="130" cy="410" rx="6" ry="3" transform="rotate(45 130 410)" fill="#ffffff" opacity="0.85" />
-    <ellipse cx="200" cy="440" rx="5" ry="2.8" transform="rotate(-15 200 440)" fill="#ffffff" opacity="0.8" />
+    <ellipse cx="45" cy="180" rx="4.5" ry="2.2" transform="rotate(-35 45 180)" fill="#ffffff" opacity="0.85" />
+    <ellipse cx="275" cy="240" rx="5" ry="2.5" transform="rotate(28 275 240)" fill="#ffffff" opacity="0.85" />
+    <ellipse cx="115" cy="390" rx="4" ry="2" transform="rotate(-20 115 390)" fill="#ffffff" opacity="0.75" />
   </g>
 </svg>

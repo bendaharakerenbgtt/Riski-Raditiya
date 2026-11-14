@@ -1,22 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%" aria-hidden="true">
   <defs>
-    <!-- White Glow Filters -->
-    <filter id="whiteGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="8" result="blur1" />
-      <feGaussianBlur stdDeviation="18" result="blur2" />
-      <feMerge>
-        <feMergeNode in="blur2" />
-        <feMergeNode in="blur1" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="5" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
+    <!-- Zero-cost Radial Aura Gradients -->
+    <radialGradient id="auraGradOuter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16" />
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
     <!-- Radial Gradients for Fan Blade -->
     <radialGradient id="fanGrad" cx="50%" cy="85%" r="75%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
@@ -35,14 +24,13 @@
     </linearGradient>
   </defs>
 
-  <!-- Ambient Background Aura -->
-  <circle cx="250" cy="180" r="140" fill="#ffffff" fill-opacity="0.04" filter="url(#whiteGlow)" />
-  <circle cx="250" cy="180" r="90" fill="#ffffff" fill-opacity="0.08" filter="url(#whiteGlow)" />
+  <!-- Ambient Background Aura (Zero-Filter Radial Gradient) -->
+  <circle cx="250" cy="180" r="175" fill="url(#auraGradOuter)" />
 
   <!-- Unfolded Fan Arc Body -->
-  <g filter="url(#softGlow)">
+  <g>
     <path d="M 70 230 C 95 110, 160 50, 250 50 C 340 50, 405 110, 430 230 L 290 255 C 275 235, 225 235, 210 255 Z" 
-          fill="url(#fanGrad)" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" />
+          fill="url(#fanGrad)" stroke="rgba(255,255,255,0.75)" stroke-width="1.8" />
   </g>
 
   <!-- Fan Ribs / Radiating Slats -->
@@ -65,8 +53,8 @@
     <path d="M 270 145 Q 295 165, 330 155" />
   </g>
 
-  <!-- Blossoms & Petals on Fan (Glowing White) -->
-  <g fill="#ffffff" filter="url(#softGlow)">
+  <!-- Blossoms & Petals on Fan -->
+  <g fill="#ffffff">
     <!-- Blossom 1 -->
     <circle cx="280" cy="140" r="4.5" fill="#ffffff" />
     <circle cx="274" cy="136" r="3" fill="#ffffff" opacity="0.8" />
@@ -90,11 +78,11 @@
   </g>
 
   <!-- Fan Pivot Ring & Base Handle -->
-  <circle cx="250" cy="265" r="8" fill="#ffffff" filter="url(#softGlow)" />
+  <circle cx="250" cy="265" r="8" fill="#ffffff" />
   <circle cx="250" cy="265" r="4" fill="#121318" />
 
   <!-- Hanging White Silk Cord and Tassel -->
-  <g filter="url(#softGlow)">
+  <g>
     <!-- Silk Cord -->
     <path d="M 250 273 C 250 295, 246 310, 248 325" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" />
     

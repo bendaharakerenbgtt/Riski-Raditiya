@@ -2,10 +2,24 @@
 <html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Portofolio Web & Kreatif — Desain antarmuka modern, performa tinggi, dan pengalaman digital bernuansa monokromatik putih yang elegan.">
   <title>Portofolio Profesional — Web Developer & Creator</title>
-  
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('inliveiq_theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
 </head>
@@ -82,6 +96,11 @@
       <li><a href="#skills">Keahlian</a></li>
       <li><a href="#contact">Hubungi Saya</a></li>
     </ul>
+    <div class="mobile-drawer-cta">
+      <a href="#contact" class="btn-download-cv mobile-drawer-btn">
+        <span>Mulai Diskusi Proyek</span>
+      </a>
+    </div>
   </div>
 
   <main id="main-content">
@@ -321,7 +340,7 @@
           <!-- Project 1 -->
           <div class="project-card">
             <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-ai.svg" alt="Mockup Aplikasi AI Image Generator" loading="lazy">
+              <img src="assets/images/project-ai.svg" alt="Mockup Aplikasi AI Image Generator" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
@@ -340,7 +359,7 @@
           <!-- Project 2 -->
           <div class="project-card">
             <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-ecommerce.svg" alt="Mockup Toko Online Modern" loading="lazy">
+              <img src="assets/images/project-ecommerce.svg" alt="Mockup Toko Online Modern" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
@@ -359,7 +378,7 @@
           <!-- Project 3 -->
           <div class="project-card">
             <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-portfolio.svg" alt="Mockup Website Portofolio Editorial" loading="lazy">
+              <img src="assets/images/project-portfolio.svg" alt="Mockup Website Portofolio Editorial" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
@@ -378,7 +397,7 @@
           <!-- Project 4 -->
           <div class="project-card">
             <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-task.svg" alt="Mockup Aplikasi Manajemen Tugas Kanban" loading="lazy">
+              <img src="assets/images/project-task.svg" alt="Mockup Aplikasi Manajemen Tugas Kanban" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
@@ -397,7 +416,7 @@
           <!-- Project 5 -->
           <div class="project-card">
             <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-weather.svg" alt="Mockup Dashboard Radar Cuaca" loading="lazy">
+              <img src="assets/images/project-weather.svg" alt="Mockup Dashboard Radar Cuaca" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
@@ -416,7 +435,7 @@
           <!-- Project 6 -->
           <div class="project-card">
             <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-social.svg" alt="Mockup Aplikasi Media Sosial Real-Time" loading="lazy">
+              <img src="assets/images/project-social.svg" alt="Mockup Aplikasi Media Sosial Real-Time" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
@@ -584,8 +603,8 @@
                 </g>
 
                 <!-- 3. Handset Cast Shadow -->
-                <g transform="scale(0.72) translate(33, 27)" opacity="0.45">
-                  <path d="M 95 65 C 105 45, 130 45, 145 60 L 165 80 C 178 93, 178 115, 165 128 L 150 143 C 145 148, 145 155, 150 165 C 165 195, 195 225, 225 240 C 235 245, 242 245, 247 240 L 262 225 C 275 212, 297 212, 310 225 L 330 245 C 345 260, 345 285, 325 295 C 285 315, 230 305, 175 270 C 120 235, 75 185, 55 135 C 45 110, 65 75, 95 65 Z" fill="#000000" filter="blur(8px)" />
+                <g transform="scale(0.72) translate(34, 28)" opacity="0.28">
+                  <path d="M 95 65 C 105 45, 130 45, 145 60 L 165 80 C 178 93, 178 115, 165 128 L 150 143 C 145 148, 145 155, 150 165 C 165 195, 195 225, 225 240 C 235 245, 242 245, 247 240 L 262 225 C 275 212, 297 212, 310 225 L 330 245 C 345 260, 345 285, 325 295 C 285 315, 230 305, 175 270 C 120 235, 75 185, 55 135 C 45 110, 65 75, 95 65 Z" fill="#000000" />
                 </g>
 
                 <!-- 4. Handset Main Body & Bevel -->

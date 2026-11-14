@@ -1,72 +1,146 @@
 /**
  * Portfolio Main Interactive Controller (White Nuance / Deep Obsidian)
- * Hairline Scroll Progress, Interactive Typewriter, Animated Skill Progress,
- * Mobile Drawer, Stats Counter, and Smooth Navigation.
+ * Ultra-Smooth rAF Scroll Pipeline, Cached Layout Metrics, Hardware-Accelerated
+ * Scroll Reveal, Interactive Typewriter, Skill Bars, and Mobile Navigation.
  */
 
 (function () {
   'use strict';
 
-  // 1. Capsule Contour Scroll Progress Indicator (Follows Pill Curve Seamlessly)
-  function initScrollProgress() {
+  // 1. Unified rAF Scroll Controller (Progress Bar + Sticky Header + Active Nav)
+  function initScrollSystem() {
+    const header = document.querySelector('.site-header');
     const wrapper = document.querySelector('.nav-pill-wrapper');
     const track = document.getElementById('capsule-progress-track');
     const fill = document.getElementById('capsule-progress-fill');
-    if (!wrapper || !track || !fill) return;
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const desktopLinks = Array.from(document.querySelectorAll('.desktop-nav-menu a'));
+    const mobileLinks = Array.from(document.querySelectorAll('.mobile-nav-links a'));
 
     let pathTotalLength = 0;
+    let totalScrollable = 1;
+    let sectionBounds = [];
+    let isScrolled = false;
+    let currentActiveId = '';
+    let scrollTicking = false;
+    let resizeTicking = false;
 
-    function updatePath() {
-      const w = wrapper.offsetWidth;
-      const h = wrapper.offsetHeight;
-      const r = h / 2;
+    function measureLayout() {
+      // Measure capsule SVG path
+      if (wrapper && track && fill) {
+        const w = wrapper.offsetWidth;
+        const h = wrapper.offsetHeight;
+        const r = h / 2;
+        const d = `M 1,${r} A ${r},${r} 0 0,0 ${r},${h - 1} L ${w - r},${h - 1} A ${r},${r} 0 0,0 ${w - 1},${r}`;
 
-      // Follow the exact bottom contour of the capsule pill:
-      // Starts at middle of left cap (1, r), curves down to (r, h - 1),
-      // runs across the bottom to (w - r, h - 1), and curves up to (w - 1, r)
-      const d = `M 1,${r} A ${r},${r} 0 0,0 ${r},${h - 1} L ${w - r},${h - 1} A ${r},${r} 0 0,0 ${w - 1},${r}`;
-      
-      track.setAttribute('d', d);
-      fill.setAttribute('d', d);
+        track.setAttribute('d', d);
+        fill.setAttribute('d', d);
 
-      try {
-        pathTotalLength = fill.getTotalLength() || (w + 20);
-      } catch (e) {
-        pathTotalLength = w + 20;
+        try {
+          pathTotalLength = fill.getTotalLength() || (w + 20);
+        } catch (e) {
+          pathTotalLength = w + 20;
+        }
+
+        fill.style.strokeDasharray = `${pathTotalLength} ${pathTotalLength}`;
       }
 
-      fill.style.strokeDasharray = `${pathTotalLength} ${pathTotalLength}`;
-      updateScroll();
-    }
-
-    function updateScroll() {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      // Cache document scrollable height
       const docHeight = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight
+        document.documentElement.scrollHeight,
+        document.body ? document.body.scrollHeight : 0
       );
       const winHeight = window.innerHeight || document.documentElement.clientHeight || 800;
-      const totalH = docHeight - winHeight;
-      const pct = totalH > 0 ? Math.min(Math.max(scrollY / totalH, 0), 1) : 0;
+      totalScrollable = Math.max(docHeight - winHeight, 1);
 
-      const offset = pathTotalLength * (1 - pct);
-      fill.style.strokeDashoffset = offset;
+      // Cache section vertical bounds
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      sectionBounds = sections.map((sec) => {
+        const rect = sec.getBoundingClientRect();
+        const top = rect.top + scrollY;
+        return {
+          id: sec.id,
+          top: top,
+          bottom: top + rect.height
+        };
+      });
 
-      // Header scrolled state
-      const header = document.querySelector('.site-header');
+      renderScrollFrame();
+    }
+
+    function renderScrollFrame() {
+      scrollTicking = false;
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+
+      // Update capsule progress bar without layout reads
+      if (fill && pathTotalLength > 0) {
+        const pct = Math.min(Math.max(scrollY / totalScrollable, 0), 1);
+        const offset = pathTotalLength * (1 - pct);
+        fill.style.strokeDashoffset = `${offset}`;
+      }
+
+      // Toggle header scrolled class only when state changes
       if (header) {
-        if (scrollY > 20) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
+        const nextScrolled = scrollY > 20;
+        if (nextScrolled !== isScrolled) {
+          isScrolled = nextScrolled;
+          header.classList.toggle('scrolled', isScrolled);
+        }
+      }
+
+      // Update active navigation link using cached bounds
+      if (sectionBounds.length > 0) {
+        const probeY = scrollY + 160;
+        let matchedId = sectionBounds[0].id;
+
+        for (let i = 0; i < sectionBounds.length; i++) {
+          const b = sectionBounds[i];
+          if (probeY >= b.top && probeY < b.bottom) {
+            matchedId = b.id;
+            break;
+          }
+        }
+
+        if (matchedId !== currentActiveId) {
+          currentActiveId = matchedId;
+          const targetHref = `#${matchedId}`;
+          desktopLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === targetHref);
+          });
+          mobileLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === targetHref);
+          });
         }
       }
     }
 
-    window.addEventListener('resize', updatePath);
-    window.addEventListener('scroll', updateScroll, { passive: true });
-    updatePath();
+    function onScroll() {
+      if (!scrollTicking) {
+        scrollTicking = true;
+        window.requestAnimationFrame(renderScrollFrame);
+      }
+    }
+
+    function onResize() {
+      if (!resizeTicking) {
+        resizeTicking = true;
+        window.requestAnimationFrame(() => {
+          resizeTicking = false;
+          measureLayout();
+        });
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+    window.addEventListener('load', measureLayout, { once: true });
+
+    if ('ResizeObserver' in window && document.body) {
+      const ro = new ResizeObserver(onResize);
+      ro.observe(document.body);
+    }
+
+    measureLayout();
   }
 
   // 2. Interactive Typewriter Effect for Hero
@@ -82,40 +156,39 @@
     ];
 
     let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
+    let charIndex = phrases[0].length;
+    let isDeleting = true;
 
     function type() {
       const currentPhrase = phrases[phraseIndex];
+      let delay = 100;
 
       if (isDeleting) {
-        el.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
-        typingSpeed = 50;
+        el.textContent = currentPhrase.substring(0, charIndex);
+        delay = 45;
       } else {
-        el.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
-        typingSpeed = 110;
+        el.textContent = currentPhrase.substring(0, charIndex);
+        delay = 95;
       }
 
       if (!isDeleting && charIndex === currentPhrase.length) {
-        // Pause at end of phrase
-        typingSpeed = 2000;
+        delay = 2000;
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        typingSpeed = 400;
+        delay = 350;
       }
 
-      setTimeout(type, typingSpeed);
+      setTimeout(type, delay);
     }
 
-    type();
+    setTimeout(type, 1800);
   }
 
-  // 3. Mobile Navigation Drawer
+  // 3. Mobile Navigation Drawer (Accessible & Touch-Responsive)
   function initMobileNav() {
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
     const drawer = document.querySelector('.mobile-nav-drawer');
@@ -124,19 +197,28 @@
 
     function open() {
       drawer.classList.add('open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     }
 
     function close() {
       drawer.classList.remove('open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
 
-    toggleBtn.addEventListener('click', open);
+    toggleBtn.addEventListener('click', () => {
+      if (drawer.classList.contains('open')) {
+        close();
+      } else {
+        open();
+      }
+    });
+
     if (closeBtn) closeBtn.addEventListener('click', close);
 
     const links = drawer.querySelectorAll('a');
-    links.forEach(l => l.addEventListener('click', close));
+    links.forEach((l) => l.addEventListener('click', close));
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && drawer.classList.contains('open')) {
@@ -154,28 +236,63 @@
     let animated = false;
 
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !animated) {
-            animated = true;
-            bars.forEach(bar => {
-              const target = bar.getAttribute('data-pct') || '80%';
-              bar.style.width = target;
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.25 });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !animated) {
+              animated = true;
+              bars.forEach((bar) => {
+                bar.style.width = bar.getAttribute('data-pct') || '80%';
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
 
       observer.observe(section);
     } else {
-      bars.forEach(bar => {
+      bars.forEach((bar) => {
         bar.style.width = bar.getAttribute('data-pct') || '80%';
       });
     }
   }
 
-  // 5. Contact Form Handler (Validation & Interactive Feedback)
+  // 5. Hardware-Accelerated Scroll Reveal for Cards & Sections
+  function initScrollReveal() {
+    let prefersReduced = false;
+    try {
+      prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    if (prefersReduced || !('IntersectionObserver' in window)) return;
+
+    const targets = document.querySelectorAll(
+      '.section-common-header, .stat-box, .philosophy-card, .mission-card, .edu-card, .project-card, .skill-item, .contact-info-item, .contact-form-card'
+    );
+
+    targets.forEach((el, idx) => {
+      el.classList.add('reveal-item');
+      el.style.setProperty('--reveal-delay', `${(idx % 3) * 60}ms`);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -40px 0px', threshold: 0.08 }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+  }
+
+  // 6. Contact Form Handler (Validation & Interactive Feedback)
   function initContactForm() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
@@ -183,6 +300,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('.btn-send-message');
+      if (!submitBtn) return;
       const origText = submitBtn.innerHTML;
 
       submitBtn.disabled = true;
@@ -200,44 +318,17 @@
           submitBtn.style.background = '';
           submitBtn.style.color = '';
         }, 3500);
-      }, 1000);
+      }, 900);
     });
-  }
-
-  // 6. Active Navigation Highlighting
-  function initActiveNavHighlight() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.desktop-nav-menu a');
-
-    function checkActive() {
-      const scrollY = window.pageYOffset + 140;
-      sections.forEach(sec => {
-        const top = sec.offsetTop;
-        const height = sec.offsetHeight;
-        const id = sec.getAttribute('id');
-        if (scrollY >= top && scrollY < top + height) {
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
-      });
-    }
-
-    window.addEventListener('scroll', checkActive, { passive: true });
-    checkActive();
   }
 
   // DOM Content Loaded Initializer
   document.addEventListener('DOMContentLoaded', () => {
-    initScrollProgress();
+    initScrollSystem();
     initTypewriter();
     initMobileNav();
     initSkillBars();
+    initScrollReveal();
     initContactForm();
-    initActiveNavHighlight();
   });
 })();
