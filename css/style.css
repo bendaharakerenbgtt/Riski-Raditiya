@@ -2497,6 +2497,54 @@ a.contact-info-item:hover .contact-info-icon {
   font-family: var(--font-mono);
 }
 
+/* Comparison Table (Rencana Awal vs Realisasi) */
+.detail-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-subtle);
+}
+
+.detail-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.94rem;
+}
+
+.detail-comparison-table th {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  padding: 0.95rem 1.15rem;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.detail-comparison-table td {
+  padding: 0.95rem 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.detail-comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.detail-comparison-table td:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+  width: 24%;
+}
+
 /* Tech Architecture Grid */
 .detail-tech-grid {
   display: grid;

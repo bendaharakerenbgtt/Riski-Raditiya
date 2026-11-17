@@ -12,75 +12,140 @@ const InLiveIqData = {
   projects: [
     {
       id: "solecare",
-      title: "Solecare",
-      subtitle: "Sistem manajemen laundry dan perawatan sepatu dengan pelacakan resi mandiri, cetak nota PDF instan, dan kontrol antrean pengerjaan.",
-      category: "Aplikasi Bisnis & Layanan",
+      title: "SoleCare: Dari Rencana yang Kegedean sampai Aplikasi yang Benar-Benar Dipakai",
+      subtitle: "Aplikasi web yang membantu manajemen operasional mitra Soleful Soaks! Shoes Care, dari alur kerja kasir sampai pesanan selesai.",
+      category: "Aplikasi Bisnis & Mitra UMKM",
       featured: true,
       year: "2026",
-      status: "Aktif Digunakan",
-      summary: "Aplikasi operasional toko cuci dan perawatan sepatu yang mempermudah kasir mendata pesanan, mencetak nota digital PDF siap bagikan ke WhatsApp, serta memberi pelanggan akses cek status cucian secara mandiri 24 jam.",
+      status: "Aktif Digunakan Mitra",
+      summary: "Aplikasi web manajemen operasional mitra untuk menggantikan pencatatan manual WhatsApp pada usaha perawatan sepatu.",
       heroImage: "assets/images/project-ecommerce.svg",
-      tags: ["React 18", "React Router v6", "jsPDF", "html2canvas", "CSS3 Responsive"],
+      tags: ["React 18", "Google Spreadsheet", "Apps Script", "Cloudflare Pages", "jsPDF"],
       githubUrl: "https://github.com/bendaharakerenbgtt/solcare",
-      liveUrl: "https://github.com/bendaharakerenbgtt/solcare",
       videoUrl: "", // Siap diisi tautan Loom / YouTube Walkthrough
       gallery: [
         {
           url: "assets/images/project-ecommerce.svg",
-          caption: "Halaman kasir untuk pencatatan pesanan cepat dan pembuatan nota transaksi digital.",
-          alt: "Antarmuka Kasir Solecare"
+          caption: "Alur kasir dan pembuatan nota digital untuk pencatatan pesanan pelanggan.",
+          alt: "Antarmuka Kasir SoleCare"
         },
         {
           url: "assets/images/project-task.svg",
-          caption: "Papan kontrol antrean status pengerjaan sepatu dari tahap diterima hingga siap diambil.",
-          alt: "Manajemen Status Solecare"
+          caption: "Tampilan status pesanan dan pelacakan progres cuci sepatu.",
+          alt: "Status Pesanan SoleCare"
         }
       ],
-      metrics: [
-        { label: "Pertanyaan Status WA", value: "Turun ~75%" },
-        { label: "Cetak Nota PDF", value: "1 Klik Instan" },
-        { label: "Akses Cek Resi", value: "24/7 Mandiri" }
-      ],
-      content: {
-        // 01. Gambaran Besar
-        overview: "Solecare adalah aplikasi web manajemen operasional untuk usaha jasa perawatan dan pencucian sepatu. Aplikasi ini menyediakan alur kerja terpadu: kasir dapat memasukkan data pesanan pelanggan, memilih jenis treatment sepatu (deep clean, unyellowing, repaint), langsung mengekspor nota transaksi resmi berformat PDF, serta memberikan nomor resi unik agar pelanggan bisa melacak progres sepatunya secara mandiri dari smartphone mereka tanpa harus bertanya manual ke kasir.",
-        
-        // 02. Why — Kenapa aku membuat ini?
-        why: "Di usaha jasa perawatan sepatu, proses pengerjaan butuh waktu beberapa hari dan melewati tahapan spesifik. Sebelumnya, seluruh pencatatan mengandalkan nota kertas manual dan pesan chat WhatsApp. Akibatnya, setiap akhir pekan kasir dibanjiri puluhan chat pelanggan yang menanyakan 'sepatu saya sudah selesai belum?'. Staf kasir harus bolak-balik membongkar tumpukan nota fisik di gudang, memicu antrean kasir tersendat dan bahkan risiko salah penyerahan sepatu pelanggan. Aku membuat Solecare untuk menghapus friksi manual ini dan memberikan kejelasan status bagi pemilik toko maupun pelanggan.",
-        
-        // 03. Development & Challenges — Pengembangan dan masalah
-        development: {
-          narrative: "Aku memilih membangun Solecare dengan React 18 dan React Router DOM v6 agar antarmukanya beroperasi sebagai Single Page Application yang lincah diakses dari tablet kasir maupun ponsel pelanggan.",
-          stackReason: "React 18 memberikan manajemen state komponen yang reaktif saat kasir menambah multi-item sepatu dalam satu transaksi. Pustaka jsPDF dan html2canvas dipilih agar proses generate nota fisik dan digital terjadi langsung di sisi peramban (client-side) tanpa membebani server backend.",
-          struggle: "Tantangan tersulit adalah memastikan hasil cetak nota PDF memiliki ukuran proporsional layaknya struk kasir termal di semua ukuran layar smartphone. Awalnya, hasil render html2canvas di perangkat mobile sering mengalami blur atau terpotong pada batas margin. Aku mengatasinya dengan membuat kontainer DOM tersembunyi beresolusi tetap (fixed DPI canvas) yang dioptimalkan khusus saat proses konversi ke PDF dijalankan.",
-          tradeoffs: [
-            {
-              decision: "Memilih Client-Side PDF Generation dibanding Server-Side PDF",
-              reason: "Menghilangkan biaya infrastruktur server rendering dan membuat cetak struk instan tanpa jeda koneksi internet lambat."
-            },
-            {
-              decision: "Pelacakan Berbasis Kode Resi Ringkas",
-              reason: "Pelanggan tidak perlu repot membuat akun atau login password, cukup memasukkan kode resi untuk melihat status terkini."
+      customStory: {
+        sections: [
+          {
+            id: "gambaran-besar",
+            tocTitle: "Gambaran Besar",
+            heading: "Gambaran Besar",
+            paragraphs: [
+              "SoleCare adalah aplikasi web yang membantu manajemen operasional mitra, dari alur kerja kasir sampai pesanan selesai."
+            ]
+          },
+          {
+            id: "kenapa-membuatnya",
+            tocTitle: "Kenapa Aku Membuatnya",
+            heading: "Kenapa Aku Membuatnya",
+            paragraphs: [
+              "Awalnya ini tugas dari mata kuliah Multimedia Masyarakat. Salah satu syaratnya, kami harus punya mitra, dan akhirnya kelompokku yang beranggotakan empat orang memilih Soleful Soaks! Shoes Care.",
+              "Sebelumnya, pencatatan di sana semuanya manual lewat WhatsApp. Pesanan masuk, dioper dari tangan ke tangan karyawan, lalu dibuatkan nota, sampai akhirnya dicatat sebagai transaksi. Semua itu dikerjakan dua karyawan yang juga harus mencuci sepatunya, dan pengerjaan satu pesanan butuh 3–4 hari. Dari rekap mitra bulan September 2026, rata-rata ada tiga pelanggan yang ditolak setiap minggu karena antrean penuh.",
+              "Tujuan mata kuliah ini adalah membantu mitra sesuai program studi masing-masing. Karena aku dari Multimedia, aku melihat celah itu di sini, dan aku ingin membantunya lewat sebuah aplikasi."
+            ]
+          },
+          {
+            id: "siapa-terlibat",
+            tocTitle: "Siapa Saja yang Terlibat",
+            heading: "Siapa Saja yang Terlibat",
+            paragraphs: [
+              "Biar adil, aku sebut satu per satu. Kami berempat membantu mitra dari dua sisi: branding Instagram dan operasional."
+            ],
+            bullets: [
+              "<strong>Adila dan Syakib</strong> mengurus branding Instagram.",
+              "<strong>Aku dan Haris</strong> mengurus operasional. Karena ini pekerjaan berdua, kami membagi tugas: aku yang membuat platformnya, Haris yang meninjau platform itu sekaligus datang dan berkonsultasi ke mitra, apakah ini sudah oke atau belum."
+            ]
+          },
+          {
+            id: "rencana-awal",
+            tocTitle: "Rencana Awal Terlalu Besar",
+            heading: "Rencana Awal yang Terlalu Besar",
+            paragraphs: [
+              "Sebelum memikirkan teknologi dan bahasa pemrograman, aku melihat dulu apa saja yang dibutuhkan dan bagaimana supaya aplikasi web ini benar-benar membantu. Aku mengerahkan semua yang aku punya, lalu mulai menyusun rencana: React, database Supabase, penyimpanan foto before-after yang tersambung ke Drive, dan hosting di Cloudflare Pages.",
+              "Fiturnya banyak sekali, dan mitra pun oke-oke saja. Tapi justru di situ aku merasa ini bukan hal yang bagus. Terlalu kompleks, dan aku buntu sekali. Aku mulai menyerah, bahkan sempat kepikiran membuatnya fiktif saja, tidak sampai benar-benar digunakan."
+            ]
+          },
+          {
+            id: "titik-balik",
+            tocTitle: "Titik Balik: Aplikasi Bilas",
+            heading: "Titik Balik: Aplikasi Bilas",
+            paragraphs: [
+              "Untungnya, saat wawancara aku teringat bahwa mitra pernah memakai aplikasi Android bernama Bilas. Dari situ aku yakin: kalau mereka sampai berlangganan, berarti mereka paham betul tata letak dan kebutuhan yang ada di aplikasi itu. Jadi aku mulai mengikuti Bilas.",
+              "Tidak butuh waktu lama, aku mempelajarinya sampai tahap mirip sekali. Dan ternyata Bilas cukup kompleks, mirip aplikasi laundry. Di sinilah aku mulai menyeleksi fitur-fitur yang mungkin tidak akan terpakai.",
+              "Yang menyeleksi dan menguji fitur adalah aku dan Haris, tentu saja bersama mitra. Setelah melewati banyak revisi panjang, akhirnya mitra mengangkat jempol. Aplikasi sudah jadi, tinggal dirapikan."
+            ]
+          },
+          {
+            id: "fitur-dipangkas",
+            tocTitle: "Fitur yang Dipangkas",
+            heading: "Fitur yang Dipangkas",
+            paragraphs: [
+              "Banyak sekali fitur yang akhirnya di-cut karena terlalu rumit untuk skala kios kecil. Ini perbandingan rencana awal dengan realisasinya di lapangan:"
+            ],
+            comparisonTable: {
+              headers: ["Aspek", "Rencana Awal", "Realisasi"],
+              rows: [
+                [
+                  "Penyimpanan Data",
+                  "Database Supabase penuh (PostgreSQL, Auth kompleks, dan RLS)",
+                  "Google Spreadsheet via Apps Script agar mitra bisa langsung melihat dan mengelola isi data usahanya sendiri"
+                ],
+                [
+                  "Dokumentasi Foto",
+                  "Upload & penyimpanan foto before-after otomatis tersambung ke Google Drive",
+                  "Fokus ke alur kasir, cek resi digital, dan kolase ringkas di browser tanpa beban storage Drive yang rumit"
+                ],
+                [
+                  "Fitur Operasional Laundry",
+                  "Filter status offline-online, shortcut mesin cuci/pengering, dan modul kompleks ala aplikasi Bilas",
+                  "Dipangkas total; disisakan pencatatan pesanan kasir, antrean, nota PDF, dan pengiriman link resi ke WhatsApp"
+                ],
+                [
+                  "Akses & Login Karyawan",
+                  "Sistem manajemen akun multi-level & login 1-klik yang rumit",
+                  "Login simpel untuk 2 karyawan dengan sinkronisasi data langsung antar perangkat kasir"
+                ]
+              ]
             }
-          ]
-        },
-
-        // 04. The Outcome — Hasil dan penerimaan
-        outcome: {
-          summary: "Aplikasi ini berhasil mengotomatisasi pencatatan pesanan harian dan secara signifikan memangkas pertanyaan status cucian via WhatsApp hingga sekitar 75%. Pelanggan merasa lebih puas karena bisa melihat transparansi tahapan pengerjaan sepatu mereka, sementara tim kasir dapat fokus pada pelayanan fisik di toko.",
-          features: [
-            "Input Cepat Multi-Item: Kasir dapat menambahkan beberapa pasang sepatu dengan treatment berbeda dalam satu invoice.",
-            "Generator Nota PDF Siap Bagikan: File struk rapi dapat langsung diunduh atau dikirimkan ke nomor WhatsApp pelanggan dalam hitungan detik.",
-            "Halaman Pelacakan Publik: Cek status cucian mandiri (Diterima ➔ Proses Cuci ➔ Pengeringan ➔ Siap Diambil)."
-          ]
-        },
-
-        // 05. Reflection — Apa yang aku pelajari?
-        reflection: {
-          learnings: "Membangun Solecare menyadarkan aku bahwa software yang bernilai bukan software yang paling rumit teknologinya, melainkan yang paling cepat menyelesaikan masalah nyata pengguna di lapangan. Kemudahan antarmuka bagi staf toko yang sibuk jauh lebih penting daripada animasi yang berlebihan.",
-          tradeoffsLeft: "Saat ini data status masih tersinkronisasi via database web dan belum memiliki bot WhatsApp otomatis mandiri untuk broadcast notifikasi instan.",
-          futurePlan: "Rencana pengembangan selanjutnya adalah integrasi WhatsApp Gateway API agar sistem dapat otomatis mengirimkan pesan 'Sepatu Anda sudah selesai dan siap diambil' saat kasir mengubah status ke tahap akhir."
-        }
+          },
+          {
+            id: "pilihan-akhir",
+            tocTitle: "Pilihan Akhir",
+            heading: "Pilihan Akhir",
+            paragraphs: [
+              "Akhirnya aku memilih penyimpanan Google Spreadsheet yang terhubung lewat Apps Script. Menurutku ini yang paling ramah untuk mitra. Mereka jadi paham juga bahwa isi data usahanya ada di dalam spreadsheet itu, bukan di tempat asing yang tidak bisa mereka lihat. Dan tidak lupa, aku hosting di Cloudflare Pages yang gratis."
+            ]
+          },
+          {
+            id: "refleksi",
+            tocTitle: "Refleksi",
+            heading: "Refleksi",
+            paragraphs: [
+              "Akhirnya aku mengerti. Dari sekian banyak fitur yang aku buat dengan penuh niat, ternyata sedikit sekali yang mungkin benar-benar terpakai. Apalagi ini usaha kecil, sebuah kios kecil dengan dua karyawan.",
+              "Proyek ini mengubah caraku melihat sebuah produk. Dulu aku berpikir aplikasi yang bagus itu yang arsitekturnya paling canggih dan fiturnya paling lengkap. Sekarang aku sadar, teknologi terbaik buat mitra adalah teknologi yang paling sedikit bikin mereka mikir saat jam sibuk. Kalau mengulang proyek ini dari awal, aku tidak akan langsung menyusun stack rumit di atas kertas—aku bakal duduk di kiosnya dulu, melihat cara mereka mencatat satu pesanan, lalu membuat versi paling kecilnya untuk langsung dicoba hari itu juga."
+            ]
+          },
+          {
+            id: "lihat-hasilnya",
+            tocTitle: "Lihat Hasilnya",
+            heading: "Lihat Hasilnya",
+            paragraphs: [
+              "Kalau kalian penasaran dengan apa yang aku buat, kunjungi repositori GitHub-nya melalui tombol di atas atau lihat cuplikan tampilannya di bawah ini."
+            ],
+            showMedia: true
+          }
+        ]
       }
     },
     {

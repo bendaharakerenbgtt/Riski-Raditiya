@@ -37,7 +37,8 @@
 
     document.title = `${project.title} — Studi Kasus Portofolio`;
 
-    const c = project.content;
+    const c = project.content || {};
+    const hasCustomStory = Boolean(project.customStory && Array.isArray(project.customStory.sections));
 
     // Helper untuk render teknologi tags
     const techTags = Array.isArray(project.tags)
@@ -117,6 +118,115 @@
       `;
     }
 
+    // Builder untuk customStory vs default 5-pilar
+    let tocLinksHtml = '';
+    let articleSectionsHtml = '';
+
+    if (hasCustomStory) {
+      tocLinksHtml = project.customStory.sections.map((s, idx) => `
+        <a href="#${s.id}" class="detail-toc-item ${idx === 0 ? 'active' : ''}">${s.tocTitle}</a>
+      `).join('');
+
+      articleSectionsHtml = project.customStory.sections.map(s => {
+        const paras = (s.paragraphs || []).map(p => `<p class="detail-paragraph">${p}</p>`).join('');
+        const bullets = (s.bullets && s.bullets.length > 0)
+          ? `<ul class="detail-checklist">${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
+          : '';
+        let tableHtml = '';
+        if (s.comparisonTable) {
+          const headers = s.comparisonTable.headers.map(h => `<th>${h}</th>`).join('');
+          const rows = s.comparisonTable.rows.map(r => `<tr>${r.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('');
+          tableHtml = `
+            <div class="detail-table-wrap">
+              <table class="detail-comparison-table">
+                <thead><tr>${headers}</tr></thead>
+                <tbody>${rows}</tbody>
+              </table>
+            </div>
+          `;
+        }
+        const mediaHtml = s.showMedia ? `
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2rem; margin-bottom: 0.75rem;">Preview Tampilan</h4>
+          <div class="detail-gallery-grid">${galleryItems}</div>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.75rem;">Video Demo</h4>
+          ${videoMarkup}
+        ` : '';
+
+        return `
+          <section id="${s.id}" class="detail-article-section">
+            <h2 class="detail-section-heading">${s.heading}</h2>
+            ${paras}
+            ${bullets}
+            ${tableHtml}
+            ${mediaHtml}
+          </section>
+        `;
+      }).join('');
+    } else {
+      tocLinksHtml = `
+        <a href="#cerita-01-gambaran" class="detail-toc-item active">01. Gambaran Besar</a>
+        <a href="#cerita-02-why" class="detail-toc-item">02. The Why</a>
+        <a href="#cerita-03-dev" class="detail-toc-item">03. Dev &amp; Challenges</a>
+        <a href="#cerita-04-outcome" class="detail-toc-item">04. The Outcome</a>
+        <a href="#cerita-05-reflection" class="detail-toc-item">05. Reflection</a>
+      `;
+
+      articleSectionsHtml = `
+        <section id="cerita-01-gambaran" class="detail-article-section">
+          <h2 class="detail-section-heading">01. Gambaran Besar</h2>
+          <p class="detail-paragraph">${c.overview || ''}</p>
+        </section>
+
+        <section id="cerita-02-why" class="detail-article-section">
+          <h2 class="detail-section-heading">02. The Why</h2>
+          <p class="detail-paragraph">${c.why || ''}</p>
+        </section>
+
+        <section id="cerita-03-dev" class="detail-article-section">
+          <h2 class="detail-section-heading">03. Dev &amp; Challenges</h2>
+          <p class="detail-paragraph">${c.development ? c.development.narrative : ''}</p>
+          <div class="detail-callout-box">
+            <h4 class="callout-title">Keputusan Arsitektur &amp; Stack Teknologi</h4>
+            <p class="callout-text">${c.development ? c.development.stackReason : ''}</p>
+          </div>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.75rem 0;">Tantangan Teknis Terberat &amp; Solusi:</h4>
+          <p class="detail-paragraph">${c.development ? c.development.struggle : ''}</p>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.85rem 0;">Keputusan Kunci:</h4>
+          <div class="detail-tradeoffs-list">${tradeoffsHtml}</div>
+        </section>
+
+        <section id="cerita-04-outcome" class="detail-article-section">
+          <h2 class="detail-section-heading">04. The Outcome</h2>
+          <p class="detail-paragraph">${c.outcome ? c.outcome.summary : ''}</p>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 1.75rem 0 0.75rem 0;">Fitur Utama yang Berhasil Terwujud:</h4>
+          <ul class="detail-checklist">
+            ${(c.outcome && c.outcome.features ? c.outcome.features : []).map(f => `<li>${f}</li>`).join('')}
+          </ul>
+          ${metricsCards ? `
+            <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.75rem 0;">Hasil &amp; Capaian:</h4>
+            <div class="detail-metrics-grid">${metricsCards}</div>
+          ` : ''}
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.75rem;">Preview Tampilan</h4>
+          <div class="detail-gallery-grid">${galleryItems}</div>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.75rem;">Video Demo</h4>
+          ${videoMarkup}
+        </section>
+
+        <section id="cerita-05-reflection" class="detail-article-section">
+          <h2 class="detail-section-heading">05. Reflection</h2>
+          <p class="detail-paragraph">${c.reflection ? c.reflection.learnings : ''}</p>
+          <div class="detail-callout-box" style="margin-top: 1.5rem;">
+            <h4 class="callout-title">Kekurangan &amp; Kompromi Saat Ini:</h4>
+            <p class="callout-text">${c.reflection ? c.reflection.tradeoffsLeft : ''}</p>
+          </div>
+          <div class="detail-callout-box" style="margin-top: 1.25rem; border-left-color: var(--text-primary);">
+            <h4 class="callout-title">Rencana Perbaikan di Masa Depan (What's Next):</h4>
+            <p class="callout-text">${c.reflection ? c.reflection.futurePlan : ''}</p>
+          </div>
+        </section>
+      `;
+    }
+
     container.innerHTML = `
       <article class="project-detail-article">
         <!-- Tombol Kembali -->
@@ -176,93 +286,14 @@
               <div class="detail-toc-box">
                 <span class="detail-toc-title">DAFTAR ISI</span>
                 <nav class="detail-toc-nav">
-                  <a href="#cerita-01-gambaran" class="detail-toc-item active">01. Gambaran Besar</a>
-                  <a href="#cerita-02-why" class="detail-toc-item">02. The Why</a>
-                  <a href="#cerita-03-dev" class="detail-toc-item">03. Dev &amp; Challenges</a>
-                  <a href="#cerita-04-outcome" class="detail-toc-item">04. The Outcome</a>
-                  <a href="#cerita-05-reflection" class="detail-toc-item">05. Reflection</a>
+                  ${tocLinksHtml}
                 </nav>
               </div>
             </aside>
 
             <!-- Isi Artikel -->
             <div class="detail-article-body">
-              
-              <!-- 01. Gambaran Besar -->
-              <section id="cerita-01-gambaran" class="detail-article-section">
-                <h2 class="detail-section-heading">01. Gambaran Besar</h2>
-                <p class="detail-paragraph">${c.overview}</p>
-              </section>
-
-              <!-- 02. The Why -->
-              <section id="cerita-02-why" class="detail-article-section">
-                <h2 class="detail-section-heading">02. The Why</h2>
-                <p class="detail-paragraph">${c.why}</p>
-              </section>
-
-              <!-- 03. Dev & Challenges -->
-              <section id="cerita-03-dev" class="detail-article-section">
-                <h2 class="detail-section-heading">03. Dev &amp; Challenges</h2>
-                <p class="detail-paragraph">${c.development.narrative}</p>
-
-                <div class="detail-callout-box">
-                  <h4 class="callout-title">Keputusan Arsitektur &amp; Stack Teknologi</h4>
-                  <p class="callout-text">${c.development.stackReason}</p>
-                </div>
-
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.75rem 0;">Tantangan Teknis Terberat &amp; Solusi:</h4>
-                <p class="detail-paragraph">${c.development.struggle}</p>
-
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.85rem 0;">Keputusan Kunci:</h4>
-                <div class="detail-tradeoffs-list">
-                  ${tradeoffsHtml}
-                </div>
-              </section>
-
-              <!-- 04. The Outcome -->
-              <section id="cerita-04-outcome" class="detail-article-section">
-                <h2 class="detail-section-heading">04. The Outcome</h2>
-                <p class="detail-paragraph">${c.outcome.summary}</p>
-
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 1.75rem 0 0.75rem 0;">Fitur Utama yang Berhasil Terwujud:</h4>
-                <ul class="detail-checklist">
-                  ${c.outcome.features.map(f => `<li>${f}</li>`).join('')}
-                </ul>
-
-                <!-- Grid Metrik/Hasil -->
-                ${metricsCards ? `
-                  <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.75rem 0;">Hasil &amp; Capaian:</h4>
-                  <div class="detail-metrics-grid">
-                    ${metricsCards}
-                  </div>
-                ` : ''}
-
-                <!-- Galeri Preview Gambar -->
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.75rem;">Preview Tampilan</h4>
-                <div class="detail-gallery-grid">
-                  ${galleryItems}
-                </div>
-
-                <!-- Video Penjelasan -->
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.75rem;">Video Demo</h4>
-                ${videoMarkup}
-              </section>
-
-              <!-- 05. Reflection -->
-              <section id="cerita-05-reflection" class="detail-article-section">
-                <h2 class="detail-section-heading">05. Reflection</h2>
-                <p class="detail-paragraph">${c.reflection.learnings}</p>
-
-                <div class="detail-callout-box" style="margin-top: 1.5rem;">
-                  <h4 class="callout-title">Kekurangan &amp; Kompromi Saat Ini:</h4>
-                  <p class="callout-text">${c.reflection.tradeoffsLeft}</p>
-                </div>
-
-                <div class="detail-callout-box" style="margin-top: 1.25rem; border-left-color: var(--text-primary);">
-                  <h4 class="callout-title">Rencana Perbaikan di Masa Depan (What's Next):</h4>
-                  <p class="callout-text">${c.reflection.futurePlan}</p>
-                </div>
-              </section>
+              ${articleSectionsHtml}
 
               <!-- Bottom CTA -->
               <div class="detail-bottom-cta">
