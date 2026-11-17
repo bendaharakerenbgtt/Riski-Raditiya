@@ -315,13 +315,13 @@ const InLiveIqData = {
     },
     {
       id: "polimedia-fasilitas",
-      title: "Polimedia Fasilitas",
-      subtitle: "Platform peminjaman ruang dan sarana kampus berbasis web dengan autentikasi aman dan validasi jadwal terstruktur.",
+      title: "Web Polimedia Fasilitas: Membawa Alur Peminjaman Kampus ke Web",
+      subtitle: "Web peminjaman fasilitas kampus untuk kegiatan yang membutuhkan alur persuratan dan persetujuan berjenjang.",
       category: "Full Stack & Sistem Kampus",
       featured: true,
       year: "2026",
-      status: "Dalam Pengembangan Aktif",
-      summary: "Sistem informasi peminjaman fasilitas di lingkungan Politeknik Negeri Media Kreatif yang mencegah bentrok jadwal penggunaan studio/kelas, mempercepat birokrasi perizinan, dan melindungi data civitas akademika.",
+      status: "Tahap Produksi",
+      summary: "Sistem peminjaman fasilitas kampus yang membawa skema persuratan dan persetujuan berjenjang ke dalam web, lengkap dengan anti-bentrok jadwal dan portal petugas.",
       heroImage: "assets/images/project-ai.svg",
       tags: ["Next.js 16", "React 19", "PostgreSQL", "Argon2", "Zod", "Server Actions"],
       githubUrl: "https://github.com/bendaharakerenbgtt/polimedia-fasilitas",
@@ -339,51 +339,111 @@ const InLiveIqData = {
           alt: "Panel Verifikasi Jadwal"
         }
       ],
-      metrics: [
-        { label: "Keamanan Akun", value: "Argon2 Encryption" },
-        { label: "Validasi Jadwal", value: "Zod Schema Strict" },
-        { label: "Integritas Data", value: "PostgreSQL Relational" }
-      ],
-      content: {
-        // 01. Gambaran Besar
-        overview: "Polimedia Fasilitas adalah platform web full-stack modern yang dikembangkan untuk mengelola proses permohonan dan peminjaman sarana fisik di kampus Politeknik Negeri Media Kreatif. Melalui platform ini, mahasiswa dan pengurus organisasi dapat menelusuri katalog ruangan (studio rekaman, lab komputer multimedia, auditorium), melihat ketersediaan jadwal kosong, dan mengajukan peminjaman secara transparan kepada bagian pengelola fasilitas.",
-        
-        // 02. Why
-        why: "Di kampus vokasi kreatif seperti Polimedia, aktivitas praktikum dan produksi karya multimedia berlangsung sangat intensif. Selama ini, peminjaman ruang kelas dan studio masih menggunakan formulir kertas fisik yang harus ditandatangani manual ke beberapa lantai. Prosedur ini lambat dan sering memicu konflik jadwal ganda (double-booking) ketika dua kelompok mahasiswa merasa sama-sama berhak memakai ruangan yang sama pada jam yang sama. Aku menginisiasi sistem ini untuk mendigitalkan birokrasi kampus agar lebih adil, transparan, dan efisien.",
-        
-        // 03. Development & Challenges
-        development: {
-          narrative: "Aku memilih arsitektur modern Next.js 16 dengan React 19 dan database relasional PostgreSQL melalui native driver `pg` untuk menjamin kecepatan render server-side dan ketahanan transaksi jadwal.",
-          stackReason: "Next.js App Router dan Server Actions memungkinkan data formulir divalidasi langsung di server tanpa mengekspos endpoint API publik yang rentan. Keamanan kata sandi mahasiswa dilindungi dengan algoritma hashing mutakhir `@node-rs/argon2`, sedangkan keabsahan waktu peminjaman dijamin dengan validasi skema ketat dari `zod`.",
-          struggle: "Masalah teknis paling pelik adalah mendeteksi tumpang tindih waktu (time range overlap) saat beberapa peminjam mengajukan permohonan di ruangan yang sama pada menit yang bersamaan. Jika hanya dicek di client-side, risiko race condition sangat besar. Solusinya, aku merancang query transaksi SQL tingkat database yang mengecek konflik rentang waktu `(waktu_mulai < booking_selesai AND waktu_selesai > booking_mulai)` sebelum mengunci pencatatan baru.",
-          tradeoffs: [
-            {
-              decision: "Memilih Database PostgreSQL dibanding NoSQL",
-              reason: "Menjamin integritas relasi yang ketat antara entitas Pengguna, Ruangan, Jadwal, dan Log Status."
-            },
-            {
-              decision: "Validasi Zod di Sisi Server",
-              reason: "Menjamin tidak ada data tanggal kadaluarsa atau format NIM palsu yang lolos ke database."
+      customStory: {
+        sections: [
+          {
+            id: "gambaran-besar",
+            tocTitle: "Gambaran Besar",
+            heading: "Gambaran Besar",
+            paragraphs: [
+              "Web Polimedia Fasilitas adalah web peminjaman fasilitas kampus, khususnya untuk kegiatan yang butuh persiapan banyak lewat surat-menyurat. Idenya sederhana: aku membawa skema peminjaman kampus ke dalam web, supaya prosesnya lebih tertata, dari siapa saja yang perlu tahu tentang surat itu sampai siapa penanggung jawabnya."
+            ]
+          },
+          {
+            id: "kenapa-membuatnya",
+            tocTitle: "Kenapa Aku Membuatnya",
+            heading: "Kenapa Aku Membuatnya",
+            paragraphs: [
+              "Proyek ini lahir dari keinginanku sendiri. Aku tahu betul alur persuratan peminjaman fasilitas, dan aku melihat prosesnya bisa jauh lebih tertata kalau dipindahkan ke sistem yang jelas.",
+              "Di sisi lain, ini juga tugas mata kuliah Rekayasa Perangkat Lunak (RPL) yang harus mengikuti SDLC. Jadi proyek ini berjalan di dua jalur: keinginan pribadi dan tuntutan akademik."
+            ]
+          },
+          {
+            id: "siapa-terlibat",
+            tocTitle: "Siapa Saja yang Terlibat",
+            heading: "Siapa Saja yang Terlibat",
+            paragraphs: [
+              "Ada enam aktor utama dalam sistem ini:"
+            ],
+            bullets: [
+              "Ormawa (Organisasi Mahasiswa)",
+              "Dosen Pembimbing",
+              "Kaprodi",
+              "Wakil Direktur Bidang Kemahasiswaan",
+              "Subbagian Umum",
+              "Admin"
+            ],
+            afterParagraphs: [
+              "Ditambah satu portal khusus untuk petugas dan satpam di lapangan, supaya mereka tahu ruangan mana yang akan dipakai dan kapan.",
+              "Alur persuratannya berjenjang dan berbeda untuk tiap jenis organisasi:"
+            ],
+            comparisonTable: {
+              headers: ["Jenis organisasi", "Alur persetujuan"],
+              rows: [
+                ["UKM", "Dosen Pembimbing → BEM → MPM → Wadir"],
+                ["HIMA", "Kaprodi → MPM → Wadir → Subbagian Umum"],
+                ["BEM", "MPM → Wadir"],
+                ["MPM", "Wadir"]
+              ]
             }
-          ]
-        },
-
-        // 04. The Outcome
-        outcome: {
-          summary: "Fondasi sistem berhasil dibangun dengan standar industri: autentikasi aman, pencegahan jadwal bentrok secara otomatis, serta antarmuka modern yang nyaman dipakai oleh mahasiswa dari ponsel cerdas mereka.",
-          features: [
-            "Deteksi Bentrok Jadwal Otomatis: Sistem langsung menolak pengajuan jika waktu yang dipilih sudah terisi kegiatan lain.",
-            "Sistem Akun Mahasiswa Terverifikasi: Registrasi dan login aman berstandar enkripsi Argon2.",
-            "Panel Admin Pengelola Kampus: Hak akses khusus bagi staf fasilitas untuk menyetujui, menjadwalkan ulang, atau menolak permohonan."
-          ]
-        },
-
-        // 05. Reflection
-        reflection: {
-          learnings: "Menggarap proyek full-stack kampus ini memperdalam pemahaman aku tentang betapa krusialnya integritas data di lapisan database. Keamanan dan validasi data bukanlah pelengkap, melainkan fondasi utama sebuah aplikasi yang menangani kepentingan publik.",
-          tradeoffsLeft: "Tampilan kalender saat ini masih berbasis daftar slot waktu dan belum berbentuk kalender visual drag-and-drop interaktif penuh.",
-          futurePlan: "Menambahkan tampilan kalender interaktif per lantai gedung serta sistem verifikasi tiket masuk ruangan menggunakan dynamic QR code."
-        }
+          },
+          {
+            id: "apa-yang-dibangun",
+            tocTitle: "Apa Saja yang Aku Bangun",
+            heading: "Apa Saja yang Aku Bangun",
+            paragraphs: [
+              "<strong>Pengajuan dan jadwal</strong>"
+            ],
+            bullets: [
+              "Formulir pengajuan digital dengan aturan minimal H-3 sebelum acara.",
+              "Sistem hold slot sementara, supaya jadwal tidak diserobot organisasi lain saat formulir sedang diisi.",
+              "Anti-bentrok jadwal langsung di level database.",
+              "Kalender fasilitas kampus dan daftar inventaris ruangan."
+            ],
+            afterParagraphs: [
+              "<strong>Persetujuan:</strong> Approval berjenjang, lengkap dengan fitur revisi (pengajuan dikembalikan ke pemohon dengan catatan, tidak mulai dari nol) dan reschedule.",
+              "<strong>Setelah acara:</strong> Laporan pasca-acara dalam bentuk SBA (Surat Berita Acara), termasuk realisasi keuangan dan rundown.",
+              "<strong>Pendukung:</strong> Portal khusus petugas dan satpam, notifikasi di tiap tahap, serta Audit Log di panel Admin supaya setiap aksi penting tercatat.",
+              "<strong>Teknologi:</strong> Next.js 16 (App Router &amp; Server Actions), React 19, TypeScript, Tailwind CSS v4, dan PostgreSQL. Untuk keamanan dan kualitas, aku memakai validasi Zod, enkripsi password Argon2, dan testing dengan Vitest."
+            ]
+          },
+          {
+            id: "berhenti-di-produksi",
+            tocTitle: "Kenapa Berhenti di Produksi",
+            heading: "Kenapa Berhenti di Tahap Produksi",
+            paragraphs: [
+              "Merealisasikan sistem seperti ini butuh banyak peninjauan, dari manajemen sampai semua pihak yang terlibat. Aku sempat sampai di titik sharing dengan beberapa pihak. Tapi akhirnya aku berhenti, karena salah satu pihak enggan melanjutkan, walaupun bukan pihak yang kedudukannya tinggi.",
+              "Faktor lainnya, ini tugas mata kuliah yang terikat SDLC dengan waktu yang tidak lama. Jadi aku berhenti sampai tahap produksi saja."
+            ]
+          },
+          {
+            id: "tantangan-sebenarnya",
+            tocTitle: "Tantangan yang Sebenarnya",
+            heading: "Tantangan yang Sebenarnya",
+            paragraphs: [
+              "Setelah proyek ini, aku sadar tantangan terbesarnya bukan di kodenya. Selain maintenance, tantangannya adalah kepercayaan. Banyak orang menganggap modernisasi itu sulit, takut malah jadi lebih buruk, atau khawatir datanya gampang hilang. Kekhawatiran itu manusiawi, dan itu tidak bisa dijawab hanya dengan fitur yang lengkap."
+            ]
+          },
+          {
+            id: "refleksi",
+            tocTitle: "Refleksi",
+            heading: "Refleksi",
+            paragraphs: [
+              "Membangun sistem yang melibatkan banyak pihak mengajarkanku bahwa kode yang rapi dan fitur yang lengkap tidak otomatis membuat sistem bisa langsung dipakai. Setiap aktor punya kebiasaan, kekhawatiran, dan kepentingan masing-masing.",
+              "Kalau mengulang proyek ini dari awal, aku tidak akan langsung fokus membangun semuanya sekaligus. Aku akan lebih dulu mengajak pihak-pihak yang terlibat untuk berdiskusi sejak awal, menunjukkan prototipe kecil, dan memastikan mereka merasa aman dengan perubahan alurnya sebelum masuk ke pengembangan penuh.",
+              "Berhenti di tahap produksi memang terasa disayangkan, karena sistemnya sudah siap. Tapi dari sini aku belajar bahwa dalam proyek nyata, mendapatkan kepercayaan pengguna sama pentingnya dengan membangun sistemnya itu sendiri."
+            ]
+          },
+          {
+            id: "lihat-hasilnya",
+            tocTitle: "Lihat Hasilnya",
+            heading: "Lihat Hasilnya",
+            paragraphs: [
+              "Kalau kalian penasaran dengan apa yang aku buat, kunjungi GitHub-nya melalui tombol di atas atau lihat cuplikan tampilannya di bawah ini."
+            ],
+            showMedia: true
+          }
+        ]
       }
     },
     {
