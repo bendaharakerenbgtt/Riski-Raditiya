@@ -1,13 +1,6 @@
 /**
- * InLiveIq — Detail Page Dynamic Renderer (Bahasa Indonesia)
- * Merender Studi Kasus Proyek Menggunakan 7-Step Narrative Engineering Framework:
- * 1. Hook (Pertanyaan Provokatif & Premis)
- * 2. Context (Latar Belakang & Realita Lapangan)
- * 3. Problem (Akar Persoalan yang Spesifik)
- * 4. Exploration (Proses Berpikir & Trade-offs Opsi)
- * 5. Execution (Arsitektur Teknis & Koding Kunci)
- * 6. Evidence (Metrik Terukur, Galeri Multi-Media & Video Demo)
- * 7. Reflection (Pelajaran Berharga & Rencana Masa Depan)
+ * InLiveIq — Detail Page Dynamic Renderer (Bahasa Indonesia Alami)
+ * Menampilkan Studi Kasus Proyek Secara Natural, Enak Dibaca, dan Bebas Jargon/Istilah Kaku.
  */
 
 (function () {
@@ -29,7 +22,7 @@
     if (!project) {
       container.innerHTML = `
         <div class="container section" style="text-align: center; padding: 6rem 1rem;">
-          <h1 class="section-title">Studi Kasus Tidak Ditemukan</h1>
+          <h1 class="section-title">Proyek Tidak Ditemukan</h1>
           <p style="color: var(--text-secondary); margin-bottom: 2rem;">Proyek yang Anda cari tidak ditemukan dalam arsip ini.</p>
           <a href="index.html#projects" class="btn-download-cv">Kembali ke Karya Utama</a>
         </div>
@@ -37,7 +30,7 @@
       return;
     }
 
-    document.title = `${project.title} — Studi Kasus 7 Langkah Portofolio`;
+    document.title = `${project.title} — Detail Proyek`;
 
     const sec = project.sections;
 
@@ -46,7 +39,7 @@
       ? project.tags.map(t => `<span class="project-tag" style="font-size: 0.825rem; padding: 0.35rem 0.85rem;">${t}</span>`).join('')
       : '';
 
-    // Helper untuk render kartu metrik terukur
+    // Helper untuk render kartu hasil capaian
     const metricsCards = (project.metrics && project.metrics.length > 0)
       ? project.metrics.map(m => `
           <div class="detail-metric-card">
@@ -56,7 +49,7 @@
         `).join('')
       : '';
 
-    // Helper untuk render kartu trade-offs eksplorasi
+    // Helper untuk render pilihan solusi
     const tradeoffsHtml = (sec.exploration && sec.exploration.tradeoffs)
       ? sec.exploration.tradeoffs.map(t => `
           <div class="detail-tradeoff-item ${t.verdict.toLowerCase().includes('dipilih') ? 'is-selected' : ''}">
@@ -77,7 +70,7 @@
               <img src="${img.url}" alt="${img.alt || project.title}" loading="lazy" decoding="async" />
             </div>
             <figcaption class="detail-gallery-caption">
-              <strong>Preview ${idx + 1}:</strong> ${img.caption}
+              <strong>Tampilan ${idx + 1}:</strong> ${img.caption}
             </figcaption>
           </figure>
         `).join('')
@@ -87,17 +80,17 @@
             <img src="${project.heroImage}" alt="${project.title}" loading="lazy" decoding="async" />
           </div>
           <figcaption class="detail-gallery-caption">
-            <strong>Preview 1:</strong> Tangkapan layar antarmuka utama ${project.title}.
+            <strong>Tampilan 1:</strong> Cuplikan antarmuka utama ${project.title}.
           </figcaption>
         </figure>
       `;
 
-    // Video Section (Embed or Elegant Placeholder)
+    // Video Section
     let videoMarkup = '';
     if (project.videoUrl && project.videoUrl.trim() !== '') {
       videoMarkup = `
         <div class="detail-video-container">
-          <iframe src="${project.videoUrl}" title="Video Walkthrough ${project.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="${project.videoUrl}" title="Demo Video ${project.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       `;
     } else {
@@ -108,12 +101,12 @@
               <path d="M8 5v14l11-7z"/>
             </svg>
           </div>
-          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Video Walkthrough &amp; Interaksi</h4>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Demo &amp; Alur Penggunaan</h4>
           <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 48ch; margin: 0 auto 1.25rem auto;">
-            Video demonstrasi rekaman layar (Loom / YouTube) untuk proyek ini siap dipasang untuk memperlihatkan interaksi alur kerja nyata.
+            Video ringkas alur kerja dan fitur utama proyek ini sedang disiapkan untuk presentasi demo.
           </p>
           <a href="${project.githubUrl || 'https://github.com/bendaharakerenbgtt'}" target="_blank" rel="noopener noreferrer" class="btn-download-cv" style="font-size: 0.85rem; padding: 0.55rem 1.4rem;">
-            <span>Lihat Repositori Kode di GitHub ↗</span>
+            <span>Buka Kode di GitHub ↗</span>
           </a>
         </div>
       `;
@@ -121,22 +114,22 @@
 
     container.innerHTML = `
       <article class="project-detail-article">
-        <!-- Breadcrumb & Back Action -->
+        <!-- Tombol Kembali -->
         <div class="container" style="padding-top: 1.5rem; margin-bottom: 2rem;">
           <a href="index.html#projects" class="detail-back-link">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
-            <span>Kembali ke Beranda &amp; Karya</span>
+            <span>Kembali ke Beranda</span>
           </a>
         </div>
 
-        <!-- Header Editorial Proyek -->
+        <!-- Header Proyek -->
         <header class="detail-header">
           <div class="container">
             <div class="detail-eyebrow-row">
-              <span class="detail-monogram-tag">STUDI KASUS // 7-STEP FRAMEWORK // ${project.year}</span>
+              <span class="detail-monogram-tag">PROYEK // ${project.year}</span>
               <span class="detail-status-pill">${project.status}</span>
             </div>
 
@@ -154,12 +147,12 @@
                     <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
                       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                     </svg>
-                    <span>GitHub Repo ↗</span>
+                    <span>Repositori GitHub ↗</span>
                   </a>
                 ` : ''}
                 ${project.liveUrl ? `
                   <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="detail-ext-link detail-ext-link--primary">
-                    <span>Akses Live Demo ↗</span>
+                    <span>Coba Demo ↗</span>
                   </a>
                 ` : ''}
               </div>
@@ -167,64 +160,63 @@
           </div>
         </header>
 
-        <!-- Lead Banner Image -->
+        <!-- Banner Visual Gambar Utama -->
         <div class="container" style="margin-bottom: 3.5rem;">
           <div class="detail-lead-visual">
             <img src="${project.heroImage}" alt="${project.title}" width="1200" height="700" loading="eager" />
           </div>
         </div>
 
-        <!-- Main Case Study Content & Sticky Navigation -->
+        <!-- Layout Konten & Daftar Isi -->
         <div class="container">
           <div class="detail-content-layout">
             
-            <!-- Sticky Aside Table of Contents -->
-            <aside class="detail-sticky-toc" aria-label="Daftar Isi 7 Langkah Studi Kasus">
+            <!-- Sticky Aside Daftar Isi -->
+            <aside class="detail-sticky-toc" aria-label="Daftar Isi Halaman">
               <div class="detail-toc-box">
-                <span class="detail-toc-title">7-STEP FRAMEWORK</span>
+                <span class="detail-toc-title">DAFTAR ISI</span>
                 <nav class="detail-toc-nav">
-                  <a href="#step-1-hook" class="detail-toc-item active">1. The Hook</a>
-                  <a href="#step-2-context" class="detail-toc-item">2. Context &amp; Realita</a>
-                  <a href="#step-3-problem" class="detail-toc-item">3. The Real Problem</a>
-                  <a href="#step-4-exploration" class="detail-toc-item">4. Exploration &amp; Trade-offs</a>
-                  <a href="#step-5-execution" class="detail-toc-item">5. Technical Execution</a>
-                  <a href="#step-6-evidence" class="detail-toc-item">6. Evidence &amp; Showcase</a>
-                  <a href="#step-7-reflection" class="detail-toc-item">7. Reflection &amp; Future</a>
+                  <a href="#bagian-1-pertanyaan" class="detail-toc-item active">1. Pertanyaan Utama</a>
+                  <a href="#bagian-2-latar-belakang" class="detail-toc-item">2. Latar Belakang</a>
+                  <a href="#bagian-3-masalah" class="detail-toc-item">3. Masalah Nyata</a>
+                  <a href="#bagian-4-pilihan-solusi" class="detail-toc-item">4. Pilihan &amp; Solusi</a>
+                  <a href="#bagian-5-cara-kerja" class="detail-toc-item">5. Cara Kerja &amp; Teknologi</a>
+                  <a href="#bagian-6-hasil-dan-preview" class="detail-toc-item">6. Hasil &amp; Preview</a>
+                  <a href="#bagian-7-pelajaran" class="detail-toc-item">7. Pelajaran &amp; Rencana</a>
                 </nav>
               </div>
             </aside>
 
-            <!-- Article Body (7-Step Narrative) -->
+            <!-- Isi Artikel -->
             <div class="detail-article-body">
               
-              <!-- LANGKAH 1: HOOK -->
-              <section id="step-1-hook" class="detail-article-section">
-                <span class="detail-step-badge">LANGKAH 01 // HOOK &amp; PREMISE</span>
-                <h2 class="detail-section-heading">1. Premis &amp; Pertanyaan Pembuka</h2>
+              <!-- 1. Pertanyaan Utama -->
+              <section id="bagian-1-pertanyaan" class="detail-article-section">
+                <span class="detail-step-badge">BAGIAN 01</span>
+                <h2 class="detail-section-heading">1. Pertanyaan Utama</h2>
                 <div class="detail-hook-quote">
-                  <span class="hook-quote-glyph">“</span>
                   <p class="hook-quote-text">${sec.hook}</p>
                 </div>
               </section>
 
-              <!-- LANGKAH 2: CONTEXT -->
-              <section id="step-2-context" class="detail-article-section">
-                <span class="detail-step-badge">LANGKAH 02 // CONTEXT &amp; BACKGROUND</span>
-                <h2 class="detail-section-heading">2. Konteks Lapangan &amp; Audiens</h2>
+              <!-- 2. Latar Belakang -->
+              <section id="bagian-2-latar-belakang" class="detail-article-section">
+                <span class="detail-step-badge">BAGIAN 02</span>
+                <h2 class="detail-section-heading">2. Latar Belakang &amp; Kebutuhan Pengguna</h2>
                 <p class="detail-paragraph">${sec.context}</p>
               </section>
 
-              <!-- LANGKAH 3: PROBLEM -->
-              <section id="step-3-problem" class="detail-article-section">
-                <span class="detail-step-badge">LANGKAH 03 // THE ROOT PROBLEM</span>
-                <h2 class="detail-section-heading">3. Akar Persoalan yang Dihadapi</h2>
+              <!-- 3. Masalah Nyata -->
+              <section id="bagian-3-masalah" class="detail-article-section">
+                <span class="detail-step-badge">BAGIAN 03</span>
+                <h2 class="detail-section-heading">3. Masalah yang Terjadi di Lapangan</h2>
                 <p class="detail-paragraph">${sec.problem}</p>
               </section>
 
-              <!-- LANGKAH 4: EXPLORATION & TRADE-OFFS -->
-              <section id="step-4-exploration" class="detail-article-section">
-                <span class="detail-step-badge">LANGKAH 04 // ENGINEERING JUDGMENT</span>
-                <h2 class="detail-section-heading">4. Eksplorasi Pilihan &amp; Trade-offs</h2>
+              <!-- 4. Pilihan & Solusi -->
+              <section id="bagian-4-pilihan-solusi" class="detail-article-section">
+                <span class="detail-step-badge">BAGIAN 04</span>
+                <h2 class="detail-section-heading">4. Pertimbangan &amp; Pilihan Solusi</h2>
                 <p class="detail-paragraph">${sec.exploration.narrative}</p>
                 
                 <div class="detail-tradeoffs-list">
@@ -232,18 +224,18 @@
                 </div>
               </section>
 
-              <!-- LANGKAH 5: EXECUTION -->
-              <section id="step-5-execution" class="detail-article-section">
-                <span class="detail-step-badge">LANGKAH 05 // TECHNICAL EXECUTION</span>
-                <h2 class="detail-section-heading">5. Arsitektur &amp; Koding Kunci</h2>
+              <!-- 5. Cara Kerja & Teknologi -->
+              <section id="bagian-5-cara-kerja" class="detail-article-section">
+                <span class="detail-step-badge">BAGIAN 05</span>
+                <h2 class="detail-section-heading">5. Cara Kerja Sistem &amp; Teknologi</h2>
                 <p class="detail-paragraph">${sec.execution.architecture}</p>
 
-                <h4 style="font-family: var(--font-mono); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 1.5rem 0 0.75rem 0;">Pilar Implementasi Solusi:</h4>
+                <h4 style="font-family: var(--font-mono); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 1.5rem 0 0.75rem 0;">Poin Penting Pembuatan:</h4>
                 <ul class="detail-checklist">
                   ${sec.execution.keyImplementations.map(k => `<li>${k}</li>`).join('')}
                 </ul>
 
-                <h4 style="font-family: var(--font-mono); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 2rem 0 0.85rem 0;">Stack Teknologi yang Digunakan:</h4>
+                <h4 style="font-family: var(--font-mono); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 2rem 0 0.85rem 0;">Teknologi yang Dipakai:</h4>
                 <div class="detail-tech-grid">
                   ${sec.execution.technologies.map(t => `
                     <div class="detail-tech-card">
@@ -254,51 +246,51 @@
                 </div>
               </section>
 
-              <!-- LANGKAH 6: EVIDENCE & SHOWCASE -->
-              <section id="step-6-evidence" class="detail-article-section">
-                <span class="detail-step-badge">LANGKAH 06 // EVIDENCE &amp; IMPACT</span>
-                <h2 class="detail-section-heading">6. Bukti Nyata &amp; Hasil Terukur</h2>
+              <!-- 6. Hasil & Preview -->
+              <section id="bagian-6-hasil-dan-preview" class="detail-article-section">
+                <span class="detail-step-badge">BAGIAN 06</span>
+                <h2 class="detail-section-heading">6. Hasil Nyata &amp; Tampilan</h2>
                 <p class="detail-paragraph">${sec.evidenceText}</p>
 
-                <!-- Metrics Grid -->
+                <!-- Kartu Hasil/Metrik -->
                 ${metricsCards ? `
                   <div class="detail-metrics-grid">
                     ${metricsCards}
                   </div>
                 ` : ''}
 
-                <!-- Multi-Image Visual Gallery -->
-                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.5rem;">Galeri Preview &amp; Alur Antarmuka</h3>
+                <!-- Galeri Preview Gambar -->
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.5rem;">Preview Gambar Antarmuka</h3>
                 <div class="detail-gallery-grid">
                   ${galleryItems}
                 </div>
 
-                <!-- Video Walkthrough -->
-                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.5rem;">Video Walkthrough &amp; Interaksi</h3>
+                <!-- Video Demo -->
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.5rem;">Demo Video</h3>
                 ${videoMarkup}
               </section>
 
-              <!-- LANGKAH 7: REFLECTION & FUTURE -->
-              <section id="step-7-reflection" class="detail-article-section">
-                <span class="detail-step-badge">LANGKAH 07 // REFLECTION &amp; ROADMAP</span>
-                <h2 class="detail-section-heading">7. Refleksi &amp; Pelajaran Berharga</h2>
+              <!-- 7. Pelajaran & Rencana -->
+              <section id="bagian-7-pelajaran" class="detail-article-section">
+                <span class="detail-step-badge">BAGIAN 07</span>
+                <h2 class="detail-section-heading">7. Pelajaran &amp; Rencana ke Depan</h2>
                 <p class="detail-paragraph">${sec.reflection}</p>
 
                 <div class="detail-callout-box">
-                  <h4 class="callout-title">Rencana &amp; Roadmap Masa Depan (What's Next)</h4>
+                  <h4 class="callout-title">Rencana Pengembangan Lanjutan</h4>
                   <p class="callout-text">${sec.futureHorizons}</p>
                 </div>
               </section>
 
-              <!-- Bottom Action CTA -->
+              <!-- Bagian Kontak Bawah -->
               <div class="detail-bottom-cta">
-                <h3 class="cta-box-title">Tertarik Mendiskusikan Proyek Ini?</h3>
+                <h3 class="cta-box-title">Tertarik Membahas Proyek Ini?</h3>
                 <p class="cta-box-desc">
-                  Kotak pesan saya selalu terbuka untuk kolaborasi pembangunan aplikasi web modern, desain interaksi multimedia, atau rekayasa kode presisi.
+                  Saya selalu terbuka untuk diskusi santai mengenai pembuatan website, desain multimedia, atau kerja sama proyek baru.
                 </p>
                 <div class="cta-actions-wrap">
                   <a href="index.html#contact" class="btn-download-cv">
-                    <span>Mulai Percakapan / Kontak ↗</span>
+                    <span>Hubungi Saya ↗</span>
                   </a>
                   <a href="index.html#projects" class="detail-ext-link">
                     <span>Lihat Karya Lainnya</span>
