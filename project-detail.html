@@ -2,36 +2,59 @@
 <html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Studi Kasus Proyek. Analisis 10 poin arsitektur kognitif.">
-  <meta name="theme-color" content="#222126">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Studi Kasus Proyek Komprehensif — Desain antarmuka multimedia, arsitektur teknis, dan eksplorasi rekayasa digital.">
   <title>Studi Kasus Proyek — Portofolio Personal</title>
-  
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('inliveiq_theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/theme-transition.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
 </head>
 <body>
-  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
 
-  <!-- Navigasi -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="Beranda">
-        <span class="brand-symbol" aria-hidden="true">◈</span>
+  <!-- Floating Sticky Header with Hairline Scroll Progress Bar -->
+  <header class="site-header" role="banner">
+    <div class="nav-pill-wrapper">
+      <!-- Capsule Contour Scroll Progress Indicator -->
+      <svg class="capsule-progress-svg" aria-hidden="true">
+        <path class="capsule-progress-track" id="capsule-progress-track"></path>
+        <path class="capsule-progress-fill" id="capsule-progress-fill"></path>
+      </svg>
+
+      <!-- Left: Capsule Brand Pill -->
+      <a href="index.html#hero" class="nav-brand-pill" aria-label="Beranda Portofolio">
+        <span>◈</span> PORTOFOLIO
       </a>
 
-      <!-- Navigasi Desktop -->
-      <nav class="desktop-nav" aria-label="Navigasi Utama">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Beranda</a></li>
-          <li><a href="about.html" class="nav-link">Tentang</a></li>
-          <li><a href="projects.html" class="nav-link active">Proyek</a></li>
-          <li><a href="contact.html" class="nav-link">Kontak</a></li>
-        </ul>
+      <!-- Center: Desktop Navigation Links -->
+      <nav class="desktop-nav-menu" aria-label="Navigasi Utama">
+        <a href="index.html#hero">Beranda</a>
+        <a href="index.html#about">Tentang</a>
+        <a href="index.html#education">Pendidikan</a>
+        <a href="index.html#projects" class="active">Karya</a>
+        <a href="index.html#skills">Keahlian</a>
+        <a href="index.html#contact">Kontak</a>
+      </nav>
 
-        <!-- Tombol Ganti Tema -->
-        <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih ke mode terang" title="Beralih ke mode terang">
-          <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+      <!-- Right: Action CTA & Theme Toggle -->
+      <div class="nav-actions">
+        <a href="index.html#contact" class="nav-cta-btn">Hubungi Saya</a>
+        <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Beralih tema terang/gelap" title="Beralih tema">
+          <!-- Sun Icon (Active in Dark Mode) -->
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -42,65 +65,48 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+          <!-- Moon Icon (Active in Light Mode) -->
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
-      </nav>
-
-      <!-- Navigasi Mobile -->
-      <button class="mobile-nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false">
-        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Garis Indikator Scroll Simpel di Bawah Header -->
-    <div class="header-scroll-progress" aria-hidden="true">
-      <div class="header-scroll-progress-bar"></div>
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-menu-toggle" type="button" aria-label="Buka navigasi mobile">
+          <svg viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Laci Menu Mobile -->
-  <div class="mobile-drawer" aria-label="Menu Navigasi Mobile">
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">Beranda</a></li>
-      <li><a href="about.html" class="nav-link">Tentang</a></li>
-      <li><a href="projects.html" class="nav-link active">Proyek</a></li>
-      <li><a href="contact.html" class="nav-link">Kontak</a></li>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Menu Navigasi Mobile">
+    <div class="mobile-drawer-header">
+      <span class="nav-brand-pill">◈ PORTOFOLIO</span>
+      <button class="mobile-drawer-close" type="button" aria-label="Tutup menu">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html#hero">Beranda</a></li>
+      <li><a href="index.html#about">Tentang Saya</a></li>
+      <li><a href="index.html#education">Pendidikan</a></li>
+      <li><a href="index.html#projects">Karya Terpilih</a></li>
+      <li><a href="index.html#skills">Keahlian</a></li>
+      <li><a href="index.html#contact">Hubungi Saya</a></li>
     </ul>
-    <div class="mobile-drawer-footer">
-      <span style="font-size: 0.875rem; color: var(--text-secondary);">Tema Antarmuka</span>
-      <button class="theme-toggle" type="button" onclick="if(window.InLiveIqTheme)window.InLiveIqTheme.toggle(event);" aria-label="Beralih tema">
-        <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
+    <div class="mobile-drawer-cta">
+      <a href="index.html#contact" class="btn-download-cv mobile-drawer-btn">
+        <span>Mulai Diskusi Proyek</span>
+      </a>
     </div>
   </div>
 
   <main id="main-content">
     <div id="project-detail-container">
       <noscript>
-        <div class="container section">
+        <div class="container section" style="text-align: center; padding: 4rem 1rem;">
           <h2>Silakan aktifkan JavaScript di peramban Anda untuk melihat studi kasus ini.</h2>
         </div>
       </noscript>
@@ -108,52 +114,26 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="brand-link" aria-label="Beranda">
-            <span class="brand-symbol" aria-hidden="true">◈</span>
-          </a>
-          <p class="footer-tagline">
-            "Digerakkan oleh rasa ingin tahu, dibentuk oleh proses belajar, dan diungkapkan melalui berbagi."
-          </p>
+      <div class="footer-content">
+        <div class="footer-left">
+          <span class="footer-glyph">◈</span>
+          <span>&copy; 2026 Portofolio Profesional. Hak cipta dilindungi.</span>
         </div>
-
-        <div class="footer-nav">
-          <div class="footer-nav-col">
-            <span class="footer-col-title">Navigasi</span>
-            <a href="index.html" class="footer-link">Beranda</a>
-            <a href="about.html" class="footer-link">Tentang</a>
-            <a href="projects.html" class="footer-link">Proyek</a>
-            <a href="contact.html" class="footer-link">Kontak</a>
-          </div>
-
-          <div class="footer-nav-col">
-            <span class="footer-col-title">Karya</span>
-            <a href="project-detail.html?id=cognitive-note-engine" class="footer-link">RecallFlow</a>
-            <a href="project-detail.html?id=percept-cognitive-ui" class="footer-link">Percept</a>
-            <a href="project-detail.html?id=curio-mental-models" class="footer-link">Curio</a>
-          </div>
-
-          <div class="footer-nav-col">
-            <span class="footer-col-title">Terhubung</span>
-            <a href="contact.html" class="footer-link">Pesan</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026. Hak cipta dilindungi.</p>
-        <p style="font-family: var(--font-serif); font-style: italic;">A Curious Mind. A Continuous Journey.</p>
+        <ul class="footer-links">
+          <li><a href="index.html#hero">Beranda</a></li>
+          <li><a href="index.html#about">Tentang</a></li>
+          <li><a href="index.html#projects">Karya</a></li>
+          <li><a href="index.html#contact">Kontak</a></li>
+        </ul>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
+  <script src="js/theme-transition.js"></script>
   <script src="js/detail.js"></script>
   <script src="js/main.js"></script>
 </body>

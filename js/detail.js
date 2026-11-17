@@ -113,7 +113,7 @@
         <header class="detail-header">
           <div class="container">
             <div class="detail-eyebrow-row">
-              <span class="section-eyebrow" style="margin-bottom: 0; justify-content: flex-start;">STUDI KASUS // ${project.year}</span>
+              <span class="detail-monogram-tag">STUDI KASUS // ${project.year}</span>
               <span class="detail-status-pill">${project.status}</span>
             </div>
 
