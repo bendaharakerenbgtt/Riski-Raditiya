@@ -40,9 +40,62 @@
     const c = project.content || {};
     const hasCustomStory = Boolean(project.customStory && Array.isArray(project.customStory.sections));
 
+    // Helper mapping logo ikon teknologi (SVG inline)
+    function getTechIcon(tag) {
+      const lower = tag.toLowerCase().trim();
+      if (lower.includes('react')) {
+        return `<svg viewBox="-11.5 -10.23174 23 20.46348" width="14" height="14" fill="none"><circle cx="0" cy="0" r="2.05" fill="#61dafb"/><g stroke="#61dafb" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>`;
+      }
+      if (lower.includes('sheets') || lower.includes('spreadsheet')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14"><path fill="#0F9D58" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/><path fill="#FFF" d="M19 11H5V9h14v2zm0 4H5v-2h14v2zm-8 4H5v-2h6v2zm8 0h-6v-2h6v2zM19 7H5V5h14v2z"/></svg>`;
+      }
+      if (lower.includes('apps script')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14"><path fill="#4285F4" d="M4 3h16c.55 0 1 .45 1 1v16c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1z"/><path fill="#FFF" d="M9.5 8.5L6 12l3.5 3.5 1.4-1.4L8.8 12l2.1-2.1L9.5 8.5zm5 0l-1.4 1.4 2.1 2.1-2.1 2.1 1.4 1.4 3.5-3.5-3.5-3.5z"/></svg>`;
+      }
+      if (lower.includes('cloudflare')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="#F38020"><path d="M18.3 12.3c-.2-1.8-1.7-3.1-3.6-3.1-1.3 0-2.4.6-3 1.6-.4-.3-.9-.5-1.5-.5-1.4 0-2.5 1.1-2.5 2.5 0 .2 0 .4.1.6-1.5.2-2.7 1.5-2.7 3.1 0 1.7 1.4 3.1 3.1 3.1h10.4c1.7 0 3.1-1.4 3.1-3.1 0-1.6-1.2-2.9-2.8-3.1-.1-.4-.3-.8-.6-1.2z"/></svg>`;
+      }
+      if (lower.includes('pdf')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="#E5252A"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.5 8.5h-2v3H6V8h3.5c1.4 0 2 .9 2 1.75 0 1-.7 1.75-2 1.75zm5.5 3H12V8h3c1.7 0 2.5 1.1 2.5 3.25S16.7 14.5 15 14.5zm4.5-4h-2.5v1.5h2v1.5h-2v2.5H15V8h4.5v1.5z"/></svg>`;
+      }
+      if (lower.includes('html') || lower.includes('css')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="#E44D26"><path d="M3 2l1.8 20.2 7.2 2 7.2-2L21 2H3zm14.4 6.3h-7.6l.2 2.3h7.2l-.6 6.7-4.6 1.3-4.6-1.3-.3-3.6h2.2l.2 1.9 2.5.7 2.5-.7.3-3H6.8L6.2 6.1h11.4l-.2 2.2z"/></svg>`;
+      }
+      if (lower.includes('drive')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14"><path fill="#FFC107" d="M8.5 3.5l5.2 9H3.3l5.2-9z"/><path fill="#2684FC" d="M13.7 12.5l5.2 9H8.5l5.2-9z"/><path fill="#00AC47" d="M3.3 21.5l5.2-9 5.2 9H3.3z"/></svg>`;
+      }
+      if (lower.includes('vercel')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2L2 19.8h20L12 2z"/></svg>`;
+      }
+      if (lower.includes('next')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0a12 12 0 1 0 12 12A12.014 12.014 0 0 0 12 0zm5.1 16.5l-6-7.8v7.8H9.5V7.5h1.6l6 7.8V7.5h1.6v9z"/></svg>`;
+      }
+      if (lower.includes('postgres')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="#336791"><path d="M12 2C6.5 2 2 6.5 2 12c0 3.6 1.9 6.7 4.8 8.4V17c-.9-.6-1.5-1.7-1.5-2.9 0-1.9 1.6-3.5 3.5-3.5h.7c.3-.8.9-1.5 1.7-1.9-.3-.5-.5-1.1-.5-1.7 0-1.9 1.6-3.5 3.5-3.5s3.5 1.6 3.5 3.5c0 .6-.2 1.2-.5 1.7.8.4 1.4 1.1 1.7 1.9h.7c1.9 0 3.5 1.6 3.5 3.5 0 1.2-.6 2.3-1.5 2.9v3.4c2.9-1.7 4.8-4.8 4.8-8.4 0-5.5-4.5-10-10-10z"/></svg>`;
+      }
+      if (lower.includes('javascript') || lower === 'js') {
+        return `<svg viewBox="0 0 24 24" width="14" height="14"><rect width="24" height="24" fill="#F7DF1E" rx="3"/><path d="M7 17.5c1 .5 2.2.8 3.2.1.8-.5 1-1.6 1-3.6V7h-2v7c0 .8-.2 1.2-.7 1.4-.4.1-.9.1-1.5-.1v2.2zm7.6-.2c1.2.6 2.5.9 3.8.3 1.2-.6 1.6-1.8 1.6-3 0-2.3-2.3-2.6-3.5-3.1-.7-.3-1-.6-1-1.1 0-.6.5-1 1.3-1 .8 0 1.6.3 2.1.6l.8-1.7c-.8-.5-1.8-.7-2.9-.7-1.8 0-3.3 1.1-3.3 2.9 0 2.2 2.3 2.5 3.5 3 .7.3 1 .6 1 1.1 0 .7-.6 1.1-1.5 1.1-.9 0-1.9-.4-2.5-.8l-.9 1.6z"/></svg>`;
+      }
+      if (lower.includes('zod')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="#3068B7"><path d="M3 4h18v3.5L8.5 16.5H21V20H3v-3.5L15.5 7.5H3V4z"/></svg>`;
+      }
+      if (lower.includes('argon')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="#10B981"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>`;
+      }
+      if (lower.includes('preview') || lower.includes('actions') || lower.includes('print')) {
+        return `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+      }
+      return `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+    }
+
     // Helper untuk render teknologi tags
     const techTags = Array.isArray(project.tags)
-      ? project.tags.map(t => `<span class="project-tag" style="font-size: 0.825rem; padding: 0.35rem 0.85rem;">${t}</span>`).join('')
+      ? project.tags.map(t => `
+          <span class="project-tag" style="font-size: 0.825rem; padding: 0.35rem 0.85rem;">
+            ${getTechIcon(t)}
+            <span>${t}</span>
+          </span>
+        `).join('')
       : '';
 
     // Helper untuk render kartu metrik hasil
