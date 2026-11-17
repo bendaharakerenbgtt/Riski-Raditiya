@@ -448,70 +448,126 @@ const InLiveIqData = {
     },
     {
       id: "universal-surat",
-      title: "Universal Surat (GenSurat)",
-      subtitle: "Generator surat resmi dan dokumen organisasi otomatis dengan tata letak standar siap cetak tanpa geser margin.",
+      title: "GenSurat: Generator Surat untuk Dunia Ormawa",
+      subtitle: "Platform pembuat surat resmi organisasi mahasiswa dengan live preview kertas A4, quick-edit, dan ekspor langsung ke PDF serta DOCX.",
       category: "Produktivitas & Otomatisasi Web",
       featured: true,
       year: "2026",
-      status: "Selesai & Siap Pakai",
-      summary: "Aplikasi web pembuat surat resmi organisasi dan instansi yang mengubah input data sederhana menjadi dokumen formal berstandar baku dengan pratinjau langsung dan hasil cetak PDF yang presisi.",
+      status: "Tahap Penyesuaian & Aktif Dipakai",
+      summary: "Generator surat resmi untuk ormawa yang mendukung SPM, SBA, SPZ, dan SUD dengan live preview A4, kustomisasi kop, tanda tangan fleksibel, dan ekspor PDF/DOCX.",
       heroImage: "assets/images/project-portfolio.svg",
-      tags: ["HTML5 Semantik", "CSS3 Print Media", "Vanilla JavaScript", "Live Document Preview"],
+      tags: ["HTML5", "CSS3", "Tailwind CSS", "Vanilla JavaScript", "PWA"],
       githubUrl: "https://github.com/bendaharakerenbgtt/gensurat",
       liveUrl: "https://bendaharakerenbgtt.github.io/gensurat/",
       videoUrl: "",
       gallery: [
         {
           url: "assets/images/project-portfolio.svg",
-          caption: "Panel formulir data surat yang terhubung langsung dengan pratinjau dokumen otomatis.",
-          alt: "Tampilan Universal Surat"
+          caption: "Panel formulir data surat yang terhubung langsung dengan live preview kertas A4 dan quick-edit.",
+          alt: "Tampilan GenSurat"
         }
       ],
-      metrics: [
-        { label: "Waktu Buat Surat", value: "< 1 Menit" },
-        { label: "Margin & Tata Letak", value: "Presisi Standar A4/F4" },
-        { label: "Aksesibilitas", value: "Tanpa Instal Aplikasi" }
-      ],
-      content: {
-        // 01. Gambaran Besar
-        overview: "Universal Surat (GenSurat) adalah aplikasi web produktivitas yang dirancang untuk mengotomatisasi pembuatan surat-surat resmi (surat undangan, peminjaman alat, permohonan izin kegiatan, surat tugas). Pengguna cukup mengisi beberapa kolom isian di formulir sebelah kiri, dan lembar surat berstandar formal lengkap dengan kop organisasi, penomoran otomatis, isi surat, dan kolom tanda tangan akan langsung tersusun rapi di kanvas pratinjau sebelah kanan siap dicetak atau disimpan sebagai PDF.",
-        
-        // 02. Why
-        why: "Dalam kehidupan organisasi kampus dan kepanitiaan, sekretaris sering menghabiskan waktu hingga 20-30 menit hanya untuk merapikan satu lembar surat di aplikasi word processor. Format margin sering melompat, posisi logo kop surat berantakan saat dibuka di komputer lain, dan posisi tanda tangan kerap terlempar ke halaman kedua. Masalah sepele ini membuang waktu produktif panitia. Aku membuat Universal Surat agar siapa saja bisa menghasilkan surat berformat standar sempurna dalam waktu kurang dari 60 detik.",
-        
-        // 03. Development & Challenges
-        development: {
-          narrative: "Aplikasi ini dibangun menggunakan arsitektur web native (HTML5, Modern CSS, dan Vanilla JavaScript) untuk menjaga kecepatan reaksi rendering instan.",
-          stackReason: "Tidak memerlukan framework besar karena inti kebutuhan aplikasi adalah kecepatan binding input teks ke elemen dokumen HTML dan ketepatan aturan media cetak (`@media print`).",
-          struggle: "Tantangan teknis utama adalah membuat tampilan dokumen yang ada di layar monitor peramban sama persis (pixel-perfect) dengan hasil ketika tombol 'Cetak / Simpan PDF' ditekan. Peramban web sering menambahkan margin default atau header URL otomatis saat print. Aku memecahkannya dengan konfigurasi CSS `@page` khusus (`size: A4 portrait; margin: 0;`) serta padding terisolasi yang memastikan tata letak surat tetap terkunci rapi pada ukuran lembar kertas fisik.",
-          tradeoffs: [
-            {
-              decision: "Memanfaatkan Native Browser Print Engine dibanding PDF Backend Renderer",
-              reason: "Aplikasi bisa berjalan 100% di browser tanpa ketergantungan server berbayar, bahkan bisa digunakan secara offline."
-            },
-            {
-              decision: "Pratinjau Dua Kolom (Side-by-Side)",
-              reason: "Pengguna langsung melihat hasil jadinya detik itu juga saat mengetik tanpa perlu bolak-balik klik tombol generate."
+      customStory: {
+        sections: [
+          {
+            id: "gambaran-besar",
+            tocTitle: "Gambaran Besar",
+            heading: "Gambaran Besar",
+            paragraphs: [
+              "GenSurat adalah platform yang aku buat untuk memudahkan proses persuratan di dunia organisasi mahasiswa (ormawa). Pengguna tinggal mengisi data, melihat hasilnya langsung di kertas A4, lalu mencetak atau mengekspornya."
+            ]
+          },
+          {
+            id: "kenapa-membuatnya",
+            tocTitle: "Kenapa Aku Membuatnya",
+            heading: "Kenapa Aku Membuatnya",
+            paragraphs: [
+              "GenSurat berawal dari salah satu sub-ide, atau turunan, dari Dana IMIP. Di setiap surat kegiatan, terkadang ada lampiran atau laporan keuangannya. Dari situ aku mulai berpikir, “kenapa nggak sekalian dibuatin generator suratnya aja?”",
+              "Respon dari pihak sekretaris pun positif."
+            ]
+          },
+          {
+            id: "kondisinya-sekarang",
+            tocTitle: "Kondisinya Sekarang",
+            heading: "Kondisinya Sekarang",
+            paragraphs: [
+              "GenSurat masih dalam tahap penyesuaian. Platformnya sudah bisa dipakai langsung untuk kebutuhan operasional, tapi kadang masih ada bug atau permintaan penyesuaian kecil dari pengguna."
+            ]
+          },
+          {
+            id: "surat-didukung",
+            tocTitle: "Surat yang Didukung",
+            heading: "Surat yang Didukung",
+            paragraphs: [
+              "GenSurat mencakup empat jenis surat resmi:"
+            ],
+            comparisonTable: {
+              headers: ["Singkatan", "Jenis surat"],
+              rows: [
+                ["SPM", "Surat Permohonan"],
+                ["SBA", "Surat Berita Acara"],
+                ["SPZ", "Surat Perizinan"],
+                ["SUD", "Surat Undangan"]
+              ]
             }
-          ]
-        },
-
-        // 04. The Outcome
-        outcome: {
-          summary: "Universal Surat berhasil memangkas waktu administratif pembuatan surat resmi panitia secara dramatis. Pengurus tidak perlu lagi repot mengatur spasi paragraf atau margin manual, dan format dokumen yang dihasilkan selalu konsisten di mata instansi penerima.",
-          features: [
-            "Live Preview Real-Time: Dokumen surat terupdate otomatis seketika saat huruf diketikkan.",
-            "Kop Surat & Aset Kabinet Otomatis: Logo dan identitas lembaga terpasang rapi dan proporsional.",
-            "Cetak Ramah Kertas: Format terkunci satu halaman penuh tanpa risiko tanda tangan terpotong ke lembar baru."
-          ]
-        },
-
-        // 05. Reflection
-        reflection: {
-          learnings: "Mengerjakan proyek ini menyadarkan aku bahwa memahami fitur mendalam dari standar CSS asli (seperti print stylesheets dan layout sizing) sering kali jauh lebih efisien daripada buru-buru menambahkan pustaka eksternal yang berat.",
-          tradeoffsLeft: "Format jenis template saat ini masih berfokus pada surat formal organisasi standar Indonesia.",
-          futurePlan: "Menambahkan fitur penyimpanan buku agenda nomor surat keluar otomatis dan ekspor tanda tangan digital ber-barcode."
-        }
+          },
+          {
+            id: "fitur-utama",
+            tocTitle: "Fitur Utama",
+            heading: "Fitur Utama",
+            paragraphs: [
+              "<strong>1. Live Preview Kertas A4 dan Quick-Edit</strong><br>Hasil akhir surat langsung terlihat secara real-time dalam tampilan kertas A4 yang rapi. Bagian-bagiannya, seperti kop, nomor surat, tujuan, isi, sampai tanda tangan, bisa diklik langsung di pratinjau dan diedit cepat lewat popover. Jadi pengguna tidak perlu bolak-balik mencari kolom di form.",
+              "<strong>2. Kustomisasi Kop, Logo Kabinet, dan Watermark</strong><br>Logo kabinet, logo organisasi, email kop, sampai watermark di latar belakang kertas bisa diganti, sehingga setiap ormawa atau kabinet bisa memakai identitasnya sendiri.",
+              "<strong>3. Penomoran Surat dan Kode Delegasi Fleksibel</strong><br>Format nomor surat menyesuaikan otomatis dengan jenis surat, bulan Romawi, dan tahun. Kode organisasi atau delegasi (default <code>ORG</code>) bisa diubah bebas sesuai nama himpunan atau UKM, misalnya <code>HMJ-TI</code> atau <code>LDK-IMIP</code>.",
+              "<strong>4. Pengaturan Tanda Tangan yang Lengkap</strong><br>Penandatangan yang didukung:"
+            ],
+            bullets: [
+              "Ketua Pelaksana",
+              "Ketua Organisasi",
+              "Dosen Pembina (jabatan, nama, dan NIP/NIDN bebas diubah)",
+              "Ketua Umum MPM",
+              "Ketua BEM (nama, NIM, dan periode bisa diubah, jabatan resminya tetap otomatis)",
+              "Wakil Direktur III"
+            ],
+            afterParagraphs: [
+              "Tiap penandatangan punya toggle aktif/nonaktif sesuai kebutuhan surat, dan ada opsi stempel/cap ormawa untuk surat tertentu seperti SPM.",
+              "<strong>5. Lampiran Otomatis</strong><br>• <strong>SBA:</strong> mendukung lampiran laporan keuangan serta nota dan dokumentasi.<br>• <strong>SUD:</strong> punya editor lampiran rundown acara yang langsung tersusun rapi di halaman lampiran.",
+              "<strong>6. Manajemen Draf dan Riwayat</strong><br>Surat yang sedang dibuat atau sudah selesai bisa disimpan sebagai draf di browser, dibuka lagi, diduplikasi, atau direset ke template bawaan kapan saja."
+            ]
+          },
+          {
+            id: "teknologi",
+            tocTitle: "Teknologi",
+            heading: "Teknologi",
+            paragraphs: [
+              "Aku sengaja membuatnya ringan, berjalan langsung di browser tanpa backend berat."
+            ],
+            bullets: [
+              "<strong>Frontend:</strong> HTML5, CSS3, Tailwind CSS, dan Vanilla JavaScript.",
+              "<strong>Penyimpanan dan offline:</strong> LocalStorage untuk draf dan riwayat surat di perangkat pengguna, plus PWA dengan Service Worker supaya akses cepat dan tetap jalan saat offline.",
+              "<strong>Antarmuka dan ekspor:</strong> Font Awesome dan SweetAlert2 untuk UI yang interaktif, serta cetak atau ekspor langsung ke PDF dan DOCX (Word)."
+            ]
+          },
+          {
+            id: "refleksi",
+            tocTitle: "Refleksi",
+            heading: "Refleksi",
+            paragraphs: [
+              "Aku memilih membangun GenSurat tanpa backend supaya aksesnya cepat, ringan, dan data draf surat tetap tersimpan aman di perangkat masing-masing pengguna. Tidak perlu login, tidak perlu server, dan tetap bisa dipakai meski koneksi internet sedang tidak stabil.",
+              "Permintaan penyesuaian yang paling menarik datang langsung dari kebiasaan sekretaris di lapangan—mulai dari detail kecil seperti opsi mengubah nama dan periode di tanda tangan BEM/MPM, sampai kebutuhan mengedit isi langsung dari tampilan pratinjau tanpa bolak-balik ke form.",
+              "Melihat sesuatu yang aku buat benar-benar dipakai oleh sekretaris untuk kebutuhan operasional sehari-hari rasanya memuaskan sekali. Dari situ aku makin paham bahwa aplikasi yang berguna bukan yang paling rumit arsitekturnya, tapi yang paling pas memotong pekerjaan berulang penggunanya."
+            ]
+          },
+          {
+            id: "coba-sendiri",
+            tocTitle: "Coba Sendiri",
+            heading: "Coba Sendiri",
+            paragraphs: [
+              "Kalau kalian penasaran, kunjungi GenSurat lewat tombol <strong>Buka Projek</strong> atau lihat kodenya lewat tombol <strong>GitHub Repo</strong> di atas."
+            ],
+            showMedia: true
+          }
+        ]
       }
     }
   ],
