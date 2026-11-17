@@ -13,351 +13,293 @@
 const InLiveIqData = {
   projects: [
     {
-      id: "ai-cognitive-engine",
-      title: "AI Cognitive Engine",
-      subtitle: "Generator gambar dan analisis kognitif cerdas dengan pemrosesan model neural real-time serta optimasi latensi rendah.",
-      category: "Kecerdasan Buatan & Web App",
+      id: "solecare",
+      title: "Solecare (Soleful Soaks)",
+      subtitle: "Sistem manajemen laundry dan perawatan sepatu dengan pelacakan resi mandiri, cetak nota PDF instan, dan kontrol status antrean.",
+      category: "Aplikasi Bisnis & Web App",
       featured: true,
       year: "2026",
-      status: "Aktif & Dalam Pengembangan",
-      summary: "Platform eksplorasi generative AI berbasis web yang mengubah instruksi prompt multimodal menjadi aset grafis beresolusi tinggi dengan feedback streaming visual.",
-      heroImage: "assets/images/project-ai.svg",
-      tags: ["React 19", "OpenAI API", "Tailwind CSS", "WebSockets", "Node.js"],
-      githubUrl: "https://github.com/bendaharakerenbgtt",
-      liveUrl: "https://github.com/bendaharakerenbgtt",
-      videoUrl: "", // Siap diisi link YouTube / Loom
-      gallery: [
-        {
-          url: "assets/images/project-ai.svg",
-          caption: "Antarmuka Studio Kerja AI dengan panel kontrol prompt dan pipeline generasi gambar interaktif.",
-          alt: "Dashboard AI Cognitive Engine"
-        },
-        {
-          url: "assets/images/project-recallflow.svg",
-          caption: "Sistem inspeksi bobot prompt dan pemetaan semantik hasil generasi secara real-time.",
-          alt: "Panel Parameter Neural"
-        }
-      ],
-      metrics: [
-        { label: "Waktu Inferensi", value: "< 3.8s" },
-        { label: "Penghematan Biaya Token", value: "85%" },
-        { label: "Lighthouse Performance", value: "98/100" }
-      ],
-      sections: {
-        // 1. Hook
-        hook: "Bagaimana cara menyajikan proses inferensi model kecerdasan buatan multimodal yang kompleks secara instan tanpa membuat pengguna merasa cemas menunggu di depan layar kosong?",
-        
-        // 2. Context
-        context: "Sebagai mahasiswa Teknologi Rekayasa Multimedia di Politeknik Negeri Media Kreatif yang mendalami antarmuka visual, saya mengamati friksi berulang di kalangan kreator digital. Para perancang grafis dan prompt engineer kerap menghabiskan puluhan menit menyalin-tempel teks prompt di peramban tanpa memiliki ruang kerja visual terstruktur untuk membandingkan parameter inferensi (temperature, top_p, guidance scale, dan seed) secara berdampingan.",
-        
-        // 3. Problem
-        problem: "Generasi gambar neural berbasis API eksternal membutuhkan durasi komputasi antara 4 hingga 12 detik. Tanpa adanya indikator status progresif dan koneksi streaming berlatensi rendah, pengguna mengalami disorientasi, mengira sistem membeku, dan mengklik tombol berulang kali. Selain itu, riwayat eksperimen prompt sering lenyap seketika begitu tab ditutup.",
-        
-        // 4. Exploration & Trade-offs
-        exploration: {
-          narrative: "Sebelum menentukan arsitektur akhir, saya menguji beberapa strategi alur kerja inferensi dan transmisi data:",
-          tradeoffs: [
-            {
-              option: "Opsi A: Polling HTTP Standar (Interval 1 detik)",
-              verdict: "Ditolak",
-              reason: "Menghasilkan beban overhead request berulang yang memboroskan bandwidth, meningkatkan konsumsi serverless execution, dan memicu jeda animasi yang kaku pada antarmuka pengguna."
-            },
-            {
-              option: "Opsi B: Serverless Function Penuh Tanpa Server Gateway",
-              verdict: "Ditolak",
-              reason: "Menghadapi risiko cold-start hingga 3 detik dan mengekspos API key rahasia ke klien jika token generation tidak diisolasi dengan ketat."
-            },
-            {
-              option: "Opsi C: Gateway Node.js Terisolasi + WebSocket Streaming + Redis Cache",
-              verdict: "Dipilih sebagai Solusi",
-              reason: "Menjamin keamanan API key, memberikan update progres status 0-100% per 50ms tanpa reload, dan memangkas biaya pemanggilan model berulang hingga 85% berkat semantic cache di Redis."
-            }
-          ]
-        },
-
-        // 5. Execution
-        execution: {
-          architecture: "Dibangun dengan arsitektur React 19 dan Tailwind CSS yang terhubung ke backend gateway Node.js via WebSocket. Alur data dimulai dari validasi prompt di client, diteruskan ke gateway untuk pencocokan cache Redis, lalu dikirim ke inference engine dengan pipeline streaming.",
-          keyImplementations: [
-            "State Machine Kanvas: Menangani 5 siklus hidup kanvas secara deterministik (Idle, Tokenizing, Queued, Inferencing, dan Complete).",
-            "Virtualization Viewport: Me-render puluhan gambar resolusi tinggi tanpa membebani GPU perangkat seluler dengan format WebP adaptif.",
-            "Optimistic Error Recovery: Mekanisme exponential backoff otomatis saat koneksi model neural mengalami fluktuasi jaringan."
-          ],
-          technologies: [
-            "React 19 & Next.js App Router",
-            "OpenAI API & HuggingFace Inference",
-            "Tailwind CSS v4 & Lucide Icons",
-            "WebSockets untuk Real-time Streaming",
-            "Redis In-Memory Caching",
-            "Local-First IndexedDB Storage"
-          ]
-        },
-
-        // 6. Evidence (summary metrics & notes)
-        evidenceText: "Pengujian pada puluhan generasi grafis membuktikan latensi respons antarmuka turun drastis, perbandingan multi-prompt berjalan tanpa reload halaman, dan antarmuka meraih skor Core Web Vitals nyaris sempurna.",
-
-        // 7. Reflection
-        reflection: "Membangun proyek ini membuktikan bahwa tantangan terbesar AI saat ini bukanlah semata-mata pada kecerdasan algoritmanya, melainkan pada bagaimana antarmuka pengguna (UI/UX) menyajikan data yang tidak pasti menjadi pengalaman yang tenang, manusiawi, dan dapat diprediksi.",
-        futureHorizons: "Roadmap pengembangan selanjutnya mencakup integrasi WebGPU native untuk kalkulasi filtering gambar langsung di peramban klien tanpa perlu membebani komputasi server cloud."
-      }
-    },
-    {
-      id: "ecommerce-platform",
-      title: "E-Commerce Platform Modern",
-      subtitle: "Arsitektur toko online terintegrasi dengan checkout instan, manajemen katalog dinamis, dan analitik konversi penjualan.",
-      category: "Full Stack & E-Commerce",
-      featured: true,
-      year: "2025",
-      status: "Studi Kasus Selesai",
-      summary: "Sistem e-commerce tangguh dengan arsitektur headless, pembayaran multi-gateway, dan antarmuka belanja berkecepatan tinggi yang dioptimalkan untuk mobile-first.",
+      status: "Aktif & Digunakan",
+      summary: "Aplikasi web untuk usaha perawatan sepatu yang memudahkan kasir mencatat pesanan, mencetak nota digital/PDF, serta memberi pelanggan akses cek status cucian secara mandiri.",
       heroImage: "assets/images/project-ecommerce.svg",
-      tags: ["Next.js", "Stripe Gateway", "PostgreSQL", "Prisma ORM", "Zustand"],
-      githubUrl: "https://github.com/bendaharakerenbgtt",
-      liveUrl: "https://github.com/bendaharakerenbgtt",
+      tags: ["React 18", "React Router v6", "jsPDF", "html2canvas", "CSS3"],
+      githubUrl: "https://github.com/solefuladmin-dot/Soleful-Soaks",
+      liveUrl: "https://github.com/solefuladmin-dot/Soleful-Soaks",
       videoUrl: "",
       gallery: [
         {
           url: "assets/images/project-ecommerce.svg",
-          caption: "Halaman checkout instan dengan kalkulasi ongkos kirim otomatis dan pemilihan metode pembayaran terintegrasi.",
-          alt: "Tampilan Toko E-Commerce"
+          caption: "Antarmuka kasir dan pelacakan resi pelanggan yang responsif di layar HP maupun desktop.",
+          alt: "Dashboard Solecare"
         },
         {
-          url: "assets/images/project-weather.svg",
-          caption: "Dashboard analitik pemilik toko yang menampilkan grafik konversi penjualan dan inventaris stok.",
-          alt: "Dashboard Analitik Toko"
+          url: "assets/images/project-task.svg",
+          caption: "Manajemen status pengerjaan sepatu dari antrean masuk, pencucian, pengeringan, hingga siap diambil.",
+          alt: "Status Antrean Solecare"
         }
       ],
       metrics: [
-        { label: "Waktu Checkout", value: "55 Detik (Turun 71%)" },
-        { label: "Pencegahan Overselling", value: "100% Akurat" },
-        { label: "Google Lighthouse", value: "99 / 100" }
+        { label: "Chat Status Manual", value: "Turun ~75%" },
+        { label: "Cetak Nota PDF", value: "1 Klik Instan" },
+        { label: "Akses Pelanggan", value: "24/7 Mandiri" }
       ],
       sections: {
-        // 1. Hook
-        hook: "Mengapa lebih dari 70% keranjang belanja online ditinggalkan pembeli tepat sebelum pembayaran dilakukan, dan bagaimana rekayasa alur tanpa hambatan dapat mengubahnya menjadi konversi nyata?",
-        
-        // 2. Context
-        context: "Berangkat dari fondasi keahlian Bisnis Daring dan Pemasaran (SMK Perintis 1 Depok) dan dilanjutkan dalam rekayasa sistem multimedia, saya melihat jurang pemisah antara strategi funnel penjualan dengan eksekusi teknis toko daring lokal. Sebagian besar UMKM terjebak pada alur belanja yang kaku dan memperlakukan pengguna ponsel selayaknya pengguna desktop tahun 2010.",
-        
-        // 3. Problem
-        problem: "Formulir pendaftaran akun wajib sebelum melihat ongkos kirim, input alamat yang tidak kompatibel dengan keyboard virtual ponsel pintar, serta waktu tunggu reload kalkulasi kupon diskon menjadi pemicu utama pembeli membatalkan niat transaksinya di detik-detik akhir.",
-        
-        // 4. Exploration & Trade-offs
+        hook: "Bagaimana cara memastikan status cucian puluhan pasang sepatu per hari tetap akurat tanpa membuat staf kasir tenggelam dalam chat WhatsApp yang menanyakan 'sepatu saya sudah selesai belum?'",
+        context: "Usaha jasa cuci dan perawatan sepatu memiliki alur pengerjaan bertahap (deep clean, unyellowing, repaint) yang memakan waktu beberapa hari. Selama ini, pencatatan masih mengandalkan nota kertas fisik dan konfirmasi manual lewat chat.",
+        problem: "Pelanggan sering menanyakan progres cuciannya lewat WhatsApp, sementara kasir harus membongkar tumpukan nota fisik di rak gudang. Hal ini memicu antrean lambat dan risiko salah ambil barang saat jam sibuk akhir pekan.",
         exploration: {
-          narrative: "Mengevaluasi tiga pendekatan arsitektur checkout untuk mencapai titik temu antara performa dan keamanan transaksi:",
+          narrative: "Dalam merancang sistem ini, saya membandingkan beberapa pendekatan agar ringan dan langsung bisa dipakai operasional toko:",
           tradeoffs: [
             {
-              option: "Opsi A: Integrasi Plugin E-Commerce Monolitik (WordPress / WooCommerce)",
+              option: "Opsi A: Spreadsheet Manual + Share Link",
               verdict: "Ditolak",
-              reason: "Loading aset script pihak ketiga terlalu berat (> 3.5MB), sulit dikustomisasi secara presisi, dan rentan terhadap isu performa saat lonjakan pengunjung."
+              reason: "Berisiko data terhapus tidak sengaja, tampilan di HP berantakan, dan tidak bisa mencetak nota resmi otomatis."
             },
             {
-              option: "Opsi B: Single Page App Murni (Client-Side Rendering)",
+              option: "Opsi B: Aplikasi Desktop Berat (Electron)",
               verdict: "Ditolak",
-              reason: "Katalog produk tidak dapat terindeks secara optimal oleh search engine bot (SEO lemah) dan first contentful paint pada koneksi 4G lambat."
+              reason: "Tidak bisa diakses fleksibel dari HP kasir atau pelanggan yang ingin mengecek status dari rumah."
             },
             {
-              option: "Opsi C: Next.js Hybrid (SSR Katalog + Client-Side Dynamic Checkout)",
+              option: "Opsi C: React 18 SPA + React Router + jsPDF",
               verdict: "Dipilih sebagai Solusi",
-              reason: "Halaman katalog terindeks Google dengan skor SEO 100 via SSR, sedangkan alur keranjang belanja di-handle seketika di client dengan Zustand tanpa perlu reload halaman."
+              reason: "Cepat, responsif di HP maupun laptop kasir, dan bisa langsung mengekspor nota transaksi ke PDF siap cetak atau kirim WhatsApp."
             }
           ]
         },
-
-        // 5. Execution
         execution: {
-          architecture: "Arsitektur headless modern memisahkan lapisan presentasi Next.js dari layer transaksi database PostgreSQL via Prisma ORM. Setiap transaksi pesanan diamankan dengan database isolation transaction berwaktu (optimistic locking).",
+          architecture: "Dibangun menggunakan React 18 dengan navigasi React Router v6 yang memisahkan halaman input kasir, daftar antrean aktif, dan halaman cek resi. Modul ekspor nota memanfaatkan html2canvas dan jsPDF.",
           keyImplementations: [
-            "1-Step Slide-Over Checkout: Pelanggan mengisi data pengiriman dan memilih metode bayar dalam satu layar laci tanpa kehilangan konteks halaman produk.",
-            "Atomic Inventory Locking: Menjamin stok barang terkunci aman selama 10 menit saat checkout berlangsung, mencegah fenomena barang terjual melebihi stok fisik (overselling).",
-            "Auto-Geocoding Form: Pengisian kota dan kode pos otomatis berdasarkan saran instan memangkas durasi pengetikan pembeli."
+            "Generator Nota PDF Otomatis: Mengubah tampilan ringkasan pesanan menjadi file PDF rapi dalam satu klik untuk dibagikan ke pelanggan.",
+            "Pelacakan Status Bertahap: Memudahkan tim memindahkan status pengerjaan dari 'Diterima', 'Proses Cuci', hingga 'Siap Diambil'.",
+            "Antarmuka Mobile-Friendly: Tombol dan tabel dirancang agar nyaman disentuh kasir melalui tablet atau smartphone."
           ],
           technologies: [
-            "Next.js App Router (React)",
-            "PostgreSQL & Prisma ORM",
-            "Stripe Payment Gateway Sandbox",
-            "Zustand State Management",
-            "Tailwind CSS & Headless UI"
+            "React 18",
+            "React Router DOM v6",
+            "jsPDF & html2canvas",
+            "Modern CSS3 Responsive"
           ]
         },
-
-        // 6. Evidence
-        evidenceText: "Simulasi uji transaksi menunjukkan durasi dari menambahkan produk ke keranjang hingga pembayaran selesai berhasil ditekan dari rata-rata 3.2 menit menjadi hanya 55 detik.",
-
-        // 7. Reflection
-        reflection: "Keberhasilan produk digital e-commerce bukan diukur dari banyaknya banner animasi yang dipajang, melainkan dari seberapa cepat dan tanpa ragu seorang pengguna dapat menyelesaikan tujuannya.",
-        futureHorizons: "Integrasi webhook otomatisasi notifikasi WhatsApp Cloud API untuk update status resi pengiriman real-time ke nomor ponsel pembeli."
+        evidenceText: "Sistem ini berhasil merapikan alur pencatatan pesanan harian dan memangkas waktu pembuatan nota serta pertanyaan status berulang dari pelanggan.",
+        reflection: "Aplikasi operasional UMKM tidak harus rumit; yang paling dibutuhkan adalah kecepatan input kasir dan kejelasan informasi bagi pelanggan.",
+        futureHorizons: "Integrasi notifikasi WhatsApp otomatis saat status sepatu berubah menjadi 'Siap Diambil'."
       }
     },
     {
-      id: "editorial-portfolio",
-      title: "Editorial Portfolio Web",
-      subtitle: "Ruang portofolio tenang bernuansa monokromatik dengan transisi organik tanpa dependensi eksternal berat.",
-      category: "Frontend Architecture & UI/UX",
+      id: "bendahara-2026",
+      title: "Bendahara 2026",
+      subtitle: "Sistem administrasi keuangan kas, persetujuan pengajuan dana, dan pengarsipan surat terpadu untuk organisasi.",
+      category: "Sistem Administrasi & Web App",
       featured: true,
       year: "2026",
-      status: "Rilis Produksi",
-      summary: "Website portofolio personal dengan pendekatan estetika editorial, arsitektur 60fps GPU-accelerated, serta sistem tema ganda (Obsidian Dark / Ivory Light).",
-      heroImage: "assets/images/project-portfolio.svg",
-      tags: ["HTML5 Semantik", "Modern CSS", "Vanilla JavaScript", "View Transitions", "Responsive"],
-      githubUrl: "https://github.com/bendaharakerenbgtt/Riski-Raditiya",
-      liveUrl: "https://github.com/bendaharakerenbgtt/Riski-Raditiya",
-      videoUrl: "",
-      gallery: [
-        {
-          url: "assets/images/project-portfolio.svg",
-          caption: "Eksplorasi tata letak tipografi editorial monokromatik dengan hierarki visual yang tajam dan nyaman dibaca.",
-          alt: "Tampilan Editorial Portfolio"
-        },
-        {
-          url: "assets/images/fan-white-glow.svg",
-          caption: "Aksen visual geometris tradisional bercahaya putih yang memberikan karakter autentik personal.",
-          alt: "Aksen Visual Kipas"
-        }
-      ],
-      metrics: [
-        { label: "Frame Rate Tampilan", value: "Konstan 60 FPS" },
-        { label: "Beban Pustaka Eksternal", value: "0 KB (Zero-Lib)" },
-        { label: "Skor Lighthouse", value: "100 / 100" }
-      ],
-      sections: {
-        // 1. Hook
-        hook: "Mungkinkah sebuah portofolio web modern tampil berwibawa, berkarakter kuat, dan kaya interaksi tanpa mengunduh framework JavaScript puluhan megabyte yang membuat baterai ponsel panas?",
-        
-        // 2. Context
-        context: "Banyak portofolio developer masa kini terlihat seragam: template Tailwind generik dengan kartu rounded yang identik, atau animasi 3D WebGL berat yang memakan memori komputer. Sebagai kreator dengan latar belakang multimedia dan web, saya ingin merancang portofolio yang mengutamakan ketenangan membaca, integritas tipografi, dan kecepatan murni.",
-        
-        // 3. Problem
-        problem: "Menciptakan animasi transisi tema gelap-terang yang berkesan mewah (circular ripple effect) serta indikator progres scroll kapsul tanpa menimbulkan jank atau lag pada perangkat berspesifikasi menengah ke bawah.",
-        
-        // 4. Exploration & Trade-offs
-        exploration: {
-          narrative: "Menimbang pilihan arsitektur rendering antarmuka antara dependensi pustaka animasi vs web platform native:",
-          tradeoffs: [
-            {
-              option: "Opsi A: Menggunakan GSAP / Three.js / Framer Motion",
-              verdict: "Ditolak",
-              reason: "Menambah ukuran bundle awal hingga ratusan kilobyte dan memicu kalkulasi layout thrashing saat scrolling cepat di browser seluler."
-            },
-            {
-              option: "Opsi B: CSS Gaussian Blur Filters Berlapis pada SVG",
-              verdict: "Ditolak",
-              reason: "Menyebabkan GPU drop dari 60fps ke 25fps pada layar retina smartphone saat proses repaint."
-            },
-            {
-              option: "Opsi C: Native View Transitions API + Pipeline rAF Throttled + CSS Hardware Transforms",
-              verdict: "Dipilih sebagai Solusi",
-              reason: "Menghasilkan transisi tema sehalus aplikasi native tanpa satu pun library eksternal, dengan alokasi CPU di bawah 2% saat scrolling normal."
-            }
-          ]
-        },
-
-        // 5. Execution
-        execution: {
-          architecture: "Arsitektur kode berbasis Vanilla ES6+ dengan tokenisasi CSS Variables modular untuk sistem warna Obsidian (#04070c) dan Ivory (#f5f6fa). Perhitungan layout bounds di-cache sekali saat inisialisasi agar event scroll berjalan di GPU compositor thread.",
-          keyImplementations: [
-            "Capsule Progress Contour: Menggambar garis SVG linier dinamis yang melingkari kontur header pil secara matematis presisi.",
-            "Radial View Transition Ripple: Efek topeng lingkaran membesar yang dipicu dari koordinat klik mouse pengguna saat berpindah tema.",
-            "Touch Drawer Hardware-Accelerated: Menu mobile yang menggunakan translate3d untuk membuka dan menutup tanpa repaint."
-          ],
-          technologies: [
-            "Vanilla HTML5 Semantik",
-            "Modern CSS3 Variables, Clamp, & Grid",
-            "Native View Transitions API",
-            "JavaScript ES6+ (rAF Throttled)",
-            "Responsive SVG Asset Generation"
-          ]
-        },
-
-        // 6. Evidence
-        evidenceText: "Ukuran transfer dokumen berkurang 80% dibanding portofolio berbasis framework, dan seluruh skor audit Google Lighthouse mencatat nilai 100 sempurna pada performa, aksesibilitas, best practice, dan SEO.",
-
-        // 7. Reflection
-        reflection: "Kekuatan sejati sebuah antarmuka terletak pada ketenangan dan fungsionalitasnya. Kode yang bersih tanpa beban dependensi berlebih adalah bentuk penghargaan tertinggi bagi waktu dan perangkat setiap pengunjung.",
-        futureHorizons: "Mengeksplorasi Service Worker PWA agar seluruh halaman studi kasus ini dapat dibaca secara offline tanpa koneksi internet sama sekali."
-      }
-    },
-    {
-      id: "task-flow-kanban",
-      title: "Task Flow Kanban",
-      subtitle: "Manajemen alur kerja kolaboratif real-time dengan sinkronisasi status tanpa jeda dan dukungan drag-and-drop intuitif.",
-      category: "Aplikasi Kolaboratif & Produktivitas",
-      featured: false,
-      year: "2025",
-      status: "Selesai & Digunakan Tim",
-      summary: "Papan tugas interaktif bergaya Kanban untuk tim proyek multimedia dan developer dengan pembaruan instan, penugasan tiket, dan metrik sprint.",
+      status: "Aktif & Digunakan",
+      summary: "Platform web terpusat untuk mengelola arus kas masuk-keluar, alur persetujuan (approve/reject) pengajuan anggaran, serta dokumentasi surat menyurat organisasi.",
       heroImage: "assets/images/project-task.svg",
-      tags: ["Vue 3", "Pinia", "Firebase Firestore", "HTML5 Drag-Drop", "CSS Grid"],
-      githubUrl: "https://github.com/bendaharakerenbgtt",
-      liveUrl: "https://github.com/bendaharakerenbgtt",
+      tags: ["HTML5", "CSS3", "Vanilla JS", "Admin Panel"],
+      githubUrl: "https://github.com/bendaharakerenbgtt/Bendahara2026",
+      liveUrl: "https://github.com/bendaharakerenbgtt/Bendahara2026",
       videoUrl: "",
       gallery: [
         {
           url: "assets/images/project-task.svg",
-          caption: "Papan Kanban interaktif dengan kolom To Do, In Progress, dan Done beserta kartu tugas fleksibel.",
-          alt: "Tampilan Kanban Board"
+          caption: "Dashboard admin bendahara untuk memantau saldo kas, pengajuan dana, dan status persetujuan.",
+          alt: "Dashboard Bendahara 2026"
+        },
+        {
+          url: "assets/images/project-portfolio.svg",
+          caption: "Modul arsip surat dan aset kabinet yang terhubung langsung dengan administrasi keuangan.",
+          alt: "Arsip Surat Bendahara 2026"
         }
       ],
       metrics: [
-        { label: "Latensi Pembaruan", value: "< 120ms" },
-        { label: "Penyelesaian Tugas Tim", value: "150+ Tiket" },
-        { label: "Keandalan Sinkronisasi", value: "99.9%" }
+        { label: "Alur Persetujuan", value: "Approve / Reject Cepat" },
+        { label: "Transparansi Kas", value: "Real-Time" },
+        { label: "Beban Pustaka", value: "Ringan (Vanilla JS)" }
       ],
       sections: {
-        // 1. Hook
-        hook: "Bagaimana cara menjaga puluhan tugas tim multimedia tetap sinkron dan transparan tanpa membuat anggota tim pusing dengan kerumitan software manajemen enterprise yang lambat?",
-        
-        // 2. Context
-        context: "Dalam eksekusi proyek produksi konten dan aset multimedia di lingkungan kampus, koordinasi lewat grup WhatsApp kerap memicu kesalahpahaman tugas. Software komersial seperti Jira atau Asana terasa terlalu rumit dan memakan waktu setup lama untuk kolaborasi tim yang butuh eksekusi lincah.",
-        
-        // 3. Problem
-        problem: "Tim membutuhkan papan kerja visual yang dapat diakses instan dari browser mana pun, memiliki interaksi geser-tarik (drag-and-drop) yang responsif di ponsel, serta langsung merefleksikan perubahan status ketika rekan lain memindahkan tugas.",
-        
-        // 4. Exploration & Trade-offs
+        hook: "Bagaimana cara menjaga transparansi kas organisasi dan mempercepat proses persetujuan dana kegiatan tanpa terjebak file Excel yang saling menimpa?",
+        context: "Sebagai bendahara atau pengelola keuangan organisasi, pencatatan pemasukan, pengeluaran, serta verifikasi pengajuan dana dari berbagai divisi sering kali tercecer di berbagai grup chat dan dokumen terpisah.",
+        problem: "Tanpa satu pintu administrasi yang jelas, pengajuan dana sulit dilacak statusnya (apakah sudah disetujui atau ditolak), dan arsip surat pertanggungjawaban sering tercecer saat dibutuhkan untuk audit.",
         exploration: {
-          narrative: "Menentukan fondasi penyimpanan dan sinkronisasi status antar browser secara simultan:",
+          narrative: "Memilih arsitektur yang paling praktis, cepat dibuka, dan mudah dirawat oleh pengurus organisasi:",
           tradeoffs: [
             {
-              option: "Opsi A: Polling REST API ke Database Tradisional",
+              option: "Opsi A: Google Sheets Bersama",
               verdict: "Ditolak",
-              reason: "Terdapat jeda waktu pembaruan (delay 5-10 detik) dan berpotensi menimpa data jika dua orang memindahkan tugas bersamaan."
+              reason: "Formula rentan rusak jika diedit banyak orang dan tidak memiliki alur tombol persetujuan yang terstruktur."
             },
             {
-              option: "Opsi B: Socket Server Mandiri di VPS",
+              option: "Opsi B: Framework Berat dengan Setup Server Kompleks",
               verdict: "Ditolak",
-              reason: "Biaya server dan kompleksitas pemeliharaan infrastruktur terlalu tinggi untuk scope proyek kolaboratif mahasiswa."
+              reason: "Membutuhkan biaya hosting dan pemeliharaan tinggi untuk skala organisasi."
             },
             {
-              option: "Opsi C: Vue 3 Composition API + Firebase Cloud Firestore Snapshot Listeners",
+              option: "Opsi C: Web App Modular (HTML5, CSS3, Vanilla JS)",
               verdict: "Dipilih sebagai Solusi",
-              reason: "Menyediakan sinkronisasi sub-detik secara serverless, offline-ready caching di peramban, serta kemudahan reaktivitas modular Pinia."
+              reason: "Sangat ringan, langsung berjalan cepat di browser apa pun, dan mudah dikustomisasi sesuai kebutuhan divisi."
             }
           ]
         },
-
-        // 5. Execution
         execution: {
-          architecture: "Aplikasi dibangun dengan arsitektur reaktif komponen Vue 3. Setiap pemindahan kartu tugas diproses secara optimistic di store Pinia lokal terlebih dahulu sebelum ditulis ke cloud database Firestore.",
+          architecture: "Aplikasi dibagi menjadi modul Admin Dashboard, manajemen surat, dan aset kabinet. Logika persetujuan (approve/reject) diproses langsung dengan pembaruan status visual yang jelas.",
           keyImplementations: [
-            "Algoritma Fractional Indexing: Mengatur posisi urutan kartu dengan kalkulasi matematis titik tengah tanpa perlu memperbarui nomor urut seluruh kartu lain di kolom.",
-            "Touch Pointer Polyfill: Memungkinkan interaksi geser kartu tetap berjalan natural di layar sentuh HP tanpa bentrok dengan scroll vertikal browser.",
-            "Auditory Feedback: Suara klik mikro halus via Web Audio API yang memberikan sensasi taktil memuaskan saat kartu terpasang di kolom baru."
+            "Sistem Persetujuan Dana (Approve/Reject): Memudahkan bendahara meninjau dan memutuskan pengajuan anggaran dengan catatan alasan yang jelas.",
+            "Integrasi Arsip Surat & Aset: Menyatukan dokumen surat masuk/keluar dan aset organisasi dalam satu struktur folder yang rapi.",
+            "Antarmuka Bersih & Fokus: Meminimalkan distraksi agar pengurus bisa langsung melihat angka saldo dan daftar tunggu persetujuan."
           ],
           technologies: [
-            "Vue.js 3 (Composition API)",
-            "Pinia State Management",
-            "Firebase Firestore & Auth",
-            "Native HTML5 Drag & Drop API",
-            "Web Audio API Sound Effects"
+            "HTML5 Semantik",
+            "Modern CSS3",
+            "Vanilla JavaScript",
+            "Modular Admin Layout"
           ]
         },
-
-        // 6. Evidence
-        evidenceText: "Berhasil dipakai langsung oleh tim proyek multimedia dalam menyelesaikan 3 sprint produksi video dan web tepat waktu dengan total lebih dari 150 tugas terselesaikan secara rapi.",
-
-        // 7. Reflection
-        reflection: "Aplikasi produktivitas yang baik adalah yang tidak terasa seperti beban kerja tambahan. Ketika friksi mencatat dan menggeser tugas dihilangkan, komunikasi tim otomatis menjadi lebih sehat.",
-        futureHorizons: "Menambahkan fitur ekspor ringkasan burndown chart mingguan otomatis dalam format dokumen PDF dan CSV."
+        evidenceText: "Mempermudah alur kerja administrasi keuangan organisasi dan menyatukan proses persetujuan dana serta pengarsipan surat dalam satu tempat.",
+        reflection: "Keteraturan data di awal adalah kunci utama agar laporan pertanggungjawaban di akhir periode tidak menjadi beban berat.",
+        futureHorizons: "Menambahkan fitur ekspor laporan kas bulanan otomatis ke format PDF dan Excel."
+      }
+    },
+    {
+      id: "polimedia-fasilitas",
+      title: "Polimedia Fasilitas",
+      subtitle: "Platform peminjaman ruang dan fasilitas kampus berbasis web dengan autentikasi aman dan validasi jadwal terstruktur.",
+      category: "Full Stack & Kampus",
+      featured: true,
+      year: "2026",
+      status: "Aktif & Dalam Pengembangan",
+      summary: "Sistem informasi peminjaman fasilitas di lingkungan Politeknik Negeri Media Kreatif untuk mencegah bentrok jadwal, mempercepat izin pemakaian ruang, dan menjaga keamanan data pengguna.",
+      heroImage: "assets/images/project-ai.svg",
+      tags: ["Next.js 16", "React 19", "PostgreSQL", "Argon2", "Zod"],
+      githubUrl: "https://github.com/bendaharakerenbgtt/polimedia-fasilitas",
+      liveUrl: "https://github.com/bendaharakerenbgtt/polimedia-fasilitas",
+      videoUrl: "",
+      gallery: [
+        {
+          url: "assets/images/project-ai.svg",
+          caption: "Halaman utama pemilihan fasilitas dan pengecekan ketersediaan jadwal ruang kampus.",
+          alt: "Dashboard Polimedia Fasilitas"
+        },
+        {
+          url: "assets/images/project-weather.svg",
+          caption: "Panel verifikasi peminjaman dan manajemen data ruang berbasis database PostgreSQL.",
+          alt: "Panel Admin Polimedia Fasilitas"
+        }
+      ],
+      metrics: [
+        { label: "Keamanan Password", value: "Argon2 Hashing" },
+        { label: "Validasi Input", value: "Zod Schema" },
+        { label: "Database", value: "PostgreSQL" }
+      ],
+      sections: {
+        hook: "Bagaimana cara mahasiswa dan unit kegiatan kampus meminjam ruang atau alat praktikum tanpa drama jadwal bentrok dan proses birokrasi kertas yang memakan waktu?",
+        context: "Di lingkungan Politeknik Negeri Media Kreatif, kebutuhan peminjaman ruang kelas, studio, maupun fasilitas kampus oleh mahasiswa dan organisasi sangat tinggi setiap minggunya.",
+        problem: "Pengecekan ketersediaan ruang secara manual sering menyebabkan jadwal ganda (double booking) dan pengajuan izin yang sulit dipantau statusnya oleh peminjam.",
+        exploration: {
+          narrative: "Menentukan stack teknologi modern yang menjamin keamanan data akun serta konsistensi jadwal di database:",
+          tradeoffs: [
+            {
+              option: "Opsi A: Form Google Biasa",
+              verdict: "Ditolak",
+              reason: "Tidak bisa mengecek bentrok jadwal secara otomatis dan tidak ada sistem login terverifikasi."
+            },
+            {
+              option: "Opsi B: Database NoSQL Tanpa Skema Ketat",
+              verdict: "Ditolak",
+              reason: "Kurang ideal untuk relasi jadwal peminjaman, data ruang, dan status persetujuan yang saling bergantung."
+            },
+            {
+              option: "Opsi C: Next.js 16 + React 19 + PostgreSQL + Argon2 + Zod",
+              verdict: "Dipilih sebagai Solusi",
+              reason: "Memberikan performa server-side yang cepat, keamanan hashing password modern (Argon2), dan validasi data ketat dengan Zod."
+            }
+          ]
+        },
+        execution: {
+          architecture: "Dibangun dengan Next.js 16 dan React 19 yang terhubung langsung ke database relasional PostgreSQL melalui driver `pg`. Keamanan akun dijaga dengan `@node-rs/argon2` dan seluruh input form divalidasi menggunakan `zod`.",
+          keyImplementations: [
+            "Autentikasi Aman dengan Argon2: Melindungi kredensial mahasiswa dan admin menggunakan standar hashing kriptografi modern.",
+            "Validasi Skema Ketat (Zod): Mencegah data jadwal atau input peminjaman yang tidak valid masuk ke database.",
+            "Manajemen Relasi PostgreSQL: Menjamin integritas data antara daftar fasilitas, peminjam, dan rentang waktu pemakaian."
+          ],
+          technologies: [
+            "Next.js 16 & React 19",
+            "PostgreSQL (pg)",
+            "Argon2 Password Hashing",
+            "Zod Schema Validation"
+          ]
+        },
+        evidenceText: "Fondasi sistem berhasil dibangun dengan standar keamanan tinggi, validasi data yang ketat, dan struktur database yang siap menangani peminjaman fasilitas kampus.",
+        reflection: "Membangun sistem untuk lingkungan kampus mengajarkan pentingnya validasi data sejak awal agar tidak ada celah jadwal bentrok di kemudian hari.",
+        futureHorizons: "Menambahkan tampilan kalender visual interaktif dan notifikasi status persetujuan otomatis."
+      }
+    },
+    {
+      id: "universal-surat",
+      title: "Universal Surat (GenSurat)",
+      subtitle: "Generator surat resmi dan dokumen organisasi otomatis dengan format rapi siap cetak tanpa perlu mengatur margin manual.",
+      category: "Produktivitas & Otomatisasi",
+      featured: true,
+      year: "2026",
+      status: "Selesai",
+      summary: "Alat bantu pembuatan surat resmi organisasi dan instansi berbasis web yang mengubah input formulir sederhana menjadi dokumen berformat standar yang langsung siap cetak.",
+      heroImage: "assets/images/project-portfolio.svg",
+      tags: ["HTML5", "CSS3", "Vanilla JS", "Print Layout"],
+      githubUrl: "https://github.com/bendaharakerenbgtt/gensurat",
+      liveUrl: "https://github.com/bendaharakerenbgtt/gensurat",
+      videoUrl: "",
+      gallery: [
+        {
+          url: "assets/images/project-portfolio.svg",
+          caption: "Formulir pengisian data surat yang langsung terhubung dengan pratinjau dokumen secara instan.",
+          alt: "Tampilan Universal Surat"
+        }
+      ],
+      metrics: [
+        { label: "Waktu Buat Surat", value: "< 1 Menit" },
+        { label: "Format Dokumen", value: "Standar Siap Cetak" },
+        { label: "Dependensi", value: "0 KB (Murni Web)" }
+      ],
+      sections: {
+        hook: "Kenapa membuat satu surat resmi di pengolah kata sering menghabiskan waktu 20 menit hanya untuk merapikan kop surat, nomor surat, dan posisi tanda tangan yang bergeser?",
+        context: "Pengurus organisasi dan panitia acara sering kali harus membuat puluhan surat (undangan, peminjaman, permohonan) dengan format kop dan struktur yang sama, namun selalu mengulang pengaturan layout dari nol.",
+        problem: "Mengedit file dokumen secara manual rawan membuat format berantakan, salah penomoran, atau posisi tanda tangan terpotong saat berpindah halaman.",
+        exploration: {
+          narrative: "Mencari cara paling ringan agar siapa saja bisa membuat surat rapi langsung dari browser tanpa instal aplikasi tambahan:",
+          tradeoffs: [
+            {
+              option: "Opsi A: Template Word (.docx) Manual",
+              verdict: "Ditolak",
+              reason: "Layout sering berubah saat dibuka di versi Word atau perangkat yang berbeda."
+            },
+            {
+              option: "Opsi B: Backend Generator PDF Berat",
+              verdict: "Ditolak",
+              reason: "Membutuhkan server khusus hanya untuk merender teks surat sederhana."
+            },
+            {
+              option: "Opsi C: Web Generator Murni + CSS Print Media",
+              verdict: "Dipilih sebagai Solusi",
+              reason: "Instan, bisa langsung pratinjau di layar, dan hasilnya konsisten saat dicetak atau disimpan sebagai PDF dari browser."
+            }
+          ]
+        },
+        execution: {
+          architecture: "Dibangun dengan HTML5, CSS3, dan Vanilla JavaScript yang memisahkan area input form di sisi pengguna dengan kanvas pratinjau dokumen berstandar ukuran kertas A4/F4.",
+          keyImplementations: [
+            "Pratinjau Langsung (Live Preview): Setiap teks yang diketik di formulir langsung muncul pada posisi surat yang tepat.",
+            "Layout Cetak Presisi: Menggunakan aturan CSS `@media print` agar kop surat, isi, dan kolom tanda tangan tidak terpotong saat dicetak.",
+            "Aset Kabinet Terintegrasi: Menyediakan pilihan logo dan atribut surat organisasi secara langsung."
+          ],
+          technologies: [
+            "HTML5 Semantik",
+            "CSS3 Print Media Queries",
+            "Vanilla JavaScript"
+          ]
+        },
+        evidenceText: "Memangkas waktu pembuatan surat resmi dari puluhan menit menjadi di bawah satu menit dengan hasil tata letak yang selalu konsisten.",
+        reflection: "Alat bantu yang baik adalah alat yang menghilangkan pekerjaan berulang yang membosankan, sehingga tim bisa fokus pada isi dan tujuan acaranya.",
+        futureHorizons: "Menambahkan penyimpanan riwayat nomor surat otomatis dan variasi template surat yang lebih beragam."
       }
     },
     {
