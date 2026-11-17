@@ -160,8 +160,8 @@ const InLiveIqData = {
       summary: "Sistem terintegrasi untuk pencatatan transaksi, pengelolaan bukti pembayaran, pemantauan keuangan, kas anggota, hingga penyusunan dokumen pertanggungjawaban kegiatan.",
       heroImage: "assets/images/project-task.svg",
       tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets", "Google Drive", "Vercel"],
-      githubUrl: "https://github.com/bendaharakerenbgtt/Bendahara2026",
-      liveUrl: "https://bendaharakerenbgtt.github.io/Bendahara2026/",
+      githubUrl: "https://github.com/RiskiRaditiya/DanaImip",
+      liveUrl: "https://riskiraditiya.github.io/DanaImip/",
       videoUrl: "",
       gallery: [
         {
