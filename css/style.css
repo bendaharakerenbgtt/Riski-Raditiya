@@ -2310,6 +2310,139 @@ a.contact-info-item:hover .contact-info-icon {
   margin-bottom: 1.15rem;
 }
 
+/* 7-Step Narrative Components: Hook Quote */
+.detail-hook-quote {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-left: 4px solid var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin: 1.25rem 0 1.5rem 0;
+  box-shadow: var(--shadow-subtle);
+}
+
+.hook-quote-glyph {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  font-size: 3rem;
+  line-height: 1;
+  font-family: serif;
+  color: var(--accent-border);
+  pointer-events: none;
+}
+
+.hook-quote-text {
+  font-size: clamp(1.075rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+  font-style: italic;
+}
+
+/* 7-Step Narrative Components: Trade-offs & Engineering Judgment */
+.detail-tradeoffs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.35rem;
+}
+
+.detail-tradeoff-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.detail-tradeoff-item.is-selected {
+  background: var(--bg-card);
+  border: 1.5px solid var(--text-primary);
+  box-shadow: var(--shadow-subtle);
+}
+
+.tradeoff-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tradeoff-verdict-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  background: var(--accent-soft);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.detail-tradeoff-item.is-selected .tradeoff-verdict-badge {
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+}
+
+.tradeoff-option-title {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.tradeoff-reason {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* 7-Step Narrative Components: Metrics Cards Grid */
+.detail-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.detail-metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-fast);
+}
+
+.detail-metric-card:hover {
+  transform: translateY(-2px);
+}
+
+.detail-metric-value {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.detail-metric-label {
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .detail-callout-box {
   background: var(--bg-secondary);
   border: 1px solid var(--border-card);

@@ -1,7 +1,13 @@
 /**
  * InLiveIq — Detail Page Dynamic Renderer (Bahasa Indonesia)
- * Merender Studi Kasus Proyek Komprehensif dengan Format Editorial Recruiter-Grade,
- * Media Galeri Foto, Video Walkthrough Embed/Placeholder, dan GitHub Link.
+ * Merender Studi Kasus Proyek Menggunakan 7-Step Narrative Engineering Framework:
+ * 1. Hook (Pertanyaan Provokatif & Premis)
+ * 2. Context (Latar Belakang & Realita Lapangan)
+ * 3. Problem (Akar Persoalan yang Spesifik)
+ * 4. Exploration (Proses Berpikir & Trade-offs Opsi)
+ * 5. Execution (Arsitektur Teknis & Koding Kunci)
+ * 6. Evidence (Metrik Terukur, Galeri Multi-Media & Video Demo)
+ * 7. Reflection (Pelajaran Berharga & Rencana Masa Depan)
  */
 
 (function () {
@@ -31,22 +37,39 @@
       return;
     }
 
-    document.title = `${project.title} — Studi Kasus Portofolio`;
+    document.title = `${project.title} — Studi Kasus 7 Langkah Portofolio`;
 
     const sec = project.sections;
-    const related = typeof getRelatedProjects === 'function' ? getRelatedProjects(project.id, 2) : [];
-
-    // Helper untuk render list tujuan
-    const goalsList = Array.isArray(sec.goals) 
-      ? sec.goals.map(g => `<li>${g}</li>`).join('') 
-      : `<li>${sec.goals || ''}</li>`;
 
     // Helper untuk render teknologi tags
     const techTags = Array.isArray(project.tags)
       ? project.tags.map(t => `<span class="project-tag" style="font-size: 0.825rem; padding: 0.35rem 0.85rem;">${t}</span>`).join('')
       : '';
 
-    // Helper untuk galeri gambar
+    // Helper untuk render kartu metrik terukur
+    const metricsCards = (project.metrics && project.metrics.length > 0)
+      ? project.metrics.map(m => `
+          <div class="detail-metric-card">
+            <span class="detail-metric-value">${m.value}</span>
+            <span class="detail-metric-label">${m.label}</span>
+          </div>
+        `).join('')
+      : '';
+
+    // Helper untuk render kartu trade-offs eksplorasi
+    const tradeoffsHtml = (sec.exploration && sec.exploration.tradeoffs)
+      ? sec.exploration.tradeoffs.map(t => `
+          <div class="detail-tradeoff-item ${t.verdict.toLowerCase().includes('dipilih') ? 'is-selected' : ''}">
+            <div class="tradeoff-header">
+              <span class="tradeoff-verdict-badge">${t.verdict}</span>
+              <strong class="tradeoff-option-title">${t.option}</strong>
+            </div>
+            <p class="tradeoff-reason">${t.reason}</p>
+          </div>
+        `).join('')
+      : '';
+
+    // Helper untuk render galeri gambar
     const galleryItems = (project.gallery && project.gallery.length > 0)
       ? project.gallery.map((img, idx) => `
           <figure class="detail-gallery-figure">
@@ -85,9 +108,9 @@
               <path d="M8 5v14l11-7z"/>
             </svg>
           </div>
-          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Video Walkthrough &amp; Demo</h4>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">Video Walkthrough &amp; Interaksi</h4>
           <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 48ch; margin: 0 auto 1.25rem auto;">
-            Video demonstrasi alur kerja interaktif dan rekaman walkthrough fitur proyek ini sedang disiapkan untuk sesi presentasi.
+            Video demonstrasi rekaman layar (Loom / YouTube) untuk proyek ini siap dipasang untuk memperlihatkan interaksi alur kerja nyata.
           </p>
           <a href="${project.githubUrl || 'https://github.com/bendaharakerenbgtt'}" target="_blank" rel="noopener noreferrer" class="btn-download-cv" style="font-size: 0.85rem; padding: 0.55rem 1.4rem;">
             <span>Lihat Repositori Kode di GitHub ↗</span>
@@ -113,7 +136,7 @@
         <header class="detail-header">
           <div class="container">
             <div class="detail-eyebrow-row">
-              <span class="detail-monogram-tag">STUDI KASUS // ${project.year}</span>
+              <span class="detail-monogram-tag">STUDI KASUS // 7-STEP FRAMEWORK // ${project.year}</span>
               <span class="detail-status-pill">${project.status}</span>
             </div>
 
@@ -156,117 +179,129 @@
           <div class="detail-content-layout">
             
             <!-- Sticky Aside Table of Contents -->
-            <aside class="detail-sticky-toc" aria-label="Daftar Isi Studi Kasus">
+            <aside class="detail-sticky-toc" aria-label="Daftar Isi 7 Langkah Studi Kasus">
               <div class="detail-toc-box">
-                <span class="detail-toc-title">DAFTAR ISI STUDI KASUS</span>
+                <span class="detail-toc-title">7-STEP FRAMEWORK</span>
                 <nav class="detail-toc-nav">
-                  <a href="#section-ringkasan" class="detail-toc-item active">1. Ringkasan &amp; Konteks</a>
-                  <a href="#section-masalah" class="detail-toc-item">2. Eksplorasi Masalah</a>
-                  <a href="#section-sasaran" class="detail-toc-item">3. Sasaran &amp; Solusi</a>
-                  <a href="#section-arsitektur" class="detail-toc-item">4. Arsitektur &amp; Teknologi</a>
-                  <a href="#section-tantangan" class="detail-toc-item">5. Tantangan &amp; Solusi</a>
-                  <a href="#section-galeri" class="detail-toc-item">6. Galeri &amp; Preview</a>
-                  <a href="#section-video" class="detail-toc-item">7. Video Walkthrough</a>
-                  <a href="#section-hasil" class="detail-toc-item">8. Dampak &amp; Refleksi</a>
+                  <a href="#step-1-hook" class="detail-toc-item active">1. The Hook</a>
+                  <a href="#step-2-context" class="detail-toc-item">2. Context &amp; Realita</a>
+                  <a href="#step-3-problem" class="detail-toc-item">3. The Real Problem</a>
+                  <a href="#step-4-exploration" class="detail-toc-item">4. Exploration &amp; Trade-offs</a>
+                  <a href="#step-5-execution" class="detail-toc-item">5. Technical Execution</a>
+                  <a href="#step-6-evidence" class="detail-toc-item">6. Evidence &amp; Showcase</a>
+                  <a href="#step-7-reflection" class="detail-toc-item">7. Reflection &amp; Future</a>
                 </nav>
               </div>
             </aside>
 
-            <!-- Article Body -->
+            <!-- Article Body (7-Step Narrative) -->
             <div class="detail-article-body">
               
-              <!-- 1. Ringkasan & Konteks -->
-              <section id="section-ringkasan" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 01 // OVERVIEW</span>
-                <h2 class="detail-section-heading">1. Ringkasan Eksekutif &amp; Konteks</h2>
-                <p class="detail-paragraph">${sec.overview}</p>
-                <div class="detail-callout-box">
-                  <h4 class="callout-title">Latar Belakang Eksplorasi</h4>
-                  <p class="callout-text">${sec.background}</p>
+              <!-- LANGKAH 1: HOOK -->
+              <section id="step-1-hook" class="detail-article-section">
+                <span class="detail-step-badge">LANGKAH 01 // HOOK &amp; PREMISE</span>
+                <h2 class="detail-section-heading">1. Premis &amp; Pertanyaan Pembuka</h2>
+                <div class="detail-hook-quote">
+                  <span class="hook-quote-glyph">“</span>
+                  <p class="hook-quote-text">${sec.hook}</p>
                 </div>
               </section>
 
-              <!-- 2. Masalah atau Tantangan -->
-              <section id="section-masalah" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 02 // PROBLEM STATEMENT</span>
-                <h2 class="detail-section-heading">2. Masalah Nyata yang Dihadapi</h2>
+              <!-- LANGKAH 2: CONTEXT -->
+              <section id="step-2-context" class="detail-article-section">
+                <span class="detail-step-badge">LANGKAH 02 // CONTEXT &amp; BACKGROUND</span>
+                <h2 class="detail-section-heading">2. Konteks Lapangan &amp; Audiens</h2>
+                <p class="detail-paragraph">${sec.context}</p>
+              </section>
+
+              <!-- LANGKAH 3: PROBLEM -->
+              <section id="step-3-problem" class="detail-article-section">
+                <span class="detail-step-badge">LANGKAH 03 // THE ROOT PROBLEM</span>
+                <h2 class="detail-section-heading">3. Akar Persoalan yang Dihadapi</h2>
                 <p class="detail-paragraph">${sec.problem}</p>
               </section>
 
-              <!-- 3. Sasaran & Tujuan -->
-              <section id="section-sasaran" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 03 // OBJECTIVES</span>
-                <h2 class="detail-section-heading">3. Sasaran &amp; Target Terukur</h2>
-                <ul class="detail-checklist">
-                  ${goalsList}
-                </ul>
+              <!-- LANGKAH 4: EXPLORATION & TRADE-OFFS -->
+              <section id="step-4-exploration" class="detail-article-section">
+                <span class="detail-step-badge">LANGKAH 04 // ENGINEERING JUDGMENT</span>
+                <h2 class="detail-section-heading">4. Eksplorasi Pilihan &amp; Trade-offs</h2>
+                <p class="detail-paragraph">${sec.exploration.narrative}</p>
+                
+                <div class="detail-tradeoffs-list">
+                  ${tradeoffsHtml}
+                </div>
               </section>
 
-              <!-- 4. Arsitektur & Teknologi -->
-              <section id="section-arsitektur" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 04 // ARCHITECTURE</span>
-                <h2 class="detail-section-heading">4. Perencanaan Desain &amp; Stack Teknologi</h2>
-                <p class="detail-paragraph">${sec.planning}</p>
-                <p class="detail-paragraph">${sec.implementation}</p>
+              <!-- LANGKAH 5: EXECUTION -->
+              <section id="step-5-execution" class="detail-article-section">
+                <span class="detail-step-badge">LANGKAH 05 // TECHNICAL EXECUTION</span>
+                <h2 class="detail-section-heading">5. Arsitektur &amp; Koding Kunci</h2>
+                <p class="detail-paragraph">${sec.execution.architecture}</p>
 
+                <h4 style="font-family: var(--font-mono); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 1.5rem 0 0.75rem 0;">Pilar Implementasi Solusi:</h4>
+                <ul class="detail-checklist">
+                  ${sec.execution.keyImplementations.map(k => `<li>${k}</li>`).join('')}
+                </ul>
+
+                <h4 style="font-family: var(--font-mono); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); margin: 2rem 0 0.85rem 0;">Stack Teknologi yang Digunakan:</h4>
                 <div class="detail-tech-grid">
-                  ${Array.isArray(sec.technologies) ? sec.technologies.map(t => `
+                  ${sec.execution.technologies.map(t => `
                     <div class="detail-tech-card">
                       <span class="tech-card-glyph">◈</span>
                       <span>${t}</span>
                     </div>
-                  `).join('') : ''}
+                  `).join('')}
                 </div>
               </section>
 
-              <!-- 5. Tantangan & Keputusan Penting -->
-              <section id="section-tantangan" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 05 // ENGINEERING TRADEOFFS</span>
-                <h2 class="detail-section-heading">5. Tantangan Teknis Terberat &amp; Solusi</h2>
-                ${Array.isArray(sec.challenges) 
-                  ? sec.challenges.map(c => `<p class="detail-paragraph">${c}</p>`).join('') 
-                  : `<p class="detail-paragraph">${sec.challenges || ''}</p>`}
-              </section>
+              <!-- LANGKAH 6: EVIDENCE & SHOWCASE -->
+              <section id="step-6-evidence" class="detail-article-section">
+                <span class="detail-step-badge">LANGKAH 06 // EVIDENCE &amp; IMPACT</span>
+                <h2 class="detail-section-heading">6. Bukti Nyata &amp; Hasil Terukur</h2>
+                <p class="detail-paragraph">${sec.evidenceText}</p>
 
-              <!-- 6. Galeri & Preview Media -->
-              <section id="section-galeri" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 06 // VISUAL SHOWCASE</span>
-                <h2 class="detail-section-heading">6. Preview Gambar &amp; Alur Antarmuka</h2>
+                <!-- Metrics Grid -->
+                ${metricsCards ? `
+                  <div class="detail-metrics-grid">
+                    ${metricsCards}
+                  </div>
+                ` : ''}
+
+                <!-- Multi-Image Visual Gallery -->
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.5rem;">Galeri Preview &amp; Alur Antarmuka</h3>
                 <div class="detail-gallery-grid">
                   ${galleryItems}
                 </div>
-              </section>
 
-              <!-- 7. Video Walkthrough Embed -->
-              <section id="section-video" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 07 // INTERACTION DEMO</span>
-                <h2 class="detail-section-heading">7. Demonstrasi Video Walkthrough</h2>
+                <!-- Video Walkthrough -->
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.5rem;">Video Walkthrough &amp; Interaksi</h3>
                 ${videoMarkup}
               </section>
 
-              <!-- 8. Dampak & Refleksi -->
-              <section id="section-hasil" class="detail-article-section">
-                <span class="detail-step-badge">BAGIAN 08 // IMPACT &amp; LEARNING</span>
-                <h2 class="detail-section-heading">8. Hasil Terukur &amp; Refleksi Pembelajaran</h2>
-                <p class="detail-paragraph">${sec.results}</p>
-                <div class="detail-callout-box" style="border-left-color: var(--accent);">
-                  <h4 class="callout-title">Pelajaran yang Dipetik (Takeaway)</h4>
-                  <p class="callout-text">${sec.reflection}</p>
+              <!-- LANGKAH 7: REFLECTION & FUTURE -->
+              <section id="step-7-reflection" class="detail-article-section">
+                <span class="detail-step-badge">LANGKAH 07 // REFLECTION &amp; ROADMAP</span>
+                <h2 class="detail-section-heading">7. Refleksi &amp; Pelajaran Berharga</h2>
+                <p class="detail-paragraph">${sec.reflection}</p>
+
+                <div class="detail-callout-box">
+                  <h4 class="callout-title">Rencana &amp; Roadmap Masa Depan (What's Next)</h4>
+                  <p class="callout-text">${sec.futureHorizons}</p>
                 </div>
               </section>
 
-              <!-- CTA Kolaborasi Bawah -->
+              <!-- Bottom Action CTA -->
               <div class="detail-bottom-cta">
-                <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Tertarik Mendiskusikan Proyek Ini Lebih Lanjut?</h3>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-                  Kotak pesan saya selalu terbuka untuk kolaborasi pembuatan sistem web, antarmuka multimedia, atau rekayasa kode presisi.
+                <h3 class="cta-box-title">Tertarik Mendiskusikan Proyek Ini?</h3>
+                <p class="cta-box-desc">
+                  Kotak pesan saya selalu terbuka untuk kolaborasi pembangunan aplikasi web modern, desain interaksi multimedia, atau rekayasa kode presisi.
                 </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="cta-actions-wrap">
                   <a href="index.html#contact" class="btn-download-cv">
-                    <span>Mulai Percakapan / Hubungi ↗</span>
+                    <span>Mulai Percakapan / Kontak ↗</span>
                   </a>
                   <a href="index.html#projects" class="detail-ext-link">
-                    <span>Kembali ke Karya Lainnya</span>
+                    <span>Lihat Karya Lainnya</span>
                   </a>
                 </div>
               </div>
