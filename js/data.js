@@ -150,75 +150,165 @@ const InLiveIqData = {
     },
     {
       id: "bendahara-2026",
-      title: "Bendahara 2026",
-      subtitle: "Sistem administrasi keuangan kas, verifikasi pengajuan dana, dan pengarsipan surat organisasi terpadu.",
-      category: "Sistem Informasi & Administrasi",
+      title: "Dana IMIP: Dari Satu Masalah Pencatatan hingga Sistem Keuangan Organisasi",
+      subtitle: "Sistem informasi pengelolaan keuangan berbasis web yang dikembangkan untuk UKM LDK IMIP Politeknik Negeri Media Kreatif.",
+      category: "Sistem Informasi & Keuangan Organisasi",
       featured: true,
       year: "2026",
-      status: "Aktif Digunakan",
-      summary: "Platform web terpusat untuk mengelola arus kas masuk dan keluar organisasi, alur persetujuan (approve/reject) pengajuan anggaran divisi, serta pengarsipan dokumen surat dinas secara rapi.",
+      status: "Digunakan Operasional (Juni 2026)",
+      summary: "Sistem terintegrasi untuk pencatatan transaksi, pengelolaan bukti pembayaran, pemantauan keuangan, kas anggota, hingga penyusunan dokumen pertanggungjawaban kegiatan.",
       heroImage: "assets/images/project-task.svg",
-      tags: ["HTML5 Semantik", "Modern CSS3", "Vanilla JavaScript", "Admin Dashboard"],
+      tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets", "Google Drive", "Vercel"],
       githubUrl: "https://github.com/bendaharakerenbgtt/Bendahara2026",
-      liveUrl: "https://github.com/bendaharakerenbgtt/Bendahara2026",
       videoUrl: "",
       gallery: [
         {
           url: "assets/images/project-task.svg",
-          caption: "Dashboard admin bendahara yang menampilkan saldo kas terkini dan daftar tunggu persetujuan dana.",
-          alt: "Dashboard Bendahara 2026"
+          caption: "Dashboard ringkasan saldo, kas, GoPay, serta grafik keuangan organisasi.",
+          alt: "Dashboard Dana IMIP"
         },
         {
           url: "assets/images/project-portfolio.svg",
-          caption: "Modul integrasi arsip surat masuk dan berkas pertanggungjawaban kegiatan.",
-          alt: "Arsip Surat Bendahara 2026"
+          caption: "Modul penyusunan dokumen rincian keuangan kegiatan otomatis ke format Word dan PDF.",
+          alt: "Dokumen Otomatis Dana IMIP"
         }
       ],
-      metrics: [
-        { label: "Verifikasi Pengajuan", value: "Real-Time Satu Pintu" },
-        { label: "Transparansi Saldo", value: "100% Tercatat" },
-        { label: "Performa Web", value: "Ringan Tanpa Framework" }
-      ],
-      content: {
-        // 01. Gambaran Besar
-        overview: "Bendahara 2026 adalah sistem manajemen administrasi dan keuangan organisasi berbasis web. Sistem ini dirancang untuk memudahkan bendahara dan ketua organisasi mengontrol seluruh arus keluar-masuk uang kas, memproses verifikasi persetujuan (approve/reject) nota proposal anggaran dari tiap divisi, serta menyimpan arsip surat keputusan dan laporan pertanggungjawaban dalam satu dashboard terpusat.",
-        
-        // 02. Why
-        why: "Dalam pengelolaan organisasi mahasiswa atau kepanitiaan, pencatatan keuangan sering kali berantakan karena tersebar di berbagai file spreadsheet pribadi dan grup chat terpisah. Hal ini sering memicu selisih saldo kas, pengajuan dana yang tertimbun tanpa kejelasan status, serta kepanikan saat audit Laporan Pertanggungjawaban (LPJ) di akhir masa jabatan. Aku membangun Bendahara 2026 untuk menghadirkan sistem administrasi satu pintu yang transparan dan tertib sejak hari pertama kepengurusan.",
-        
-        // 03. Development & Challenges
-        development: {
-          narrative: "Aku sengaja merancang Bendahara 2026 dengan pendekatan zero-dependency (HTML5, Modern CSS3, dan Vanilla JavaScript murni) agar aplikasinya super cepat dibuka di laptop jadul sekalipun tanpa perlu setup environment Node.js yang rumit bagi pengurus umum.",
-          stackReason: "Vanilla JS memberikan kontrol penuh atas DOM rendering dan memori. Menggunakan CSS Grid dan CSS Custom Properties modular membuat tema admin dashboard mudah dikustomisasi sesuai identitas kabinet organisasi.",
-          struggle: "Kebuntuan teknis yang sempat dihadapi adalah menjaga konsistensi alur verifikasi multi-status (Menunggu, Disetujui, Ditolak dengan Catatan) agar tidak bisa diubah sembarangan jika transaksi sudah dikunci oleh bendahara utama. Aku menyelesaikannya dengan merancang state validator berbasis event di mana setiap perubahan status wajib menyertakan log nama verifikator dan alasan catatan.",
-          tradeoffs: [
-            {
-              decision: "Memilih Vanilla JavaScript dibanding Framework Kompleks",
-              reason: "Sistem langsung bisa dijalankan oleh bendahara baru tanpa perlu keahlian teknis pemrograman."
-            },
-            {
-              decision: "Penyatuan Modul Keuangan dan Arsip Surat",
-              reason: "Setiap pengeluaran kas wajib terhubung langsung dengan nomor surat persetujuan kegiatan."
+      customStory: {
+        sections: [
+          {
+            id: "gambaran-besar",
+            tocTitle: "Gambaran Besar",
+            heading: "Gambaran Besar",
+            paragraphs: [
+              "Dana IMIP adalah sistem informasi pengelolaan keuangan berbasis web yang dikembangkan untuk UKM LDK IMIP Politeknik Negeri Media Kreatif.",
+              "Sistem ini berangkat dari kebutuhan sederhana: membuat proses pencatatan keuangan organisasi lebih praktis dan terintegrasi. Namun, seiring pengembangan dan penggunaannya dalam kegiatan organisasi, cakupannya berkembang menjadi sistem yang membantu proses pencatatan transaksi, pengelolaan bukti transaksi, pemantauan keuangan, hingga penyusunan dokumen pertanggungjawaban kegiatan.",
+              "Dana IMIP mulai dikembangkan pada April 2026 dan mulai digunakan dalam operasional organisasi pada Juni 2026."
+            ]
+          },
+          {
+            id: "kenapa-membuatnya",
+            tocTitle: "Kenapa Aku Membuatnya?",
+            heading: "Kenapa Aku Membuatnya?",
+            paragraphs: [
+              "Ide pengembangan Dana IMIP muncul dari pengalamanku mengelola keuangan organisasi sebagai bagian dari Departemen Bendahara.",
+              "Saat itu, pencatatan keuangan masih menggunakan dua Google Sheets yang terpisah, yaitu untuk mencatat transaksi dan mengelola kas. Akibatnya, informasi yang seharusnya saling berkaitan perlu diperbarui di tempat berbeda.",
+              "Masalah lainnya muncul ketika harus mengumpulkan bukti transaksi. Nota atau bukti pembayaran tersimpan sebagai foto secara terpisah di Google Drive. Ketika menyusun laporan pertanggungjawaban kegiatan, aku perlu mencari kembali bukti tersebut, mencocokkannya dengan transaksi, lalu menguraikan barang dan harga satu per satu.",
+              "Proses ini cukup menyita waktu, terutama ketika satu nota berisi beberapa barang yang harus dicatat secara terpisah dalam dokumen pertanggungjawaban.",
+              "Dari pengalaman tersebut, muncul keinginan untuk membuat proses pengelolaan keuangan menjadi lebih terintegrasi. Tujuannya bukan hanya mengurangi pekerjaan manual, tetapi juga membantu organisasi memantau kondisi keuangan dan mempermudah penyusunan laporan."
+            ]
+          },
+          {
+            id: "berawal-satu-masalah",
+            tocTitle: "Berawal dari Satu Masalah",
+            heading: "Berawal dari Satu Masalah",
+            paragraphs: [
+              "Pada awalnya, aku tidak langsung merencanakan sebuah sistem dengan banyak fitur.",
+              "Fokus utamanya adalah menyelesaikan masalah pencatatan dan pengelolaan transaksi yang selama ini dilakukan secara terpisah. Namun, ketika mulai mengembangkan sistem, aku melihat bahwa beberapa proses lain ternyata saling berhubungan.",
+              "Pencatatan transaksi berkaitan dengan bukti pembayaran. Transaksi berkaitan dengan kegiatan organisasi. Sementara itu, data transaksi dan bukti pembayaran dibutuhkan kembali ketika menyusun dokumen pertanggungjawaban.",
+              "Akhirnya, pengembangan tidak berhenti pada pencatatan transaksi saja. Sistem mulai dikembangkan untuk menghubungkan proses-proses tersebut dalam satu alur kerja."
+            ]
+          },
+          {
+            id: "bukan-sekadar-website",
+            tocTitle: "Bukan Sekadar Membuat Website",
+            heading: "Bukan Sekadar Membuat Website",
+            paragraphs: [
+              "Salah satu hal yang menjadi perhatian selama pengembangan adalah bagaimana sistem dapat mengikuti kebutuhan operasional organisasi.",
+              "Aku tidak ingin hanya membuat halaman untuk menampilkan angka atau menyimpan transaksi. Data yang dimasukkan harus bisa digunakan kembali untuk kebutuhan lain.",
+              "Karena itu, beberapa bagian sistem dikembangkan agar saling terhubung. Transaksi dapat dikaitkan dengan kegiatan, bukti pembayaran dapat disimpan bersama data transaksi, dan informasi keuangan dapat ditampilkan dalam bentuk ringkasan maupun laporan yang lebih terperinci.",
+              "Aku juga berkonsultasi dengan sekretaris organisasi untuk menyesuaikan format dokumen pertanggungjawaban agar hasil yang dihasilkan sistem sesuai dengan kebutuhan administrasi organisasi."
+            ]
+          },
+          {
+            id: "tantangan-terbesar",
+            tocTitle: "Tantangan: Dokumen Otomatis",
+            heading: "Tantangan Terbesar: Membuat Dokumen Secara Otomatis",
+            paragraphs: [
+              "Bagian yang paling menantang selama pengembangan adalah membuat fitur otomatisasi dokumen rincian keuangan kegiatan.",
+              "Sebelumnya, penyusunan rincian pengeluaran membutuhkan proses pengumpulan dan penulisan ulang informasi dari transaksi serta nota. Satu nota bisa berisi beberapa barang, sedangkan dokumen pertanggungjawaban membutuhkan rincian setiap barang beserta harganya.",
+              "Aku kemudian mengembangkan fitur yang memungkinkan data rincian barang dan harga dimasukkan ke sistem, lalu diolah menjadi dokumen secara otomatis.",
+              "Hasilnya dapat diekspor ke format Word dan PDF, termasuk lampiran foto bukti transaksi. Dengan begitu, proses penyusunan dokumen tidak lagi sepenuhnya bergantung pada penyalinan informasi secara manual.",
+              "Fitur ini menjadi salah satu bagian penting karena menghubungkan pencatatan keuangan dengan kebutuhan administrasi dan pertanggungjawaban kegiatan."
+            ]
+          },
+          {
+            id: "fitur-dikembangkan",
+            tocTitle: "Fitur yang Dikembangkan",
+            heading: "Fitur yang Dikembangkan",
+            comparisonTable: {
+              headers: ["Bagian", "Fungsi"],
+              rows: [
+                ["Dashboard", "Menampilkan ringkasan saldo, kas, GoPay, serta grafik keuangan organisasi"],
+                ["Transaksi", "Mencatat pemasukan dan pengeluaran beserta bukti transaksi dan informasi pendukung"],
+                ["Laporan Keuangan", "Menampilkan rincian pemasukan, pengeluaran, serta komposisi penggunaan dana"],
+                ["Kegiatan", "Mengelola informasi kegiatan dan membandingkan anggaran dengan realisasi"],
+                ["Kas Anggota", "Memfasilitasi pengajuan pembayaran kas dan verifikasi oleh bendahara"],
+                ["Dokumen Otomatis", "Menghasilkan dokumen rincian keuangan kegiatan dalam format Word dan PDF"]
+              ]
             }
-          ]
-        },
-
-        // 04. The Outcome
-        outcome: {
-          summary: "Sistem ini telah membantu menertibkan birokrasi keuangan organisasi, mempercepat waktu persetujuan proposal kegiatan dari berhari-hari menjadi beberapa jam, dan mengeliminasi risiko dokumen nota kas yang hilang.",
-          features: [
-            "Pusat Saldo Kas Real-Time: Visualisasi pemasukan, pengeluaran, dan sisa saldo anggaran bersih.",
-            "Panel Persetujuan Cepat: Fitur satu-klik approve atau reject dengan kolom feedback alasan perbaikan.",
-            "Integrasi Berkas Kabinet: Manajemen surat permohonan dan aset inventaris yang terindeks rapi."
-          ]
-        },
-
-        // 05. Reflection
-        reflection: {
-          learnings: "Proyek ini membuktikan bahwa kerapian arsitektur data dan kejelasan alur logika manusia jauh lebih krusial daripada sekadar menggunakan library terkini. Membangun alat yang langsung mempermudah kerja tim adalah kepuasan tersendiri.",
-          tradeoffsLeft: "Penyimpanan data lokal peramban saat ini masih perlu dicadangkan manual jika berganti perangkat kerja.",
-          futurePlan: "Menghubungkan sistem ke database cloud terenkripsi dan menambahkan generator laporan neraca keuangan otomatis format Excel/PDF."
-        }
+          },
+          {
+            id: "pilihan-teknologi",
+            tocTitle: "Pilihan Teknologi",
+            heading: "Pilihan Teknologi",
+            paragraphs: [
+              "Dana IMIP dikembangkan menggunakan teknologi web dengan memanfaatkan beberapa layanan yang saling terhubung:"
+            ],
+            bullets: [
+              "<strong>HTML, CSS, dan JavaScript</strong> sebagai teknologi utama antarmuka.",
+              "<strong>Google Apps Script</strong> sebagai backend untuk memproses permintaan dan mengelola data.",
+              "<strong>Google Sheets</strong> sebagai media penyimpanan data.",
+              "<strong>Google Drive</strong> untuk menyimpan bukti transaksi dan dokumen.",
+              "<strong>GitHub</strong> untuk menyimpan kode sumber.",
+              "<strong>Vercel</strong> untuk melakukan deployment website."
+            ],
+            afterParagraphs: [
+              "Pendekatan ini dipilih dengan mempertimbangkan kebutuhan sistem dan pemanfaatan layanan yang sudah tersedia, sehingga pengembangan dapat dilakukan tanpa harus bergantung pada infrastruktur server berbayar yang kompleks."
+            ]
+          },
+          {
+            id: "digunakan-operasional",
+            tocTitle: "Digunakan dalam Operasional",
+            heading: "Digunakan dalam Operasional",
+            paragraphs: [
+              "Dana IMIP mulai digunakan dalam kegiatan operasional organisasi pada Juni 2026.",
+              "Penggunaannya membantu menggantikan sebagian besar proses pencatatan dan pengelolaan keuangan yang sebelumnya dilakukan secara manual. Data transaksi, bukti pembayaran, serta informasi kegiatan kini dapat dikelola melalui satu sistem.",
+              "Dalam proses penerapannya, anggota Departemen Bendahara juga diperkenalkan dengan cara penggunaan sistem agar dapat menyesuaikan diri dengan alur kerja yang baru.",
+              "Bagi saya, bagian ini menjadi hal yang cukup penting. Sistem yang dikembangkan bukan hanya selesai dibuat, tetapi juga mulai digunakan untuk membantu pekerjaan organisasi sehari-hari."
+            ]
+          },
+          {
+            id: "refleksi",
+            tocTitle: "Refleksi",
+            heading: "Refleksi",
+            paragraphs: [
+              "Dana IMIP mengajarkan saya bahwa membangun sebuah sistem bukan hanya tentang menentukan teknologi atau membuat fitur sebanyak mungkin.",
+              "Hal yang lebih penting adalah memahami masalah yang benar-benar terjadi, melihat hubungan antara satu proses dengan proses lainnya, lalu mengembangkan solusi yang bisa digunakan dalam kondisi nyata.",
+              "Pengembangan sistem ini juga membuat saya memahami bahwa kebutuhan pengguna tidak selalu terlihat sejak awal. Beberapa kebutuhan baru muncul ketika sistem mulai digunakan dan proses kerja organisasi mulai terhubung.",
+              "Karena itu, Dana IMIP masih memiliki ruang untuk dikembangkan lebih lanjut."
+            ]
+          },
+          {
+            id: "rencana-selanjutnya",
+            tocTitle: "Selanjutnya: Persuratan",
+            heading: "Selanjutnya: Menghubungkan Realisasi Kegiatan dengan Persuratan",
+            paragraphs: [
+              "Salah satu rencana pengembangan berikutnya adalah membuat generator surat yang terintegrasi dengan data realisasi kegiatan.",
+              "Saat ini, informasi yang sudah dicatat dalam proses realisasi masih berpotensi perlu dimasukkan kembali ketika menyusun dokumen persuratan. Ke depannya, data tersebut diharapkan dapat digunakan kembali secara otomatis untuk mengisi informasi pada surat yang dibutuhkan.",
+              "Dengan begitu, proses administrasi tidak perlu mengulang penginputan data yang sebenarnya sudah tersedia di sistem.",
+              "Harapannya, Dana IMIP dapat berkembang dari sistem pengelolaan keuangan menjadi sistem administrasi organisasi yang lebih terintegrasi."
+            ]
+          },
+          {
+            id: "lihat-hasilnya",
+            tocTitle: "Lihat Hasilnya",
+            heading: "Lihat Hasilnya",
+            paragraphs: [
+              "Dana IMIP — dibangun dari kebutuhan nyata, dikembangkan melalui proses, dan digunakan untuk membantu pekerjaan organisasi. Kunjungi repositori atau lihat pratinjau tampilannya di bawah ini."
+            ],
+            showMedia: true
+          }
+        ]
       }
     },
     {

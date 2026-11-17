@@ -145,6 +145,7 @@
             </div>
           `;
         }
+        const afterParas = (s.afterParagraphs || []).map(p => `<p class="detail-paragraph" style="margin-top: 1.25rem;">${p}</p>`).join('');
         const mediaHtml = s.showMedia ? `
           <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2rem; margin-bottom: 0.75rem;">Preview Tampilan</h4>
           <div class="detail-gallery-grid">${galleryItems}</div>
@@ -158,6 +159,7 @@
             ${paras}
             ${bullets}
             ${tableHtml}
+            ${afterParas}
             ${mediaHtml}
           </section>
         `;
