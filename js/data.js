@@ -22,6 +22,7 @@ const InLiveIqData = {
       heroImage: "assets/images/project-ecommerce.svg",
       tags: ["React 18", "Google Spreadsheet", "Apps Script", "Cloudflare Pages", "jsPDF"],
       githubUrl: "https://github.com/bendaharakerenbgtt/solcare",
+      liveUrl: "https://bendaharakerenbgtt.github.io/solcare/",
       videoUrl: "", // Siap diisi tautan Loom / YouTube Walkthrough
       gallery: [
         {
@@ -160,6 +161,7 @@ const InLiveIqData = {
       heroImage: "assets/images/project-task.svg",
       tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets", "Google Drive", "Vercel"],
       githubUrl: "https://github.com/bendaharakerenbgtt/Bendahara2026",
+      liveUrl: "https://bendaharakerenbgtt.github.io/Bendahara2026/",
       videoUrl: "",
       gallery: [
         {
@@ -323,7 +325,7 @@ const InLiveIqData = {
       heroImage: "assets/images/project-ai.svg",
       tags: ["Next.js 16", "React 19", "PostgreSQL", "Argon2", "Zod", "Server Actions"],
       githubUrl: "https://github.com/bendaharakerenbgtt/polimedia-fasilitas",
-      liveUrl: "https://github.com/bendaharakerenbgtt/polimedia-fasilitas",
+      liveUrl: "https://bendaharakerenbgtt.github.io/polimedia-fasilitas/",
       videoUrl: "",
       gallery: [
         {
@@ -396,7 +398,7 @@ const InLiveIqData = {
       heroImage: "assets/images/project-portfolio.svg",
       tags: ["HTML5 Semantik", "CSS3 Print Media", "Vanilla JavaScript", "Live Document Preview"],
       githubUrl: "https://github.com/bendaharakerenbgtt/gensurat",
-      liveUrl: "https://github.com/bendaharakerenbgtt/gensurat",
+      liveUrl: "https://bendaharakerenbgtt.github.io/gensurat/",
       videoUrl: "",
       gallery: [
         {
