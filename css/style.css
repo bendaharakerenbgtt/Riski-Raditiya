@@ -2112,10 +2112,10 @@ a.contact-info-item:hover .contact-info-icon {
 }
 
 .detail-main-title {
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.12;
+  font-size: clamp(1.6rem, 2.75vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
   color: var(--text-primary);
   margin-bottom: 0.85rem;
 }

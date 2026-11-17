@@ -245,11 +245,6 @@
         <!-- Header Proyek -->
         <header class="detail-header">
           <div class="container">
-            <div class="detail-eyebrow-row">
-              <span class="detail-monogram-tag">STUDI KASUS // ${project.year}</span>
-              <span class="detail-status-pill">${project.status}</span>
-            </div>
-
             <h1 class="detail-main-title">${project.title}</h1>
             <p class="detail-lead-subtitle">${project.subtitle}</p>
 
