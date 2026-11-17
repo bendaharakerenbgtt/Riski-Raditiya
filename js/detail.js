@@ -148,16 +148,11 @@
               </div>
               <div class="detail-links-group">
                 ${project.githubUrl ? `
-                  <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="detail-ext-link">
+                  <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="detail-ext-link detail-ext-link--primary">
                     <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
                       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                     </svg>
                     <span>GitHub Repo ↗</span>
-                  </a>
-                ` : ''}
-                ${project.liveUrl ? `
-                  <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="detail-ext-link detail-ext-link--primary">
-                    <span>Akses Proyek ↗</span>
                   </a>
                 ` : ''}
               </div>
@@ -176,41 +171,38 @@
         <div class="container">
           <div class="detail-content-layout">
             
-            <!-- Sticky Aside 5 Pilar Cerita -->
-            <aside class="detail-sticky-toc" aria-label="Daftar Isi 5 Bagian Cerita">
+            <!-- Sticky Aside TOC -->
+            <aside class="detail-sticky-toc" aria-label="Daftar Isi">
               <div class="detail-toc-box">
                 <span class="detail-toc-title">DAFTAR ISI</span>
                 <nav class="detail-toc-nav">
                   <a href="#cerita-01-gambaran" class="detail-toc-item active">01. Gambaran Besar</a>
-                  <a href="#cerita-02-why" class="detail-toc-item">02. Why (Latar Belakang)</a>
+                  <a href="#cerita-02-why" class="detail-toc-item">02. The Why</a>
                   <a href="#cerita-03-dev" class="detail-toc-item">03. Dev &amp; Challenges</a>
-                  <a href="#cerita-04-outcome" class="detail-toc-item">04. The Outcome (Hasil)</a>
-                  <a href="#cerita-05-reflection" class="detail-toc-item">05. Reflection (Pelajaran)</a>
+                  <a href="#cerita-04-outcome" class="detail-toc-item">04. The Outcome</a>
+                  <a href="#cerita-05-reflection" class="detail-toc-item">05. Reflection</a>
                 </nav>
               </div>
             </aside>
 
-            <!-- Isi Artikel (5 Pilar) -->
+            <!-- Isi Artikel -->
             <div class="detail-article-body">
               
-              <!-- 01. Gambaran Besar — Apa yang aku buat? -->
+              <!-- 01. Gambaran Besar -->
               <section id="cerita-01-gambaran" class="detail-article-section">
-                <span class="detail-step-badge">PILAR 01 // OVERVIEW</span>
-                <h2 class="detail-section-heading">01. Gambaran Besar — Apa yang aku buat?</h2>
+                <h2 class="detail-section-heading">01. Gambaran Besar</h2>
                 <p class="detail-paragraph">${c.overview}</p>
               </section>
 
-              <!-- 02. Why — Kenapa aku membuat ini? -->
+              <!-- 02. The Why -->
               <section id="cerita-02-why" class="detail-article-section">
-                <span class="detail-step-badge">PILAR 02 // THE WHY</span>
-                <h2 class="detail-section-heading">02. Why — Kenapa aku membuat ini?</h2>
+                <h2 class="detail-section-heading">02. The Why</h2>
                 <p class="detail-paragraph">${c.why}</p>
               </section>
 
-              <!-- 03. Development & Challenges — Pengembangan dan masalah -->
+              <!-- 03. Dev & Challenges -->
               <section id="cerita-03-dev" class="detail-article-section">
-                <span class="detail-step-badge">PILAR 03 // DEV &amp; STRUGGLES</span>
-                <h2 class="detail-section-heading">03. Development &amp; Challenges — Pengembangan dan Masalah</h2>
+                <h2 class="detail-section-heading">03. Dev &amp; Challenges</h2>
                 <p class="detail-paragraph">${c.development.narrative}</p>
 
                 <div class="detail-callout-box">
@@ -221,16 +213,15 @@
                 <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.75rem 0;">Tantangan Teknis Terberat &amp; Solusi:</h4>
                 <p class="detail-paragraph">${c.development.struggle}</p>
 
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.85rem 0;">Keputusan Kunci (Trade-offs):</h4>
+                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.85rem 0;">Keputusan Kunci:</h4>
                 <div class="detail-tradeoffs-list">
                   ${tradeoffsHtml}
                 </div>
               </section>
 
-              <!-- 04. The Outcome — Hasil dan penerimaan -->
+              <!-- 04. The Outcome -->
               <section id="cerita-04-outcome" class="detail-article-section">
-                <span class="detail-step-badge">PILAR 04 // THE OUTCOME</span>
-                <h2 class="detail-section-heading">04. The Outcome — Hasil dan Penerimaan</h2>
+                <h2 class="detail-section-heading">04. The Outcome</h2>
                 <p class="detail-paragraph">${c.outcome.summary}</p>
 
                 <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 1.75rem 0 0.75rem 0;">Fitur Utama yang Berhasil Terwujud:</h4>
@@ -240,27 +231,26 @@
 
                 <!-- Grid Metrik/Hasil -->
                 ${metricsCards ? `
-                  <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.75rem 0;">Metrik Hasil Nyata:</h4>
+                  <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 2rem 0 0.75rem 0;">Hasil &amp; Capaian:</h4>
                   <div class="detail-metrics-grid">
                     ${metricsCards}
                   </div>
                 ` : ''}
 
                 <!-- Galeri Preview Gambar -->
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.75rem;">Preview &amp; Galeri Tampilan</h4>
+                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.25rem; margin-bottom: 0.75rem;">Preview Tampilan</h4>
                 <div class="detail-gallery-grid">
                   ${galleryItems}
                 </div>
 
                 <!-- Video Penjelasan -->
-                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.75rem;">Video Penjelasan &amp; Walkthrough</h4>
+                <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.75rem;">Video Demo</h4>
                 ${videoMarkup}
               </section>
 
-              <!-- 05. Reflection — Apa yang aku pelajari? -->
+              <!-- 05. Reflection -->
               <section id="cerita-05-reflection" class="detail-article-section">
-                <span class="detail-step-badge">PILAR 05 // REFLECTION</span>
-                <h2 class="detail-section-heading">05. Reflection — Apa yang aku pelajari?</h2>
+                <h2 class="detail-section-heading">05. Reflection</h2>
                 <p class="detail-paragraph">${c.reflection.learnings}</p>
 
                 <div class="detail-callout-box" style="margin-top: 1.5rem;">

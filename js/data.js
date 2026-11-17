@@ -12,7 +12,7 @@ const InLiveIqData = {
   projects: [
     {
       id: "solecare",
-      title: "Solecare (Soleful Soaks)",
+      title: "Solecare",
       subtitle: "Sistem manajemen laundry dan perawatan sepatu dengan pelacakan resi mandiri, cetak nota PDF instan, dan kontrol antrean pengerjaan.",
       category: "Aplikasi Bisnis & Layanan",
       featured: true,
@@ -21,8 +21,8 @@ const InLiveIqData = {
       summary: "Aplikasi operasional toko cuci dan perawatan sepatu yang mempermudah kasir mendata pesanan, mencetak nota digital PDF siap bagikan ke WhatsApp, serta memberi pelanggan akses cek status cucian secara mandiri 24 jam.",
       heroImage: "assets/images/project-ecommerce.svg",
       tags: ["React 18", "React Router v6", "jsPDF", "html2canvas", "CSS3 Responsive"],
-      githubUrl: "https://github.com/solefuladmin-dot/Soleful-Soaks",
-      liveUrl: "https://github.com/solefuladmin-dot/Soleful-Soaks",
+      githubUrl: "https://github.com/bendaharakerenbgtt/solcare",
+      liveUrl: "https://github.com/bendaharakerenbgtt/solcare",
       videoUrl: "", // Siap diisi tautan Loom / YouTube Walkthrough
       gallery: [
         {
@@ -42,8 +42,8 @@ const InLiveIqData = {
         { label: "Akses Cek Resi", value: "24/7 Mandiri" }
       ],
       content: {
-        // 01. Gambaran Besar — Apa yang aku buat?
-        overview: "Solecare (Soleful Soaks) adalah aplikasi web manajemen operasional untuk usaha jasa perawatan dan pencucian sepatu. Aplikasi ini menyediakan alur kerja terpadu: kasir dapat memasukkan data pesanan pelanggan, memilih jenis treatment sepatu (deep clean, unyellowing, repaint), langsung mengekspor nota transaksi resmi berformat PDF, serta memberikan nomor resi unik agar pelanggan bisa melacak progres sepatunya secara mandiri dari smartphone mereka tanpa harus bertanya manual ke kasir.",
+        // 01. Gambaran Besar
+        overview: "Solecare adalah aplikasi web manajemen operasional untuk usaha jasa perawatan dan pencucian sepatu. Aplikasi ini menyediakan alur kerja terpadu: kasir dapat memasukkan data pesanan pelanggan, memilih jenis treatment sepatu (deep clean, unyellowing, repaint), langsung mengekspor nota transaksi resmi berformat PDF, serta memberikan nomor resi unik agar pelanggan bisa melacak progres sepatunya secara mandiri dari smartphone mereka tanpa harus bertanya manual ke kasir.",
         
         // 02. Why — Kenapa aku membuat ini?
         why: "Di usaha jasa perawatan sepatu, proses pengerjaan butuh waktu beberapa hari dan melewati tahapan spesifik. Sebelumnya, seluruh pencatatan mengandalkan nota kertas manual dan pesan chat WhatsApp. Akibatnya, setiap akhir pekan kasir dibanjiri puluhan chat pelanggan yang menanyakan 'sepatu saya sudah selesai belum?'. Staf kasir harus bolak-balik membongkar tumpukan nota fisik di gudang, memicu antrean kasir tersendat dan bahkan risiko salah penyerahan sepatu pelanggan. Aku membuat Solecare untuk menghapus friksi manual ini dan memberikan kejelasan status bagi pemilik toko maupun pelanggan.",
