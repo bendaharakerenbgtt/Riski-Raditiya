@@ -13,6 +13,8 @@
     const wrapper = document.querySelector('.nav-pill-wrapper');
     const track = document.getElementById('capsule-progress-track');
     const fill = document.getElementById('capsule-progress-fill');
+    const topLineFill = document.getElementById('top-scroll-line-fill');
+    const topLineContainer = document.querySelector('.top-scroll-line-container');
     const sections = Array.from(document.querySelectorAll('section[id]'));
     const desktopLinks = Array.from(document.querySelectorAll('.desktop-nav-menu a'));
     const mobileLinks = Array.from(document.querySelectorAll('.mobile-nav-links a'));
@@ -72,12 +74,17 @@
     function renderScrollFrame() {
       scrollTicking = false;
       const scrollY = window.scrollY || window.pageYOffset || 0;
+      const pct = Math.min(Math.max(scrollY / totalScrollable, 0), 1);
 
       // Update capsule progress bar without layout reads
       if (fill && pathTotalLength > 0) {
-        const pct = Math.min(Math.max(scrollY / totalScrollable, 0), 1);
         const offset = pathTotalLength * (1 - pct);
         fill.style.strokeDashoffset = `${offset}`;
+      }
+
+      // Update top hairline progress bar
+      if (topLineFill) {
+        topLineFill.style.transform = `scaleX(${pct})`;
       }
 
       // Toggle header scrolled class & smart auto-hide (hide on scroll down, show on scroll up)
@@ -90,11 +97,13 @@
 
         const deltaY = scrollY - lastScrollY;
         if (scrollY > 120 && deltaY > 8) {
-          // Scrolling down - sembunyikan header agar tidak mengganggu pandangan
+          // Scrolling down - sembunyikan header, tampilkan garis indikator di atas
           header.classList.add('header-hidden');
+          if (topLineContainer) topLineContainer.classList.add('active');
         } else if (deltaY < -12 || scrollY <= 60) {
-          // Scrolling up atau kembali ke paling atas - tampilkan kembali
+          // Scrolling up atau kembali ke atas - tampilkan kembali header
           header.classList.remove('header-hidden');
+          if (topLineContainer) topLineContainer.classList.remove('active');
         }
         lastScrollY = Math.max(0, scrollY);
       }

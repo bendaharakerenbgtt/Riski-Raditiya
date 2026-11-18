@@ -216,6 +216,42 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   Top Hairline Scroll Progress Indicator (Persistent Minimal Line)
+   -------------------------------------------------------------------------- */
+.top-scroll-line-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: transparent;
+  z-index: 10001;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.site-header.header-hidden ~ .top-scroll-line-container,
+.top-scroll-line-container.active {
+  opacity: 1;
+}
+
+.top-scroll-line-fill {
+  height: 100%;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.4), #ffffff, #ffffff);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 4px #ffffff;
+  transition: transform 0.08s linear;
+}
+
+:root[data-theme="light"] .top-scroll-line-fill {
+  background: linear-gradient(90deg, rgba(15, 18, 29, 0.3), #0f121d, #0f121d);
+  box-shadow: 0 0 8px rgba(15, 18, 29, 0.3);
+}
+
+/* --------------------------------------------------------------------------
    Capsule Contour Scroll Progress Indicator (Zero-Filter rAF Driven)
    -------------------------------------------------------------------------- */
 .capsule-progress-svg {
