@@ -1128,6 +1128,10 @@ button {
   height: auto;
 }
 
+:root[data-theme="light"] .education-visual-col img {
+  filter: drop-shadow(0 8px 20px rgba(15, 18, 29, 0.16)) contrast(1.08);
+}
+
 .education-timeline-col {
   display: flex;
   flex-direction: column;

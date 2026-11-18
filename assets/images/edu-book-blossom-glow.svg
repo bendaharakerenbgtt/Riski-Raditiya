@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 500" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <!-- Ambient Monochrome Aura -->
+    <radialGradient id="eduAura" cx="50%" cy="52%" r="52%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.045" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Soft Light Beam Emerging from Open Book -->
+    <radialGradient id="bookLightBeam" cx="50%" cy="74%" r="42%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.07" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Monochrome Book Cover & Pages -->
+    <linearGradient id="bookCoverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#272c3a" />
+      <stop offset="50%" stop-color="#141822" />
+      <stop offset="100%" stop-color="#090b10" />
+    </linearGradient>
+
+    <linearGradient id="pageLeftGrad" x1="0%" y1="0%" x2="100%" y2="15%">
+      <stop offset="0%" stop-color="#cfd5e2" />
+      <stop offset="55%" stop-color="#f1f4f9" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <linearGradient id="pageRightGrad" x1="0%" y1="15%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="45%" stop-color="#eef1f7" />
+      <stop offset="100%" stop-color="#c8cfd9" />
+    </linearGradient>
+
+    <!-- Branch & Petal Gradients -->
+    <linearGradient id="branchGrad" x1="0%" y1="100%" x2="30%" y2="0%">
+      <stop offset="0%" stop-color="#586072" />
+      <stop offset="50%" stop-color="#9ca4b6" />
+      <stop offset="100%" stop-color="#e8ecf4" />
+    </linearGradient>
+
+    <radialGradient id="petalGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="68%" stop-color="#eef2f8" />
+      <stop offset="100%" stop-color="#c2c9d6" />
+    </radialGradient>
+  </defs>
+
+  <!-- Soft Ambient Glows (Zero-Filter) -->
+  <ellipse cx="160" cy="250" rx="150" ry="220" fill="url(#eduAura)" />
+  <ellipse cx="160" cy="355" rx="130" ry="110" fill="url(#bookLightBeam)" />
+
+  <!-- =========================================================
+       BOTANICAL BLOSSOM BRANCH SPROUTING FROM THE OPEN BOOK
+       ========================================================= -->
+  <g stroke="url(#branchGrad)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main Stem emerging from book spine -->
+    <path d="M 160 392 C 154 345, 168 295, 156 245 C 145 198, 165 150, 153 102 C 148 78, 154 58, 162 42" stroke-width="4" />
+    <!-- Secondary Twigs -->
+    <path d="M 159 325 C 185 302, 214 290, 244 280" stroke-width="2.6" />
+    <path d="M 158 286 C 126 268, 102 254, 78 240" stroke-width="2.6" />
+    <path d="M 155 224 C 184 202, 218 184, 242 162" stroke-width="2.4" />
+    <path d="M 153 176 C 120 156, 94 138, 80 112" stroke-width="2.2" />
+    <path d="M 154 126 C 176 104, 198 92, 216 84" stroke-width="1.9" />
+    <path d="M 153 84 C 136 66, 124 54, 114 44" stroke-width="1.7" />
+  </g>
+
+  <!-- Five-Petal Monochrome Cherry Blossoms -->
+  <g>
+    <!-- Cluster 1 (Top Crown) -->
+    <g transform="translate(162, 48) scale(0.95)">
+      <circle cx="0" cy="-12" r="8" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4" fill="#ffffff" />
+      <circle cx="0" cy="0" r="1.8" fill="#1b1f2a" />
+    </g>
+
+    <!-- Cluster 2 (Upper Left) -->
+    <g transform="translate(86, 126) scale(1.08)">
+      <circle cx="0" cy="-12" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4" fill="#ffffff" />
+      <circle cx="0" cy="0" r="1.8" fill="#1b1f2a" />
+    </g>
+
+    <!-- Cluster 3 (Upper Right) -->
+    <g transform="translate(232, 168) scale(1.05)">
+      <circle cx="0" cy="-12" r="8" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="3.8" fill="#ffffff" />
+      <circle cx="0" cy="0" r="1.6" fill="#1b1f2a" />
+    </g>
+
+    <!-- Cluster 4 (Center Hero Blossom) -->
+    <g transform="translate(155, 208) scale(1.28)">
+      <circle cx="0" cy="-13" r="9.5" fill="url(#petalGrad)" />
+      <circle cx="12" cy="-4" r="9.5" fill="url(#petalGrad)" />
+      <circle cx="8" cy="11" r="9.5" fill="url(#petalGrad)" />
+      <circle cx="-8" cy="11" r="9.5" fill="url(#petalGrad)" />
+      <circle cx="-12" cy="-4" r="9.5" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4.5" fill="#ffffff" />
+      <circle cx="0" cy="0" r="2.1" fill="#1b1f2a" />
+    </g>
+
+    <!-- Cluster 5 (Mid Left) -->
+    <g transform="translate(88, 246) scale(1.12)">
+      <circle cx="0" cy="-12" r="8" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="3.8" fill="#ffffff" />
+      <circle cx="0" cy="0" r="1.6" fill="#1b1f2a" />
+    </g>
+
+    <!-- Cluster 6 (Mid Right) -->
+    <g transform="translate(234, 282) scale(1.14)">
+      <circle cx="0" cy="-12" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-7" cy="10" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="-11" cy="-4" r="8.5" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="4" fill="#ffffff" />
+      <circle cx="0" cy="0" r="1.7" fill="#1b1f2a" />
+    </g>
+
+    <!-- Cluster 7 (Lower Blossom near Book) -->
+    <g transform="translate(162, 312) scale(1.0)">
+      <circle cx="0" cy="-11" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="10" cy="-3" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="6" cy="9" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="-6" cy="9" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="-10" cy="-3" r="7.5" fill="url(#petalGrad)" />
+      <circle cx="0" cy="0" r="3.4" fill="#ffffff" />
+      <circle cx="0" cy="0" r="1.5" fill="#1b1f2a" />
+    </g>
+
+    <!-- Buds & Glowing Light Motes -->
+    <circle cx="114" cy="44" r="4" fill="#ffffff" />
+    <circle cx="216" cy="84" r="4" fill="#ffffff" />
+    <circle cx="76" cy="108" r="3.8" fill="#ffffff" />
+    <circle cx="246" cy="158" r="3.8" fill="#ffffff" />
+    <circle cx="72" cy="238" r="3.5" fill="#ffffff" />
+    <circle cx="248" cy="278" r="4" fill="#ffffff" />
+
+    <!-- Drifting Petals & Knowledge Sparks -->
+    <ellipse cx="54" cy="178" rx="4.5" ry="2.2" transform="rotate(-32 54 178)" fill="#ffffff" opacity="0.82" />
+    <ellipse cx="268" cy="216" rx="4.8" ry="2.3" transform="rotate(26 268 216)" fill="#ffffff" opacity="0.82" />
+    <ellipse cx="110" cy="336" rx="3.8" ry="1.9" transform="rotate(-18 110 336)" fill="#ffffff" opacity="0.72" />
+    <circle cx="128" cy="352" r="2" fill="#ffffff" opacity="0.65" />
+    <circle cx="196" cy="346" r="2.2" fill="#ffffff" opacity="0.7" />
+    <circle cx="204" cy="316" r="1.6" fill="#ffffff" opacity="0.55" />
+  </g>
+
+  <!-- =========================================================
+       SCULPTED MONOCHROME OPEN BOOK BASE
+       ========================================================= -->
+  <g>
+    <!-- Soft Ground Shadow -->
+    <ellipse cx="160" cy="446" rx="108" ry="12" fill="#000000" opacity="0.45" />
+
+    <!-- Hardcover Outer Shell -->
+    <path d="M 42 380 L 154 402 Q 160 405 166 402 L 278 380 L 266 430 L 166 446 Q 160 448 154 446 L 54 430 Z"
+          fill="url(#bookCoverGrad)"
+          stroke="rgba(255,255,255,0.55)"
+          stroke-width="1.6"
+          stroke-linejoin="round" />
+
+    <!-- Page Block Thickness (Bottom Layered Edges) -->
+    <path d="M 52 382 L 156 402 L 156 436 L 60 422 Z" fill="#8b93a6" opacity="0.55" />
+    <path d="M 268 382 L 164 402 L 164 436 L 260 422 Z" fill="#777f92" opacity="0.55" />
+
+    <!-- Left Open Page -->
+    <path d="M 160 396 C 126 372, 84 368, 52 377 L 62 419 C 92 411, 128 415, 160 434 Z"
+          fill="url(#pageLeftGrad)"
+          stroke="#ffffff"
+          stroke-width="1.2"
+          stroke-linejoin="round" />
+
+    <!-- Right Open Page -->
+    <path d="M 160 396 C 194 372, 236 368, 268 377 L 258 419 C 228 411, 192 415, 160 434 Z"
+          fill="url(#pageRightGrad)"
+          stroke="#ffffff"
+          stroke-width="1.2"
+          stroke-linejoin="round" />
+
+    <!-- Subtle Secondary Page Curl Rim -->
+    <path d="M 56 385 C 86 378, 124 381, 158 403" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="0.9" />
+    <path d="M 264 385 C 234 378, 196 381, 162 403" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="0.9" />
+
+    <!-- Delicate Ruled / Typography Lines on Pages -->
+    <g stroke="#6c7488" stroke-width="1.15" stroke-linecap="round" opacity="0.42" fill="none">
+      <!-- Left Page Lines -->
+      <path d="M 74 386 Q 104 382 138 394" />
+      <path d="M 76 394 Q 106 390 140 402" />
+      <path d="M 78 402 Q 108 398 142 410" />
+      <path d="M 80 410 Q 104 407 128 415" />
+      <!-- Right Page Lines -->
+      <path d="M 246 386 Q 216 382 182 394" />
+      <path d="M 244 394 Q 214 390 180 402" />
+      <path d="M 242 402 Q 212 398 178 410" />
+      <path d="M 240 410 Q 216 407 192 415" />
+    </g>
+
+    <!-- Center Spine Crease & Glowing Spine Highlight -->
+    <line x1="160" y1="395" x2="160" y2="434" stroke="#9aa3b8" stroke-width="1.4" opacity="0.7" />
+    <circle cx="160" cy="395" r="3" fill="#ffffff" opacity="0.9" />
+
+    <!-- Minimal Bookmark Ribbon -->
+    <path d="M 157 433 L 155 458 L 160 452 L 165 458 L 163 433 Z" fill="#e6eaf2" opacity="0.88" />
+  </g>
+</svg>
