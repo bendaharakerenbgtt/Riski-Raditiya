@@ -213,6 +213,76 @@ button {
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Architectural Layering (Subtle Dot-Matrix, Ambient Spotlights & Hairlines)
+   -------------------------------------------------------------------------- */
+.about-section,
+.education-section,
+.projects-section,
+.skills-section,
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before,
+.projects-section::before,
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000000 15%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, #000000 15%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root[data-theme="light"] .about-section::before,
+:root[data-theme="light"] .projects-section::before,
+:root[data-theme="light"] .contact-section::before {
+  background-image: radial-gradient(rgba(15, 18, 29, 0.06) 1px, transparent 1px);
+}
+
+.education-section::before,
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(820px, 95vw);
+  height: 460px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.015) 45%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root[data-theme="light"] .education-section::before,
+:root[data-theme="light"] .skills-section::before {
+  background: radial-gradient(ellipse at center, rgba(15, 18, 29, 0.035) 0%, transparent 70%);
+}
+
+.about-section::after,
+.education-section::after,
+.projects-section::after,
+.skills-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(var(--max-width), 88%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-card) 25%, var(--border-strong) 50%, var(--border-card) 75%, transparent);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -977,10 +1047,9 @@ button {
 
 .about-hero-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.25fr 0.75fr;
   align-items: center;
   gap: 2.5rem;
-  margin-bottom: 1.85rem;
 }
 
 .about-bio-text {
@@ -989,10 +1058,40 @@ button {
   gap: 1.05rem;
 }
 
+.about-bio-card {
+  position: relative;
+  background: linear-gradient(155deg, rgba(19, 25, 40, 0.78), rgba(10, 14, 24, 0.92));
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), var(--shadow-subtle);
+  overflow: hidden;
+}
+
+.about-bio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  pointer-events: none;
+}
+
+:root[data-theme="light"] .about-bio-card {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(245, 247, 252, 0.92));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
+}
+
+:root[data-theme="light"] .about-bio-card::before {
+  background: linear-gradient(90deg, transparent, rgba(15, 18, 29, 0.2), transparent);
+}
+
 .about-intro-p {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.72;
   max-width: 65ch;
 }
 
@@ -1001,6 +1100,22 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.about-visual-showcase::before {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.025) 50%, transparent 72%);
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+:root[data-theme="light"] .about-visual-showcase::before {
+  background: radial-gradient(circle, rgba(15, 18, 29, 0.06) 0%, transparent 70%);
+  border-color: rgba(15, 18, 29, 0.08);
 }
 
 .fan-visual-wrapper {
