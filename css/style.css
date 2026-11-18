@@ -291,10 +291,8 @@ button {
    Floating Pill Header & Navigation
    -------------------------------------------------------------------------- */
 .site-header {
-  position: fixed;
+  position: sticky;
   top: 0.85rem;
-  left: 0;
-  right: 0;
   z-index: 1000;
   padding: 0 1rem;
   margin: 0 auto;
