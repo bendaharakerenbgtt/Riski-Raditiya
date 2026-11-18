@@ -24,6 +24,7 @@
     let currentActiveId = '';
     let scrollTicking = false;
     let resizeTicking = false;
+    let lastScrollY = window.scrollY || window.pageYOffset || 0;
 
     function measureLayout() {
       // Measure capsule SVG path
@@ -79,13 +80,23 @@
         fill.style.strokeDashoffset = `${offset}`;
       }
 
-      // Toggle header scrolled class only when state changes
+      // Toggle header scrolled class & smart auto-hide (hide on scroll down, show on scroll up)
       if (header) {
         const nextScrolled = scrollY > 20;
         if (nextScrolled !== isScrolled) {
           isScrolled = nextScrolled;
           header.classList.toggle('scrolled', isScrolled);
         }
+
+        const deltaY = scrollY - lastScrollY;
+        if (scrollY > 120 && deltaY > 8) {
+          // Scrolling down - sembunyikan header agar tidak mengganggu pandangan
+          header.classList.add('header-hidden');
+        } else if (deltaY < -12 || scrollY <= 60) {
+          // Scrolling up atau kembali ke paling atas - tampilkan kembali
+          header.classList.remove('header-hidden');
+        }
+        lastScrollY = Math.max(0, scrollY);
       }
 
       // Update active navigation link using cached bounds

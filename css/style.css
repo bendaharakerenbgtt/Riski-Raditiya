@@ -255,41 +255,55 @@ button {
    Floating Pill Header & Navigation
    -------------------------------------------------------------------------- */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0.85rem;
+  left: 0;
+  right: 0;
   z-index: 1000;
   padding: 0 1rem;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto;
   width: 100%;
   max-width: var(--max-width);
   box-sizing: border-box;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+/* Auto-hide saat scroll ke bawah di laptop/desktop */
+@media (min-width: 992px) {
+  .site-header.header-hidden {
+    transform: translateY(-130%);
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .nav-pill-wrapper {
   width: 100%;
   background: var(--bg-glass);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-subtle);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.55rem 1.25rem;
+  padding: 0.45rem 1.15rem;
   position: relative;
   box-sizing: border-box;
-  transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-fast);
 }
 
 .site-header.scrolled .nav-pill-wrapper {
-  background: rgba(12, 16, 26, 0.96);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(12, 16, 26, 0.88);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 :root[data-theme="light"] .site-header.scrolled .nav-pill-wrapper {
-  background: rgba(255, 255, 255, 0.96);
-  border-color: rgba(15, 18, 29, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(15, 18, 29, 0.14);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
 }
 
 /* Brand Capsule */
