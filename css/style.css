@@ -793,8 +793,8 @@ button {
    Hero Section (Full Viewport First Fold / Immersive Widescreen)
    -------------------------------------------------------------------------- */
 .hero-section {
-  min-height: calc(100vh - 144px);
-  min-height: calc(100dvh - 144px);
+  min-height: calc(100vh - 116px);
+  min-height: calc(100dvh - 116px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1011,16 +1011,16 @@ button {
 .hero-silhouette-img {
   width: 100%;
   height: auto;
-  max-height: clamp(440px, 66dvh, 620px);
+  max-height: clamp(420px, 60dvh, 580px);
   object-fit: contain;
   object-position: bottom center;
   display: block;
   vertical-align: bottom;
-  margin-bottom: -2px;
+  margin-bottom: -1px;
   position: relative;
   z-index: 2;
-  mask-image: radial-gradient(ellipse 76% 90% at 52% 62%, #000000 50%, transparent 82%);
-  -webkit-mask-image: radial-gradient(ellipse 76% 90% at 52% 62%, #000000 50%, transparent 82%);
+  mask-image: radial-gradient(ellipse 72% 85% at 50% 100%, #000000 38%, transparent 74%);
+  -webkit-mask-image: radial-gradient(ellipse 72% 85% at 50% 100%, #000000 38%, transparent 74%);
 }
 
 /* --------------------------------------------------------------------------
