@@ -1540,8 +1540,19 @@ button {
 
 .skills-center-visual img {
   width: 100%;
-  max-width: 230px;
+  max-width: 340px;
   height: auto;
+  filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.16));
+  transition: transform var(--transition-normal), filter var(--transition-normal);
+}
+
+.skills-center-visual img:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 38px rgba(255, 255, 255, 0.25));
+}
+
+:root[data-theme="light"] .skills-center-visual img {
+  filter: drop-shadow(0 8px 22px rgba(15, 18, 29, 0.18)) contrast(1.08);
 }
 
 /* --------------------------------------------------------------------------
