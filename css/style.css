@@ -116,6 +116,32 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Global Ambient Spotlight & Architectural Canvas Layer (All Pages) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 85% 42% at 50% 0%, rgba(255, 255, 255, 0.055) 0%, transparent 70%),
+    radial-gradient(circle at 12% 78%, rgba(255, 255, 255, 0.025) 0%, transparent 45%),
+    radial-gradient(circle at 88% 35%, rgba(255, 255, 255, 0.025) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root[data-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse 85% 42% at 50% 0%, rgba(15, 18, 29, 0.045) 0%, transparent 70%),
+    radial-gradient(circle at 12% 78%, rgba(15, 18, 29, 0.02) 0%, transparent 45%);
+}
+
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 section[id] {
@@ -283,6 +309,75 @@ button {
   opacity: 0.7;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Hero Architectural Grid Layer */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000000 10%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000000 10%, transparent 78%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root[data-theme="light"] .hero-section::before {
+  background-image:
+    linear-gradient(to right, rgba(15, 18, 29, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 18, 29, 0.035) 1px, transparent 1px);
+}
+
+/* Case Study Page Atmospheric Dot-Matrix Backdrop */
+.project-detail-article {
+  position: relative;
+}
+
+.project-detail-article::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 460px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.065) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 70% 75% at 50% 25%, #000000 10%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 25%, #000000 10%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:root[data-theme="light"] .project-detail-article::before {
+  background-image: radial-gradient(rgba(15, 18, 29, 0.06) 1px, transparent 1px);
+}
+
+/* Unified Elevated Card Rim-Light Layering (All Pages) */
+.edu-card,
+.project-card,
+.contact-form-card,
+.contact-info-item,
+.detail-toc-box,
+.detail-metric-card,
+.detail-tech-card,
+.detail-bottom-cta {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), var(--shadow-subtle);
+}
+
+:root[data-theme="light"] .edu-card,
+:root[data-theme="light"] .project-card,
+:root[data-theme="light"] .contact-form-card,
+:root[data-theme="light"] .contact-info-item,
+:root[data-theme="light"] .detail-toc-box,
+:root[data-theme="light"] .detail-metric-card,
+:root[data-theme="light"] .detail-tech-card,
+:root[data-theme="light"] .detail-bottom-cta {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-subtle);
 }
 
 /* --------------------------------------------------------------------------

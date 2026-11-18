@@ -169,10 +169,9 @@
     if (!el) return;
 
     const phrases = [
-      "I'm a Developer",
-      "I'm a Creator",
-      "I'm a Problem Solver",
-      "I'm a UI/UX Builder"
+      "Digital Product Builder",
+      "UI/UX & Web Explorer",
+      "Multimedia Student"
     ];
 
     let phraseIndex = 0;
