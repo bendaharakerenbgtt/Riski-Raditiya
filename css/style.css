@@ -980,7 +980,7 @@ button {
 
 .hero-portrait-frame {
   width: 100%;
-  max-width: 460px;
+  max-width: 480px;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -1011,16 +1011,16 @@ button {
 .hero-silhouette-img {
   width: 100%;
   height: auto;
-  max-height: clamp(400px, 58dvh, 560px);
+  max-height: clamp(440px, 66dvh, 620px);
   object-fit: contain;
   object-position: bottom center;
   display: block;
   vertical-align: bottom;
-  margin-bottom: -1px;
+  margin-bottom: -2px;
   position: relative;
   z-index: 2;
-  mask-image: radial-gradient(ellipse 72% 85% at 50% 100%, #000000 38%, transparent 74%);
-  -webkit-mask-image: radial-gradient(ellipse 72% 85% at 50% 100%, #000000 38%, transparent 74%);
+  mask-image: radial-gradient(ellipse 76% 90% at 52% 62%, #000000 50%, transparent 82%);
+  -webkit-mask-image: radial-gradient(ellipse 76% 90% at 52% 62%, #000000 50%, transparent 82%);
 }
 
 /* --------------------------------------------------------------------------
