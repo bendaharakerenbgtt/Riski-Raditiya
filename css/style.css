@@ -1124,12 +1124,19 @@ button {
 
 .education-visual-col img {
   width: 100%;
-  max-width: 270px;
+  max-width: 390px;
   height: auto;
+  filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.14));
+  transition: transform var(--transition-normal), filter var(--transition-normal);
+}
+
+.education-visual-col img:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 38px rgba(255, 255, 255, 0.22));
 }
 
 :root[data-theme="light"] .education-visual-col img {
-  filter: drop-shadow(0 8px 20px rgba(15, 18, 29, 0.16)) contrast(1.08);
+  filter: drop-shadow(0 8px 22px rgba(15, 18, 29, 0.18)) contrast(1.08);
 }
 
 .education-timeline-col {
