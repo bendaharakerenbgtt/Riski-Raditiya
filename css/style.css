@@ -1215,7 +1215,7 @@ button {
 
 .fan-visual-wrapper {
   width: 100%;
-  max-width: 260px;
+  max-width: 295px;
   position: relative;
   display: flex;
   align-items: center;
@@ -1225,7 +1225,7 @@ button {
 .fan-visual-wrapper img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.12));
+  filter: drop-shadow(0 0 34px rgba(255, 255, 255, 0.18));
   transition: transform var(--transition-smooth), filter var(--transition-smooth);
 }
 
@@ -1356,9 +1356,9 @@ button {
 
 .education-visual-col img {
   width: 100%;
-  max-width: 285px;
+  max-width: 325px;
   height: auto;
-  filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.14));
+  filter: drop-shadow(0 0 34px rgba(255, 255, 255, 0.18));
   transition: transform var(--transition-normal), filter var(--transition-normal);
 }
 
@@ -1717,7 +1717,7 @@ button {
 
 .skills-3col-grid {
   display: grid;
-  grid-template-columns: 1fr 0.65fr 1fr;
+  grid-template-columns: 1fr 0.75fr 1fr;
   align-items: center;
   gap: 2rem;
 }
@@ -1773,9 +1773,9 @@ button {
 
 .skills-center-visual img {
   width: 100%;
-  max-width: 250px;
+  max-width: 295px;
   height: auto;
-  filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.16));
+  filter: drop-shadow(0 0 34px rgba(255, 255, 255, 0.2));
   transition: transform var(--transition-normal), filter var(--transition-normal);
 }
 

@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 400" width="100%" height="100%" aria-hidden="true">
   <defs>
     <!-- Ambient Outer Halo Glow -->
-    <radialGradient id="lensAura" cx="48%" cy="46%" r="52%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
-      <stop offset="45%" stop-color="#dbe4f6" stop-opacity="0.08" />
-      <stop offset="80%" stop-color="#b4c2de" stop-opacity="0.02" />
+    <radialGradient id="lensAura" cx="48%" cy="46%" r="54%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30" />
+      <stop offset="45%" stop-color="#dbe4f6" stop-opacity="0.12" />
+      <stop offset="78%" stop-color="#b4c2de" stop-opacity="0.03" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </radialGradient>
 
     <!-- Glass Refraction Beam Core -->
-    <radialGradient id="glassCoreGlow" cx="46%" cy="42%" r="48%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65" />
-      <stop offset="35%" stop-color="#ecf2fe" stop-opacity="0.25" />
-      <stop offset="70%" stop-color="#9aa9c8" stop-opacity="0.08" />
+    <radialGradient id="glassCoreGlow" cx="46%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.78" />
+      <stop offset="35%" stop-color="#ecf2fe" stop-opacity="0.32" />
+      <stop offset="70%" stop-color="#9aa9c8" stop-opacity="0.10" />
       <stop offset="100%" stop-color="#0c101a" stop-opacity="0.45" />
     </radialGradient>
 
@@ -111,6 +111,7 @@
     </g>
 
     <!-- Outer Bezel Retaining Ring (Chassis) -->
+    <circle cx="200" cy="170" r="115" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="14" />
     <circle cx="200" cy="170" r="115" fill="none" stroke="url(#rimMetal)" stroke-width="8" />
     <circle cx="200" cy="170" r="119" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.2" />
     <circle cx="200" cy="170" r="111" fill="none" stroke="#000000" stroke-opacity="0.6" stroke-width="1.5" />
@@ -163,10 +164,4 @@
     </g>
   </g>
 
-  <!-- Technical Telemetry Monospace Labels -->
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9" font-weight="700" letter-spacing="2">
-    <text x="200" y="342" fill="#7d879c" text-anchor="middle">OBSERVE &#8226; UNDERSTAND &#8226; BUILD</text>
-    <text x="76" y="70" fill="#5c6579" font-size="8">FOCUS: F/1.4</text>
-    <text x="328" y="70" fill="#5c6579" font-size="8">ZOOM: 100%</text>
-  </g>
 </svg>

@@ -2,16 +2,16 @@
   <defs>
     <!-- Ambient Outer Glow -->
     <radialGradient id="engineAura" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
-      <stop offset="42%" stop-color="#dfe6f6" stop-opacity="0.09" />
-      <stop offset="75%" stop-color="#b8c4dc" stop-opacity="0.02" />
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30" />
+      <stop offset="42%" stop-color="#dfe6f6" stop-opacity="0.12" />
+      <stop offset="75%" stop-color="#b8c4dc" stop-opacity="0.03" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </radialGradient>
 
     <!-- Core Spark Glow -->
     <radialGradient id="sparkCoreGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7" />
-      <stop offset="40%" stop-color="#e8eefc" stop-opacity="0.25" />
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="42%" stop-color="#e8eefc" stop-opacity="0.34" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </radialGradient>
 
@@ -40,7 +40,7 @@
   </g>
 
   <!-- 6 Skill Connector Lines (3 Left, 3 Right) -->
-  <g stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" stroke-dasharray="3 4">
+  <g stroke="#ffffff" stroke-opacity="0.34" stroke-width="1.3" stroke-dasharray="3 4">
     <!-- Left 3 -->
     <line x1="200" y1="200" x2="72" y2="126" />
     <line x1="200" y1="200" x2="52" y2="200" />
@@ -99,13 +99,13 @@
 
   <!-- Center AI Spark (4-Point Star) -->
   <g>
+    <!-- Soft Bloom Layer Behind Star -->
+    <path d="M 200 148 C 204 184, 216 196, 252 200 C 216 204, 204 216, 200 252 C 196 216, 184 204, 148 200 C 184 196, 196 184, 200 148 Z"
+          fill="#ffffff" opacity="0.22" />
     <path d="M 200 156 C 203 186, 214 197, 244 200 C 214 203, 203 214, 200 244 C 197 214, 186 203, 156 200 C 186 197, 197 186, 200 156 Z"
           fill="url(#sparkFill)" />
     <!-- Secondary Small Accent Spark -->
     <path d="M 236 154 C 237 161, 239 163, 246 164 C 239 165, 237 167, 236 174 C 235 167, 233 165, 226 164 C 233 163, 235 161, 236 154 Z"
-          fill="#ffffff" opacity="0.85" />
+          fill="#ffffff" opacity="0.92" />
   </g>
-
-  <!-- Subtle Monospace Caption -->
-  <text x="200" y="374" fill="#7c8599" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" letter-spacing="2.4" text-anchor="middle">CORE ENGINE &amp; AI</text>
 </svg>
