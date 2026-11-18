@@ -19,21 +19,44 @@ const InLiveIqData = {
       year: "2026",
       status: "Aktif Digunakan Mitra",
       summary: "Aplikasi web manajemen operasional mitra untuk menggantikan pencatatan manual WhatsApp pada usaha perawatan sepatu.",
-      heroImage: "assets/images/project-ecommerce.svg",
+      logo: "assets/projects/solecare/logo.jpg",
+      heroImage: "assets/projects/solecare/01_beranda_pc.png",
       tags: ["React 18", "Google Spreadsheet", "Apps Script", "Cloudflare Pages", "jsPDF"],
       githubUrl: "https://github.com/bendaharakerenbgtt/solcare",
       liveUrl: "https://bendaharakerenbgtt.github.io/solcare/",
       videoUrl: "", // Siap diisi tautan Loom / YouTube Walkthrough
       gallery: [
         {
-          url: "assets/images/project-ecommerce.svg",
-          caption: "Alur kasir dan pembuatan nota digital untuk pencatatan pesanan pelanggan.",
-          alt: "Antarmuka Kasir SoleCare"
+          url: "assets/projects/solecare/01_beranda_pc.png",
+          caption: "Halaman beranda publik Soleful Soaks! lengkap dengan fitur lacak status pesanan dan alur cuci sepatu.",
+          alt: "Beranda Publik SoleCare"
         },
         {
-          url: "assets/images/project-task.svg",
-          caption: "Tampilan status pesanan dan pelacakan progres cuci sepatu.",
-          alt: "Status Pesanan SoleCare"
+          url: "assets/projects/solecare/02_admin_dashboard_pc.png",
+          caption: "Dashboard admin operasional untuk memantau antrean masuk, proses cuci, hingga sepatu siap ambil.",
+          alt: "Dashboard Admin SoleCare"
+        },
+        {
+          url: "assets/projects/solecare/03_admin_antrian_pc.png",
+          caption: "Daftar pesanan dan antrean cuci dengan kontrol status yang terhubung langsung ke Google Spreadsheet.",
+          alt: "Manajemen Antrean SoleCare"
+        },
+        {
+          url: "assets/projects/solecare/04_admin_tambah_pesanan_pc.png",
+          caption: "Formulir input pesanan baru untuk kasir sekaligus menghasilkan nota digital dan nomor resi.",
+          alt: "Form Tambah Pesanan SoleCare"
+        },
+        {
+          url: "assets/projects/solecare/05_beranda_hp.png",
+          caption: "Tampilan responsif di smartphone untuk pelanggan yang mengakses informasi layanan.",
+          alt: "Tampilan Mobile Beranda SoleCare",
+          isMobile: true
+        },
+        {
+          url: "assets/projects/solecare/06_cek_pesanan_hp.png",
+          caption: "Halaman lacak progres sepatu dari smartphone pelanggan tanpa perlu bertanya manual lewat chat.",
+          alt: "Cek Pesanan Mobile SoleCare",
+          isMobile: true
         }
       ],
       customStory: {
@@ -158,21 +181,43 @@ const InLiveIqData = {
       year: "2026",
       status: "Digunakan Operasional (Juni 2026)",
       summary: "Sistem terintegrasi untuk pencatatan transaksi, pengelolaan bukti pembayaran, pemantauan keuangan, kas anggota, hingga penyusunan dokumen pertanggungjawaban kegiatan.",
-      heroImage: "assets/images/project-task.svg",
+      logo: "assets/projects/dana-imip/logo.png",
+      heroImage: "assets/projects/dana-imip/01_dashboard_pc.png",
       tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets", "Google Drive", "Vercel"],
       githubUrl: "https://github.com/RiskiRaditiya/DanaImip",
       liveUrl: "https://riskiraditiya.github.io/DanaImip/",
       videoUrl: "",
       gallery: [
         {
-          url: "assets/images/project-task.svg",
-          caption: "Dashboard ringkasan saldo, kas, GoPay, serta grafik keuangan organisasi.",
+          url: "assets/projects/dana-imip/01_dashboard_pc.png",
+          caption: "Dashboard ringkasan saldo kas gabungan, GoPay, brankas tunai, dan grafik keuangan organisasi.",
           alt: "Dashboard Dana IMIP"
         },
         {
-          url: "assets/images/project-portfolio.svg",
-          caption: "Modul penyusunan dokumen rincian keuangan kegiatan otomatis ke format Word dan PDF.",
-          alt: "Dokumen Otomatis Dana IMIP"
+          url: "assets/projects/dana-imip/02_laporan_keuangan_pc.png",
+          caption: "Laporan keuangan terperinci lengkap dengan tren arus kas dan komposisi belanja kegiatan.",
+          alt: "Laporan Keuangan Dana IMIP"
+        },
+        {
+          url: "assets/projects/dana-imip/03_riwayat_transaksi_pc.png",
+          caption: "Riwayat transaksi pemasukan dan pengeluaran yang terhubung dengan bukti nota di Google Drive.",
+          alt: "Riwayat Transaksi Dana IMIP"
+        },
+        {
+          url: "assets/projects/dana-imip/04_kegiatan_proker_pc.png",
+          caption: "Halaman pengelolaan program kerja dan perbandingan antara anggaran dengan realisasi.",
+          alt: "Kegiatan Proker Dana IMIP"
+        },
+        {
+          url: "assets/projects/dana-imip/05_admin_dashboard_pc.png",
+          caption: "Panel admin bendahara untuk verifikasi kas anggota dan pengelolaan data operasional.",
+          alt: "Dashboard Admin Dana IMIP"
+        },
+        {
+          url: "assets/projects/dana-imip/06_dashboard_hp.png",
+          caption: "Tampilan mobile dashboard keuangan yang nyaman dipantau pengurus dari smartphone.",
+          alt: "Dashboard Mobile Dana IMIP",
+          isMobile: true
         }
       ],
       customStory: {
@@ -322,21 +367,48 @@ const InLiveIqData = {
       year: "2026",
       status: "Tahap Produksi",
       summary: "Sistem peminjaman fasilitas kampus yang membawa skema persuratan dan persetujuan berjenjang ke dalam web, lengkap dengan anti-bentrok jadwal dan portal petugas.",
-      heroImage: "assets/images/project-ai.svg",
+      logo: "assets/projects/polimedia-fasilitas/logo.svg",
+      heroImage: "assets/projects/polimedia-fasilitas/01_landing_pc.png",
       tags: ["Next.js 16", "React 19", "PostgreSQL", "Argon2", "Zod", "Server Actions"],
       githubUrl: "https://github.com/bendaharakerenbgtt/polimedia-fasilitas",
       liveUrl: "https://bendaharakerenbgtt.github.io/polimedia-fasilitas/",
       videoUrl: "",
       gallery: [
         {
-          url: "assets/images/project-ai.svg",
-          caption: "Halaman katalog fasilitas kampus dengan informasi kapasitas, fasilitas studio, dan status ruang.",
-          alt: "Katalog Fasilitas Polimedia"
+          url: "assets/projects/polimedia-fasilitas/01_landing_pc.png",
+          caption: "Halaman utama publik yang menampilkan agenda resmi kampus PoliMedia yang sudah disetujui.",
+          alt: "Landing Page Polimedia Fasilitas"
         },
         {
-          url: "assets/images/project-weather.svg",
-          caption: "Panel validasi peminjaman dan pengelolaan jadwal ruang berbasis PostgreSQL.",
-          alt: "Panel Verifikasi Jadwal"
+          url: "assets/projects/polimedia-fasilitas/02_kalender_pc.png",
+          caption: "Kalender agenda dan ketersediaan fasilitas kampus untuk mencegah bentrok jadwal antar ormawa.",
+          alt: "Kalender Fasilitas Polimedia"
+        },
+        {
+          url: "assets/projects/polimedia-fasilitas/03_form_pengajuan_pc.png",
+          caption: "Formulir pengajuan peminjaman digital dengan validasi minimal H-3 dan sistem hold slot.",
+          alt: "Form Pengajuan Peminjaman"
+        },
+        {
+          url: "assets/projects/polimedia-fasilitas/04_wadir_approvals_pc.png",
+          caption: "Dashboard persetujuan pimpinan (Wakil Direktur) untuk meninjau, merevisi, atau menyetujui pengajuan.",
+          alt: "Dashboard Approval Wadir"
+        },
+        {
+          url: "assets/projects/polimedia-fasilitas/05_laporan_sba_pc.png",
+          caption: "Modul pelaporan pasca-acara dalam bentuk Surat Berita Acara (SBA) dan realisasi kegiatan.",
+          alt: "Laporan SBA Pasca Acara"
+        },
+        {
+          url: "assets/projects/polimedia-fasilitas/06_portal_satpam_pc.png",
+          caption: "Portal khusus petugas kebersihan dan satpam untuk memantau jadwal pemakaian ruangan di lapangan.",
+          alt: "Portal Petugas & Satpam"
+        },
+        {
+          url: "assets/projects/polimedia-fasilitas/07_dashboard_hp.png",
+          caption: "Tampilan mobile dashboard ormawa untuk memantau status persetujuan berjenjang.",
+          alt: "Dashboard Mobile Ormawa",
+          isMobile: true
         }
       ],
       customStory: {
@@ -455,16 +527,38 @@ const InLiveIqData = {
       year: "2026",
       status: "Tahap Penyesuaian & Aktif Dipakai",
       summary: "Generator surat resmi untuk ormawa yang mendukung SPM, SBA, SPZ, dan SUD dengan live preview A4, kustomisasi kop, tanda tangan fleksibel, dan ekspor PDF/DOCX.",
-      heroImage: "assets/images/project-portfolio.svg",
+      logo: "assets/projects/gensurat/logo.png",
+      heroImage: "assets/projects/gensurat/01_editor_spz_pc.png",
       tags: ["HTML5", "CSS3", "Tailwind CSS", "Vanilla JavaScript", "PWA"],
       githubUrl: "https://github.com/bendaharakerenbgtt/gensurat",
       liveUrl: "https://bendaharakerenbgtt.github.io/gensurat/",
       videoUrl: "",
       gallery: [
         {
-          url: "assets/images/project-portfolio.svg",
-          caption: "Panel formulir data surat yang terhubung langsung dengan live preview kertas A4 dan quick-edit.",
-          alt: "Tampilan GenSurat"
+          url: "assets/projects/gensurat/01_editor_spz_pc.png",
+          caption: "Editor surat dua kolom dengan Live Preview kertas A4 real-time dan tombol ekspor Word/PDF.",
+          alt: "Editor & Live Preview GenSurat"
+        },
+        {
+          url: "assets/projects/gensurat/02_arsip_surat_pc.png",
+          caption: "Halaman arsip surat organisasi lokal untuk menyimpan, mencari, dan menduplikasi draf surat.",
+          alt: "Arsip Surat GenSurat"
+        },
+        {
+          url: "assets/projects/gensurat/03_pdf_inspector_pc.png",
+          caption: "Inspektor struktur dokumen dan kustomisasi kop organisasi, watermark, serta ekspor PDF/DOCX.",
+          alt: "Struktur Dokumen GenSurat"
+        },
+        {
+          url: "assets/projects/gensurat/04_form_sba_pc.png",
+          caption: "Formulir lengkap Surat Berita Acara (SBA) dengan pengaturan penandatangan berjenjang dan lampiran.",
+          alt: "Formulir SBA GenSurat"
+        },
+        {
+          url: "assets/projects/gensurat/05_editor_hp.png",
+          caption: "Tampilan mobile editor GenSurat yang tetap ringan dan bisa dipakai offline lewat PWA.",
+          alt: "Tampilan Mobile GenSurat",
+          isMobile: true
         }
       ],
       customStory: {

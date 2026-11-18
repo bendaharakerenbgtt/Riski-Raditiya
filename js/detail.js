@@ -124,9 +124,10 @@
     // Helper untuk render galeri gambar
     const galleryItems = (project.gallery && project.gallery.length > 0)
       ? project.gallery.map((img, idx) => `
-          <figure class="detail-gallery-figure">
-            <div class="detail-gallery-img-wrapper">
+          <figure class="detail-gallery-figure ${img.isMobile ? 'is-mobile-shot' : ''}">
+            <div class="detail-gallery-img-wrapper" onclick="window.openImageLightbox && window.openImageLightbox('${img.url}', '${(img.caption || img.alt || project.title).replace(/'/g, "\\'")}')">
               <img src="${img.url}" alt="${img.alt || project.title}" loading="lazy" decoding="async" />
+              <span class="gallery-zoom-hint" aria-hidden="true">Perbesar ↗</span>
             </div>
             <figcaption class="detail-gallery-caption">
               <strong>Tampilan ${idx + 1}:</strong> ${img.caption}
@@ -135,7 +136,7 @@
         `).join('')
       : `
         <figure class="detail-gallery-figure">
-          <div class="detail-gallery-img-wrapper">
+          <div class="detail-gallery-img-wrapper" onclick="window.openImageLightbox && window.openImageLightbox('${project.heroImage}', '${project.title.replace(/'/g, "\\'")}')">
             <img src="${project.heroImage}" alt="${project.title}" loading="lazy" decoding="async" />
           </div>
           <figcaption class="detail-gallery-caption">
@@ -298,7 +299,10 @@
         <!-- Header Proyek -->
         <header class="detail-header">
           <div class="container">
-            <h1 class="detail-main-title">${project.title}</h1>
+            <div class="detail-title-with-logo">
+              ${project.logo ? `<img src="${project.logo}" alt="Logo ${project.title}" class="detail-project-logo" width="44" height="44" />` : ''}
+              <h1 class="detail-main-title">${project.title}</h1>
+            </div>
             <p class="detail-lead-subtitle">${project.subtitle}</p>
 
             <!-- Links & Action Row -->
@@ -332,7 +336,11 @@
 
         <!-- Banner Visual Utama -->
         <div class="container" style="margin-bottom: 3.5rem;">
-          <div class="detail-lead-visual">
+          <div class="detail-lead-visual has-browser-frame" onclick="window.openImageLightbox && window.openImageLightbox('${project.heroImage}', '${project.title.replace(/'/g, "\\'")}')">
+            <div class="browser-mockup-bar" aria-hidden="true">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <span class="browser-url">${project.id}.app</span>
+            </div>
             <img src="${project.heroImage}" alt="${project.title}" width="1200" height="700" loading="eager" />
           </div>
         </div>
@@ -400,6 +408,44 @@
       }
     }, 120);
   }
+
+  // Lightbox Modal untuk melihat screenshot ukuran penuh
+  window.openImageLightbox = function (src, caption) {
+    let overlay = document.getElementById('image-lightbox-modal');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'image-lightbox-modal';
+      overlay.className = 'image-lightbox-modal';
+      overlay.innerHTML = `
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-dialog" role="dialog" aria-modal="true">
+          <button type="button" class="lightbox-close-btn" aria-label="Tutup pratinjau">&times;</button>
+          <img class="lightbox-img" src="" alt="" />
+          <p class="lightbox-caption"></p>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+
+      const close = () => {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      };
+
+      overlay.querySelector('.lightbox-backdrop').addEventListener('click', close);
+      overlay.querySelector('.lightbox-close-btn').addEventListener('click', close);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+      });
+    }
+
+    const imgEl = overlay.querySelector('.lightbox-img');
+    const capEl = overlay.querySelector('.lightbox-caption');
+    imgEl.src = src;
+    imgEl.alt = caption || 'Preview Screenshot';
+    capEl.textContent = caption || '';
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
 
   document.addEventListener('DOMContentLoaded', () => {
     renderProjectDetail();

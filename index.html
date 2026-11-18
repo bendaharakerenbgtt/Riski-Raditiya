@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=taglayoutfix">
+  <link rel="stylesheet" href="css/style.css?v=realmedia">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
 </head>
 <body>
@@ -333,12 +333,19 @@
         <div class="projects-6grid">
           <!-- Project 1: Solecare -->
           <div class="project-card" style="cursor: pointer;" onclick="window.location.href='project-detail.html?id=solecare'">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-ecommerce.svg" alt="Mockup Aplikasi Solecare" width="600" height="380" loading="lazy" decoding="async">
+            <div class="project-thumbnail-wrapper has-browser-frame">
+              <div class="browser-mockup-bar" aria-hidden="true">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <span class="browser-url">solecare.app</span>
+              </div>
+              <img src="assets/projects/solecare/01_beranda_pc.png" alt="Tampilan Aplikasi SoleCare" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
-                <h3 class="project-title">Solecare</h3>
+                <div class="project-title-row">
+                  <img src="assets/projects/solecare/logo.jpg" alt="Logo SoleCare" class="project-logo-badge" width="32" height="32" loading="lazy">
+                  <h3 class="project-title">SoleCare</h3>
+                </div>
                 <p class="project-desc-short">Sistem manajemen laundry &amp; perawatan sepatu dengan tracking resi, cetak nota PDF, dan kontrol status.</p>
                 <div class="project-tags">
                   <span class="project-tag">
@@ -361,12 +368,19 @@
 
           <!-- Project 2: Dana IMIP (Bendahara2026) -->
           <div class="project-card" style="cursor: pointer;" onclick="window.location.href='project-detail.html?id=bendahara-2026'">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-task.svg" alt="Mockup Aplikasi Dana IMIP" width="600" height="380" loading="lazy" decoding="async">
+            <div class="project-thumbnail-wrapper has-browser-frame">
+              <div class="browser-mockup-bar" aria-hidden="true">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <span class="browser-url">dana-imip.app</span>
+              </div>
+              <img src="assets/projects/dana-imip/01_dashboard_pc.png" alt="Dashboard Aplikasi Dana IMIP" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
-                <h3 class="project-title">Dana IMIP</h3>
+                <div class="project-title-row">
+                  <img src="assets/projects/dana-imip/logo.png" alt="Logo Dana IMIP" class="project-logo-badge" width="32" height="32" loading="lazy">
+                  <h3 class="project-title">Dana IMIP</h3>
+                </div>
                 <p class="project-desc-short">Sistem informasi keuangan organisasi LDK IMIP: pencatatan transaksi, bukti pembayaran, kas anggota, dan dokumen otomatis.</p>
                 <div class="project-tags">
                   <span class="project-tag">
@@ -389,13 +403,20 @@
 
           <!-- Project 3: Polimedia Fasilitas -->
           <div class="project-card" style="cursor: pointer;" onclick="window.location.href='project-detail.html?id=polimedia-fasilitas'">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-ai.svg" alt="Mockup Aplikasi Polimedia Fasilitas" width="600" height="380" loading="lazy" decoding="async">
+            <div class="project-thumbnail-wrapper has-browser-frame">
+              <div class="browser-mockup-bar" aria-hidden="true">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <span class="browser-url">polimedia-fasilitas.app</span>
+              </div>
+              <img src="assets/projects/polimedia-fasilitas/01_landing_pc.png" alt="Portal Polimedia Fasilitas" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
-                <h3 class="project-title">Polimedia Fasilitas</h3>
-                <p class="project-desc-short">Platform peminjaman ruang &amp; fasilitas kampus berbasis Next.js, PostgreSQL, dan autentikasi aman.</p>
+                <div class="project-title-row">
+                  <img src="assets/projects/polimedia-fasilitas/logo.svg" alt="Logo Polimedia Fasilitas" class="project-logo-badge" width="32" height="32" loading="lazy">
+                  <h3 class="project-title">Web Polimedia Fasilitas</h3>
+                </div>
+                <p class="project-desc-short">Platform peminjaman ruang &amp; fasilitas kampus berbasis Next.js, PostgreSQL, dan alur persetujuan berjenjang.</p>
                 <div class="project-tags">
                   <span class="project-tag">
                     <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 0a12 12 0 1 0 12 12A12.014 12.014 0 0 0 12 0zm5.1 16.5l-6-7.8v7.8H9.5V7.5h1.6l6 7.8V7.5h1.6v9z"/></svg>
@@ -415,15 +436,22 @@
             </div>
           </div>
 
-          <!-- Project 4: Universal Surat -->
+          <!-- Project 4: GenSurat -->
           <div class="project-card" style="cursor: pointer;" onclick="window.location.href='project-detail.html?id=universal-surat'">
-            <div class="project-thumbnail-wrapper">
-              <img src="assets/images/project-portfolio.svg" alt="Mockup Aplikasi Universal Surat" width="600" height="380" loading="lazy" decoding="async">
+            <div class="project-thumbnail-wrapper has-browser-frame">
+              <div class="browser-mockup-bar" aria-hidden="true">
+                <div class="browser-dots"><span></span><span></span><span></span></div>
+                <span class="browser-url">gensurat.app</span>
+              </div>
+              <img src="assets/projects/gensurat/01_editor_spz_pc.png" alt="Editor Live Preview GenSurat" width="600" height="380" loading="lazy" decoding="async">
             </div>
             <div class="project-body">
               <div class="project-header-row">
-                <h3 class="project-title">Universal Surat (GenSurat)</h3>
-                <p class="project-desc-short">Generator surat resmi dan dokumen organisasi otomatis dengan format siap cetak tanpa ribet.</p>
+                <div class="project-title-row">
+                  <img src="assets/projects/gensurat/logo.png" alt="Logo GenSurat" class="project-logo-badge" width="32" height="32" loading="lazy">
+                  <h3 class="project-title">GenSurat</h3>
+                </div>
+                <p class="project-desc-short">Generator surat resmi ormawa dengan live preview kertas A4, quick-edit, dan ekspor langsung ke PDF serta DOCX.</p>
                 <div class="project-tags">
                   <span class="project-tag">
                     <svg viewBox="0 0 24 24" width="13" height="13" fill="#E44D26"><path d="M3 2l1.8 20.2 7.2 2 7.2-2L21 2H3zm14.4 6.3h-7.6l.2 2.3h7.2l-.6 6.7-4.6 1.3-4.6-1.3-.3-3.6h2.2l.2 1.9 2.5.7 2.5-.7.3-3H6.8L6.2 6.1h11.4l-.2 2.2z"/></svg>
