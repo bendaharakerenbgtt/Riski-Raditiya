@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <!-- Ambient Outer Glow -->
+    <radialGradient id="engineAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="42%" stop-color="#dfe6f6" stop-opacity="0.09" />
+      <stop offset="75%" stop-color="#b8c4dc" stop-opacity="0.02" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Core Spark Glow -->
+    <radialGradient id="sparkCoreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7" />
+      <stop offset="40%" stop-color="#e8eefc" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Chassis / Ring Gradient -->
+    <radialGradient id="engineChassis" cx="50%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#222938" />
+      <stop offset="68%" stop-color="#111622" />
+      <stop offset="100%" stop-color="#080b11" />
+    </radialGradient>
+
+    <!-- Spark Star Gradient -->
+    <linearGradient id="sparkFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d4dce9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient White Glow Backdrop -->
+  <circle cx="200" cy="200" r="190" fill="url(#engineAura)" />
+
+  <!-- Slowly Rotating Outer Telemetry Ring -->
+  <g>
+    <circle cx="200" cy="200" r="160" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2" stroke-dasharray="4 8" />
+    <circle cx="200" cy="200" r="146" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="22 14" />
+    <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="85s" repeatCount="indefinite" />
+  </g>
+
+  <!-- 6 Skill Connector Lines (3 Left, 3 Right) -->
+  <g stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2" stroke-dasharray="3 4">
+    <!-- Left 3 -->
+    <line x1="200" y1="200" x2="72" y2="126" />
+    <line x1="200" y1="200" x2="52" y2="200" />
+    <line x1="200" y1="200" x2="72" y2="274" />
+    <!-- Right 3 -->
+    <line x1="200" y1="200" x2="328" y2="126" />
+    <line x1="200" y1="200" x2="348" y2="200" />
+    <line x1="200" y1="200" x2="328" y2="274" />
+  </g>
+
+  <!-- Main Precision Gear / Instrument Housing -->
+  <circle cx="200" cy="200" r="112" fill="url(#engineChassis)" stroke="rgba(255,255,255,0.28)" stroke-width="1.8" />
+  <circle cx="200" cy="200" r="94" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+
+  <!-- Precision Gear Teeth / Radial Ticks -->
+  <g stroke="#ffffff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round">
+    <line x1="200" y1="82" x2="200" y2="92" />
+    <line x1="200" y1="308" x2="200" y2="318" />
+    <line x1="82" y1="200" x2="92" y2="200" />
+    <line x1="308" y1="200" x2="318" y2="200" />
+    <line x1="117" y1="117" x2="124" y2="124" />
+    <line x1="276" y1="276" x2="283" y2="283" />
+    <line x1="283" y1="117" x2="276" y2="124" />
+    <line x1="124" y1="276" x2="117" y2="283" />
+  </g>
+
+  <!-- 6 Orbital Skill Nodes -->
+  <g>
+    <!-- Left 3 Nodes -->
+    <circle cx="72" cy="126" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
+    <circle cx="72" cy="126" r="2.2" fill="#ffffff" />
+
+    <circle cx="52" cy="200" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
+    <circle cx="52" cy="200" r="2.2" fill="#ffffff" />
+
+    <circle cx="72" cy="274" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
+    <circle cx="72" cy="274" r="2.2" fill="#ffffff" />
+
+    <!-- Right 3 Nodes -->
+    <circle cx="328" cy="126" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
+    <circle cx="328" cy="126" r="2.2" fill="#ffffff" />
+
+    <circle cx="348" cy="200" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
+    <circle cx="348" cy="200" r="2.2" fill="#ffffff" />
+
+    <circle cx="328" cy="274" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
+    <circle cx="328" cy="274" r="2.2" fill="#ffffff" />
+  </g>
+
+  <!-- Core Luminous Halo & Pulse -->
+  <circle cx="200" cy="200" r="70" fill="url(#sparkCoreGlow)" />
+  <circle cx="200" cy="200" r="46" fill="none" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.4">
+    <animate attributeName="r" values="42;56;42" dur="3.2s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.55;0.1;0.55" dur="3.2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Center AI Spark (4-Point Star) -->
+  <g>
+    <path d="M 200 156 C 203 186, 214 197, 244 200 C 214 203, 203 214, 200 244 C 197 214, 186 203, 156 200 C 186 197, 197 186, 200 156 Z"
+          fill="url(#sparkFill)" />
+    <!-- Secondary Small Accent Spark -->
+    <path d="M 236 154 C 237 161, 239 163, 246 164 C 239 165, 237 167, 236 174 C 235 167, 233 165, 226 164 C 233 163, 235 161, 236 154 Z"
+          fill="#ffffff" opacity="0.85" />
+  </g>
+
+  <!-- Subtle Monospace Caption -->
+  <text x="200" y="374" fill="#7c8599" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="9.5" font-weight="700" letter-spacing="2.4" text-anchor="middle">CORE ENGINE &amp; AI</text>
+</svg>
