@@ -19,66 +19,57 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=smoke1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=vscode1">
+  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode1">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
 </head>
 <body>
 
-  <!-- Floating Sticky Header with Hairline Scroll Progress Bar -->
-  <header class="site-header" role="banner">
-    <div class="nav-pill-wrapper">
-      <!-- Capsule Contour Scroll Progress Indicator -->
-      <svg class="capsule-progress-svg" aria-hidden="true">
-        <path class="capsule-progress-track" id="capsule-progress-track"></path>
-        <path class="capsule-progress-fill" id="capsule-progress-fill"></path>
-      </svg>
-
-      <!-- Left: Capsule Brand Pill -->
-      <a href="index.html#hero" class="nav-brand-pill" aria-label="Beranda Portofolio">
-        <span>◈</span> PORTOFOLIO
-      </a>
-
-      <!-- Center: Desktop Navigation Links -->
-      <nav class="desktop-nav-menu" aria-label="Navigasi Utama">
+  <!-- VS Code Window Title Bar -->
+  <header class="vscode-titlebar" role="banner">
+    <div class="vscode-titlebar-left">
+      <div class="vscode-window-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="vscode-menu-items" aria-label="Menu Cepat VS Code">
         <a href="index.html#hero">Beranda</a>
         <a href="index.html#about">Tentang</a>
         <a href="index.html#education">Pendidikan</a>
-        <a href="index.html#projects" class="active">Karya</a>
+        <a href="index.html#projects">Karya</a>
         <a href="index.html#skills">Keahlian</a>
         <a href="index.html#contact">Kontak</a>
       </nav>
+    </div>
 
-      <!-- Right: Action CTA & Theme Toggle -->
-      <div class="nav-actions">
-        <a href="index.html#contact" class="nav-cta-btn">Hubungi Saya</a>
-        <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Beralih tema terang/gelap" title="Beralih tema">
-          <!-- Sun Icon (Active in Dark Mode) -->
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <!-- Moon Icon (Active in Light Mode) -->
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <!-- Mobile Hamburger Button -->
-        <button class="mobile-menu-toggle" type="button" aria-label="Buka navigasi mobile">
-          <svg viewBox="0 0 24 24">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
+    <div class="vscode-command-bar">
+      <span>case-study.md — Riski-Raditiya (VS Code)</span>
+    </div>
+
+    <div class="vscode-titlebar-right">
+      <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Beralih tema Dark+ / Light+" title="Beralih tema Dark+ / Light+">
+        <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button class="mobile-menu-toggle" type="button" aria-label="Buka navigasi mobile">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -119,15 +110,27 @@
       <div class="footer-content">
         <div class="footer-left">
           <span class="footer-glyph">◈</span>
-          <span>&copy; 2026 Portofolio Profesional. Hak cipta dilindungi.</span>
+          <span>&copy; 2026 Riski Raditiya — Studi Kasus Proyek.</span>
         </div>
         <ul class="footer-links">
-          <li><a href="index.html#hero">Beranda</a></li>
-          <li><a href="index.html#about">Tentang</a></li>
-          <li><a href="index.html#projects">Karya</a></li>
-          <li><a href="index.html#contact">Kontak</a></li>
+          <li><a href="index.html#hero">hero.tsx</a></li>
+          <li><a href="index.html#about">about.md</a></li>
+          <li><a href="index.html#projects">projects.config.ts</a></li>
+          <li><a href="index.html#contact">contact.env</a></li>
         </ul>
       </div>
+    </div>
+  </footer>
+
+  <!-- Bottom VS Code Status Bar -->
+  <footer class="vscode-statusbar" aria-label="VS Code Status Bar">
+    <div class="statusbar-left">
+      <span class="statusbar-item">⎇ main*</span>
+      <span class="statusbar-item statusbar-hide-mobile">⊗ 0 &nbsp;⚠ 0</span>
+    </div>
+    <div class="statusbar-right">
+      <span class="statusbar-item statusbar-hide-mobile">UTF-8</span>
+      <span class="statusbar-item">Markdown Preview</span>
     </div>
   </footer>
 

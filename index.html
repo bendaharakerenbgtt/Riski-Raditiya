@@ -19,87 +19,79 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=smoke1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=vscode1">
+  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode1">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
 </head>
 <body>
 
-  <!-- Top Hairline Scroll Progress Bar (Visible Always / When Header is Hidden) -->
-  <div class="top-scroll-line-container" aria-hidden="true">
-    <div class="top-scroll-line-fill" id="top-scroll-line-fill"></div>
-  </div>
-
-  <!-- Floating Sticky Header with Hairline Scroll Progress Bar -->
-  <header class="site-header" role="banner">
-    <div class="nav-pill-wrapper">
-      <!-- Capsule Contour Scroll Progress Indicator (Matches Pill Shape Perfectly) -->
-      <svg class="capsule-progress-svg" aria-hidden="true">
-        <path class="capsule-progress-track" id="capsule-progress-track"></path>
-        <path class="capsule-progress-fill" id="capsule-progress-fill"></path>
-      </svg>
-
-      <!-- Left: Capsule Brand Pill -->
-      <a href="#hero" class="nav-brand-pill" aria-label="Beranda Portofolio">
-        <span>◈</span> PORTOFOLIO
-      </a>
-
-      <!-- Center: Desktop Navigation Links -->
-      <nav class="desktop-nav-menu" aria-label="Navigasi Utama">
-        <a href="#hero" class="active">Beranda</a>
-        <a href="#about">Tentang</a>
-        <a href="#education">Pendidikan</a>
-        <a href="#projects">Karya</a>
-        <a href="#skills">Keahlian</a>
-        <a href="#contact">Kontak</a>
-      </nav>
-
-      <!-- Right: Action CTA & Theme Toggle -->
-      <div class="nav-actions">
-        <a href="#contact" class="nav-cta-btn">Hubungi Saya</a>
-        <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Beralih tema terang/gelap" title="Beralih tema">
-          <!-- Sun Icon (Active in Dark Mode) -->
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <!-- Moon Icon (Active in Light Mode) -->
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <!-- Mobile Hamburger Button -->
-        <button class="mobile-menu-toggle" type="button" aria-label="Buka navigasi mobile">
-          <svg viewBox="0 0 24 24">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+  <!-- VS Code Window Title Bar -->
+  <header class="vscode-titlebar" role="banner">
+    <div class="vscode-titlebar-left">
+      <div class="vscode-window-dots" aria-hidden="true">
+        <span></span><span></span><span></span>
       </div>
+      <nav class="vscode-menu-items" aria-label="Menu Cepat VS Code">
+        <a href="#hero">File</a>
+        <a href="#about">Edit</a>
+        <a href="#education">Selection</a>
+        <a href="#projects">View</a>
+        <a href="#skills">Go</a>
+        <a href="#contact">Run</a>
+      </nav>
+    </div>
+
+    <div class="vscode-command-bar" aria-label="Workspace Aktif">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span>Riski-Raditiya — Visual Studio Code</span>
+    </div>
+
+    <div class="vscode-titlebar-right">
+      <button class="theme-toggle-btn" id="theme-toggle-btn" type="button" aria-label="Beralih tema Dark+ / Light+" title="Beralih tema Dark+ / Light+">
+        <!-- Sun Icon (Active in Dark Mode) -->
+        <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon Icon (Active in Light Mode) -->
+        <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button class="mobile-menu-toggle" type="button" aria-label="Buka Explorer Mobile">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Navigation Drawer -->
-  <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Menu Navigasi Mobile">
+  <!-- Mobile Navigation Drawer (VS Code Explorer Mobile) -->
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Explorer Navigasi Mobile">
     <div class="mobile-drawer-header">
-      <span class="nav-brand-pill">◈ PORTOFOLIO</span>
-      <button class="mobile-drawer-close" type="button" aria-label="Tutup menu">✕</button>
+      <span class="nav-brand-pill" style="font-family: var(--font-mono);">EXPLORER: RISKI-RADITIYA</span>
+      <button class="mobile-drawer-close" type="button" aria-label="Tutup explorer">✕</button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="#hero">Beranda</a></li>
-      <li><a href="#about">Tentang Saya</a></li>
-      <li><a href="#education">Pendidikan</a></li>
-      <li><a href="#projects">Karya Terpilih</a></li>
-      <li><a href="#skills">Keahlian</a></li>
-      <li><a href="#contact">Hubungi Saya</a></li>
+      <li><a href="#hero">hero.tsx — Beranda</a></li>
+      <li><a href="#about">about.md — Tentang Saya</a></li>
+      <li><a href="#education">education.json — Pendidikan</a></li>
+      <li><a href="#projects">projects.config.ts — Karya</a></li>
+      <li><a href="#skills">skills.yaml — Keahlian</a></li>
+      <li><a href="#contact">contact.env — Hubungi Saya</a></li>
     </ul>
     <div class="mobile-drawer-cta">
       <a href="#contact" class="btn-download-cv mobile-drawer-btn">
@@ -108,14 +100,97 @@
     </div>
   </div>
 
-  <main id="main-content">
+  <!-- VS Code Workbench Shell -->
+  <div class="vscode-shell">
+    <!-- Leftmost Activity Bar -->
+    <aside class="vscode-activity-bar" aria-label="Activity Bar">
+      <div class="activity-group">
+        <a href="#hero" class="activity-btn active" title="Explorer (Beranda)" aria-label="Explorer">
+          <svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+        </a>
+        <a href="#projects" class="activity-btn" title="Karya & Proyek" aria-label="Karya dan Proyek">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="https://github.com/bendaharakerenbgtt" target="_blank" rel="noopener noreferrer" class="activity-btn" title="Source Control (GitHub)" aria-label="GitHub Repository">
+          <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></svg>
+        </a>
+        <a href="#skills" class="activity-btn" title="Extensions (Keahlian)" aria-label="Keahlian Utama">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        </a>
+      </div>
+      <div class="activity-group">
+        <a href="#contact" class="activity-btn" title="Kontak (iqirrt@gmail.com)" aria-label="Kontak">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Explorer Sidebar -->
+    <aside class="vscode-sidebar" aria-label="Explorer Sidebar">
+      <div>
+        <div class="sidebar-header">
+          <span>Explorer</span>
+          <span>•••</span>
+        </div>
+        <div class="explorer-group-title">
+          <span>▾</span>
+          <span>RISKI-RADITIYA</span>
+        </div>
+        <ul class="explorer-tree">
+          <li class="explorer-folder">▾ src/</li>
+          <li><a href="#hero" class="explorer-file-link active" data-section="hero"><span class="file-badge badge-tsx">TSX</span><span>hero.tsx</span></a></li>
+          <li><a href="#about" class="explorer-file-link" data-section="about"><span class="file-badge badge-md">MD</span><span>about.md</span></a></li>
+          <li><a href="#education" class="explorer-file-link" data-section="education"><span class="file-badge badge-json">{ }</span><span>education.json</span></a></li>
+          <li><a href="#projects" class="explorer-file-link" data-section="projects"><span class="file-badge badge-ts">TS</span><span>projects.config.ts</span></a></li>
+          <li><a href="#skills" class="explorer-file-link" data-section="skills"><span class="file-badge badge-yml">YML</span><span>skills.yaml</span></a></li>
+          <li><a href="#contact" class="explorer-file-link" data-section="contact"><span class="file-badge badge-env">ENV</span><span>contact.env</span></a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-outline">
+        <div class="sidebar-outline-title">Timeline &amp; Status</div>
+        <div class="outline-item"><span class="outline-dot-live"></span><span>2024 • Polimedia</span></div>
+        <div class="outline-item"><span style="color: var(--syn-comment);">✓</span><span>2021 • SMK Perintis 1</span></div>
+        <div class="outline-item"><span style="color: var(--syn-var);">★</span><span>4 Proyek Nyata</span></div>
+      </div>
+    </aside>
+
+    <!-- Main Editor Pane -->
+    <div class="vscode-editor-area">
+      <!-- Sticky Tabs + Breadcrumb Bar -->
+      <div class="vscode-editor-topbar">
+        <nav class="vscode-tabs-bar" aria-label="Editor File Tabs">
+          <a href="#hero" class="vscode-tab active" data-section="hero"><span class="file-badge badge-tsx">TSX</span>hero.tsx</a>
+          <a href="#about" class="vscode-tab" data-section="about"><span class="file-badge badge-md">MD</span>about.md</a>
+          <a href="#education" class="vscode-tab" data-section="education"><span class="file-badge badge-json">{ }</span>education.json</a>
+          <a href="#projects" class="vscode-tab" data-section="projects"><span class="file-badge badge-ts">TS</span>projects.config.ts</a>
+          <a href="#skills" class="vscode-tab" data-section="skills"><span class="file-badge badge-yml">YML</span>skills.yaml</a>
+          <a href="#contact" class="vscode-tab" data-section="contact"><span class="file-badge badge-env">ENV</span>contact.env</a>
+        </nav>
+        <div class="vscode-breadcrumbs" id="vscode-breadcrumbs">
+          <span>Riski-Raditiya</span>
+          <span>›</span>
+          <span>src</span>
+          <span>›</span>
+          <span class="breadcrumb-active" id="breadcrumb-file">hero.tsx</span>
+          <span>›</span>
+          <span id="breadcrumb-symbol">RiskiRaditiya</span>
+        </div>
+      </div>
+
+      <main id="main-content">
     
-    <!-- 1. HERO SECTION (Desktop 2-Col / Mobile Stacked) -->
-    <section class="hero-section" id="hero" aria-label="Pengenalan Utama">
+    <!-- 1. HERO SECTION (hero.tsx) -->
+    <section class="hero-section ide-section-wrap" id="hero" aria-label="Pengenalan Utama">
       <div class="hero-container">
         <div class="hero-grid">
-          <!-- Left Column: Information & Actions -->
+          <!-- Left Column: Code Definition + Information & Actions -->
           <div class="hero-text-content">
+            <div class="ide-hero-code" aria-hidden="true">
+              <div class="ide-code-line"><span class="ide-ln">1</span><span><span class="syn-cmt">// src/pages/hero.tsx</span></span></div>
+              <div class="ide-code-line"><span class="ide-ln">2</span><span><span class="syn-kw">export const</span> <span class="syn-type">Profile</span> <span class="syn-p">=</span> <span class="syn-p">{</span> <span class="syn-var">name</span><span class="syn-p">:</span> <span class="syn-str">"Riski Raditiya"</span><span class="syn-p">,</span> <span class="syn-var">campus</span><span class="syn-p">:</span> <span class="syn-str">"Polimedia"</span> <span class="syn-p">};</span></span></div>
+            </div>
+
             <h1 class="hero-main-title">Halo, Saya Riski Raditiya</h1>
             
             <!-- Typewriter Headline -->
@@ -160,58 +235,78 @@
             </div>
           </div>
 
-          <!-- Right Column: Luminous White Portrait Artwork (Anchored to Horizon Ticker Line) -->
+          <!-- Right Column: VS Code Preview Pane (Silhouette) -->
           <div class="hero-artwork-container">
-            <div class="hero-portrait-frame">
-              <img src="assets/images/hero-silhouette-modern.jpg" alt="Siluet Modern Profesional dengan Aura Putih Bercahaya" width="500" height="650" class="hero-silhouette-img">
+            <div class="ide-preview-pane">
+              <div class="ide-preview-header">
+                <span>PREVIEW: silhouette.png</span>
+                <span class="ide-preview-badge">● LIVE</span>
+              </div>
+              <div class="hero-portrait-frame">
+                <img src="assets/images/hero-silhouette-modern.jpg" alt="Siluet Modern Profesional dengan Aura Putih Bercahaya" width="500" height="650" class="hero-silhouette-img">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. TECH STACK MARQUEE TICKER BAR -->
-    <div class="tech-marquee-wrapper" aria-label="Teknologi & Instrumen Utama">
-      <div class="tech-marquee-track">
-        <!-- Loop 1 -->
-        <span class="tech-ticker-item">React</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Next.js</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">JavaScript</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">TypeScript</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Tailwind CSS</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">PostgreSQL</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Google Apps Script</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Google Sheets</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Canva &amp; CapCut</span>
-        <span class="ticker-dot"></span>
+    <!-- 2. VS CODE INTEGRATED TERMINAL STRIP -->
+    <div class="vscode-terminal-strip" aria-label="Terminal Stack Teknologi">
+      <div class="terminal-tabs-row">
+        <div class="terminal-tabs-list">
+          <span>PROBLEMS</span>
+          <span>OUTPUT</span>
+          <span>DEBUG CONSOLE</span>
+          <span class="terminal-tab-active">TERMINAL</span>
+        </div>
+        <span>bash — riski-raditiya</span>
+      </div>
+      <div class="terminal-output-bar">
+        <span class="terminal-prompt">~/portfolio $</span>
+        <div class="tech-marquee-wrapper" aria-label="Teknologi & Instrumen Utama">
+          <div class="tech-marquee-track">
+            <!-- Loop 1 -->
+            <span class="tech-ticker-item">React</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Next.js</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">JavaScript</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">TypeScript</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Tailwind CSS</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">PostgreSQL</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Google Apps Script</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Google Sheets</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Canva &amp; CapCut</span>
+            <span class="ticker-dot"></span>
 
-        <!-- Loop 2 (Continuous) -->
-        <span class="tech-ticker-item">React</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Next.js</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">JavaScript</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">TypeScript</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Tailwind CSS</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">PostgreSQL</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Google Apps Script</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Google Sheets</span>
-        <span class="ticker-dot"></span>
-        <span class="tech-ticker-item">Canva &amp; CapCut</span>
-        <span class="ticker-dot"></span>
+            <!-- Loop 2 (Continuous) -->
+            <span class="tech-ticker-item">React</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Next.js</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">JavaScript</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">TypeScript</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Tailwind CSS</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">PostgreSQL</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Google Apps Script</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Google Sheets</span>
+            <span class="ticker-dot"></span>
+            <span class="tech-ticker-item">Canva &amp; CapCut</span>
+            <span class="ticker-dot"></span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -717,15 +812,32 @@
       <div class="footer-content">
         <div class="footer-left">
           <span class="footer-glyph">◈</span>
-          <span>&copy; 2026 Portofolio Profesional. Hak cipta dilindungi.</span>
+          <span>&copy; 2026 Riski Raditiya — Dibangun di VS Code Workbench.</span>
         </div>
         <ul class="footer-links">
-          <li><a href="#hero">Beranda</a></li>
-          <li><a href="#about">Tentang</a></li>
-          <li><a href="#projects">Karya</a></li>
-          <li><a href="#contact">Kontak</a></li>
+          <li><a href="#hero">hero.tsx</a></li>
+          <li><a href="#about">about.md</a></li>
+          <li><a href="#projects">projects.config.ts</a></li>
+          <li><a href="#contact">contact.env</a></li>
         </ul>
       </div>
+    </div>
+  </footer>
+    </div><!-- /.vscode-editor-area -->
+  </div><!-- /.vscode-shell -->
+
+  <!-- Bottom VS Code Status Bar -->
+  <footer class="vscode-statusbar" aria-label="VS Code Status Bar">
+    <div class="statusbar-left">
+      <span class="statusbar-item">⎇ main*</span>
+      <span class="statusbar-item statusbar-hide-mobile">⊗ 0 &nbsp;⚠ 0</span>
+      <span class="statusbar-item statusbar-hide-mobile">● Portfolio Live</span>
+    </div>
+    <div class="statusbar-right">
+      <span class="statusbar-item" id="statusbar-cursor">Ln 1, Col 1</span>
+      <span class="statusbar-item statusbar-hide-mobile">Spaces: 2</span>
+      <span class="statusbar-item statusbar-hide-mobile">UTF-8</span>
+      <span class="statusbar-item" id="statusbar-lang">TypeScript JSX</span>
     </div>
   </footer>
 

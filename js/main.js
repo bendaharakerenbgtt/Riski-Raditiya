@@ -18,6 +18,21 @@
     const sections = Array.from(document.querySelectorAll('section[id]'));
     const desktopLinks = Array.from(document.querySelectorAll('.desktop-nav-menu a'));
     const mobileLinks = Array.from(document.querySelectorAll('.mobile-nav-links a'));
+    const ideTabs = Array.from(document.querySelectorAll('.vscode-tab'));
+    const explorerLinks = Array.from(document.querySelectorAll('.explorer-file-link'));
+    const breadcrumbFile = document.getElementById('breadcrumb-file');
+    const breadcrumbSymbol = document.getElementById('breadcrumb-symbol');
+    const statusbarCursor = document.getElementById('statusbar-cursor');
+    const statusbarLang = document.getElementById('statusbar-lang');
+
+    const sectionMeta = {
+      hero: { file: 'hero.tsx', symbol: 'RiskiRaditiya', lang: 'TypeScript JSX', line: 1 },
+      about: { file: 'about.md', symbol: '# Tentang Saya', lang: 'Markdown', line: 28 },
+      education: { file: 'education.json', symbol: '"education"', lang: 'JSON', line: 64 },
+      projects: { file: 'projects.config.ts', symbol: 'flagshipProjects', lang: 'TypeScript', line: 112 },
+      skills: { file: 'skills.yaml', symbol: 'core_skills', lang: 'YAML', line: 185 },
+      contact: { file: 'contact.env', symbol: 'CONTACT_EMAIL', lang: 'DotEnv', line: 220 }
+    };
 
     let pathTotalLength = 0;
     let totalScrollable = 1;
@@ -130,6 +145,20 @@
           mobileLinks.forEach((link) => {
             link.classList.toggle('active', link.getAttribute('href') === targetHref);
           });
+          ideTabs.forEach((tab) => {
+            tab.classList.toggle('active', tab.getAttribute('data-section') === matchedId);
+          });
+          explorerLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('data-section') === matchedId);
+          });
+
+          const meta = sectionMeta[matchedId];
+          if (meta) {
+            if (breadcrumbFile) breadcrumbFile.textContent = meta.file;
+            if (breadcrumbSymbol) breadcrumbSymbol.textContent = meta.symbol;
+            if (statusbarLang) statusbarLang.textContent = meta.lang;
+            if (statusbarCursor) statusbarCursor.textContent = `Ln ${meta.line}, Col 1`;
+          }
         }
       }
     }
