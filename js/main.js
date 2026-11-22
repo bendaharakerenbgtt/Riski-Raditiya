@@ -411,6 +411,121 @@
     if (projectsBtn) projectsBtn.addEventListener('click', dismiss);
   }
 
+  // 8. VS Code Command Palette (Ctrl+P / Ctrl+K)
+  function initCommandPalette() {
+    const backdrop = document.getElementById('vscode-palette-backdrop');
+    const trigger = document.getElementById('vscode-command-trigger');
+    const input = document.getElementById('vscode-palette-input');
+    const resultsList = document.getElementById('vscode-palette-results');
+    const closeBtn = document.getElementById('vscode-palette-close');
+    if (!backdrop || !input || !resultsList) return;
+
+    const commands = [
+      { label: 'hero.tsx', sub: 'Beranda', badge: 'TSX', badgeClass: 'badge-tsx', action: () => { window.location.hash = '#hero'; } },
+      { label: 'about.md', sub: 'Tentang Saya', badge: 'MD', badgeClass: 'badge-md', action: () => { window.location.hash = '#about'; } },
+      { label: 'education.json', sub: 'Pendidikan', badge: '{ }', badgeClass: 'badge-json', action: () => { window.location.hash = '#education'; } },
+      { label: 'projects.config.ts', sub: 'Karya & Proyek', badge: 'TS', badgeClass: 'badge-ts', action: () => { window.location.hash = '#projects'; } },
+      { label: 'skills.yaml', sub: 'Keahlian Utama', badge: 'YML', badgeClass: 'badge-yml', action: () => { window.location.hash = '#skills'; } },
+      { label: 'contact.env', sub: 'Hubungi Saya (iqirrt@gmail.com)', badge: 'ENV', badgeClass: 'badge-env', action: () => { window.location.hash = '#contact'; } },
+      { label: 'SoleCare', sub: 'Studi Kasus — Aplikasi Laundry Sepatu', badge: 'CASE', badgeClass: 'badge-ts', action: () => { window.location.href = 'project-detail.html?id=solecare'; } },
+      { label: 'Dana IMIP', sub: 'Studi Kasus — Keuangan LDK IMIP', badge: 'CASE', badgeClass: 'badge-ts', action: () => { window.location.href = 'project-detail.html?id=bendahara-2026'; } },
+      { label: 'Web Polimedia Fasilitas', sub: 'Studi Kasus — Peminjaman Kampus', badge: 'CASE', badgeClass: 'badge-ts', action: () => { window.location.href = 'project-detail.html?id=polimedia-fasilitas'; } },
+      { label: 'GenSurat', sub: 'Studi Kasus — Generator Surat Ormawa', badge: 'CASE', badgeClass: 'badge-ts', action: () => { window.location.href = 'project-detail.html?id=universal-surat'; } },
+      { label: 'Toggle Explorer Sidebar', sub: 'Buka / Tutup Sidebar Kiri', badge: 'CMD', badgeClass: 'badge-tsx', action: () => { const btn = document.getElementById('explorer-toggle-btn'); if (btn) btn.click(); } },
+      { label: 'Buka GitHub', sub: 'github.com/bendaharakerenbgtt', badge: 'EXT', badgeClass: 'badge-md', action: () => { window.open('https://github.com/bendaharakerenbgtt', '_blank', 'noopener,noreferrer'); } }
+    ];
+
+    let filtered = commands.slice();
+    let selectedIndex = 0;
+
+    function render() {
+      resultsList.innerHTML = '';
+      if (filtered.length === 0) {
+        const empty = document.createElement('li');
+        empty.className = 'palette-item';
+        empty.textContent = 'Tidak ada hasil yang cocok.';
+        resultsList.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach((cmd, idx) => {
+        const li = document.createElement('li');
+        li.className = 'palette-item' + (idx === selectedIndex ? ' selected' : '');
+        li.setAttribute('role', 'option');
+        li.innerHTML = `<span class="palette-item-left"><span class="file-badge ${cmd.badgeClass}">${cmd.badge}</span><span>${cmd.label}</span></span><span class="palette-item-sub">${cmd.sub}</span>`;
+        li.addEventListener('click', () => {
+          close();
+          cmd.action();
+        });
+        resultsList.appendChild(li);
+      });
+    }
+
+    function open() {
+      backdrop.classList.add('open');
+      backdrop.setAttribute('aria-hidden', 'false');
+      input.value = '';
+      filtered = commands.slice();
+      selectedIndex = 0;
+      render();
+      setTimeout(() => input.focus(), 20);
+    }
+
+    function close() {
+      backdrop.classList.remove('open');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    if (trigger) trigger.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) close();
+    });
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      filtered = commands.filter((c) => c.label.toLowerCase().includes(q) || c.sub.toLowerCase().includes(q));
+      selectedIndex = 0;
+      render();
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (filtered.length > 0) {
+          selectedIndex = (selectedIndex + 1) % filtered.length;
+          render();
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (filtered.length > 0) {
+          selectedIndex = (selectedIndex - 1 + filtered.length) % filtered.length;
+          render();
+        }
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (filtered[selectedIndex]) {
+          const item = filtered[selectedIndex];
+          close();
+          item.action();
+        }
+      } else if (e.key === 'Escape') {
+        close();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'p' || e.key.toLowerCase() === 'k')) {
+        e.preventDefault();
+        if (backdrop.classList.contains('open')) {
+          close();
+        } else {
+          open();
+        }
+      }
+    });
+  }
+
   // DOM Content Loaded Initializer
   document.addEventListener('DOMContentLoaded', () => {
     initScrollSystem();
@@ -420,5 +535,6 @@
     initScrollReveal();
     initContactForm();
     initTrustToast();
+    initCommandPalette();
   });
 })();

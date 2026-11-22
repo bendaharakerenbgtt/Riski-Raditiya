@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Portofolio Web & Kreatif — Desain antarmuka modern, performa tinggi, dan pengalaman digital bernuansa VS Code Dark+.">
-  <title>Portofolio Profesional — Web Developer & Creator</title>
+  <meta name="description" content="Portofolio Riski Raditiya — Mahasiswa Teknologi Rekayasa Multimedia, Digital Product Builder & UI/UX Explorer.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portofolio Riski Raditiya — Digital Product Builder">
+  <meta property="og:description" content="Mahasiswa Teknologi Rekayasa Multimedia yang merancang alur sistem dan mengubah ide menjadi aplikasi web yang benar-benar dipakai.">
+  <meta property="og:url" content="https://bendaharakerenbgtt.github.io/Riski-Raditiya/">
+  <meta property="og:image" content="https://bendaharakerenbgtt.github.io/Riski-Raditiya/assets/projects/solecare/01_beranda_pc.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portofolio Riski Raditiya — Digital Product Builder">
+  <meta name="twitter:description" content="Mahasiswa Teknologi Rekayasa Multimedia yang merancang alur sistem dan mengubah ide menjadi aplikasi web yang benar-benar dipakai.">
+  <meta name="twitter:image" content="https://bendaharakerenbgtt.github.io/Riski-Raditiya/assets/projects/solecare/01_beranda_pc.png">
+  <title>Portofolio Riski Raditiya</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css?v=vscode1">
-  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode5">
+  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode6">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23007acc%22/><text x=%2250%25%22 y=%2266%25%22 font-family=%22monospace%22 font-size=%2248%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>RR</text></svg>">
 </head>
 <body>
@@ -31,13 +40,14 @@
       </nav>
     </div>
 
-    <div class="vscode-command-bar" aria-label="Workspace Aktif">
+    <button type="button" class="vscode-command-bar" id="vscode-command-trigger" aria-label="Buka Command Palette (Ctrl+P)" title="Cari cepat (Ctrl+P / Ctrl+K)">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="11" cy="11" r="8"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
       <span>Portofolio Riski Raditiya</span>
-    </div>
+      <kbd class="command-kbd">Ctrl+P</kbd>
+    </button>
 
     <div class="vscode-titlebar-right">
       <button class="mobile-menu-toggle" type="button" aria-label="Buka Explorer Mobile">
@@ -205,6 +215,7 @@
     <section class="about-section" id="about" aria-labelledby="about-title">
       <div class="container">
         <div class="section-common-header">
+          <div class="ide-section-comment">// src/pages/about.md</div>
           <h2 class="section-title" id="about-title">Tentang Saya</h2>
           <p class="section-subtitle">
             Rasa ingin tahu membawa saya untuk terus belajar, memahami, mencoba, dan membagikan hal-hal baru.
@@ -240,6 +251,7 @@
     <section class="education-section" id="education" aria-labelledby="edu-title">
       <div class="container">
         <div class="section-common-header">
+          <div class="ide-section-comment">// src/data/education.json</div>
           <h2 class="section-title" id="edu-title">Pendidikan</h2>
           <p class="section-subtitle">
             Fondasi keahlian multimedia interaktif, bisnis digital, dan teknologi rekayasa web modern.
@@ -302,6 +314,7 @@
     <section class="projects-section" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <div class="section-common-header">
+          <div class="ide-section-comment">// src/config/projects.config.ts</div>
           <h2 class="section-title" id="projects-title">Karya &amp; Proyek</h2>
           <p class="section-subtitle">
             Kompilasi aplikasi web fungsional, antarmuka digital presisi, dan eksperimen rekayasa nyata.
@@ -456,6 +469,7 @@
     <section class="skills-section" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <div class="section-common-header">
+          <div class="ide-section-comment">// src/config/skills.yaml</div>
           <h2 class="section-title" id="skills-title">Keahlian Utama</h2>
           <p class="section-subtitle">
             Kombinasi perancangan sistem, antarmuka web, otomasi data, dan eksekusi produk digital berbasis AI.
@@ -541,6 +555,7 @@
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="section-common-header">
+          <div class="ide-section-comment">// .env.contact</div>
           <h2 class="section-title" id="contact-title">Hubungi Saya</h2>
           <p class="section-subtitle">
             Pintu selalu terbuka untuk diskusi proyek baru, pertanyaan teknis, atau peluang kolaborasi.
@@ -728,6 +743,18 @@
       <a href="#projects" class="trust-btn-secondary" id="trust-btn-projects">Lihat Karya</a>
     </div>
   </aside>
+
+  <!-- VS Code Command Palette (Ctrl+P / Ctrl+K) -->
+  <div class="vscode-palette-backdrop" id="vscode-palette-backdrop" aria-hidden="true">
+    <div class="vscode-palette-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <div class="palette-input-wrap">
+        <span class="palette-prefix">&gt;</span>
+        <input type="text" id="vscode-palette-input" class="palette-input" placeholder="Ketik nama file, proyek, atau aksi (misal: proyek, solecare, kontak)..." autocomplete="off">
+        <button type="button" class="palette-esc-btn" id="vscode-palette-close" aria-label="Tutup Command Palette">ESC</button>
+      </div>
+      <ul class="palette-results" id="vscode-palette-results" role="listbox"></ul>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
