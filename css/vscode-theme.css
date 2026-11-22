@@ -532,8 +532,8 @@ body::after {
 
 /* Hero Section in VS Code Theme */
 .hero-section {
-  min-height: calc(100vh - 150px);
-  min-height: calc(100dvh - 150px);
+  min-height: calc(100vh - 104px);
+  min-height: calc(100dvh - 104px);
   background: var(--bg-primary);
   padding-top: 1.25rem;
 }
@@ -823,6 +823,56 @@ body::after {
   align-items: center;
   gap: 0.35rem;
   white-space: nowrap;
+}
+
+.statusbar-socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-left: 0.45rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.statusbar-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  color: #ffffff;
+  opacity: 0.9;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.statusbar-social-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}
+
+.statusbar-social-link svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.statusbar-golive {
+  padding: 0 0.45rem;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.14);
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.statusbar-golive:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.contact-socials-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 0.35rem;
 }
 
 /* --------------------------------------------------------------------------
