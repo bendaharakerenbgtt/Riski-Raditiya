@@ -532,10 +532,29 @@ body::after {
 
 /* Hero Section in VS Code Theme */
 .hero-section {
-  min-height: calc(100vh - 104px);
-  min-height: calc(100dvh - 104px);
+  min-height: calc(100vh - 122px);
+  min-height: calc(100dvh - 122px);
   background: var(--bg-primary);
-  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.hero-container {
+  justify-content: center;
+}
+
+.hero-grid {
+  align-items: center;
+}
+
+.hero-text-content {
+  padding: 1rem 0;
+}
+
+.hero-artwork-container {
+  align-items: center;
 }
 
 .hero-section::before {
