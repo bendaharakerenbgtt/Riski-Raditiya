@@ -268,6 +268,18 @@
     const links = drawer.querySelectorAll('a');
     links.forEach((l) => l.addEventListener('click', close));
 
+    // Explorer Sidebar Toggle (Closed by Default)
+    const explorerToggleBtn = document.getElementById('explorer-toggle-btn');
+    const vscodeSidebar = document.getElementById('vscode-sidebar');
+    if (explorerToggleBtn && vscodeSidebar) {
+      explorerToggleBtn.addEventListener('click', () => {
+        const isCollapsed = vscodeSidebar.classList.toggle('collapsed');
+        const isOpen = !isCollapsed;
+        explorerToggleBtn.classList.toggle('active', isOpen);
+        explorerToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && drawer.classList.contains('open')) {
         close();

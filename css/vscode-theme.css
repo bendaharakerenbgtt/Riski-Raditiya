@@ -281,7 +281,7 @@ body::after {
   stroke-width: 1.75;
 }
 
-/* Explorer Sidebar */
+/* Explorer Sidebar (Collapsible, Closed by Default) */
 .vscode-sidebar {
   width: 230px;
   flex-shrink: 0;
@@ -294,8 +294,21 @@ body::after {
   top: 36px;
   height: calc(100vh - 60px);
   overflow-y: auto;
+  overflow-x: hidden;
   font-family: var(--font-sans);
   z-index: 850;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease, border-color 0.2s ease;
+}
+
+.vscode-sidebar.collapsed {
+  width: 0;
+  opacity: 0;
+  border-right-color: transparent;
+  pointer-events: none;
+}
+
+.vscode-sidebar.collapsed > * {
+  opacity: 0;
 }
 
 .sidebar-header {
@@ -729,6 +742,18 @@ body::after {
 .project-card:hover {
   border-color: var(--accent);
   box-shadow: var(--glow-white);
+}
+
+.fan-visual-wrapper img,
+.education-visual-col img,
+.skills-center-visual img {
+  filter: drop-shadow(0 0 26px rgba(0, 122, 204, 0.28)) drop-shadow(0 0 12px rgba(78, 201, 176, 0.16));
+}
+
+.fan-visual-wrapper:hover img,
+.education-visual-col img:hover,
+.skills-center-visual img:hover {
+  filter: drop-shadow(0 0 36px rgba(0, 122, 204, 0.42)) drop-shadow(0 0 16px rgba(78, 201, 176, 0.24));
 }
 
 .skill-track {

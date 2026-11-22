@@ -1,62 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" aria-hidden="true">
   <defs>
-    <!-- Ambient Outer Glow -->
+    <!-- VS Code Blue & Teal Ambient Glow -->
     <radialGradient id="engineAura" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30" />
-      <stop offset="42%" stop-color="#dfe6f6" stop-opacity="0.12" />
-      <stop offset="75%" stop-color="#b8c4dc" stop-opacity="0.03" />
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0%" stop-color="#007acc" stop-opacity="0.34" />
+      <stop offset="44%" stop-color="#4ec9b0" stop-opacity="0.14" />
+      <stop offset="76%" stop-color="#007acc" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#1e1e1e" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Core Spark Glow -->
     <radialGradient id="sparkCoreGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
-      <stop offset="42%" stop-color="#e8eefc" stop-opacity="0.34" />
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0%" stop-color="#9cdcfe" stop-opacity="0.82" />
+      <stop offset="42%" stop-color="#007acc" stop-opacity="0.36" />
+      <stop offset="100%" stop-color="#1e1e1e" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Chassis / Ring Gradient -->
     <radialGradient id="engineChassis" cx="50%" cy="42%" r="58%">
-      <stop offset="0%" stop-color="#222938" />
-      <stop offset="68%" stop-color="#111622" />
-      <stop offset="100%" stop-color="#080b11" />
+      <stop offset="0%" stop-color="#2a2d32" />
+      <stop offset="68%" stop-color="#222326" />
+      <stop offset="100%" stop-color="#181818" />
     </radialGradient>
 
-    <!-- Spark Star Gradient -->
     <linearGradient id="sparkFill" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#d4dce9" />
+      <stop offset="55%" stop-color="#9cdcfe" />
+      <stop offset="100%" stop-color="#4ec9b0" />
     </linearGradient>
   </defs>
 
-  <!-- Ambient White Glow Backdrop -->
+  <!-- Ambient Glow Backdrop -->
   <circle cx="200" cy="200" r="190" fill="url(#engineAura)" />
 
   <!-- Slowly Rotating Outer Telemetry Ring -->
   <g>
-    <circle cx="200" cy="200" r="160" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2" stroke-dasharray="4 8" />
-    <circle cx="200" cy="200" r="146" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="22 14" />
+    <circle cx="200" cy="200" r="160" fill="none" stroke="#007acc" stroke-opacity="0.32" stroke-width="1.3" stroke-dasharray="4 8" />
+    <circle cx="200" cy="200" r="146" fill="none" stroke="#4ec9b0" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="22 14" />
     <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="85s" repeatCount="indefinite" />
   </g>
 
   <!-- 6 Skill Connector Lines (3 Left, 3 Right) -->
-  <g stroke="#ffffff" stroke-opacity="0.34" stroke-width="1.3" stroke-dasharray="3 4">
-    <!-- Left 3 -->
-    <line x1="200" y1="200" x2="72" y2="126" />
-    <line x1="200" y1="200" x2="52" y2="200" />
-    <line x1="200" y1="200" x2="72" y2="274" />
-    <!-- Right 3 -->
-    <line x1="200" y1="200" x2="328" y2="126" />
-    <line x1="200" y1="200" x2="348" y2="200" />
-    <line x1="200" y1="200" x2="328" y2="274" />
+  <g stroke-width="1.4" stroke-dasharray="3 4">
+    <line x1="200" y1="200" x2="72" y2="126" stroke="#569cd6" stroke-opacity="0.45" />
+    <line x1="200" y1="200" x2="52" y2="200" stroke="#4ec9b0" stroke-opacity="0.45" />
+    <line x1="200" y1="200" x2="72" y2="274" stroke="#9cdcfe" stroke-opacity="0.45" />
+    <line x1="200" y1="200" x2="328" y2="126" stroke="#6a9955" stroke-opacity="0.45" />
+    <line x1="200" y1="200" x2="348" y2="200" stroke="#ce9178" stroke-opacity="0.45" />
+    <line x1="200" y1="200" x2="328" y2="274" stroke="#c586c0" stroke-opacity="0.45" />
   </g>
 
-  <!-- Main Precision Gear / Instrument Housing -->
-  <circle cx="200" cy="200" r="112" fill="url(#engineChassis)" stroke="rgba(255,255,255,0.28)" stroke-width="1.8" />
-  <circle cx="200" cy="200" r="94" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+  <!-- Main Precision Housing -->
+  <circle cx="200" cy="200" r="112" fill="url(#engineChassis)" stroke="#3c3c3c" stroke-width="2" />
+  <circle cx="200" cy="200" r="94" fill="none" stroke="#007acc" stroke-opacity="0.28" stroke-width="1.2" />
 
-  <!-- Precision Gear Teeth / Radial Ticks -->
-  <g stroke="#ffffff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round">
+  <!-- Precision Gear Ticks -->
+  <g stroke="#9cdcfe" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round">
     <line x1="200" y1="82" x2="200" y2="92" />
     <line x1="200" y1="308" x2="200" y2="318" />
     <line x1="82" y1="200" x2="92" y2="200" />
@@ -67,45 +63,43 @@
     <line x1="124" y1="276" x2="117" y2="283" />
   </g>
 
-  <!-- 6 Orbital Skill Nodes -->
+  <!-- 6 Syntax-Colored Skill Nodes -->
   <g>
-    <!-- Left 3 Nodes -->
-    <circle cx="72" cy="126" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
-    <circle cx="72" cy="126" r="2.2" fill="#ffffff" />
+    <!-- Left 3 -->
+    <circle cx="72" cy="126" r="6.5" fill="#1e1e1e" stroke="#569cd6" stroke-width="2" />
+    <circle cx="72" cy="126" r="2.5" fill="#569cd6" />
 
-    <circle cx="52" cy="200" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
-    <circle cx="52" cy="200" r="2.2" fill="#ffffff" />
+    <circle cx="52" cy="200" r="6.5" fill="#1e1e1e" stroke="#4ec9b0" stroke-width="2" />
+    <circle cx="52" cy="200" r="2.5" fill="#4ec9b0" />
 
-    <circle cx="72" cy="274" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
-    <circle cx="72" cy="274" r="2.2" fill="#ffffff" />
+    <circle cx="72" cy="274" r="6.5" fill="#1e1e1e" stroke="#9cdcfe" stroke-width="2" />
+    <circle cx="72" cy="274" r="2.5" fill="#9cdcfe" />
 
-    <!-- Right 3 Nodes -->
-    <circle cx="328" cy="126" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
-    <circle cx="328" cy="126" r="2.2" fill="#ffffff" />
+    <!-- Right 3 -->
+    <circle cx="328" cy="126" r="6.5" fill="#1e1e1e" stroke="#6a9955" stroke-width="2" />
+    <circle cx="328" cy="126" r="2.5" fill="#6a9955" />
 
-    <circle cx="348" cy="200" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
-    <circle cx="348" cy="200" r="2.2" fill="#ffffff" />
+    <circle cx="348" cy="200" r="6.5" fill="#1e1e1e" stroke="#ce9178" stroke-width="2" />
+    <circle cx="348" cy="200" r="2.5" fill="#ce9178" />
 
-    <circle cx="328" cy="274" r="6" fill="#141822" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.8" />
-    <circle cx="328" cy="274" r="2.2" fill="#ffffff" />
+    <circle cx="328" cy="274" r="6.5" fill="#1e1e1e" stroke="#c586c0" stroke-width="2" />
+    <circle cx="328" cy="274" r="2.5" fill="#c586c0" />
   </g>
 
   <!-- Core Luminous Halo & Pulse -->
-  <circle cx="200" cy="200" r="70" fill="url(#sparkCoreGlow)" />
-  <circle cx="200" cy="200" r="46" fill="none" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.4">
-    <animate attributeName="r" values="42;56;42" dur="3.2s" repeatCount="indefinite" />
-    <animate attributeName="stroke-opacity" values="0.55;0.1;0.55" dur="3.2s" repeatCount="indefinite" />
+  <circle cx="200" cy="200" r="72" fill="url(#sparkCoreGlow)" />
+  <circle cx="200" cy="200" r="46" fill="none" stroke="#4ec9b0" stroke-opacity="0.55" stroke-width="1.5">
+    <animate attributeName="r" values="42;58;42" dur="3.2s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.65;0.1;0.65" dur="3.2s" repeatCount="indefinite" />
   </circle>
 
-  <!-- Center AI Spark (4-Point Star) -->
+  <!-- Center AI Spark -->
   <g>
-    <!-- Soft Bloom Layer Behind Star -->
     <path d="M 200 148 C 204 184, 216 196, 252 200 C 216 204, 204 216, 200 252 C 196 216, 184 204, 148 200 C 184 196, 196 184, 200 148 Z"
-          fill="#ffffff" opacity="0.22" />
+          fill="#007acc" opacity="0.3" />
     <path d="M 200 156 C 203 186, 214 197, 244 200 C 214 203, 203 214, 200 244 C 197 214, 186 203, 156 200 C 186 197, 197 186, 200 156 Z"
           fill="url(#sparkFill)" />
-    <!-- Secondary Small Accent Spark -->
     <path d="M 236 154 C 237 161, 239 163, 246 164 C 239 165, 237 167, 236 174 C 235 167, 233 165, 226 164 C 233 163, 235 161, 236 154 Z"
-          fill="#ffffff" opacity="0.92" />
+          fill="#dcdcaa" opacity="0.95" />
   </g>
 </svg>

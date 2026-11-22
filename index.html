@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css?v=vscode1">
-  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode1">
+  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode2">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◈</text></svg>">
 </head>
 <body>
@@ -105,9 +105,9 @@
     <!-- Leftmost Activity Bar -->
     <aside class="vscode-activity-bar" aria-label="Activity Bar">
       <div class="activity-group">
-        <a href="#hero" class="activity-btn active" title="Explorer (Beranda)" aria-label="Explorer">
+        <button type="button" id="explorer-toggle-btn" class="activity-btn" title="Buka / Tutup Explorer" aria-label="Buka atau tutup Explorer Sidebar" aria-expanded="false" aria-controls="vscode-sidebar">
           <svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-        </a>
+        </button>
         <a href="#projects" class="activity-btn" title="Karya & Proyek" aria-label="Karya dan Proyek">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </a>
@@ -125,8 +125,8 @@
       </div>
     </aside>
 
-    <!-- Explorer Sidebar -->
-    <aside class="vscode-sidebar" aria-label="Explorer Sidebar">
+    <!-- Explorer Sidebar (Closed by Default) -->
+    <aside class="vscode-sidebar collapsed" id="vscode-sidebar" aria-label="Explorer Sidebar">
       <div>
         <div class="sidebar-header">
           <span>Explorer</span>
@@ -339,7 +339,7 @@
           <!-- Visual Observer Showcase -->
           <div class="about-visual-showcase">
             <div class="fan-visual-wrapper">
-              <img src="assets/images/about-curious-lens-glow.svg?v=3" alt="Visual Lensa Pengamat dan Rasa Ingin Tahu Bercahaya Putih" width="450" height="400">
+              <img src="assets/images/about-curious-lens-glow.svg?v=4" alt="Visual Lensa Pengamat dan Rasa Ingin Tahu Bercahaya Putih" width="450" height="400">
             </div>
           </div>
         </div>
@@ -362,7 +362,7 @@
         <div class="education-grid">
           <!-- Left Column: Glowing Academic Compass Visual -->
           <div class="education-visual-col">
-            <img src="assets/images/edu-compass-glow.svg?v=3" alt="Kompas Perjalanan Akademik dan Indikator Progres Pendidikan" width="400" height="400">
+            <img src="assets/images/edu-compass-glow.svg?v=4" alt="Kompas Perjalanan Akademik dan Indikator Progres Pendidikan" width="400" height="400">
           </div>
 
           <!-- Right Column: Education Timeline Cards -->
@@ -615,7 +615,7 @@
 
           <!-- Center Column (Core Engine & AI Spark Visual) -->
           <div class="skills-center-visual">
-            <img src="assets/images/skills-core-engine-glow.svg?v=3" alt="Visual Core Engine dan AI Spark Bercahaya Putih" width="400" height="400">
+            <img src="assets/images/skills-core-engine-glow.svg?v=4" alt="Visual Core Engine dan AI Spark Bercahaya Putih" width="400" height="400">
           </div>
 
           <!-- Right Column (3 Skills) -->

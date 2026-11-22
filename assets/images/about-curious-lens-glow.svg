@@ -1,167 +1,128 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 400" width="100%" height="100%" aria-hidden="true">
   <defs>
-    <!-- Ambient Outer Halo Glow -->
+    <!-- VS Code Blue & Teal Ambient Glow -->
     <radialGradient id="lensAura" cx="48%" cy="46%" r="54%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30" />
-      <stop offset="45%" stop-color="#dbe4f6" stop-opacity="0.12" />
-      <stop offset="78%" stop-color="#b4c2de" stop-opacity="0.03" />
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0%" stop-color="#007acc" stop-opacity="0.34" />
+      <stop offset="45%" stop-color="#4ec9b0" stop-opacity="0.14" />
+      <stop offset="78%" stop-color="#007acc" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#1e1e1e" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Glass Refraction Beam Core -->
+    <!-- Glass Refraction Core -->
     <radialGradient id="glassCoreGlow" cx="46%" cy="42%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.78" />
-      <stop offset="35%" stop-color="#ecf2fe" stop-opacity="0.32" />
-      <stop offset="70%" stop-color="#9aa9c8" stop-opacity="0.10" />
-      <stop offset="100%" stop-color="#0c101a" stop-opacity="0.45" />
+      <stop offset="0%" stop-color="#4ec9b0" stop-opacity="0.55" />
+      <stop offset="38%" stop-color="#007acc" stop-opacity="0.28" />
+      <stop offset="72%" stop-color="#252526" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#1e1e1e" stop-opacity="0.75" />
     </radialGradient>
 
     <!-- Specular Lens Glare -->
     <linearGradient id="lensSpecular" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
-      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.2" />
-      <stop offset="60%" stop-color="#ffffff" stop-opacity="0" />
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65" />
+      <stop offset="35%" stop-color="#9cdcfe" stop-opacity="0.2" />
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="100%" stop-color="#4ec9b0" stop-opacity="0.35" />
     </linearGradient>
 
-    <!-- Metallic Rim / Chassis Gradient -->
+    <!-- Anodized IDE Frame Gradient -->
     <linearGradient id="rimMetal" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f0f4fa" />
-      <stop offset="25%" stop-color="#8a94a8" />
-      <stop offset="50%" stop-color="#1e2432" />
-      <stop offset="75%" stop-color="#4c566a" />
-      <stop offset="100%" stop-color="#e2e8f4" />
+      <stop offset="0%" stop-color="#9cdcfe" />
+      <stop offset="28%" stop-color="#007acc" />
+      <stop offset="55%" stop-color="#252526" />
+      <stop offset="80%" stop-color="#3c3c3c" />
+      <stop offset="100%" stop-color="#4ec9b0" />
     </linearGradient>
 
-    <!-- Handle Gradient -->
     <linearGradient id="handleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#384256" />
-      <stop offset="35%" stop-color="#151a24" />
-      <stop offset="70%" stop-color="#2a3344" />
-      <stop offset="100%" stop-color="#090c12" />
+      <stop offset="0%" stop-color="#3c3c3c" />
+      <stop offset="45%" stop-color="#252526" />
+      <stop offset="100%" stop-color="#181818" />
     </linearGradient>
 
-    <!-- Spark Fill -->
-    <linearGradient id="sparkWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="sparkAccent" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#d4dceb" />
+      <stop offset="55%" stop-color="#9cdcfe" />
+      <stop offset="100%" stop-color="#4ec9b0" />
     </linearGradient>
   </defs>
 
   <!-- Ambient Backdrop Glow -->
   <circle cx="210" cy="180" r="175" fill="url(#lensAura)" />
 
-  <!-- Slowly Rotating Outer Astrolabe / Measurement Orbit -->
+  <!-- Slowly Rotating Outer Telemetry Ring -->
   <g>
-    <circle cx="210" cy="180" r="162" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2" stroke-dasharray="3 7" />
-    <circle cx="210" cy="180" r="148" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="16 12" />
-    <animateTransform attributeName="transform" type="rotate" from="0 210 180" to="360 210 180" dur="95s" repeatCount="indefinite" />
+    <circle cx="210" cy="180" r="162" fill="none" stroke="#007acc" stroke-opacity="0.35" stroke-width="1.3" stroke-dasharray="4 7" />
+    <circle cx="210" cy="180" r="148" fill="none" stroke="#4ec9b0" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="16 12" />
+    <animateTransform attributeName="transform" type="rotate" from="0 210 180" to="360 210 180" dur="90s" repeatCount="indefinite" />
   </g>
 
-  <!-- Subtle Inspection Crosshairs & Calibration Grid Behind Lens -->
-  <g stroke="#ffffff" stroke-opacity="0.12" stroke-width="1">
+  <!-- Subtle Inspection Crosshairs -->
+  <g stroke="#569cd6" stroke-opacity="0.22" stroke-width="1">
     <line x1="210" y1="20" x2="210" y2="340" stroke-dasharray="4 6" />
     <line x1="50" y1="180" x2="370" y2="180" stroke-dasharray="4 6" />
-    <circle cx="210" cy="180" r="85" fill="none" stroke-dasharray="2 6" />
   </g>
 
-  <!-- Specimen Geometry inside the Focal View (Diagram of Knowledge / Wireframe Cube) -->
-  <g stroke="#ffffff" stroke-width="1.2" fill="none" stroke-opacity="0.35">
-    <!-- Isometric Cube / Concept Wireframe being observed -->
-    <polygon points="210,135 240,152 210,170 180,152" stroke-opacity="0.5" />
-    <polygon points="180,152 210,170 210,205 180,187" stroke-opacity="0.35" />
-    <polygon points="240,152 210,170 210,205 240,187" stroke-opacity="0.4" />
-    <!-- Focal Points / Inspection Nodes -->
-    <circle cx="210" cy="170" r="2.5" fill="#ffffff" stroke="#151a24" stroke-width="1" />
-    <circle cx="210" cy="135" r="2" fill="#ffffff" />
-    <circle cx="240" cy="152" r="2" fill="#ffffff" opacity="0.75" />
-    <circle cx="180" cy="152" r="2" fill="#ffffff" opacity="0.75" />
+  <!-- Code & Cube Specimen Inside Focal View -->
+  <g stroke="#9cdcfe" stroke-width="1.3" fill="none" stroke-opacity="0.55">
+    <polygon points="210,132 244,151 210,170 176,151" />
+    <polygon points="176,151 210,170 210,208 176,189" stroke="#569cd6" stroke-opacity="0.5" />
+    <polygon points="244,151 210,170 210,208 244,189" stroke="#4ec9b0" stroke-opacity="0.55" />
+    <circle cx="210" cy="132" r="2.5" fill="#dcdcaa" stroke="none" />
+    <circle cx="244" cy="151" r="2.5" fill="#4ec9b0" stroke="none" />
+    <circle cx="176" cy="151" r="2.5" fill="#ce9178" stroke="none" />
   </g>
 
-  <!-- ========================================================
-       SCULPTURAL PRECISION OBSERVATION LENS (Tilted at 38deg)
-       ======================================================== -->
+  <!-- Sculptural Precision Lens -->
   <g>
-    <!-- Handle Shadow -->
-    <path d="M 288 258 L 398 368 A 12 12 0 0 1 382 384 L 272 274 Z" fill="#000000" opacity="0.4" />
+    <path d="M 288 258 L 398 368 A 12 12 0 0 1 382 384 L 272 274 Z" fill="#000000" opacity="0.45" />
 
-    <!-- Ergonomic Fluted Metal Handle -->
+    <!-- Ergonomic Metal Handle -->
     <g>
-      <!-- Base Stem Collar -->
-      <polygon points="280,250 292,262 284,270 272,258" fill="url(#rimMetal)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" />
-      
-      <!-- Main Stem / Grip -->
+      <polygon points="280,250 292,262 284,270 272,258" fill="url(#rimMetal)" stroke="#9cdcfe" stroke-width="1" stroke-opacity="0.5" />
       <path d="M 288 258 L 388 358 Q 394 364 388 370 L 376 382 Q 370 388 364 382 L 264 282 Z"
             fill="url(#handleGrad)"
-            stroke="rgba(255,255,255,0.45)"
-            stroke-width="1.4"
+            stroke="#007acc"
+            stroke-opacity="0.65"
+            stroke-width="1.5"
             stroke-linejoin="round" />
-
-      <!-- Grip Flutes / Precision Ribs -->
-      <g stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.2">
+      <g stroke="#9cdcfe" stroke-opacity="0.32" stroke-width="1.2">
         <line x1="298" y1="284" x2="284" y2="298" />
         <line x1="316" y1="302" x2="302" y2="316" />
         <line x1="334" y1="320" x2="320" y2="334" />
         <line x1="352" y1="338" x2="338" y2="352" />
       </g>
-
-      <!-- Pommel / Cap Accent with Emblem -->
-      <circle cx="380" cy="374" r="8" fill="url(#rimMetal)" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.6" />
-      <circle cx="380" cy="374" r="3" fill="#ffffff" />
+      <circle cx="380" cy="374" r="8" fill="url(#rimMetal)" stroke="#9cdcfe" stroke-width="1.2" stroke-opacity="0.7" />
+      <circle cx="380" cy="374" r="3" fill="#4ec9b0" />
     </g>
 
-    <!-- Outer Bezel Retaining Ring (Chassis) -->
-    <circle cx="200" cy="170" r="115" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="14" />
-    <circle cx="200" cy="170" r="115" fill="none" stroke="url(#rimMetal)" stroke-width="8" />
-    <circle cx="200" cy="170" r="119" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.2" />
-    <circle cx="200" cy="170" r="111" fill="none" stroke="#000000" stroke-opacity="0.6" stroke-width="1.5" />
+    <!-- Outer Bezel Retaining Ring -->
+    <circle cx="200" cy="170" r="115" fill="none" stroke="#007acc" stroke-opacity="0.22" stroke-width="16" />
+    <circle cx="200" cy="170" r="115" fill="none" stroke="url(#rimMetal)" stroke-width="7.5" />
+    <circle cx="200" cy="170" r="119" fill="none" stroke="#9cdcfe" stroke-opacity="0.4" stroke-width="1.1" />
 
-    <!-- Bezel Fasteners & Vernier Scale Ticks -->
-    <g stroke="#ffffff" stroke-linecap="round">
-      <!-- 4 Bezel Studs -->
-      <circle cx="200" cy="55" r="2.5" fill="#ffffff" />
-      <circle cx="315" cy="170" r="2.5" fill="#ffffff" />
-      <circle cx="200" cy="285" r="2.5" fill="#ffffff" />
-      <circle cx="85" cy="170" r="2.5" fill="#ffffff" />
-
-      <!-- Radial Micro-Vernier Ticks along Ring -->
-      <line x1="200" y1="60" x2="200" y2="67" stroke-width="1.6" stroke-opacity="0.75" />
-      <line x1="310" y1="170" x2="303" y2="170" stroke-width="1.6" stroke-opacity="0.75" />
-      <line x1="200" y1="280" x2="200" y2="273" stroke-width="1.6" stroke-opacity="0.75" />
-      <line x1="90" y1="170" x2="97" y2="170" stroke-width="1.6" stroke-opacity="0.75" />
-
-      <line x1="278" y1="92" x2="273" y2="97" stroke-width="1.2" stroke-opacity="0.5" />
-      <line x1="278" y1="248" x2="273" y2="243" stroke-width="1.2" stroke-opacity="0.5" />
-      <line x1="122" y1="248" x2="127" y2="243" stroke-width="1.2" stroke-opacity="0.5" />
-      <line x1="122" y1="92" x2="127" y2="97" stroke-width="1.2" stroke-opacity="0.5" />
-    </g>
-
-    <!-- Convex Glass Optical Disc with Internal Refraction -->
+    <!-- Convex Glass Disc -->
     <circle cx="200" cy="170" r="108" fill="url(#glassCoreGlow)" />
 
-    <!-- Specular Crescent Glare (Light Reflection on Curved Glass) -->
+    <!-- Specular Glare -->
     <path d="M 126 102 C 166 68, 234 68, 274 102 C 260 88, 208 80, 160 92 C 138 98, 128 102, 126 102 Z"
           fill="url(#lensSpecular)" />
-    <!-- Secondary Bottom Glass Sheen -->
-    <path d="M 148 244 C 182 258, 226 256, 256 240 C 238 248, 196 250, 162 242 Z"
-          fill="#ffffff" opacity="0.32" />
 
-    <!-- Curious Discovery Spark / Star of Insight `✦` Emerging in Focal Point -->
+    <!-- Syntax Code Brackets & Insight Spark -->
     <g>
-      <!-- Glowing Focal Halo with gentle breathing pulse -->
-      <circle cx="200" cy="170" r="32" fill="#ffffff" fill-opacity="0.14">
-        <animate attributeName="r" values="28;40;28" dur="3.4s" repeatCount="indefinite" />
-        <animate attributeName="fill-opacity" values="0.18;0.06;0.18" dur="3.4s" repeatCount="indefinite" />
+      <circle cx="200" cy="170" r="34" fill="#007acc" fill-opacity="0.22">
+        <animate attributeName="r" values="28;42;28" dur="3.2s" repeatCount="indefinite" />
+        <animate attributeName="fill-opacity" values="0.26;0.08;0.26" dur="3.2s" repeatCount="indefinite" />
       </circle>
 
-      <!-- Center 4-Point Insight Spark -->
+      <!-- Left & Right Code Chevrons < > -->
+      <path d="M 156 158 L 142 170 L 156 182" fill="none" stroke="#569cd6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 244 158 L 258 170 L 244 182" fill="none" stroke="#569cd6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+      <!-- Center Insight Spark -->
       <path d="M 200 138 C 202 158, 212 168, 232 170 C 212 172, 202 182, 200 202 C 198 182, 188 172, 168 170 C 188 168, 198 158, 200 138 Z"
-            fill="url(#sparkWhite)" />
-      
-      <!-- Small Companion Spark -->
-      <path d="M 224 142 C 225 148, 227 150, 233 151 C 227 152, 225 154, 224 160 C 223 154, 221 152, 215 151 C 221 150, 223 148, 224 142 Z"
-            fill="#ffffff" opacity="0.9" />
+            fill="url(#sparkAccent)" />
+      <path d="M 225 142 C 226 148, 228 150, 234 151 C 228 152, 226 154, 225 160 C 224 154, 222 152, 216 151 C 222 150, 224 148, 225 142 Z"
+            fill="#dcdcaa" opacity="0.95" />
     </g>
   </g>
-
 </svg>
