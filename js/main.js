@@ -382,6 +382,35 @@
     });
   }
 
+  // 7. VS Code Workspace Trust / Welcome Toast
+  function initTrustToast() {
+    const toast = document.getElementById('vscode-trust-toast');
+    if (!toast) return;
+
+    try {
+      if (sessionStorage.getItem('vscode_trust_dismissed') === '1') {
+        toast.remove();
+        return;
+      }
+    } catch (e) {}
+
+    function dismiss() {
+      toast.classList.add('is-hidden');
+      try {
+        sessionStorage.setItem('vscode_trust_dismissed', '1');
+      } catch (e) {}
+      setTimeout(() => toast.remove(), 280);
+    }
+
+    const closeBtn = document.getElementById('trust-toast-close');
+    const acceptBtn = document.getElementById('trust-btn-accept');
+    const projectsBtn = document.getElementById('trust-btn-projects');
+
+    if (closeBtn) closeBtn.addEventListener('click', dismiss);
+    if (acceptBtn) acceptBtn.addEventListener('click', dismiss);
+    if (projectsBtn) projectsBtn.addEventListener('click', dismiss);
+  }
+
   // DOM Content Loaded Initializer
   document.addEventListener('DOMContentLoaded', () => {
     initScrollSystem();
@@ -390,5 +419,6 @@
     initSkillBars();
     initScrollReveal();
     initContactForm();
+    initTrustToast();
   });
 })();
