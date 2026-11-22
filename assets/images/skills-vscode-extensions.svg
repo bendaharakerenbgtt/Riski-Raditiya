@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 380" width="100%" height="100%" aria-hidden="true">
+  <defs>
+    <radialGradient id="extAura" cx="50%" cy="50%" r="52%">
+      <stop offset="0%" stop-color="#007acc" stop-opacity="0.32" />
+      <stop offset="50%" stop-color="#4ec9b0" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#1e1e1e" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="190" cy="190" r="175" fill="url(#extAura)" />
+
+  <!-- Connector Traces to 6 Extension Modules -->
+  <g stroke-width="1.5" stroke-dasharray="4 4">
+    <line x1="190" y1="190" x2="78" y2="96" stroke="#569cd6" stroke-opacity="0.55" />
+    <line x1="190" y1="190" x2="62" y2="190" stroke="#4ec9b0" stroke-opacity="0.55" />
+    <line x1="190" y1="190" x2="78" y2="284" stroke="#9cdcfe" stroke-opacity="0.55" />
+    <line x1="190" y1="190" x2="302" y2="96" stroke="#6a9955" stroke-opacity="0.55" />
+    <line x1="190" y1="190" x2="318" y2="190" stroke="#ce9178" stroke-opacity="0.55" />
+    <line x1="190" y1="190" x2="302" y2="284" stroke="#c586c0" stroke-opacity="0.55" />
+  </g>
+
+  <!-- 6 Extension / Stack Badges -->
+  <g font-family="ui-monospace, Consolas, monospace" font-size="11" font-weight="700" text-anchor="middle">
+    <!-- Left 3 -->
+    <rect x="40" y="76" width="76" height="36" rx="6" fill="#252526" stroke="#569cd6" stroke-width="1.5" />
+    <text x="78" y="98" fill="#9cdcfe">SDLC</text>
+
+    <rect x="24" y="172" width="76" height="36" rx="6" fill="#252526" stroke="#4ec9b0" stroke-width="1.5" />
+    <text x="62" y="194" fill="#4ec9b0">UI/UX</text>
+
+    <rect x="40" y="268" width="76" height="36" rx="6" fill="#252526" stroke="#dcdcaa" stroke-width="1.5" />
+    <text x="78" y="290" fill="#dcdcaa">AI+DEV</text>
+
+    <!-- Right 3 -->
+    <rect x="264" y="76" width="76" height="36" rx="6" fill="#252526" stroke="#6a9955" stroke-width="1.5" />
+    <text x="302" y="98" fill="#b5cea8">SHEETS</text>
+
+    <rect x="280" y="172" width="76" height="36" rx="6" fill="#252526" stroke="#ce9178" stroke-width="1.5" />
+    <text x="318" y="194" fill="#ce9178">DEPLOY</text>
+
+    <rect x="264" y="268" width="76" height="36" rx="6" fill="#252526" stroke="#c586c0" stroke-width="1.5" />
+    <text x="302" y="290" fill="#c586c0">DESIGN</text>
+  </g>
+
+  <!-- Center VS Code Module Core { } -->
+  <g>
+    <circle cx="190" cy="190" r="62" fill="#007acc" fill-opacity="0.16">
+      <animate attributeName="r" values="58;68;58" dur="3.4s" repeatCount="indefinite" />
+    </circle>
+    <rect x="138" y="138" width="104" height="104" rx="14" fill="#1e1e1e" stroke="#007acc" stroke-width="2.2" />
+    <rect x="144" y="144" width="92" height="92" rx="10" fill="#252526" stroke="#3c3c3c" stroke-width="1" />
+    <text x="190" y="198" fill="#4ec9b0" font-family="ui-monospace, Consolas, monospace" font-size="34" font-weight="700" text-anchor="middle">{ }</text>
+    <text x="190" y="222" fill="#9cdcfe" font-family="ui-monospace, Consolas, monospace" font-size="9" letter-spacing="1.2" text-anchor="middle">EXTENSIONS</text>
+  </g>
+</svg>

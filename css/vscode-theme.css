@@ -744,6 +744,10 @@ body::after {
   box-shadow: var(--glow-white);
 }
 
+.fan-visual-wrapper {
+  max-width: 350px;
+}
+
 .fan-visual-wrapper img,
 .education-visual-col img,
 .skills-center-visual img {
