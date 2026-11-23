@@ -224,6 +224,35 @@ body::after {
   gap: 0.5rem;
 }
 
+/* Bilingual Language Switcher (ID | EN) */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  padding: 1px;
+  font-family: var(--font-mono);
+}
+
+.lang-opt {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 0.16rem 0.42rem;
+  border-radius: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.lang-opt:hover {
+  color: #ffffff;
+}
+
+.lang-opt.active {
+  background: var(--accent);
+  color: #ffffff;
+}
+
 .vscode-titlebar .theme-toggle-btn {
   width: 26px;
   height: 26px;

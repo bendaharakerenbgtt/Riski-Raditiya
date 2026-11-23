@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css?v=vscode1">
-  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode7">
+  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode8">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23007acc%22/><text x=%2250%25%22 y=%2266%25%22 font-family=%22monospace%22 font-size=%2248%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>RR</text></svg>">
 </head>
 <body>
@@ -50,6 +50,10 @@
     </button>
 
     <div class="vscode-titlebar-right">
+      <div class="lang-switcher" role="group" aria-label="Pilih Bahasa / Select Language">
+        <button type="button" class="lang-opt active" data-lang="id">ID</button>
+        <button type="button" class="lang-opt" data-lang="en">EN</button>
+      </div>
       <button class="mobile-menu-toggle" type="button" aria-label="Buka Explorer Mobile">
         <svg viewBox="0 0 24 24">
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -67,17 +71,17 @@
       <button class="mobile-drawer-close" type="button" aria-label="Tutup explorer">✕</button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="#hero">hero.tsx — Beranda</a></li>
-      <li><a href="#about">about.md — Tentang Saya</a></li>
-      <li><a href="#education">education.json — Pendidikan</a></li>
-      <li><a href="#projects">projects.config.ts — Karya</a></li>
-      <li><a href="#skills">skills.yaml — Keahlian</a></li>
-      <li><a href="#services">services.json — Layanan &amp; Harga</a></li>
-      <li><a href="#contact">contact.env — Hubungi Saya</a></li>
+      <li><a href="#hero" data-i18n="nav_hero">hero.tsx — Beranda</a></li>
+      <li><a href="#about" data-i18n="nav_about">about.md — Tentang Saya</a></li>
+      <li><a href="#education" data-i18n="nav_education">education.json — Pendidikan</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">projects.config.ts — Karya</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">skills.yaml — Keahlian</a></li>
+      <li><a href="#services" data-i18n="nav_services">services.json — Layanan</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">contact.env — Hubungi Saya</a></li>
     </ul>
     <div class="mobile-drawer-cta">
       <a href="#contact" class="btn-download-cv mobile-drawer-btn">
-        <span>Mulai Diskusi Proyek</span>
+        <span data-i18n="nav_cta">Mulai Diskusi Proyek</span>
       </a>
     </div>
   </div>
@@ -131,10 +135,10 @@
       </div>
 
       <div class="sidebar-outline">
-        <div class="sidebar-outline-title">Timeline &amp; Status</div>
+        <div class="sidebar-outline-title" data-i18n="sidebar_timeline_title">Timeline &amp; Status</div>
         <div class="outline-item"><span class="outline-dot-live"></span><span>2024 • Polimedia</span></div>
         <div class="outline-item"><span style="color: var(--syn-comment);">✓</span><span>2021 • SMK Perintis 1</span></div>
-        <div class="outline-item"><span style="color: var(--syn-var);">★</span><span>4 Proyek Nyata</span></div>
+        <div class="outline-item"><span style="color: var(--syn-var);">★</span><span data-i18n="sidebar_projects_count">4 Proyek Nyata</span></div>
       </div>
     </aside>
 
@@ -175,15 +179,18 @@
               <div class="ide-code-line"><span class="ide-ln">2</span><span><span class="syn-kw">export const</span> <span class="syn-type">Profile</span> <span class="syn-p">=</span> <span class="syn-p">{</span> <span class="syn-var">name</span><span class="syn-p">:</span> <span class="syn-str">"Riski Raditiya"</span><span class="syn-p">,</span> <span class="syn-var">campus</span><span class="syn-p">:</span> <span class="syn-str">"Polimedia"</span> <span class="syn-p">};</span></span></div>
             </div>
 
-            <h1 class="hero-main-title">Halo, Saya Riski Raditiya</h1>
+            <h1 class="hero-main-title" data-i18n="hero_title">Halo, aku Riski Raditiya.</h1>
             
             <!-- Typewriter Headline -->
             <div class="hero-typewriter-container">
-              <span class="typewriter-text" id="hero-typewriter-text">Digital Product Builder</span>
+              <span class="typewriter-text" id="hero-typewriter-text">Suka Ngulik &amp; Terus Belajar</span>
             </div>
 
-            <p class="hero-description">
-              Mahasiswa Teknologi Rekayasa Multimedia yang senang mengamati cara kerja sesuatu, merancang alur sistem, dan mengubah ide menjadi aplikasi web yang benar-benar dipakai.
+            <p class="hero-description" data-i18n="hero_desc_1">
+              Mahasiswa Teknologi Rekayasa Multimedia yang senang mengeksplorasi teknologi, memahami cara kerja sesuatu, dan mencoba berbagai ide lewat proyek nyata.
+            </p>
+            <p class="hero-description" style="margin-top: -1.35rem;" data-i18n="hero_desc_2">
+              Buatku, hal menarik bukan cuma soal hasil akhirnya, tapi juga proses mencari tahu bagaimana sesuatu bisa bekerja.
             </p>
 
             <!-- Action Row (Lihat Karya) -->
@@ -193,7 +200,7 @@
                   <line x1="12" y1="5" x2="12" y2="19"></line>
                   <polyline points="19 12 12 19 5 12"></polyline>
                 </svg>
-                <span>Lihat Karya</span>
+                <span data-i18n="hero_cta">Lihat Karya</span>
               </a>
             </div>
           </div>
@@ -219,23 +226,26 @@
       <div class="container">
         <div class="section-common-header">
           <div class="ide-section-comment">// src/pages/about.md</div>
-          <h2 class="section-title" id="about-title">Tentang Saya</h2>
-          <p class="section-subtitle">
-            Rasa ingin tahu membawa saya untuk terus belajar, memahami, mencoba, dan membagikan hal-hal baru.
+          <h2 class="section-title" id="about-title" data-i18n="about_title">Tentang Saya</h2>
+          <p class="section-subtitle" data-i18n="about_subtitle">
+            Selalu Ada Hal Baru untuk Dipelajari.
           </p>
         </div>
 
         <!-- Bio Narrative Card & Visual Spotlight -->
         <div class="about-hero-grid">
           <div class="about-bio-text about-bio-card">
-            <p class="about-intro-p">
-              Saya adalah mahasiswa Teknologi Rekayasa Multimedia yang memiliki ketertarikan besar terhadap teknologi, pengetahuan, dan proses memahami sesuatu.
+            <p class="about-intro-p" data-i18n="about_p1">
+              Rasa penasaran sering jadi awal dari sesuatu yang menarik.
             </p>
-            <p class="about-intro-p">
-              Saya senang mengamati bagaimana sesuatu bekerja, menggali alasan di baliknya, dan mencoba mengubah ide menjadi sesuatu yang nyata. Bagi saya, belajar bukan sekadar mengumpulkan informasi, tetapi memahami, menguji, dan menemukan cara untuk menerapkannya.
+            <p class="about-intro-p" data-i18n="about_p2">
+              Aku adalah mahasiswa Teknologi Rekayasa Multimedia yang punya ketertarikan pada teknologi, pengetahuan, dan berbagai hal baru yang bisa dieksplorasi.
             </p>
-            <p class="about-intro-p">
-              Melalui teknologi, eksperimen, dan berbagai proyek yang saya kerjakan, saya terus mengeksplorasi hal-hal baru. Saya juga percaya bahwa pengetahuan akan lebih bermakna ketika bisa dibagikan dan dipahami oleh orang lain.
+            <p class="about-intro-p" data-i18n="about_p3">
+              Aku senang mengulik bagaimana sesuatu bekerja, mencari tahu alasan di baliknya, lalu mencoba menerapkan apa yang sudah dipelajari. Bagiku, belajar bukan sekadar tahu banyak hal, tetapi benar-benar memahami dan bisa menggunakannya.
+            </p>
+            <p class="about-intro-p" data-i18n="about_p4">
+              Lewat teknologi, eksperimen, dan berbagai proyek yang aku kerjakan, aku terus mencoba mengembangkan kemampuan dan memperluas wawasan. Aku juga percaya bahwa pengetahuan akan jauh lebih bermakna ketika nggak berhenti di diri sendiri, tetapi bisa dibagikan dan bermanfaat bagi orang lain.
             </p>
           </div>
 
@@ -255,9 +265,9 @@
       <div class="container">
         <div class="section-common-header">
           <div class="ide-section-comment">// src/data/education.json</div>
-          <h2 class="section-title" id="edu-title">Pendidikan</h2>
-          <p class="section-subtitle">
-            Fondasi keahlian multimedia interaktif, bisnis digital, dan teknologi rekayasa web modern.
+          <h2 class="section-title" id="edu-title" data-i18n="edu_title">Pendidikan</h2>
+          <p class="section-subtitle" data-i18n="edu_subtitle">
+            Perjalanan Belajar — Setiap pengalaman punya perannya sendiri dalam membentuk kemampuan dan cara pandangku.
           </p>
         </div>
 
@@ -279,12 +289,12 @@
                 </div>
                 <div class="edu-info">
                   <div class="edu-top-row">
-                    <span class="edu-status-badge">Sedang Berjalan</span>
-                    <span class="edu-period">2024 – Sekarang</span>
+                    <span class="edu-status-badge" data-i18n="edu_1_status">Sedang Berjalan</span>
+                    <span class="edu-period" data-i18n="edu_1_period">2024 – Sekarang</span>
                   </div>
-                  <h3 class="edu-degree">Teknologi Rekayasa Multimedia</h3>
-                  <div class="edu-institution">Politeknik Negeri Media Kreatif (Polimedia)</div>
-                  <div class="edu-meta-badge">Diploma IV (Sarjana Terapan) &bull; Kampus Jakarta</div>
+                  <h3 class="edu-degree" data-i18n="edu_1_degree">Teknologi Rekayasa Multimedia</h3>
+                  <div class="edu-institution" data-i18n="edu_1_inst">Politeknik Negeri Media Kreatif (Polimedia)</div>
+                  <div class="edu-meta-badge" data-i18n="edu_1_meta">Diploma IV (Sarjana Terapan) • Kampus Jakarta</div>
                 </div>
               </div>
             </div>
@@ -299,12 +309,12 @@
                 </div>
                 <div class="edu-info">
                   <div class="edu-top-row">
-                    <span class="edu-status-badge edu-status-alumni">Lulus</span>
-                    <span class="edu-period">2021 – 2024</span>
+                    <span class="edu-status-badge edu-status-alumni" data-i18n="edu_2_status">Lulus</span>
+                    <span class="edu-period" data-i18n="edu_2_period">2021 – 2024</span>
                   </div>
-                  <h3 class="edu-degree">Bisnis Daring dan Pemasaran (BDP)</h3>
-                  <div class="edu-institution">SMK Perintis 1 Depok</div>
-                  <div class="edu-meta-badge">Sekolah Menengah Kejuruan &bull; Kota Depok</div>
+                  <h3 class="edu-degree" data-i18n="edu_2_degree">Bisnis Daring dan Pemasaran (BDP)</h3>
+                  <div class="edu-institution" data-i18n="edu_2_inst">SMK Perintis 1 Depok</div>
+                  <div class="edu-meta-badge" data-i18n="edu_2_meta">Sekolah Menengah Kejuruan • Kota Depok</div>
                 </div>
               </div>
             </div>
@@ -318,9 +328,9 @@
       <div class="container">
         <div class="section-common-header">
           <div class="ide-section-comment">// src/config/projects.config.ts</div>
-          <h2 class="section-title" id="projects-title">Karya &amp; Proyek</h2>
-          <p class="section-subtitle">
-            Kompilasi aplikasi web fungsional, antarmuka digital presisi, dan eksperimen rekayasa nyata.
+          <h2 class="section-title" id="projects-title" data-i18n="proj_title">Karya &amp; Proyek</h2>
+          <p class="section-subtitle" data-i18n="proj_subtitle">
+            Ide yang Nggak Berhenti di Kepala. Mulai dari sistem informasi, otomasi dokumen, sampai aplikasi web untuk kebutuhan nyata.
           </p>
         </div>
 
@@ -340,7 +350,7 @@
                   <img src="assets/projects/solecare/logo.jpg" alt="Logo SoleCare" class="project-logo-badge" width="32" height="32" loading="lazy">
                   <h3 class="project-title">SoleCare</h3>
                 </div>
-                <p class="project-desc-short">Sistem manajemen laundry &amp; perawatan sepatu dengan tracking resi, cetak nota PDF, dan kontrol status.</p>
+                <p class="project-desc-short" data-i18n="proj_1_desc">Sistem pengelolaan laundry dan perawatan sepatu. Dilengkapi tracking resi, cetak nota PDF, dan pemantauan status pengerjaan agar operasional lebih mudah dikelola.</p>
                 <div class="project-tags">
                   <span class="project-tag">
                     <svg viewBox="-11.5 -10.23174 23 20.46348" width="13" height="13" fill="none"><circle cx="0" cy="0" r="2.05" fill="#61dafb"/><g stroke="#61dafb" stroke-width="1"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>
@@ -356,7 +366,7 @@
                   </span>
                 </div>
               </div>
-              <a href="project-detail.html?id=solecare" class="project-action-link" onclick="event.stopPropagation();">Lihat Detail Kasus ↗</a>
+              <a href="project-detail.html?id=solecare" class="project-action-link" onclick="event.stopPropagation();" data-i18n="proj_link">Lihat Cerita Proyek ↗</a>
             </div>
           </div>
 
@@ -375,7 +385,7 @@
                   <img src="assets/projects/dana-imip/logo.png" alt="Logo Dana IMIP" class="project-logo-badge" width="32" height="32" loading="lazy">
                   <h3 class="project-title">Dana IMIP</h3>
                 </div>
-                <p class="project-desc-short">Sistem informasi keuangan organisasi LDK IMIP: pencatatan transaksi, bukti pembayaran, kas anggota, dan dokumen otomatis.</p>
+                <p class="project-desc-short" data-i18n="proj_2_desc">Sistem informasi keuangan untuk organisasi LDK IMIP. Membantu pencatatan transaksi, penyimpanan bukti pembayaran, pengelolaan kas anggota, hingga pembuatan dokumen laporan secara otomatis.</p>
                 <div class="project-tags">
                   <span class="project-tag">
                     <svg viewBox="0 0 24 24" width="13" height="13" fill="#E44D26"><path d="M3 2l1.8 20.2 7.2 2 7.2-2L21 2H3zm14.4 6.3h-7.6l.2 2.3h7.2l-.6 6.7-4.6 1.3-4.6-1.3-.3-3.6h2.2l.2 1.9 2.5.7 2.5-.7.3-3H6.8L6.2 6.1h11.4l-.2 2.2z"/></svg>
@@ -391,7 +401,7 @@
                   </span>
                 </div>
               </div>
-              <a href="project-detail.html?id=bendahara-2026" class="project-action-link" onclick="event.stopPropagation();">Lihat Detail Kasus ↗</a>
+              <a href="project-detail.html?id=bendahara-2026" class="project-action-link" onclick="event.stopPropagation();" data-i18n="proj_link">Lihat Cerita Proyek ↗</a>
             </div>
           </div>
 
@@ -408,9 +418,9 @@
               <div class="project-header-row">
                 <div class="project-title-row">
                   <img src="assets/projects/polimedia-fasilitas/logo.svg" alt="Logo Polimedia Fasilitas" class="project-logo-badge" width="32" height="32" loading="lazy">
-                  <h3 class="project-title">Web Polimedia Fasilitas</h3>
+                  <h3 class="project-title" data-i18n="proj_3_title">Web Polimedia Fasilitas</h3>
                 </div>
-                <p class="project-desc-short">Platform peminjaman ruang &amp; fasilitas kampus berbasis Next.js, PostgreSQL, dan alur persetujuan berjenjang.</p>
+                <p class="project-desc-short" data-i18n="proj_3_desc">Platform peminjaman ruang dan fasilitas kampus yang membantu mengelola proses pengajuan hingga persetujuan secara lebih terstruktur.</p>
                 <div class="project-tags">
                   <span class="project-tag">
                     <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 0a12 12 0 1 0 12 12A12.014 12.014 0 0 0 12 0zm5.1 16.5l-6-7.8v7.8H9.5V7.5h1.6l6 7.8V7.5h1.6v9z"/></svg>
@@ -426,7 +436,7 @@
                   </span>
                 </div>
               </div>
-              <a href="project-detail.html?id=polimedia-fasilitas" class="project-action-link" onclick="event.stopPropagation();">Lihat Detail Kasus ↗</a>
+              <a href="project-detail.html?id=polimedia-fasilitas" class="project-action-link" onclick="event.stopPropagation();" data-i18n="proj_link">Lihat Cerita Proyek ↗</a>
             </div>
           </div>
 
@@ -445,7 +455,7 @@
                   <img src="assets/projects/gensurat/logo.png" alt="Logo GenSurat" class="project-logo-badge" width="32" height="32" loading="lazy">
                   <h3 class="project-title">GenSurat</h3>
                 </div>
-                <p class="project-desc-short">Generator surat resmi ormawa dengan live preview kertas A4, quick-edit, dan ekspor langsung ke PDF serta DOCX.</p>
+                <p class="project-desc-short" data-i18n="proj_4_desc">Generator surat resmi organisasi mahasiswa dengan fitur live preview ukuran A4, edit dokumen langsung, dan ekspor ke PDF maupun DOCX.</p>
                 <div class="project-tags">
                   <span class="project-tag">
                     <svg viewBox="0 0 24 24" width="13" height="13" fill="#E44D26"><path d="M3 2l1.8 20.2 7.2 2 7.2-2L21 2H3zm14.4 6.3h-7.6l.2 2.3h7.2l-.6 6.7-4.6 1.3-4.6-1.3-.3-3.6h2.2l.2 1.9 2.5.7 2.5-.7.3-3H6.8L6.2 6.1h11.4l-.2 2.2z"/></svg>
@@ -461,7 +471,7 @@
                   </span>
                 </div>
               </div>
-              <a href="project-detail.html?id=universal-surat" class="project-action-link" onclick="event.stopPropagation();">Lihat Detail Kasus ↗</a>
+              <a href="project-detail.html?id=universal-surat" class="project-action-link" onclick="event.stopPropagation();" data-i18n="proj_link">Lihat Cerita Proyek ↗</a>
             </div>
           </div>
         </div>
@@ -473,9 +483,9 @@
       <div class="container">
         <div class="section-common-header">
           <div class="ide-section-comment">// src/config/skills.yaml</div>
-          <h2 class="section-title" id="skills-title">Keahlian Utama</h2>
-          <p class="section-subtitle">
-            Kombinasi perancangan sistem, antarmuka web, otomasi data, dan eksekusi produk digital berbasis AI.
+          <h2 class="section-title" id="skills-title" data-i18n="skills_title">Keahlian Utama</h2>
+          <p class="section-subtitle" data-i18n="skills_subtitle">
+            Hal-Hal yang Sering Aku Kerjakan — Kemampuan yang terus aku kembangkan lewat proses belajar, eksperimen, dan pengerjaan berbagai proyek.
           </p>
         </div>
 
@@ -484,7 +494,7 @@
           <div class="skill-list-col">
             <div class="skill-item">
               <div class="skill-meta">
-                <span>Perancangan Sistem &amp; Alur Bisnis</span>
+                <span data-i18n="skill_1">Perancangan Sistem &amp; Alur Bisnis</span>
                 <span class="skill-pct">88%</span>
               </div>
               <div class="skill-track">
@@ -494,7 +504,7 @@
 
             <div class="skill-item">
               <div class="skill-meta">
-                <span>UI/UX &amp; Antarmuka Web</span>
+                <span data-i18n="skill_2">UI/UX &amp; Antarmuka Web</span>
                 <span class="skill-pct">85%</span>
               </div>
               <div class="skill-track">
@@ -504,7 +514,7 @@
 
             <div class="skill-item">
               <div class="skill-meta">
-                <span>AI-Assisted Web Development</span>
+                <span data-i18n="skill_3">AI-Assisted Web Development</span>
                 <span class="skill-pct">90%</span>
               </div>
               <div class="skill-track">
@@ -522,7 +532,7 @@
           <div class="skill-list-col">
             <div class="skill-item">
               <div class="skill-meta">
-                <span>Google Workspace &amp; Otomasi Data</span>
+                <span data-i18n="skill_4">Google Workspace &amp; Otomasi Data</span>
                 <span class="skill-pct">86%</span>
               </div>
               <div class="skill-track">
@@ -532,7 +542,7 @@
 
             <div class="skill-item">
               <div class="skill-meta">
-                <span>Deployment &amp; Iterasi Produk</span>
+                <span data-i18n="skill_5">Deployment &amp; Iterasi Produk</span>
                 <span class="skill-pct">82%</span>
               </div>
               <div class="skill-track">
@@ -542,7 +552,7 @@
 
             <div class="skill-item">
               <div class="skill-meta">
-                <span>Desain Grafis &amp; Video Editing (Canva, CapCut)</span>
+                <span data-i18n="skill_6">Desain Grafis &amp; Video Editing (Canva, CapCut)</span>
                 <span class="skill-pct">70%</span>
               </div>
               <div class="skill-track">
@@ -559,9 +569,9 @@
       <div class="container">
         <div class="section-common-header">
           <div class="ide-section-comment">// src/config/services.json</div>
-          <h2 class="section-title" id="services-title">Tiga Cara Kerja Sama</h2>
-          <p class="section-subtitle">
-            Pilihan layanan yang fleksibel dengan estimasi harga standar Indonesia, transparan, dan fokus pada hasil yang benar-benar terpakai.
+          <h2 class="section-title" id="services-title" data-i18n="serv_title">Tiga Cara Kerja Sama</h2>
+          <p class="section-subtitle" data-i18n="serv_subtitle">
+            Ada Ide yang Mau Dibikin Nyata? Aku terbuka untuk membantu kebutuhan website dan aplikasi web, mulai dari halaman promosi sederhana sampai sistem dengan alur kerja khusus.
           </p>
         </div>
 
@@ -571,88 +581,88 @@
             <div class="pricing-header">
               <div class="pricing-tier-tag">01 // SINGLE_PAGE</div>
               <h3 class="pricing-title">Single Page</h3>
-              <p class="pricing-desc">Landing page atau satu halaman penuh yang cepat dibuka, rapi, dan langsung menjelaskan penawaranmu.</p>
+              <p class="pricing-desc" data-i18n="serv_1_desc">Cocok buat kamu yang butuh landing page untuk memperkenalkan produk, bisnis, acara, atau layanan dengan tampilan menarik dan informatif.</p>
             </div>
             <div class="pricing-price-block">
-              <span class="pricing-prefix">Mulai dari</span>
+              <span class="pricing-prefix" data-i18n="serv_1_prefix">Mulai dari</span>
               <div class="pricing-amount">Rp 1.500.000</div>
             </div>
             <ul class="pricing-features">
-              <li>1 halaman penuh (desain &amp; implementasi responsif HP/Laptop)</li>
-              <li>Estimasi pengerjaan 1–2 minggu</li>
-              <li>Optimasi performa &amp; SEO dasar (termasuk Open Graph share link)</li>
-              <li>Integrasi tombol CTA langsung ke WhatsApp, Email, atau Form</li>
-              <li>Garansi perbaikan bug 30 hari setelah rilis</li>
+              <li data-i18n="serv_1_f1">Satu halaman lengkap dengan desain responsif untuk HP dan laptop.</li>
+              <li data-i18n="serv_1_f2">Estimasi pengerjaan 1–2 minggu.</li>
+              <li data-i18n="serv_1_f3">Optimasi performa dan SEO dasar, termasuk Open Graph untuk tampilan saat link dibagikan.</li>
+              <li data-i18n="serv_1_f4">Tombol CTA yang terhubung ke WhatsApp, email, atau formulir.</li>
+              <li data-i18n="serv_1_f5">Garansi perbaikan bug selama 30 hari setelah rilis.</li>
             </ul>
-            <a href="#contact" class="pricing-cta-btn">Mulai Single Page ↗</a>
+            <a href="#contact" class="pricing-cta-btn" data-i18n="serv_1_cta">Mulai Single Page ↗</a>
           </article>
 
           <!-- Tier 2: Full Build (Featured) -->
           <article class="pricing-card is-featured">
-            <div class="pricing-featured-badge">Paling Diminati</div>
+            <div class="pricing-featured-badge" data-i18n="serv_2_badge">Paling Diminati</div>
             <div class="pricing-header">
               <div class="pricing-tier-tag">02 // FULL_BUILD</div>
               <h3 class="pricing-title">Full Build</h3>
-              <p class="pricing-desc">Website multi-halaman atau aplikasi web operasional lengkap sesuai alur kerja bisnis maupun organisasi.</p>
+              <p class="pricing-desc" data-i18n="serv_2_desc">Butuh lebih dari sekadar website? Layanan ini cocok buat kamu yang ingin membangun website multi-halaman atau aplikasi web dengan fitur dan alur kerja sesuai kebutuhan bisnis maupun organisasi.</p>
             </div>
             <div class="pricing-price-block">
-              <span class="pricing-prefix">Mulai dari</span>
+              <span class="pricing-prefix" data-i18n="serv_2_prefix">Mulai dari</span>
               <div class="pricing-amount">Rp 4.500.000</div>
             </div>
             <ul class="pricing-features">
-              <li>Aplikasi web multi-halaman / sistem operasional (3–6 minggu)</li>
-              <li>Perancangan alur sistem &amp; struktur data sebelum mulai dibangun</li>
-              <li>Database fleksibel (Google Sheets/Apps Script atau PostgreSQL)</li>
-              <li>Dukungan ekspor laporan PDF/DOCX atau dashboard admin</li>
-              <li>Bantuan deploy live (Cloudflare Pages / Vercel / GitHub Pages)</li>
-              <li>Garansi perbaikan bug 60 hari setelah serah terima</li>
+              <li data-i18n="serv_2_f1">Website multi-halaman atau sistem operasional (3–6 minggu).</li>
+              <li data-i18n="serv_2_f2">Perancangan alur sistem dan struktur data sebelum pengembangan.</li>
+              <li data-i18n="serv_2_f3">Database fleksibel, mulai dari Google Sheets &amp; Apps Script hingga PostgreSQL.</li>
+              <li data-i18n="serv_2_f4">Dukungan ekspor laporan PDF/DOCX atau dashboard admin.</li>
+              <li data-i18n="serv_2_f5">Bantuan deployment agar aplikasi bisa diakses secara online.</li>
+              <li data-i18n="serv_2_f6">Garansi perbaikan bug selama 60 hari setelah serah terima.</li>
             </ul>
-            <a href="#contact" class="pricing-cta-btn is-primary">Diskusi Full Build ↗</a>
+            <a href="#contact" class="pricing-cta-btn is-primary" data-i18n="serv_2_cta">Diskusi Full Build ↗</a>
           </article>
 
           <!-- Tier 3: Retainer -->
           <article class="pricing-card">
             <div class="pricing-header">
               <div class="pricing-tier-tag">03 // RETAINER</div>
-              <h3 class="pricing-title">Pendampingan Bulanan</h3>
-              <p class="pricing-desc">Partner teknis bulanan untuk menjaga website/sistem tetap berjalan, diperbarui, dan bebas kendala.</p>
+              <h3 class="pricing-title" data-i18n="serv_3_title">Pendampingan Bulanan</h3>
+              <p class="pricing-desc" data-i18n="serv_3_desc">Website sudah jadi, tapi masih butuh perawatan atau pengembangan? Layanan ini cocok untuk menjaga sistem tetap berjalan sekaligus menyesuaikannya dengan kebutuhan baru.</p>
             </div>
             <div class="pricing-price-block">
-              <span class="pricing-prefix">Biaya bulanan</span>
-              <div class="pricing-amount">Rp 1.200.000<span class="pricing-period">/bln</span></div>
+              <span class="pricing-prefix" data-i18n="serv_3_prefix">Biaya bulanan</span>
+              <div class="pricing-amount">Rp 1.200.000<span class="pricing-period" data-i18n="serv_3_period">/bulan</span></div>
             </div>
             <ul class="pricing-features">
-              <li>Alokasi 4 hari kerja efektif per bulan</li>
-              <li>Pembaruan konten, fitur ringan, &amp; peningkatan UX berkala</li>
-              <li>Respons di minggu yang sama via Email / WhatsApp</li>
-              <li>Pengecekan performa &amp; backup data rutin</li>
-              <li>Bisa dijeda atau dihentikan dengan pemberitahuan 14–30 hari</li>
+              <li data-i18n="serv_3_f1">Alokasi 4 hari kerja efektif per bulan.</li>
+              <li data-i18n="serv_3_f2">Pembaruan konten, fitur ringan, dan peningkatan UX secara berkala.</li>
+              <li data-i18n="serv_3_f3">Respons pada minggu yang sama melalui email atau WhatsApp.</li>
+              <li data-i18n="serv_3_f4">Pengecekan performa dan backup data rutin.</li>
+              <li data-i18n="serv_3_f5">Layanan bisa dijeda atau dihentikan dengan pemberitahuan 14–30 hari sebelumnya.</li>
             </ul>
-            <a href="#contact" class="pricing-cta-btn">Bahas Retainer ↗</a>
+            <a href="#contact" class="pricing-cta-btn" data-i18n="serv_3_cta">Bahas Retainer ↗</a>
           </article>
         </div>
 
         <!-- Clear Terms & Conditions Box -->
         <div class="pricing-terms-box">
           <div class="terms-header">
-            <span class="terms-comment">// KETENTUAN KERJA SAMA (TRANSPARAN &amp; JELAS)</span>
+            <span class="terms-comment" data-i18n="terms_comment">// KETENTUAN KERJA SAMA — Biar dari Awal Sama-Sama Jelas</span>
           </div>
           <div class="terms-grid">
             <div class="term-item">
-              <strong>1. Skema Pembayaran</strong>
-              <p>DP <strong>40%–50%</strong> di awal sebelum pengerjaan dimulai, dan pelunasan dibayarkan setelah sistem selesai diuji bersama serta siap rilis.</p>
+              <strong data-i18n="term_1_title">01. Pembayaran</strong>
+              <p data-i18n="term_1_desc">DP 40–50% dibayarkan di awal sebelum pengerjaan dimulai. Pelunasan dilakukan setelah sistem selesai diuji bersama dan siap dirilis.</p>
             </div>
             <div class="term-item">
-              <strong>2. Batas Revisi</strong>
-              <p>Sudah termasuk <strong>2–3x revisi minor</strong> (teks, warna, penyesuaian layout). Penambahan fitur besar di luar kesepakatan awal dihitung terpisah.</p>
+              <strong data-i18n="term_2_title">02. Revisi</strong>
+              <p data-i18n="term_2_desc">Setiap paket sudah termasuk 2–3 kali revisi minor, seperti perubahan teks, warna, dan penyesuaian layout. Penambahan fitur besar di luar kesepakatan awal akan dibahas terpisah.</p>
             </div>
             <div class="term-item">
-              <strong>3. Domain &amp; Server</strong>
-              <p>Hosting gratis (GitHub Pages / Cloudflare Pages) dibantu penuh. Jika butuh domain berbayar (<code>.com</code>/<code>.id</code>) atau VPS, biayanya ditanggung klien.</p>
+              <strong data-i18n="term_3_title">03. Domain &amp; Server</strong>
+              <p data-i18n="term_3_desc">Aku bisa membantu deployment menggunakan layanan hosting gratis seperti GitHub Pages atau Cloudflare Pages. Untuk domain berbayar (.com/.id) maupun VPS, biayanya ditanggung klien.</p>
             </div>
             <div class="term-item">
-              <strong>4. Materi &amp; Hak Milik</strong>
-              <p>Klien menyiapkan logo, teks, dan data awal agar jadwal sesuai target. Setelah pelunasan, seluruh kode &amp; aset menjadi hak penuh klien.</p>
+              <strong data-i18n="term_4_title">04. Materi &amp; Hak Milik</strong>
+              <p data-i18n="term_4_desc">Klien menyiapkan logo, teks, dan data awal yang dibutuhkan agar pengerjaan sesuai target. Setelah pembayaran lunas, seluruh kode dan aset proyek menjadi hak milik klien.</p>
             </div>
           </div>
         </div>
@@ -664,9 +674,9 @@
       <div class="container">
         <div class="section-common-header">
           <div class="ide-section-comment">// .env.contact</div>
-          <h2 class="section-title" id="contact-title">Hubungi Saya</h2>
-          <p class="section-subtitle">
-            Pintu selalu terbuka untuk diskusi proyek baru, pertanyaan teknis, atau peluang kolaborasi.
+          <h2 class="section-title" id="contact-title" data-i18n="contact_title">Hubungi Saya</h2>
+          <p class="section-subtitle" data-i18n="contact_subtitle">
+            Punya Ide atau Proyek yang Mau Didiskusikan? Nggak harus sudah punya konsep matang, kita bisa mulai dari diskusi sederhana.
           </p>
         </div>
 
@@ -734,7 +744,7 @@
                   </svg>
                 </span>
                 <span class="contact-info-content">
-                  <span class="contact-info-label">Lokasi</span>
+                  <span class="contact-info-label" data-i18n="contact_location_label">Lokasi</span>
                   <span class="contact-info-val">Jakarta, Indonesia</span>
                 </span>
               </div>
@@ -757,18 +767,18 @@
           <div class="contact-form-card">
             <form class="contact-form" action="#" method="POST">
               <div class="form-group">
-                <label for="contact-name" class="form-label">Nama Lengkap</label>
-                <input type="text" id="contact-name" class="form-input" placeholder="Nama Anda..." required>
+                <label for="contact-name" class="form-label" data-i18n="contact_form_name">Nama Lengkap</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="Nama kamu..." data-i18n-placeholder="contact_form_name_ph" required>
               </div>
 
               <div class="form-group">
-                <label for="contact-email" class="form-label">Alamat Email</label>
-                <input type="email" id="contact-email" class="form-input" placeholder="email@domain.com..." required>
+                <label for="contact-email" class="form-label" data-i18n="contact_form_email">Alamat Email</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="email@domain.com..." data-i18n-placeholder="contact_form_email_ph" required>
               </div>
 
               <div class="form-group">
-                <label for="contact-message" class="form-label">Pesan Anda</label>
-                <textarea id="contact-message" class="form-textarea" placeholder="Tuliskan gagasan atau pesan proyek Anda di sini..." required></textarea>
+                <label for="contact-message" class="form-label" data-i18n="contact_form_msg">Pesan</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Ceritakan sedikit tentang ide atau kebutuhan proyekmu..." data-i18n-placeholder="contact_form_msg_ph" required></textarea>
               </div>
 
               <button type="submit" class="btn-send-message">
@@ -776,7 +786,7 @@
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
-                <span>Kirim Pesan</span>
+                <span data-i18n="contact_form_send">Kirim Pesan</span>
               </button>
             </form>
           </div>
@@ -791,7 +801,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-left">
-          <span>&copy; 2026 Riski Raditiya.</span>
+          <span data-i18n="footer_copy">&copy; 2026 Riski Raditiya. Dibuat dengan rasa ingin tahu dan semangat untuk terus berkembang.</span>
         </div>
         <ul class="footer-links">
           <li><a href="#hero">hero.tsx</a></li>
@@ -839,16 +849,16 @@
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           <polyline points="9 12 11 14 15 10"></polyline>
         </svg>
-        <span class="trust-toast-title">Selamat datang di Workspace Riski Raditiya</span>
+        <span class="trust-toast-title" data-i18n="trust_title">Selamat datang di Workspace Riski Raditiya</span>
       </div>
       <button type="button" class="trust-toast-close" id="trust-toast-close" aria-label="Tutup notifikasi">✕</button>
     </div>
-    <p class="trust-toast-body">
+    <p class="trust-toast-body" data-i18n="trust_body">
       Apakah Anda memercayai pembuat folder ini untuk menjelajahi seluruh karya, eksperimen, dan dokumentasi di dalamnya?
     </p>
     <div class="trust-toast-actions">
-      <button type="button" class="trust-btn-primary" id="trust-btn-accept">Ya, Saya Percaya</button>
-      <a href="#projects" class="trust-btn-secondary" id="trust-btn-projects">Lihat Karya</a>
+      <button type="button" class="trust-btn-primary" id="trust-btn-accept" data-i18n="trust_accept">Ya, Saya Percaya</button>
+      <a href="#projects" class="trust-btn-secondary" id="trust-btn-projects" data-i18n="trust_projects">Lihat Karya</a>
     </div>
   </aside>
 
@@ -866,6 +876,7 @@
 
   <!-- Scripts -->
   <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/theme-transition.js"></script>
   <script src="js/main.js"></script>
 </body>

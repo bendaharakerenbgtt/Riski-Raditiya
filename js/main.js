@@ -198,15 +198,31 @@
     const el = document.getElementById('hero-typewriter-text');
     if (!el) return;
 
-    const phrases = [
-      "Digital Product Builder",
-      "UI/UX & Web Explorer",
-      "Multimedia Student"
-    ];
+    const langPhrases = {
+      id: [
+        "Suka Ngulik & Terus Belajar",
+        "Bikin Ide Jadi Nyata",
+        "Digital Product Builder"
+      ],
+      en: [
+        "Curious by Nature",
+        "Always Learning",
+        "Making Ideas Real"
+      ]
+    };
 
+    let phrases = langPhrases.id;
     let phraseIndex = 0;
     let charIndex = phrases[0].length;
     let isDeleting = true;
+
+    window.updateTypewriterLang = function (lang) {
+      phrases = langPhrases[lang] || langPhrases.id;
+      phraseIndex = 0;
+      charIndex = phrases[0].length;
+      isDeleting = true;
+      el.textContent = phrases[0];
+    };
 
     function type() {
       const currentPhrase = phrases[phraseIndex];
