@@ -122,7 +122,7 @@
       contact_form_send: 'Kirim Pesan',
 
       // Footer & Trust Toast
-      footer_copy: '© 2026 Riski Raditiya. Dibuat dengan rasa ingin tahu dan semangat untuk terus berkembang.',
+      footer_copy: '© 2026 Riski Raditiya.',
       trust_title: 'Selamat datang di Workspace Riski Raditiya',
       trust_body: 'Apakah Anda memercayai pembuat folder ini untuk menjelajahi seluruh karya, eksperimen, dan dokumentasi di dalamnya?',
       trust_accept: 'Ya, Saya Percaya',
@@ -248,7 +248,7 @@
       contact_form_send: 'Send Message',
 
       // Footer & Trust Toast
-      footer_copy: '© 2026 Riski Raditiya. Built with curiosity and a passion for continuous learning.',
+      footer_copy: '© 2026 Riski Raditiya.',
       trust_title: "Welcome to Riski Raditiya's Workspace",
       trust_body: 'Do you trust the author of this folder to explore all projects, experiments, and documentation inside?',
       trust_accept: 'Yes, I Trust',
