@@ -31,7 +31,8 @@
       education: { file: 'education.json', symbol: '"education"', lang: 'JSON', line: 64 },
       projects: { file: 'projects.config.ts', symbol: 'flagshipProjects', lang: 'TypeScript', line: 112 },
       skills: { file: 'skills.yaml', symbol: 'core_skills', lang: 'YAML', line: 185 },
-      contact: { file: 'contact.env', symbol: 'CONTACT_EMAIL', lang: 'DotEnv', line: 220 }
+      services: { file: 'services.json', symbol: 'collaborationPlans', lang: 'JSON', line: 205 },
+      contact: { file: 'contact.env', symbol: 'CONTACT_EMAIL', lang: 'DotEnv', line: 245 }
     };
 
     let pathTotalLength = 0;
@@ -426,6 +427,7 @@
       { label: 'education.json', sub: 'Pendidikan', badge: '{ }', badgeClass: 'badge-json', action: () => { window.location.hash = '#education'; } },
       { label: 'projects.config.ts', sub: 'Karya & Proyek', badge: 'TS', badgeClass: 'badge-ts', action: () => { window.location.hash = '#projects'; } },
       { label: 'skills.yaml', sub: 'Keahlian Utama', badge: 'YML', badgeClass: 'badge-yml', action: () => { window.location.hash = '#skills'; } },
+      { label: 'services.json', sub: 'Layanan, Harga & Ketentuan', badge: '{ }', badgeClass: 'badge-json', action: () => { window.location.hash = '#services'; } },
       { label: 'contact.env', sub: 'Hubungi Saya (iqirrt@gmail.com)', badge: 'ENV', badgeClass: 'badge-env', action: () => { window.location.hash = '#contact'; } },
       { label: 'SoleCare', sub: 'Studi Kasus — Aplikasi Laundry Sepatu', badge: 'CASE', badgeClass: 'badge-ts', action: () => { window.location.href = 'project-detail.html?id=solecare'; } },
       { label: 'Dana IMIP', sub: 'Studi Kasus — Keuangan LDK IMIP', badge: 'CASE', badgeClass: 'badge-ts', action: () => { window.location.href = 'project-detail.html?id=bendahara-2026'; } },

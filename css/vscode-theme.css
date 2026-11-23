@@ -1210,3 +1210,222 @@ body::after {
 .palette-item.selected .palette-item-sub {
   color: #9cdcfe;
 }
+
+/* --------------------------------------------------------------------------
+   Services & Pricing Section (services.json)
+   -------------------------------------------------------------------------- */
+.services-section {
+  padding: 2.75rem 0 4rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pricing-3grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.35rem;
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+.pricing-card {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1.65rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--glow-white);
+}
+
+.pricing-card.is-featured {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(0, 122, 204, 0.08) 0%, var(--bg-secondary) 45%);
+  box-shadow: 0 8px 28px rgba(0, 122, 204, 0.16);
+}
+
+.pricing-featured-badge {
+  position: absolute;
+  top: -11px;
+  right: 1.25rem;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.65rem;
+  border-radius: 3px;
+}
+
+.pricing-tier-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--syn-type);
+  margin-bottom: 0.4rem;
+}
+
+.pricing-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+}
+
+.pricing-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.pricing-price-block {
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.25rem;
+}
+
+.pricing-prefix {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.pricing-amount {
+  font-family: var(--font-mono);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.pricing-period {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.pricing-features li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.48;
+}
+
+.pricing-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--syn-type);
+  font-weight: 700;
+}
+
+.pricing-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--bg-tertiary);
+  color: #ffffff;
+  border: 1px solid var(--border-card);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.pricing-cta-btn:hover {
+  background: #3a3d41;
+  border-color: var(--accent);
+}
+
+.pricing-cta-btn.is-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.pricing-cta-btn.is-primary:hover {
+  background: var(--accent-hover);
+}
+
+/* Terms & Conditions Callout Box */
+.pricing-terms-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-left: 3px solid var(--syn-type);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.5rem;
+}
+
+.terms-header {
+  margin-bottom: 1rem;
+}
+
+.terms-comment {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--syn-comment);
+}
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem 1.75rem;
+}
+
+.term-item strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.term-item p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.term-item code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--syn-string);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.08rem 0.3rem;
+  border-radius: 3px;
+}
+
+@media (max-width: 1024px) {
+  .pricing-3grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .terms-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}

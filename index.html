@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css?v=vscode1">
-  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode6">
+  <link rel="stylesheet" href="css/vscode-theme.css?v=vscode7">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23007acc%22/><text x=%2250%25%22 y=%2266%25%22 font-family=%22monospace%22 font-size=%2248%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>RR</text></svg>">
 </head>
 <body>
@@ -72,6 +72,7 @@
       <li><a href="#education">education.json — Pendidikan</a></li>
       <li><a href="#projects">projects.config.ts — Karya</a></li>
       <li><a href="#skills">skills.yaml — Keahlian</a></li>
+      <li><a href="#services">services.json — Layanan &amp; Harga</a></li>
       <li><a href="#contact">contact.env — Hubungi Saya</a></li>
     </ul>
     <div class="mobile-drawer-cta">
@@ -124,6 +125,7 @@
           <li><a href="#education" class="explorer-file-link" data-section="education"><span class="file-badge badge-json">{ }</span><span>education.json</span></a></li>
           <li><a href="#projects" class="explorer-file-link" data-section="projects"><span class="file-badge badge-ts">TS</span><span>projects.config.ts</span></a></li>
           <li><a href="#skills" class="explorer-file-link" data-section="skills"><span class="file-badge badge-yml">YML</span><span>skills.yaml</span></a></li>
+          <li><a href="#services" class="explorer-file-link" data-section="services"><span class="file-badge badge-json">{ }</span><span>services.json</span></a></li>
           <li><a href="#contact" class="explorer-file-link" data-section="contact"><span class="file-badge badge-env">ENV</span><span>contact.env</span></a></li>
         </ul>
       </div>
@@ -146,6 +148,7 @@
           <a href="#education" class="vscode-tab" data-section="education"><span class="file-badge badge-json">{ }</span>education.json</a>
           <a href="#projects" class="vscode-tab" data-section="projects"><span class="file-badge badge-ts">TS</span>projects.config.ts</a>
           <a href="#skills" class="vscode-tab" data-section="skills"><span class="file-badge badge-yml">YML</span>skills.yaml</a>
+          <a href="#services" class="vscode-tab" data-section="services"><span class="file-badge badge-json">{ }</span>services.json</a>
           <a href="#contact" class="vscode-tab" data-section="contact"><span class="file-badge badge-env">ENV</span>contact.env</a>
         </nav>
         <div class="vscode-breadcrumbs" id="vscode-breadcrumbs">
@@ -545,6 +548,111 @@
               <div class="skill-track">
                 <div class="skill-fill-bar" data-pct="70%" style="width: 0%;"></div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7.5 SERVICES & PRICING SECTION (services.json) -->
+    <section class="services-section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-common-header">
+          <div class="ide-section-comment">// src/config/services.json</div>
+          <h2 class="section-title" id="services-title">Tiga Cara Kerja Sama</h2>
+          <p class="section-subtitle">
+            Pilihan layanan yang fleksibel dengan estimasi harga standar Indonesia, transparan, dan fokus pada hasil yang benar-benar terpakai.
+          </p>
+        </div>
+
+        <div class="pricing-3grid">
+          <!-- Tier 1: Single Page -->
+          <article class="pricing-card">
+            <div class="pricing-header">
+              <div class="pricing-tier-tag">01 // SINGLE_PAGE</div>
+              <h3 class="pricing-title">Single Page</h3>
+              <p class="pricing-desc">Landing page atau satu halaman penuh yang cepat dibuka, rapi, dan langsung menjelaskan penawaranmu.</p>
+            </div>
+            <div class="pricing-price-block">
+              <span class="pricing-prefix">Mulai dari</span>
+              <div class="pricing-amount">Rp 1.500.000</div>
+            </div>
+            <ul class="pricing-features">
+              <li>1 halaman penuh (desain &amp; implementasi responsif HP/Laptop)</li>
+              <li>Estimasi pengerjaan 1–2 minggu</li>
+              <li>Optimasi performa &amp; SEO dasar (termasuk Open Graph share link)</li>
+              <li>Integrasi tombol CTA langsung ke WhatsApp, Email, atau Form</li>
+              <li>Garansi perbaikan bug 30 hari setelah rilis</li>
+            </ul>
+            <a href="#contact" class="pricing-cta-btn">Mulai Single Page ↗</a>
+          </article>
+
+          <!-- Tier 2: Full Build (Featured) -->
+          <article class="pricing-card is-featured">
+            <div class="pricing-featured-badge">Paling Diminati</div>
+            <div class="pricing-header">
+              <div class="pricing-tier-tag">02 // FULL_BUILD</div>
+              <h3 class="pricing-title">Full Build</h3>
+              <p class="pricing-desc">Website multi-halaman atau aplikasi web operasional lengkap sesuai alur kerja bisnis maupun organisasi.</p>
+            </div>
+            <div class="pricing-price-block">
+              <span class="pricing-prefix">Mulai dari</span>
+              <div class="pricing-amount">Rp 4.500.000</div>
+            </div>
+            <ul class="pricing-features">
+              <li>Aplikasi web multi-halaman / sistem operasional (3–6 minggu)</li>
+              <li>Perancangan alur sistem &amp; struktur data sebelum mulai dibangun</li>
+              <li>Database fleksibel (Google Sheets/Apps Script atau PostgreSQL)</li>
+              <li>Dukungan ekspor laporan PDF/DOCX atau dashboard admin</li>
+              <li>Bantuan deploy live (Cloudflare Pages / Vercel / GitHub Pages)</li>
+              <li>Garansi perbaikan bug 60 hari setelah serah terima</li>
+            </ul>
+            <a href="#contact" class="pricing-cta-btn is-primary">Diskusi Full Build ↗</a>
+          </article>
+
+          <!-- Tier 3: Retainer -->
+          <article class="pricing-card">
+            <div class="pricing-header">
+              <div class="pricing-tier-tag">03 // RETAINER</div>
+              <h3 class="pricing-title">Pendampingan Bulanan</h3>
+              <p class="pricing-desc">Partner teknis bulanan untuk menjaga website/sistem tetap berjalan, diperbarui, dan bebas kendala.</p>
+            </div>
+            <div class="pricing-price-block">
+              <span class="pricing-prefix">Biaya bulanan</span>
+              <div class="pricing-amount">Rp 1.200.000<span class="pricing-period">/bln</span></div>
+            </div>
+            <ul class="pricing-features">
+              <li>Alokasi 4 hari kerja efektif per bulan</li>
+              <li>Pembaruan konten, fitur ringan, &amp; peningkatan UX berkala</li>
+              <li>Respons di minggu yang sama via Email / WhatsApp</li>
+              <li>Pengecekan performa &amp; backup data rutin</li>
+              <li>Bisa dijeda atau dihentikan dengan pemberitahuan 14–30 hari</li>
+            </ul>
+            <a href="#contact" class="pricing-cta-btn">Bahas Retainer ↗</a>
+          </article>
+        </div>
+
+        <!-- Clear Terms & Conditions Box -->
+        <div class="pricing-terms-box">
+          <div class="terms-header">
+            <span class="terms-comment">// KETENTUAN KERJA SAMA (TRANSPARAN &amp; JELAS)</span>
+          </div>
+          <div class="terms-grid">
+            <div class="term-item">
+              <strong>1. Skema Pembayaran</strong>
+              <p>DP <strong>40%–50%</strong> di awal sebelum pengerjaan dimulai, dan pelunasan dibayarkan setelah sistem selesai diuji bersama serta siap rilis.</p>
+            </div>
+            <div class="term-item">
+              <strong>2. Batas Revisi</strong>
+              <p>Sudah termasuk <strong>2–3x revisi minor</strong> (teks, warna, penyesuaian layout). Penambahan fitur besar di luar kesepakatan awal dihitung terpisah.</p>
+            </div>
+            <div class="term-item">
+              <strong>3. Domain &amp; Server</strong>
+              <p>Hosting gratis (GitHub Pages / Cloudflare Pages) dibantu penuh. Jika butuh domain berbayar (<code>.com</code>/<code>.id</code>) atau VPS, biayanya ditanggung klien.</p>
+            </div>
+            <div class="term-item">
+              <strong>4. Materi &amp; Hak Milik</strong>
+              <p>Klien menyiapkan logo, teks, dan data awal agar jadwal sesuai target. Setelah pelunasan, seluruh kode &amp; aset menjadi hak penuh klien.</p>
             </div>
           </div>
         </div>
